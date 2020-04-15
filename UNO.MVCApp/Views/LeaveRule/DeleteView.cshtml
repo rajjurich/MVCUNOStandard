@@ -1,0 +1,197 @@
+﻿@model UNO.AppModel.LeaveRuleModel
+@{
+    ViewBag.Title = "Leave Rule";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section scripts
+{
+    <script src="~/Scripts/JS/jquery.datetimepicker.full.js"></script>
+    <script>
+        $(document).ready(function () {
+            new confirmexitmsg('form');
+            $("#btnReset").click(function (e) {
+                formmodified = 0;
+                location.reload(true);
+            });
+            $("#COMPANY_ID").change(function () {
+                var CompanyID = $(this).val();
+                var markup = "";
+                if (CompanyID == '') {
+                    markup = "<option value=''>Select Leave Code</option>";
+                    $("#LeaveID").html(markup).show();
+                }
+                else {
+                    $.ajax({
+                        url: '@Url.Action("LeaveCodeBycompID", "LeaveRule")',
+                        data: { id: CompanyID },
+                        cache: false,
+                        type: "POST",
+                        success: function (data) {
+                            debugger;
+                            markup = "<option value=''>Select Leave Code</option>";
+                            for (var x = 0; x < data.length; x++) {
+                                markup += "<option value=" + data[x].Value + ">" + data[x].Text + "</option>";
+                            }
+                            $("#LeaveID").html(markup).show();
+                            $("#LeaveID").val('');
+                        },
+                        error: function (reponse) {
+                            //if (box) box.remove();
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+}
+@Styles.Render("~/Content/css/jquery.datetimepicker.css")
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <!-- Container fluid Starts -->
+    <div class="container-fluid">
+        <!-- Spacer Starts -->
+        <div class="spacer clearfix">
+            <div class="col-md-7 col-centered">
+                <div class="blog blog-default ">
+                    <div class="blog-header ">
+                        <h5 class="blog-title pull-left mt5"><i class="fa fa-pencil-square-o"></i>Delete</h5>
+                        <span class="pull-right"><a class="btn btn-default" href='@Url.Action("index")'><i class="fa fa-arrow-left"></i> Back To List</a></span>
+                        <span class="clearfix"></span>
+                    </div>
+                    <div class="blog-body">
+                        <form class="form-horizontal repeater" role="form">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group row mt5">
+                                        @Html.LabelFor(model => model.LR_REC_ID, null, new { style = "display: none;", @maxlength = "15" })
+                                        <div class="col-md-6">
+                                            @Html.TextBoxFor(model => model.LR_REC_ID, new { style = "display: none;", @maxlength = "15" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr />
+                                <fieldset>
+                                    <legend>Leave Rule </legend>
+                                    <div class="form-group row">
+                                        <div class="col-sm-8">
+                                            @Html.LabelFor(model => model.COMPANY_ID, null, "")
+                                            @Html.DropDownListFor(model => model.COMPANY_ID, (IEnumerable<SelectListItem>)ViewBag.CompanyId, "Select Company", new { @class = "form-control", @disabled = "disabled" })
+                                            @Html.ValidationMessageFor(model => model.COMPANY_ID, null, new { @class = "validation-redcolor" })
+                                        </div>
+                                        <div class="col-sm-4">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-8">
+                                            @Html.LabelFor(model => model.LR_CATEGORYID, null, "")
+                                            @Html.DropDownListFor(model => model.LR_CATEGORYID, (IEnumerable<SelectListItem>)ViewBag.Categories, "Select Category", new { @class = "form-control", @disabled = "disabled" })
+                                            @Html.ValidationMessageFor(model => model.LR_CATEGORYID, null, new { @class = "validation-redcolor" })
+                                        </div>
+                                        <div class="col-sm-4">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-8">
+                                            @Html.LabelFor(model => model.LeaveID, null, "")
+                                            @Html.DropDownListFor(model => model.LeaveID, (IEnumerable<SelectListItem>)ViewBag.LeaveCode, "Select Leave Code", new { @class = "form-control", @disabled = "disabled" })
+                                            @Html.ValidationMessageFor(model => model.LeaveID, null, new { @class = "validation-redcolor" })
+                                        </div>
+                                        <div class="col-sm-4">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-8">
+                                            @Html.LabelFor(model => model.LR_MinDaysAllowed, null, "")
+                                            @Html.TextBoxFor(model => model.LR_MinDaysAllowed, new { @class = "form-control", @disabled = "disabled" })
+                                            @Html.ValidationMessageFor(model => model.LR_MinDaysAllowed, null, new { @class = "validation-redcolor" })
+                                        </div>
+                                        <div class="col-sm-4">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-8">
+                                            @Html.LabelFor(model => model.LR_MaxDaysAllowed, null, "")
+                                            @Html.TextBoxFor(model => model.LR_MaxDaysAllowed, new { @class = "form-control", @disabled = "disabled" })
+                                            @Html.ValidationMessageFor(model => model.LR_MaxDaysAllowed, null, new { @class = "validation-redcolor" })
+                                        </div>
+                                        <div class="col-sm-4">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-8">
+                                            @Html.LabelFor(model => model.LR_AllotmentType, null, "")
+                                            @Html.DropDownListFor(model => model.LR_AllotmentType, (IEnumerable<SelectListItem>)ViewBag.AllotmentType, "Select Allotment Type", new { @class = "form-control", @disabled = "disabled" })
+                                            @Html.ValidationMessageFor(model => model.LR_AllotmentType, null, new { @class = "validation-redcolor" })
+                                        </div>
+                                        <div class="col-sm-4">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-8">
+                                            <label class="radio-inline">
+                                                @Html.RadioButtonFor(model => model.LR_AllotmentType_YE_PR, "YE", new { @name = "LR_AllotmentType_YE_PR", @disabled = "disabled" })Year End
+                                            </label>
+                                            <label class="radio-inline">
+                                                @Html.RadioButtonFor(model => model.LR_AllotmentType_YE_PR, "PR", new { @name = "LR_AllotmentType_YE_PR", @disabled = "disabled" })Pro Data
+                                            </label>
+                                        </div>
+                                        <div class="col-sm-4">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-8">
+                                            @Html.LabelFor(model => model.LR_ALLOTMENT, null, "")
+                                            @Html.TextBoxFor(model => model.LR_ALLOTMENT, new { @class = "form-control", @disabled = "disabled" })
+                                            @Html.ValidationMessageFor(model => model.LR_ALLOTMENT, null, new { @class = "validation-redcolor" })
+                                        </div>
+                                        <div class="col-sm-4">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-8">
+                                            @Html.LabelFor(model => model.LR_ACCUMULATION, null, "")
+                                            @Html.TextBoxFor(model => model.LR_ACCUMULATION, new { @class = "form-control", @disabled = "disabled" })
+                                            @Html.ValidationMessageFor(model => model.LR_ACCUMULATION, null, new { @class = "validation-redcolor" })
+                                        </div>
+                                        <div class="col-sm-4">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-8">
+                                            <label class="radio-inline">
+                                                @Html.RadioButtonFor(model => model.LR_DAYS, "W", new { @name = "LR_DAYS", @disabled = "disabled" })Working Days
+                                            </label>
+                                            <label class="radio-inline">
+                                                @Html.RadioButtonFor(model => model.LR_DAYS, "R", new { @name = "LR_DAYS", @disabled = "disabled" })Running Days
+                                            </label>
+                                            @Html.DropDownListFor(model => model.LEAVE_RULE, (IEnumerable<SelectListItem>)ViewBag.Days, "Select One", new { @class = "form-control", @disabled = "disabled" })
+                                            @Html.ValidationMessageFor(model => model.LEAVE_RULE, null, new { @class = "validation-redcolor" })
+                                            <label class="radio-inline">
+                                                @Html.RadioButtonFor(model => model.LR_GreaterOrLesser, "G", new { @name = "LR_GreaterOrLesser", @disabled = "disabled" })Greater
+                                            </label>
+                                            <label class="radio-inline">
+                                                @Html.RadioButtonFor(model => model.LR_GreaterOrLesser, "L", new { @name = "LR_GreaterOrLesser", @disabled = "disabled" })Lesser
+                                            </label>
+                                        </div>
+                                        <div class="col-sm-4">
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                    </div>
+                    <div class="form-actions">
+                        <div class="row  mt5">
+                            <div class="col-md-12 text-center">
+                                <button type="submit" class="btn btn-sm btn-success" id="btnDelete"><i class="fa fa-save"></i>&nbsp;&nbsp;Delete</button>
+                                <button type="button" class="btn btn-sm btn-danger" id="btnReset"><i class="fa fa-undo"></i>&nbsp;&nbsp;Reset</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Spacer Ends -->
+}

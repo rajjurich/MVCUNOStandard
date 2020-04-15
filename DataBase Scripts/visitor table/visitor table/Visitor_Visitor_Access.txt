@@ -1,0 +1,30 @@
+
+
+/****** Object:  Table [dbo].[Visitor_Visitor_Access]    Script Date: 04-07-2018 18:54:28 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[Visitor_Visitor_Access](
+	[Rowid] [int] IDENTITY(1,1) NOT FOR REPLICATION NOT NULL,
+	[Gatepass_ID] [varchar](11) NULL,
+	[visitor_id] [varchar](100) NULL,
+	[Controller_id] [int] NULL,
+	[Reader_ID] [int] NULL,
+	[isDeleted] [bit] NULL,
+	[isDeletedDate] [datetime] NULL,
+	[RequestId] [bigint] NULL,
+	[Alid] [bigint] NULL
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+

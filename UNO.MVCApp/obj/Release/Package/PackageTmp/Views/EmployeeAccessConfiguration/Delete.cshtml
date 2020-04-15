@@ -1,0 +1,69 @@
+﻿@model UNO.AppModel.EmployeeAccess
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<script src="~/Scripts/JS/multi.min.js"></script>
+<link href="~/Content/css/multi.min.css" rel="stylesheet" />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <!-- Container fluid Starts -->
+    <div class="container-fluid">
+        <!-- Spacer Starts -->
+        <div class="spacer clearfix">
+            <div class="row">
+                <div class="col-md-7 col-centered">
+                    <div class="blog blog-default ">
+                        <div class="blog-header ">
+                            <h4 class="blog-title pull-left mt5">Details </h4>  <span class="pull-right"><a class="btn btn-default" href="@Url.Action("Index")" data-original-title="" title=""><i class="fa fa-arrow-left"></i> Back </a> </span>
+                            <span class="clearfix"></span>
+                        </div>
+                        <div class="blog-body form p0">
+
+                            <div class="form-horizontal form-bordered form-label-stripped" role="form">
+                                <div class="form-body p0">
+
+                                    <div class="form-group">
+                                        Are you Sure ?
+                                    </div>
+
+
+
+                                    
+                                </div>
+
+                               
+                                <table id="tableOne" class="collapse">
+                                    <tbody></tbody>
+                                </table>
+
+                                <table id="tableTwo" class="collapse">
+                                    <tbody></tbody>
+                                </table>
+
+                            </div>
+
+                            <div class="form-actions">
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+                                            <button id="btnSubmit" type="submit" class="btn btn-info"> <i class="fa fa-save"></i> Delete</button>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

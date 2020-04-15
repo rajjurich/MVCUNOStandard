@@ -1,0 +1,165 @@
+﻿@model IEnumerable<UNO.AppModel.ShiftInfo>
+
+@{
+    ViewBag.Title = "SHIFT MASTER VIEW";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="main-container" style="clear:both;">
+        <!-- Container fluid Starts -->
+        <div class="container-fluid">
+            <!-- Spacer Starts -->
+            <div class="spacer clearfix">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="blog blog-default ">
+                            <div class="blog-header ">
+                                <h4 class="blog-title pull-left mt5">Listing</h4> <div class="dt-buttons pull-right"><a class="btn btn-default" href="#"><span><i class="fa fa-print"></i> Print</span></a> <a class="btn btn-default" href="#"><span><i class="fa fa-file-excel-o"></i> Excel</span></a></div>
+                                <span class="clearfix"></span>
+                            </div>
+                            <div class="blog-body">
+                                <div class="table-responsive">
+                                    <!--<button class="btn btn-info" data-toggle="modal" data-target="#modalsm"><i class="fa fa-plus-circle"></i> Create New</button>-->
+                                    <!-- Modal -->
+                                    <div id="dt_example" class="table-responsive example_alt_pagination clearfix">
+                                        <table class="table table-condensed table-striped table-hover table-bordered pull-left" id="lsttable">
+                                            <thead>
+                                                <tr>
+                                                    <th>Sr</th>
+                                                    <th>@Html.DisplayNameFor(model => model.SHIFT_CODE)</th>
+                                                    <th>@Html.DisplayNameFor(model => model.SHIFT_DESCRIPTION)</th>
+                                                    <th>@Html.DisplayNameFor(model => model.SHIFT_TYPE)</th>
+                                                    <th>@Html.DisplayNameFor(model => model.SHIFT_START)</th>
+                                                    <th>@Html.DisplayNameFor(model => model.SHIFT_END)</th>
+                                                    <th>@Html.DisplayNameFor(model => model.SHIFT_BREAK_START)</th>
+                                                    <th>@Html.DisplayNameFor(model => model.SHIFT_BREAK_END)</th>
+                                                    <th>@Html.DisplayNameFor(model => model.SHIFT_BREAK_HRS)</th>
+                                                    <th>@Html.DisplayNameFor(model => model.SHIFT_WORKHRS)</th>
+                                                    <th>@Html.DisplayNameFor(model => model.SHIFT_HALFDAYWORKHRS)</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @{
+    int i = 1;
+                                                }
+                                                @foreach (var item in Model)
+                                                {
+                                                    <tr>
+                                                        <td>@i</td>
+                                                        <td>@Html.DisplayFor(modelItem => item.SHIFT_CODE)</td>
+                                                        <td>@Html.DisplayFor(modelItem => item.SHIFT_DESCRIPTION)</td>
+                                                        <td>@Html.DisplayFor(modelItem => item.SHIFT_TYPE)</td>
+                                                        <td>@Html.DisplayFor(modelItem => item.SHIFT_START)</td>
+                                                        <td>@Html.DisplayFor(modelItem => item.SHIFT_END)</td>
+                                                        <td>@Html.DisplayFor(modelItem => item.SHIFT_BREAK_START)</td>
+                                                        <td>@Html.DisplayFor(modelItem => item.SHIFT_BREAK_END)</td>
+                                                        <td>@Html.DisplayFor(modelItem => item.SHIFT_BREAK_HRS)</td>
+                                                        <td>@Html.DisplayFor(modelItem => item.SHIFT_WORKHRS)</td>
+                                                        <td>@Html.DisplayFor(modelItem => item.SHIFT_HALFDAYWORKHRS)</td>
+                                                        <td>
+                                                            <a class="btn btn-success" href="@Url.Action("Details", new { id = item.SHIFT_ID })" title="View">
+                                                                <i class="fa fa-eye"></i>
+                                                            </a>
+                                                            <a class="btn btn-info" href="@Url.Action("Edit", new { id = item.SHIFT_ID })" title="Edit">
+                                                                <i class="fa fa-edit"></i>
+                                                            </a>
+                                                            <a class="btn btn-danger" href="@Url.Action("Delete", new { id = item.SHIFT_ID })" title="Delete">
+                                                                <i class="fa fa-trash-o"></i>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                    i++;
+                                                }
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Spacer Ends -->
+    </div>
+}
+
+
+<script type="text/javascript">
+    var createNewPage = '@Url.Action("Create", "Shift")';
+    $(document).ready(function () {
+
+        // $('#data-table').DataTable();
+
+        if ('@ViewBag.CreateAccess' == "False") {
+            $(".btnCreateNew").hide();
+        }
+        if ('@ViewBag.ViewAccess' == "False") {
+            $(".btn-success").hide();
+        }
+        if ('@ViewBag.EditAccess' == "False") {
+            $(".btn-info").hide();
+        }
+        if ('@ViewBag.DeleteAccess' == "False") {
+            $(".btn-danger").hide();
+        }
+
+        $('#lsttable').dataTable({
+            "sPaginationType": "full_numbers",
+            dom: 'lBfrtip',
+            "bInfo": true,
+            oLanguage: {
+                sLengthMenu: "Show: _MENU_",
+            },
+            columns: [
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                {
+                    "searchable": false,
+                    "orderable": false
+                }
+            ],
+            buttons: [
+                {
+                    text: '<i class="fa fa-plus-circle"></i> Add New',
+                    action: function myFunction() {
+                        location.href = createNewPage;
+                    },
+                    attr: {
+                        id: 'btnCreateNew'
+                    }
+                }
+        ]
+
+    });
+
+    });
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

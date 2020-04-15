@@ -1,0 +1,133 @@
+﻿@model UNO.AppModel.AutoCardLookUp
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="main-container" style="clear:both;">
+    <!-- Container fluid Starts -->
+    <div id="main-content" class="container-fluid">
+        <!-- Spacer Starts -->
+        <div class="spacer clearfix">
+            <div class="row">
+                <div class="col-md-7 col-centered">
+                    <div class="blog blog-default ">
+                        <div class="blog-header ">
+                            <h4 class="blog-title pull-left mt5">Index </h4>
+                            <span class="clearfix"></span>
+                        </div>
+
+                        <div class="blog-body form p0">
+
+                            @using (Html.BeginForm())
+                            {
+                                @Html.AntiForgeryToken()
+
+                                @Html.ValidationSummary(true)
+                                <div class="form-horizontal form-bordered form-label-stripped">
+                                    <div class="form-body p0">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.CTLR_READER_ID, null, new { @class = "control-label col-md-3" })
+                                            <div class="col-md-9">
+                                                @Html.DropDownListFor(model => model.CTLR_READER_ID, (IEnumerable<SelectListItem>)ViewBag.ListLevel, new { @class = "form-control" })
+                                                <label id="ErrorTextFILTER_CRITERIA" style="color:red"></label>
+                                            </div>
+                                            
+                                        </div>
+                                  
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Event_DateTime, null, new { @class = "control-label col-md-3" })
+                                            <div class="col-md-9">
+                                                <label id="Event_DateTime"></label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Event_Card_Code, null, new { @class = "control-label col-md-3" })
+                                            <div class="col-md-9">
+                                                <label id="EVENT_CARD_CODE"></label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Emp_Name, null, new { @class = "control-label col-md-3" })
+                                            <div class="col-md-9">
+                                                <label id="EMP_NAME"></label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.STATUS, null, new { @class = "control-label col-md-3" })
+                                            <div class="col-md-9">
+                                                <label id="EMP_NAME"></label>
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <div class="clearfix"></div>
+                                        <div class="row">
+                                            <div class="col-md-12 text-center">
+                                                <input type="checkbox" name="Sync" id="Sync" value="Bike"> Buffer |
+                                                <input type="button" value="Next" class="btn btn-info" onclick="GetRecords();" />
+                                                </div>
+                                            </div>
+                                        <br />
+                                        </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var Timer;
+    $(document).ready(function () {
+        
+        $("#CTLR_READER_ID").change(function () {
+            
+            if ($("#CTLR_READER_ID").val() != -1) {
+                Timer = setInterval(GetRecords, 10000);
+            } else {
+                clearInterval(Timer);
+            }
+         
+        });
+
+        $("input").change(function () {
+            if ($("#Sync").prop('checked') == true) {
+                clearInterval(Timer);
+            }
+            else if ($("#Sync").prop('checked') == false)
+            {
+                Timer = setInterval(GetRecords, 10000);
+            }
+        });
+
+        function GetRecords()
+        {
+            if ($("#CTLR_READER_ID").val() == 'All') {
+                var CTLR_ID = '0';
+                var READER_ID = '0';
+            } else {
+                var CTLR_READER_ID_temp = $("#CTLR_READER_ID").val().split('-');
+                var CTLR_ID = CTLR_READER_ID_temp[0];
+                var READER_ID = CTLR_READER_ID_temp[1];
+            }
+           
+            $.ajax({
+                url: BaseAddress + "AutoCardLookUpAPI/getRocords?CTLR_ID=" + CTLR_ID + '&&READER_ID=' + READER_ID,
+                cache: false,
+                type: "GET",
+                success: function (data) {
+
+                    $("#Event_DateTime").text($.trim(data.Event_DateTime));
+                    $("#Event_Card_Code").text($.trim(data.Event_Card_Code));
+                    $("#Emp_Name").text($.trim(data.Emp_Name));
+                    $("#STATUS").text($.trim(data.STATUS));
+                },
+                error: function (reponse) {
+                    console.log("Fail");
+                }
+            });
+        }
+    });
+</script>

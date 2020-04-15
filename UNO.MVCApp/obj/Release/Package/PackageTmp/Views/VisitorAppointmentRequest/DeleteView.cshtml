@@ -1,0 +1,222 @@
+﻿@model UNO.AppModel.VisitorAppointmentRequestModel
+@*@using EToolsViewer.Extensions*@
+@*@{
+        ViewBag.Title = "Edit";
+    }*@
+@{
+    ViewBag.Title = "Visitor Appointment Request";
+}
+@section scripts
+{
+<script src="~/Scripts/JS/jquery.datetimepicker.full.js"></script>
+<script>
+    $(document).ready(function () {
+        // 'use strict';
+
+        //jQuery('#VISITOR_ALLOWED_TO_TIME, #VISITOR_ALLOWED_FROM_TIME').datetimepicker({
+        //    format: 'd/m/Y  g:i A',
+        //    formatTime: 'g:i A',
+        //    mask: '9999/19/39 29:59 --'
+        //});
+        jQuery('#APPOINTMENT_FROM_DATE, #APPOINTMENT_TO_DATE').datetimepicker({
+            //format: 'd/m/Y',
+            timepicker: false
+            //value: new Date()
+        });
+        jQuery('#VISITOR_ALLOWED_TO_TIME, #VISITOR_ALLOWED_FROM_TIME,#CHECKEDOUTTIME').datetimepicker({
+            //format: 'g:i A',
+            datepicker: false,
+            format: 'H:i',
+            //dateFormat: '',
+            timeFormat: 'hh:mm tt',
+            timeOnly: true
+        });
+    });
+   </script>
+    <script>
+        $(document).ready(function () {
+            new confirmexitmsg('form');
+            $("#btnReset").click(function (e) {
+                formmodified = 0;
+                location.reload(true);
+            });
+            @*$("#btnDelete").click(function (e) {
+                debugger;
+
+                //if ($('form').valid()) {
+                formmodified = 0;
+                //  var box = new ajaxLoader(this, { classOveride: 'blue-loader', bgColor: '#000' });
+                var mstmetertype = {
+                    "id": $("#REQUEST_ID").val()
+                    //"isdeleted": 0
+                };
+
+                var id = $("#REQUEST_ID").val();
+
+                $.ajax({
+                    type: "POST",
+                    contentType: "application/json;charset=utf-8",//type of data to be send
+                    url: '@Url.Action("Delete", "VisitorAppointmentRequest")' + "?id=" +id,
+                    dataType: "json",//type of data to be received
+                    //data: JSON.stringify({ id: $("#REQUEST_ID").val() }),//data to be send
+                    success: function (response) {
+                        debugger;
+                        if (response.e == "S") {
+                            if (response.d.length > 0)
+                                alert(response.d, '@Url.Action("Index", "VisitorAppointmentRequest")', false, response.e);
+
+                        }
+                        else if (response.e == "M") {
+                            if (response.d.length > 0)
+                                alert(response.d, '', false, response.e);
+                        }
+                        else if (response.e == "E") {
+                            if (response.d.length > 0)
+                                alert(response.d, '', false, response.e);
+                        }
+                        //   if (box) box.remove();
+
+                    },
+                    error: function (xhr, status, error) {
+                        // if (box) box.remove();
+                        //  alert(xhr.responseText);
+                    }
+                });
+
+                // }
+                // else {
+                // if (box) box.remove();
+                //  }
+                e.preventDefault();
+            });*@
+        });
+    </script>
+}
+@Styles.Render("~/Content/css/jquery.datetimepicker.css")
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <!-- Container fluid Starts -->
+    <div class="container-fluid">
+        <!-- Spacer Starts -->
+        <div class="spacer clearfix">
+            <div class="col-md-7 col-centered">
+                <div class="blog blog-default ">
+                    <div class="blog-header ">
+                        <h5 class="blog-title pull-left mt5"><i class="fa fa-pencil-square-o"></i>Delete</h5>
+                        <span class="pull-right"><a class="btn btn-default" href='@Url.Action("index/" + Model.COMPANY_ID)'><i class="fa fa-arrow-left"></i> Back To List</a></span>
+                        <span class="clearfix"></span>
+                    </div>
+                    <div class="blog-body">
+                        <form class="form-horizontal repeater" role="form">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group row mt5">
+                                        @Html.LabelFor(model => model.REQUEST_ID, new { style = "display: none;", @maxlength = "15" })
+                                    <div class="col-md-6">
+                                       @Html.TextBoxFor(model => model.REQUEST_ID, new { style = "display: none;", @maxlength = "15" })
+                                    </div>
+                                </div>
+                                <hr />
+                                <fieldset>
+                                    <legend>Visitor Details </legend>
+                                    <div class="form-group row">
+                                        <div class="col-sm-4">
+                                            @Html.LabelFor(model => model.VISITOR_NAME, null, "")
+                                            @Html.TextBoxFor(model => model.VISITOR_NAME, new { @class = "form-control", @maxlength = "15", @disabled = "disabled" })
+                                        </div>
+                                        <div class="col-sm-4">
+                                            @Html.LabelFor(model => model.VISITOR_MIDDLENAME, null, "")
+                                            @Html.TextBoxFor(model => model.VISITOR_MIDDLENAME, new { @class = "form-control", @maxlength = "15", @disabled = "disabled" })
+                                        </div> 
+                                        <div class="col-sm-4">
+                                            @Html.LabelFor(model => model.VISITOR_LASTNAME, null, "")
+                                            @Html.TextBoxFor(model => model.VISITOR_LASTNAME, new { @class = "form-control", @maxlength = "15", @disabled = "disabled" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-8">
+                                            @Html.LabelFor(model => model.VISITORCOMPANY, null, "")
+                                            @Html.TextBoxFor(model => model.VISITORCOMPANY, new { @class = "form-control", @maxlength = "15", @disabled = "disabled" })
+                                        </div>
+                                        <div class="col-sm-4">
+                                            @Html.LabelFor(model => model.MOBILENO, null, "")
+                                            @Html.TextBoxFor(model => model.MOBILENO, new { @class = "form-control", @maxlength = "15", @disabled = "disabled" })
+                                        </div>
+                                        <div class="col-sm-4">
+                                            @Html.LabelFor(model => model.NATURE_OF_WORK, null, "")
+                                            @Html.DropDownListFor(model => model.NATURE_OF_WORK, (IEnumerable<SelectListItem>)ViewBag.NatureOfWork, Model.NATURE_OF_WORK, new { @class = "form-control", @disabled = "disabled" })
+                                        </div>
+                                        <div class="col-sm-4">
+                                            @Html.LabelFor(model => model.DESIGNATION, null, "")
+                                            @Html.TextBoxFor(model => model.DESIGNATION, new { @class = "form-control", @maxlength = "15", @disabled = "disabled" })
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                            <div class="col-md-12">
+                                <fieldset>
+                                    <legend>Visit Details </legend>
+                                    <div class="form-group row">
+                                        <div class="col-sm-6">
+                                            @Html.LabelFor(model => model.APPOINTMENT_FROM_DATE, null, "")
+                                            @Html.TextBoxFor(model => model.APPOINTMENT_FROM_DATE, new { @class = "form-control datepicker", @disabled = "disabled", placeholder = "Enter Drop-off date here..." })
+                                        </div>
+                                        <div class="col-sm-6">
+                                            @Html.LabelFor(model => model.APPOINTMENT_TO_DATE, null, "")
+                                            @Html.TextBoxFor(model => model.APPOINTMENT_TO_DATE, new { @class = "form-control datepicker", @disabled = "disabled", placeholder = "Enter Drop-off date here..." })
+                                        </div>
+                                        <div class="col-sm-6">
+                                            @Html.LabelFor(model => model.VISITOR_ALLOWED_FROM_TIME, null, "")
+                                            @Html.TextBoxFor(model => model.VISITOR_ALLOWED_FROM_TIME, new { @class = "form-control datepicker", @disabled = "disabled", placeholder = "Enter Drop-off date here..." })
+                                        </div>
+                                        <div class="col-sm-6">
+                                            @Html.LabelFor(model => model.VISITOR_ALLOWED_TO_TIME, null, "")
+                                            @Html.TextBoxFor(model => model.VISITOR_ALLOWED_TO_TIME, new { @class = "form-control datepicker", @disabled = "disabled", placeholder = "Enter Drop-off date here..." })
+
+                                        </div>
+                                        <div class="col-sm-4">
+                                            @Html.LabelFor(model => model.APPROVAL_AUTHORITY_CODE, null, "")
+                                            @Html.DropDownListFor(model => model.APPROVAL_AUTHORITY_CODE, (IEnumerable<SelectListItem>)ViewBag.ApprovalId, Model.APPROVAL_AUTHORITY_CODE, new { @class = "form-control", @disabled = "disabled" })
+                                        </div>
+                                        <div class="col-sm-4">
+                                            @Html.LabelFor(model => model.VISITOR_LOCATION, null, "")
+                                            @Html.DropDownListFor(model => model.VISITOR_LOCATION, (IEnumerable<SelectListItem>)ViewBag.LocationId, Model.VISITOR_LOCATION, new { @class = "form-control", @disabled = "disabled" })
+                                        </div>
+                                        <div class="col-sm-4">
+                                            @Html.LabelFor(model => model.VISITOR_NATIONALITY, null, "")
+                                            @Html.DropDownListFor(model => model.VISITOR_NATIONALITY, (IEnumerable<SelectListItem>)ViewBag.VisitorNationality, Model.VISITOR_NATIONALITY, new { @class = "form-control", @disabled = "disabled" })
+                                        </div>
+                                        <div class="col-sm-6">
+                                            @Html.LabelFor(model => model.PURPOSEOFVISIT, null, "")
+                                            @Html.TextBoxFor(model => model.PURPOSEOFVISIT, new { @class = "form-control", @maxlength = "15", @disabled = "disabled" })
+                                        </div>
+                                        <div class="col-sm-6">
+                                            @Html.LabelFor(model => model.ADDITIONAL_INFO, null, "")
+                                            @Html.TextBoxFor(model => model.ADDITIONAL_INFO, new { @class = "form-control", @maxlength = "15", @disabled = "disabled" })
+                                        </div>
+                                        <div class="col-sm-6">
+                                            @Html.LabelFor(model => model.APPROVAL_STATUS, null, "")
+                                            @Html.TextBoxFor(model => model.APPROVAL_STATUS, new { @class = "form-control", @disabled = "disabled", @maxlength = "15" })
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="form-actions">
+                    <div class="row  mt5">
+                        <div class="col-md-12 text-center">
+                            <button type="submit" class="btn btn-sm btn-success" id="btnDelete"><i class="fa fa-save"></i>&nbsp;&nbsp;Delete</button>
+                            <button type="button" class="btn btn-sm btn-danger" id="btnReset"><i class="fa fa-undo"></i>&nbsp;&nbsp;Reset</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- Spacer Ends -->
+}

@@ -1,0 +1,158 @@
+﻿@model UNO.AppModel.EmployeeLeftModel
+@section scripts
+{
+    <script src="~/Scripts/JS/jquery.datetimepicker.full.js"></script>
+    <script>
+        $(document).ready(function () {
+            // 'use strict';
+
+            //jQuery('#VISITOR_ALLOWED_TO_TIME, #VISITOR_ALLOWED_FROM_TIME').datetimepicker({
+            //    format: 'd/m/Y  g:i A',
+            //    formatTime: 'g:i A',
+            //    mask: '9999/19/39 29:59 --'
+            //});
+            jQuery('#EL_LEFT_DATE').datetimepicker({
+                //format: 'd/m/Y',
+                timepicker: false
+                //value: new Date()
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            new confirmexitmsg('form');
+            $("#btnReset").click(function (e) {
+                formmodified = 0;
+                location.reload(true);
+            });
+            @*$("#btnSave").click(function (e) {
+                debugger;
+
+                if ($('form').valid()) {
+                    formmodified = 0;
+                    //  var box = new ajaxLoader(this, { classOveride: 'blue-loader', bgColor: '#000' });
+                    var mstmetertype = {
+
+                        "APPROVAL_AUTHORITY_CODE": $("#APPROVAL_AUTHORITY_CODE").val(),
+                        "VISITOR_ALLOWED_FROM_TIME": $("#VISITOR_ALLOWED_FROM_TIME").val(),
+                        "VISITOR_ALLOWED_TO_TIME": $("#VISITOR_ALLOWED_TO_TIME").val(),
+                        "APPOINTMENT_FROM_DATE": $("#APPOINTMENT_FROM_DATE").val(),
+                        "APPOINTMENT_TO_DATE": $("#APPOINTMENT_TO_DATE").val(),
+                        "NATURE_OF_WORK": $("#NATURE_OF_WORK").val(),
+                        "ADDITIONAL_INFO": $("#ADDITIONAL_INFO").val(),
+                        "VISITOR_NAME": $("#VISITOR_NAME").val(),
+                        "VISITORCOMPANY": $("#VISITORCOMPANY").val(),
+                        "MOBILENO": $("#MOBILENO").val(),
+                        "DESIGNATION": $("#DESIGNATION").val(),
+                        "CHECKEDOUTTIME": $("#CHECKEDOUTTIME").val(),
+                        "PURPOSEOFVISIT": $("#PURPOSEOFVISIT").val(),
+                        "VISITOR_MIDDLENAME": $("#VISITOR_MIDDLENAME").val(),
+                        "VISITOR_LASTNAME": $("#VISITOR_LASTNAME").val(),
+                        "VISITOR_NATIONALITY": $("#VISITOR_NATIONALITY").val(),
+                        "VISITOR_LOCATION": $("#VISITOR_LOCATION").val(),
+                        "COMPANY_ID": $("#COMPANY_ID").val()
+                        //"isdeleted": 0
+                    };
+
+                    $.ajax({
+                        type: "POST",
+                        contentType: "application/json;charset=utf-8",//type of data to be send
+                        url: '@Url.Action("Create", "VisitorAppointmentRequest")', // +id,
+                        dataType: "json",//type of data to be received
+                        data: JSON.stringify(mstmetertype),//data to be send
+                        success: function (response) {
+                            debugger;
+                            if (response.e == "S") {
+                                if (response.d.length > 0)
+                                    alert(response.d, '@Url.Action("Index", "VisitorAppointmentRequest")', false, response.e);
+
+                            }
+                            else if (response.e == "M") {
+                                if (response.d.length > 0)
+                                    alert(response.d, '', false, response.e);
+                            }
+                            else if (response.e == "E") {
+                                if (response.d.length > 0)
+                                    alert(response.d, '', false, response.e);
+                            }
+                            //   if (box) box.remove();
+
+                        },
+                        error: function (xhr, status, error) {
+                            // if (box) box.remove();
+                            //  alert(xhr.responseText);
+                        }
+                    });
+
+                }
+                // else {
+                // if (box) box.remove();
+                //  }
+                e.preventDefault();
+
+
+            });*@
+        });
+    </script>
+}
+@Styles.Render("~/Content/css/jquery.datetimepicker.css")
+
+<div class="container-fluid">
+    <div class="spacer clearfix">
+        <div class="col-md-7 col-centered">
+            <div class="blog blog-default ">
+                <div class="blog-header ">
+                    <h4 class="blog-title pull-left mt5">Delete </h4>
+                    <span class="pull-right"><a class="btn btn-default" href='@Url.Action("index/" + Model.EL_COLUMNID)'><i class="fa fa-arrow-left"></i> Back To List</a></span>
+                    <span class="clearfix"></span>
+                </div>
+                <div class="blog-body form p0">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+                            <div class="form-horizontal form-bordered form-label-stripped">
+                            <div class="form-body p0">
+                                <div class="form-group" style="display: none;">
+                                    @Html.LabelFor(model => model.EL_COLUMNID, null, new { style = "display: none;", @maxlength = "15" })
+                                    <div class="col-md-9">
+                                        @Html.TextBoxFor(model => model.EL_COLUMNID, new { style = "display: none;", @maxlength = "15" })
+                                    </div>
+                                </div>
+                                    <div class="form-group">
+                                            @Html.LabelFor(model => model.EL_EMP_ID, null, new { @class = "control-label col-md-3" })
+                                            <div class="col-md-9">
+                                                @Html.DropDownListFor(model => model.EL_EMP_ID, (IEnumerable<SelectListItem>)ViewBag.EmployeeId, "Select Employee", new { @class = "form-control", @disabled = "disabled" })
+                                                @Html.ValidationMessageFor(model => model.EL_EMP_ID, null, new { @class = "text-danger field-validation-error" })
+                                            </div>
+                                    </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.EL_LEFT_DATE, null, new { @class = "control-label col-md-3" })
+                                    <div class="col-md-9">
+                                        @Html.TextBoxFor(model => model.EL_LEFT_DATE, new { @disabled = "disabled", @class = "form-control", placeholder = "Enter Drop-off date here..." })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.EL_REASONID, null, new { @class = "control-label col-md-3" })
+                                    <div class="col-md-9">
+                                        @Html.DropDownListFor(model => model.EL_REASONID, (IEnumerable<SelectListItem>)ViewBag.ReasonId, "Select Reason", new { @class = "form-control", @disabled = "disabled" })
+                                        @Html.ValidationMessageFor(model => model.EL_REASONID, null, new { @class = "text-danger field-validation-error" })
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        <div class="clearfix"></div>
+                            <div class="form-actions">
+                                <div class="row  mt5">
+                                    <div class="col-md-12 text-center">
+                                        <button type="submit" class="btn btn-sm btn-success" id="btnDelete"><i class="fa fa-save"></i>&nbsp;&nbsp;Delete</button>
+                                        <button type="button" class="btn btn-sm btn-danger" id="btnReset"><i class="fa fa-undo"></i>&nbsp;&nbsp;Reset</button>
+                                    </div>
+                                </div>
+                            </div>
+                    }
+                    </div>
+                </div>
+          </div>
+      </div>
+</div>

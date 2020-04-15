@@ -1,0 +1,23 @@
+D:\SVN\MVCUNOStandard\UNO.AppModel\bin\Debug\UNO.AppModel.dll
+D:\SVN\MVCUNOStandard\UNO.AppModel\bin\Debug\UNO.AppModel.pdb
+D:\SVN\MVCUNOStandard\UNO.AppModel\obj\Debug\UNO.AppModel.csprojResolveAssemblyReference.cache
+D:\SVN\MVCUNOStandard\UNO.AppModel\obj\Debug\UNO.AppModel.dll
+D:\SVN\MVCUNOStandard\UNO.AppModel\obj\Debug\UNO.AppModel.pdb
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.AppModel\bin\Debug\UNO.AppModel.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.AppModel\bin\Debug\UNO.AppModel.pdb
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.AppModel\obj\Debug\UNO.AppModel.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.AppModel\obj\Debug\UNO.AppModel.pdb
+D:\Vikas\UNO_Updated\UNO.AppModel\bin\Debug\UNO.AppModel.dll
+D:\Vikas\UNO_Updated\UNO.AppModel\bin\Debug\UNO.AppModel.pdb
+D:\Vikas\UNO_Updated\UNO.AppModel\obj\Debug\UNO.AppModel.csprojResolveAssemblyReference.cache
+D:\Vikas\UNO_Updated\UNO.AppModel\obj\Debug\UNO.AppModel.dll
+D:\Vikas\UNO_Updated\UNO.AppModel\obj\Debug\UNO.AppModel.pdb
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.AppModel\bin\Debug\UNO.AppModel.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.AppModel\bin\Debug\UNO.AppModel.pdb
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.AppModel\obj\Debug\UNO.AppModel.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.AppModel\obj\Debug\UNO.AppModel.pdb
+D:\Devang Project\UNOMVC\UNO.AppModel\bin\Debug\UNO.AppModel.dll
+D:\Devang Project\UNOMVC\UNO.AppModel\bin\Debug\UNO.AppModel.pdb
+D:\Devang Project\UNOMVC\UNO.AppModel\obj\Debug\UNO.AppModel.csprojResolveAssemblyReference.cache
+D:\Devang Project\UNOMVC\UNO.AppModel\obj\Debug\UNO.AppModel.dll
+D:\Devang Project\UNOMVC\UNO.AppModel\obj\Debug\UNO.AppModel.pdb

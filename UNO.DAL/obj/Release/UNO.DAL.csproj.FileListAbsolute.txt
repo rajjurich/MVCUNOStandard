@@ -1,0 +1,10 @@
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.DAL\bin\Release\UNO.DAL.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.DAL\bin\Release\UNO.DAL.pdb
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.DAL\obj\Release\UNO.DAL.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.DAL\obj\Release\UNO.DAL.pdb
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.DAL\obj\Release\UNO.DAL.csprojResolveAssemblyReference.cache
+D:\Devang Project\UNOMVC\UNO.DAL\bin\Release\UNO.DAL.dll
+D:\Devang Project\UNOMVC\UNO.DAL\bin\Release\UNO.DAL.pdb
+D:\Devang Project\UNOMVC\UNO.DAL\obj\Release\UNO.DAL.csprojResolveAssemblyReference.cache
+D:\Devang Project\UNOMVC\UNO.DAL\obj\Release\UNO.DAL.dll
+D:\Devang Project\UNOMVC\UNO.DAL\obj\Release\UNO.DAL.pdb

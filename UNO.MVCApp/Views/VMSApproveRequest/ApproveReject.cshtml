@@ -1,0 +1,226 @@
+﻿@model UNO.AppModel.VisitorAppointmentRequestModel
+@*@using EToolsViewer.Extensions*@
+@{
+        ViewBag.Title = "Visitor Approve Request";
+ }
+@section scripts
+{
+    @*<script>
+    $(document).ready(function () {
+        new confirmexitmsg('form');
+        $("#btnApprove").click(function (e) {
+            debugger;
+
+            //if ($('form').valid()) {
+            formmodified = 0;
+            //  var box = new ajaxLoader(this, { classOveride: 'blue-loader', bgColor: '#000' });
+            var mstmetertype = {
+                "REQUEST_ID": $("#REQUEST_ID").val(),
+                "APPROVAL_STATUS": "A",
+                "APPROVER_REMARKS": $("#APPROVER_REMARKS").val()
+                //"isdeleted": 0
+            };
+
+            $.ajax({
+                type: "POST",
+                contentType: "application/json;charset=utf-8",//type of data to be send
+                url: '@Url.Action("ApproveReject", "VMSApproveRequest")', // +id,
+                dataType: "json",//type of data to be received
+                data: JSON.stringify(mstmetertype),//data to be send
+                success: function (response) {
+                    debugger;
+                    if (response.e == "S") {
+                        if (response.d.length > 0)
+                            alert(response.d, '@Url.Action("Index", "VisitorAppointmentRequest")', false, response.e);
+                    }
+                    else if (response.e == "M") {
+                        if (response.d.length > 0)
+                            alert(response.d, '', false, response.e);
+                    }
+                    else if (response.e == "E") {
+                        if (response.d.length > 0)
+                            alert(response.d, '', false, response.e);
+                    }
+                    //   if (box) box.remove();
+                },
+                error: function (xhr, status, error) {
+                    // if (box) box.remove();
+                    //  alert(xhr.responseText);
+                }
+            });
+
+            // }
+            // else {
+            // if (box) box.remove();
+            //  }
+            e.preventDefault();
+        });
+
+
+        $("#btnReject").click(function (e) {
+            debugger;
+
+            //if ($('form').valid()) {
+            formmodified = 0;
+            //  var box = new ajaxLoader(this, { classOveride: 'blue-loader', bgColor: '#000' });
+            var mstmetertype = {
+                "REQUEST_ID": $("#REQUEST_ID").val(),
+                "APPROVAL_STATUS": "R",
+                "APPROVER_REMARKS": $("#APPROVER_REMARKS").val()
+                //"isdeleted": 0
+            };
+
+            $.ajax({
+                type: "POST",
+                contentType: "application/json;charset=utf-8",//type of data to be send
+                url: '@Url.Action("ApproveReject", "VMSApproveRequest")', // +id,
+                dataType: "json",//type of data to be received
+                data: JSON.stringify(mstmetertype),//data to be send
+                success: function (response) {
+                    debugger;
+                    if (response.e == "S") {
+                        if (response.d.length > 0)
+                            alert(response.d, '@Url.Action("Index", "VisitorAppointmentRequest")', false, response.e);
+                    }
+                    else if (response.e == "M") {
+                        if (response.d.length > 0)
+                            alert(response.d, '', false, response.e);
+                    }
+                    else if (response.e == "E") {
+                        if (response.d.length > 0)
+                            alert(response.d, '', false, response.e);
+                    }
+                    //   if (box) box.remove();
+                },
+                error: function (xhr, status, error) {
+                    // if (box) box.remove();
+                    //  alert(xhr.responseText);
+                }
+            });
+
+            // }
+            // else {
+            // if (box) box.remove();
+            //  }
+            e.preventDefault();
+        });
+    });
+
+</script>*@
+    <script type="text/javascript">
+        $(function () { // will trigger when the document is ready
+            $('.datepicker').datepicker({
+                dateFormat: 'dd/mm/yy'
+
+            }); //Initialise any date pickers
+        });
+    </script>
+}
+@using (Html.BeginForm("ApproveReject", "VMSApproveRequest", FormMethod.Post))
+   {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+   <div class="container-fluid">
+    <!-- Spacer Starts -->
+       <div class="spacer clearfix">
+          <div class="col-md-7 col-centered">
+            <div class="blog blog-default ">
+                <div class="blog-header ">
+                    <h5 class="blog-title pull-left mt5"> View Approval</h5>
+                    <span class="pull-right"><a class="btn btn-default" href='@Url.Action("index/" + Model.COMPANY_ID)'><i class="fa fa-arrow-left"></i> Back To List</a></span>
+                    <span class="clearfix"></span>
+                </div>
+                <div class="blog-body">
+                    <form class="form-horizontal repeater" role="form">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <fieldset>
+                                            <legend>Visitor Details </legend>
+                                            <div class="form-group row">
+                                                <div class="col-sm-12">
+                                                    @Html.LabelFor(model => model.VISITOR_NAME, null, "")
+                                                    @Html.TextBoxFor(model => model.VISITOR_NAME, new { @class = "form-control", @disabled = "disabled" })
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    @Html.LabelFor(model => model.MOBILENO, null, "")
+                                                    @Html.TextBoxFor(model => model.MOBILENO, new { @class = "form-control", @disabled = "disabled" })
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    @Html.LabelFor(model => model.DESIGNATION, null, "")
+                                                    @Html.TextBoxFor(model => model.DESIGNATION, new { @class = "form-control", @disabled = "disabled" })
+                                                </div>
+                                                <div class="col-sm-12">
+                                                    @Html.LabelFor(model => model.VISITORCOMPANY, null, "")
+                                                    @Html.TextBoxFor(model => model.VISITORCOMPANY, new { @class = "form-control", @disabled = "disabled" })
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    @Html.LabelFor(model => model.NATURE_OF_WORK, null, "")
+                                                    @Html.TextBoxFor(model => model.NATURE_OF_WORK, new { @class = "form-control", @disabled = "disabled" })
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                                <fieldset>
+                                    <legend>Visit Details </legend>
+                                    <div class="form-group row">
+                                        <div class="col-sm-6">
+                                            @Html.LabelFor(model => model.APPOINTMENT_FROM_DATE, null, "")
+                                            @Html.TextBoxFor(model => model.APPOINTMENT_FROM_DATE, new { @class = "form-control datepicker", placeholder = "Enter Drop-off date here...", @disabled = "disabled" })
+                                        </div>
+                                        <div class="col-sm-6">
+                                            @Html.LabelFor(model => model.APPOINTMENT_TO_DATE, null, "")
+                                            @Html.TextBoxFor(model => model.APPOINTMENT_TO_DATE, new { @class = "form-control datepicker", placeholder = "Enter Drop-off date here...", @disabled = "disabled" })
+                                        </div>
+                                        <div class="col-sm-6">
+                                            @Html.LabelFor(model => model.VISITOR_ALLOWED_FROM_TIME, null, "")
+                                            @Html.TextBoxFor(model => model.VISITOR_ALLOWED_FROM_TIME, new { @class = "form-control datepicker", placeholder = "Enter Drop-off date here...", @disabled = "disabled" })
+                                        </div>
+                                        <div class="col-sm-6">
+                                            @Html.LabelFor(model => model.VISITOR_ALLOWED_TO_TIME, null, "")
+                                            @Html.TextBoxFor(model => model.VISITOR_ALLOWED_TO_TIME, new { @class = "form-control datepicker", placeholder = "Enter Drop-off date here...", @disabled = "disabled" })
+                                        </div>
+                                        <div class="col-sm-6">
+                                            @Html.LabelFor(model => model.VISITOR_NATIONALITY, null, "")
+                                            @Html.TextBoxFor(model => model.VISITOR_NATIONALITY, new { @class = "form-control", @disabled = "disabled" })
+                                        </div>
+                                        <div class="col-sm-6">
+                                            @Html.LabelFor(model => model.PURPOSEOFVISIT, null, "")
+                                            @Html.TextBoxFor(model => model.PURPOSEOFVISIT, new { @class = "form-control", @disabled = "disabled" })
+                                        </div>
+                                        <div class="col-sm-12">
+                                            @Html.LabelFor(model => model.ADDITIONAL_INFO, null, "")
+                                            @Html.TextBoxFor(model => model.ADDITIONAL_INFO, new { @class = "form-control", @disabled = "disabled" })
+                                        </div>
+                                        <div class="col-sm-12">
+                                            @Html.LabelFor(model => model.APPROVER_REMARKS, null, "")
+                                            @Html.TextBoxFor(model => model.APPROVER_REMARKS, new { @class = "form-control" })
+                                        </div>
+                                        <div class="col-sm-6">
+                                            @Html.LabelFor(model => model.REQUEST_ID, null, new { style = "display: none;" })
+                                            @Html.TextBoxFor(model => model.REQUEST_ID, new { style = "display: none;" })
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="form-actions">
+                    <div class="row  mt5">
+                        <div class="col-md-12 text-center">
+                            @*<button type="button" class="btn btn-sm btn-success" id="btnApprove"><i class="fa fa-save"></i>&nbsp;&nbsp;Approve</button>
+                            <button type="button" class="btn btn-sm btn-danger" id="btnReject"><i class="fa fa-save"></i>&nbsp;&nbsp;Reject</button>*@
+                            <input type="submit" name="submit" class="btn btn-sm btn-success"  value="Approve" />
+                            <input type="submit" name="submit" class="btn btn-sm btn-danger"  value="Reject" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+}

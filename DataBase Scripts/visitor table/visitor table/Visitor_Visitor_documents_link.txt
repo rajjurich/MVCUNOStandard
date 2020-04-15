@@ -1,0 +1,25 @@
+
+
+/****** Object:  Table [dbo].[Visitor_Visitor_documents_link]    Script Date: 05-07-2018 10:31:41 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[Visitor_Visitor_documents_link](
+	[visitor_ID] [varchar](100) NULL,
+	[document_path_with_name] [varchar](max) NULL,
+	[ImageCount] [int] NULL,
+	[Visitor_ReqID] [varchar](200) NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+

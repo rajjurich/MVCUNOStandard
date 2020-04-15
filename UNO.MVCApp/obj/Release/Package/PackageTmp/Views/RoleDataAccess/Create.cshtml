@@ -1,0 +1,842 @@
+﻿@model UNO.AppModel.RoleDataAccess
+
+@{
+    ViewBag.Title = "Create";
+}
+<style type="text/css">
+    .selected {
+        background-color: #0094ff !important;
+        color: #fff !important;
+    }
+</style>
+<script src="~/Scripts/JS/multi.min.js"></script>
+<link href="~/Content/css/multi.min.css" rel="stylesheet" />
+<link href="~/Content/select2/css/select2.min.css" rel="stylesheet" />
+<script src="~/Content/select2/js/select2.min.js"></script>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div class="main-container" style="clear:both;">
+        <!-- Container fluid Starts -->
+        <div class="container-fluid">
+            <!-- Spacer Starts -->
+            <div class="spacer clearfix">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="blog blog-default ">
+                            <div class="blog-header ">
+                                <h4 class="blog-title pull-left mt5">Add New </h4>
+                                <span class="pull-right">@*<a class="btn btn-default" href="@Url.Action("Index")" data-original-title="" title=""><i class="fa fa-arrow-left"></i> Back </a>*@ </span> <span class="clearfix"></span>
+                            </div>
+                            <div class="blog-body">
+                                <div class="row mt5">
+                                    <div class="col-sm-5">
+                                        <div class="form-group row">
+                                            @Html.LabelFor(model => model.USER_CODE, new { @class = "col-md-4 pr0 form-control-label" })
+
+                                            <div class="col-sm-7">
+                                                @Html.DropDownListFor(model => model.USER_CODE, (IEnumerable<SelectListItem>)ViewBag.Users, "Select", new { @class = "form-control select2" })
+                                                @Html.ValidationMessageFor(model => model.USER_CODE, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr />
+                                <div class="row mt5">
+                                    <div class="col-sm-1">
+                                        <div class="form-group">
+                                            <strong>Company</strong> <br />
+
+                                            <label class="radio-inline mt5">
+                                                <input type="radio" name="rdbCompany" value="All" id="rdbCompany">
+                                                All
+                                            </label>
+                                            <br />
+                                            <label class="radio-inline">
+                                                <input type="radio" name="rdbCompany" value="Select" id="rdbCompany">
+                                                Select
+                                            </label>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-1 brl">
+                                        <div class="form-group">
+                                            <strong>Location</strong> <br />
+                                            <label class="radio-inline mt5">
+                                                <input type="radio" name="rdbLocation" value="All" id="rdbLocation">
+                                                All
+                                            </label>
+                                            <br />
+                                            <label class="radio-inline">
+                                                <input type="radio" name="rdbLocation" value="Select" id="rdbLocation">
+                                                Select
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-1 brl">
+                                        <div class="form-group">
+                                            <strong>Division</strong> <br />
+                                            <label class="radio-inline mt5">
+                                                <input type="radio" name="rdbDivision" value="All" id="rdbDivision">
+                                                All
+                                            </label>
+                                            <br />
+                                            <label class="radio-inline">
+                                                <input type="radio" name="rdbDivision" value="Select" id="rdbDivision">
+                                                Select
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-1 brl">
+                                        <div class="form-group">
+                                            <strong>Department</strong> <br />
+                                            <label class="radio-inline mt5">
+                                                <input type="radio" name="rdbDepartment" value="All" id="rdbDepartment">
+                                                All
+                                            </label>
+                                            <br />
+                                            <label class="radio-inline">
+                                                <input type="radio" name="rdbDepartment" value="Select" id="rdbDepartment">
+                                                Select
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-1 brl">
+                                        <div class="form-group">
+                                            <strong>Designation</strong> <br />
+                                            <label class="radio-inline mt5">
+                                                <input type="radio" name="rdbDesignation" value="All" id="rdbDesignation">
+                                                All
+                                            </label>
+                                            <br />
+                                            <label class="radio-inline">
+                                                <input type="radio" name="rdbDesignation" value="Select" id="rdbDesignation">
+                                                Select
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-1 brl">
+                                        <div class="form-group">
+                                            <strong>Category</strong> <br />
+                                            <label class="radio-inline mt5">
+                                                <input type="radio" name="rdbCategory" value="All" id="rdbCategory">
+                                                All
+                                            </label>
+                                            <br />
+                                            <label class="radio-inline">
+                                                <input type="radio" name="rdbCategory" value="Select" id="rdbCategory">
+                                                Select
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-1 brl">
+                                        <div class="form-group">
+                                            <strong>Group</strong> <br />
+                                            <label class="radio-inline mt5">
+                                                <input type="radio" name="rdbGroup" value="All" id="rdbGroup">
+                                                All
+                                            </label>
+                                            <br />
+                                            <label class="radio-inline">
+                                                <input type="radio" name="rdbGroup" value="Select" id="rdbGroup">
+                                                Select
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-1 brl">
+                                        <div class="form-group">
+                                            <strong>Grade</strong> <br />
+                                            <label class="radio-inline mt5">
+                                                <input type="radio" name="rdbGrade" value="All" id="rdbGrade">
+                                                All
+                                            </label>
+                                            <br />
+                                            <label class="radio-inline">
+                                                <input type="radio" name="rdbGrade" value="Select" id="rdbGrade">
+                                                Select
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-1 brl">
+                                        <div class="form-group">
+                                            <strong>Employee</strong> <br />
+                                            <label class="radio-inline mt5">
+                                                <input type="radio" name="rdbEmployee" value="All" id="rdbEmployee">
+                                                All
+                                            </label>
+                                            <br />
+                                            <label class="radio-inline">
+                                                <input type="radio" name="rdbEmployee" value="Select" id="rdbEmployee">
+                                                Select
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr />
+                                <div class="clearfix"></div>
+                                <div class="col-md-8 col-centered hide" id="EntitySelection">
+                                    <div id="divemployees" class="hide">
+                                        @Html.DropDownList("ddlEmployees", (IEnumerable<SelectListItem>)ViewBag.Employees, null, new { @class = "form-control", multiple = "multiple", required = true, title = "Please Provide Employees" })
+                                    </div>
+                                    <div id="divcompanies" class="hide">
+                                        @Html.DropDownList("ddlCompanies", (IEnumerable<SelectListItem>)ViewBag.Companies, null, new { @class = "form-control", multiple = "multiple", required = true, title = "Please Provide Companies" })
+                                    </div><div id="divlocations" class="hide">
+                                        @Html.DropDownList("ddlLocations", (IEnumerable<SelectListItem>)ViewBag.Locations, null, new { @class = "form-control", multiple = "multiple", required = true, title = "Please Provide Locations" })
+                                    </div><div id="divdivisions" class="hide">
+                                        @Html.DropDownList("ddlDivisions", (IEnumerable<SelectListItem>)ViewBag.Divisions, null, new { @class = "form-control", multiple = "multiple", required = true, title = "Please Provide Divisions" })
+                                    </div><div id="divdepartments" class="hide">
+                                        @Html.DropDownList("ddlDepartments", (IEnumerable<SelectListItem>)ViewBag.Departments, null, new { @class = "form-control", multiple = "multiple", required = true, title = "Please Provide Departments" })
+                                    </div>
+                                    <div id="divdesignations" class="hide">
+                                        @Html.DropDownList("ddlDesignations", (IEnumerable<SelectListItem>)ViewBag.Designations, null, new { @class = "form-control", multiple = "multiple", required = true, title = "Please Provide Designations" })
+                                    </div>
+                                    <div id="divcategories" class="hide">
+                                        @Html.DropDownList("ddlCategories", (IEnumerable<SelectListItem>)ViewBag.Categories, null, new { @class = "form-control", multiple = "multiple", required = true, title = "Please Provide Categories" })
+                                    </div>
+                                    <div id="divgroups" class="hide">
+                                        @Html.DropDownList("ddlGroups", (IEnumerable<SelectListItem>)ViewBag.Groups, null, new { @class = "form-control", multiple = "multiple", required = true, title = "Please Provide Groups" })
+                                    </div>
+                                    <div id="divgrades" class="hide">
+                                        @Html.DropDownList("ddlGrades", (IEnumerable<SelectListItem>)ViewBag.Grades, null, new { @class = "form-control", multiple = "multiple", required = true, title = "Please Provide Grades" })
+                                    </div>
+
+                                    <hr />
+                                    <div class="clearfix text-center">
+                                        <button type="button" class="btn btn-success okbtn"> <i class="fa fa-check"></i> OK </button>
+                                        <button type="button" class="btn btn-danger btnclose"><i class="fa fa-times"></i> Close</button>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 table-responsive hide" id="EntitySelected">
+                                    <div id="dt_example" class="table-responsive example_alt_pagination clearfix  p15 bg-info panel-info">
+                                        <table class="table table-condensed table-striped table-hover table-bordered pull-left bg-white" id="lsttable">
+                                            <thead>
+                                                <tr>
+                                                    <th style="width:5%">Sr</th>
+                                                    <th style="width:30%">Entity Type</th>
+                                                    <th style="width:65%">Entity </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody></tbody>
+                                        </table>
+                                        <table id="tableOne" class="collapse">
+                                            <tbody></tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="form-actions">
+                                <div class="row">
+                                    <div class="col-md-12 text-center">
+                                        <button type="submit" class="btn btn-info"> <i class="fa fa-save"></i> Save</button>
+                                        <button id="btnReset" type="reset" class="btn default"><i class="fa fa-refresh"></i> Reset</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+
+<script type="text/javascript">
+
+    var myTable;
+
+    $(document).ready(function () {
+        $("#btnReset").click(function () {
+            location.reload();
+        });
+        $('.select2').select2({ closeOnSelect: true });
+
+        var selectEmployees = document.getElementById('ddlEmployees');
+        multi(selectEmployees, {
+            non_selected_header: 'Parameters',
+            selected_header: 'Selection'
+        });
+
+        var selectCompanies = document.getElementById('ddlCompanies');
+        multi(selectCompanies, {
+            non_selected_header: 'Parameters',
+            selected_header: 'Selection'
+        });
+
+        var selectLocations = document.getElementById('ddlLocations');
+        multi(selectLocations, {
+            non_selected_header: 'Parameters',
+            selected_header: 'Selection'
+        });
+
+        var selectDivisions = document.getElementById('ddlDivisions');
+        multi(selectDivisions, {
+            non_selected_header: 'Parameters',
+            selected_header: 'Selection'
+        });
+
+        var selectDepartments = document.getElementById('ddlDepartments');
+        multi(selectDepartments, {
+            non_selected_header: 'Parameters',
+            selected_header: 'Selection'
+        });
+
+        var selectDesignations = document.getElementById('ddlDesignations');
+        multi(selectDesignations, {
+            non_selected_header: 'Parameters',
+            selected_header: 'Selection'
+        });
+
+        var selectCategories = document.getElementById('ddlCategories');
+        multi(selectCategories, {
+            non_selected_header: 'Parameters',
+            selected_header: 'Selection'
+        });
+
+        var selectGroups = document.getElementById('ddlGroups');
+        multi(selectGroups, {
+            non_selected_header: 'Parameters',
+            selected_header: 'Selection'
+        });
+        var selectGrades = document.getElementById('ddlGrades');
+        multi(selectGrades, {
+            non_selected_header: 'Parameters',
+            selected_header: 'Selection'
+        });
+
+
+        var grpEmployee = $("input[name=rdbEmployee]");
+        var grpCompany = $("input[name=rdbCompany]");
+        var grpLocation = $("input[name=rdbLocation]");
+        var grpDivision = $("input[name=rdbDivision]");
+        var grpDepartment = $("input[name=rdbDepartment]");
+        var grpDesignation = $("input[name=rdbDesignation]");
+        var grpCategory = $("input[name=rdbCategory]");
+        var grpGroup = $("input[name=rdbGroup]");
+        var grpGrade = $("input[name=rdbGrade]");
+
+
+        grpCompany.click(function () {
+            $("#divlocations").addClass("hide");
+            $("#divdivisions").addClass("hide");
+            $("#divdepartments").addClass("hide");
+            $("#divdesignations").addClass("hide");
+            $("#divcategories").addClass("hide");
+            $("#divgroups").addClass("hide");
+            $("#divgrades").addClass("hide");
+            $("#divemployees").addClass("hide");
+            var checkedradio = grpCompany.filter(":checked");
+            if (checkedradio.val() == "All") {
+                $("#EntitySelection").addClass("hide");
+                $("#EntitySelected").addClass("hide");
+                var items = $("#ddlCompanies option");
+                bindTable(items, "Company");
+            }
+            else {
+                var items = $("#ddlCompanies option:selected");
+                bindTable(items, "Company");
+                $("#EntitySelection").removeClass("hide");
+                $("#divcompanies").removeClass("hide");
+            }
+        });
+
+        grpLocation.click(function () {
+            $("#divcompanies").addClass("hide");
+            $("#divdivisions").addClass("hide");
+            $("#divdepartments").addClass("hide");
+            $("#divdesignations").addClass("hide");
+            $("#divcategories").addClass("hide");
+            $("#divgroups").addClass("hide");
+            $("#divgrades").addClass("hide");
+            $("#divemployees").addClass("hide");
+            var checkedradio = grpLocation.filter(":checked");
+            if (checkedradio.val() == "All") {
+                $("#EntitySelection").addClass("hide");
+                $("#EntitySelected").addClass("hide");
+                var items = $("#ddlLocations option");
+                bindTable(items, "Location");
+            }
+            else {
+                var items = $("#ddlLocations option:selected");
+                bindTable(items, "Location");
+                $("#EntitySelection").removeClass("hide");
+                $("#divlocations").removeClass("hide");
+            }
+        });
+
+        grpDivision.click(function () {
+            $("#divcompanies").addClass("hide");
+            $("#divlocations").addClass("hide");
+            $("#divdepartments").addClass("hide");
+            $("#divdesignations").addClass("hide");
+            $("#divcategories").addClass("hide");
+            $("#divgroups").addClass("hide");
+            $("#divgrades").addClass("hide");
+            $("#divemployees").addClass("hide");
+            var checkedradio = grpDivision.filter(":checked");
+            if (checkedradio.val() == "All") {
+                $("#EntitySelection").addClass("hide");
+                $("#EntitySelected").addClass("hide");
+                var items = $("#ddlDivisions option");
+                bindTable(items, "Division");
+            }
+            else {
+                var items = $("#ddlDivisions option:selected");
+                bindTable(items, "Division");
+                $("#EntitySelection").removeClass("hide");
+                $("#divdivisions").removeClass("hide");
+            }
+        });
+
+        grpDepartment.click(function () {
+            $("#divcompanies").addClass("hide");
+            $("#divlocations").addClass("hide");
+            $("#divdivisions").addClass("hide");
+            $("#divdesignations").addClass("hide");
+            $("#divcategories").addClass("hide");
+            $("#divgroups").addClass("hide");
+            $("#divgrades").addClass("hide");
+            $("#divemployees").addClass("hide");
+            var checkedradio = grpDepartment.filter(":checked");
+            if (checkedradio.val() == "All") {
+                $("#EntitySelection").addClass("hide");
+                $("#EntitySelected").addClass("hide");
+                var items = $("#ddlDepartments option");
+                bindTable(items, "Department");
+            }
+            else {
+                var items = $("#ddlDepartments option:selected");
+                bindTable(items, "Department");
+                $("#EntitySelection").removeClass("hide");
+                $("#divdepartments").removeClass("hide");
+            }
+        });
+
+
+        grpDesignation.click(function () {
+            $("#divcompanies").addClass("hide");
+            $("#divlocations").addClass("hide");
+            $("#divdepartments").addClass("hide");
+            $("#divdivisions").addClass("hide");
+            $("#divcategories").addClass("hide");
+            $("#divgroups").addClass("hide");
+            $("#divgrades").addClass("hide");
+            $("#divemployees").addClass("hide");
+            var checkedradio = grpDepartment.filter(":checked");
+            if (checkedradio.val() == "All") {
+                $("#EntitySelection").addClass("hide");
+                $("#EntitySelected").addClass("hide");
+                var items = $("#ddlDesignations option");
+                bindTable(items, "Designation");
+            }
+            else {
+                var items = $("#ddlDesignations option:selected");
+                bindTable(items, "Designation");
+                $("#EntitySelection").removeClass("hide");
+                $("#divdesignations").removeClass("hide");
+            }
+        });
+
+        grpCategory.click(function () {
+            $("#divcompanies").addClass("hide");
+            $("#divlocations").addClass("hide");
+            $("#divdivisions").addClass("hide");
+            $("#divdepartments").addClass("hide");
+            $("#divdesignations").addClass("hide");
+            $("#divgroups").addClass("hide");
+            $("#divgrades").addClass("hide");
+            $("#divemployees").addClass("hide");
+            var checkedradio = grpDepartment.filter(":checked");
+            if (checkedradio.val() == "All") {
+                $("#EntitySelection").addClass("hide");
+                $("#EntitySelected").addClass("hide");
+                var items = $("#ddlCategories option");
+                bindTable(items, "Category");
+            }
+            else {
+                var items = $("#ddlCategories option:selected");
+                bindTable(items, "Category");
+                $("#EntitySelection").removeClass("hide");
+                $("#divcategories").removeClass("hide");
+            }
+        });
+
+        grpGroup.click(function () {
+            $("#divcompanies").addClass("hide");
+            $("#divlocations").addClass("hide");
+            $("#divdivisions").addClass("hide");
+            $("#divdepartments").addClass("hide");
+            $("#divdesignations").addClass("hide");
+            $("#divcategories").addClass("hide");
+            $("#divgrades").addClass("hide");
+            $("#divemployees").addClass("hide");
+            var checkedradio = grpDepartment.filter(":checked");
+            if (checkedradio.val() == "All") {
+                $("#EntitySelection").addClass("hide");
+                $("#EntitySelected").addClass("hide");
+                var items = $("#ddlGroups option");
+                bindTable(items, "Group");
+            }
+            else {
+                var items = $("#ddlGroups option:selected");
+                bindTable(items, "Group");
+                $("#EntitySelection").removeClass("hide");
+                $("#divgroups").removeClass("hide");
+            }
+        });
+
+        grpGrade.click(function () {
+            $("#divcompanies").addClass("hide");
+            $("#divlocations").addClass("hide");
+            $("#divdivisions").addClass("hide");
+            $("#divdepartments").addClass("hide");
+            $("#divdesignations").addClass("hide");
+            $("#divcategories").addClass("hide");
+            $("#divgroups").addClass("hide");
+            $("#divemployees").addClass("hide");
+            var checkedradio = grpDepartment.filter(":checked");
+            if (checkedradio.val() == "All") {
+                $("#EntitySelection").addClass("hide");
+                $("#EntitySelected").addClass("hide");
+                var items = $("#ddlGrades option");
+                bindTable(items, "Grade");
+            }
+            else {
+                var items = $("#ddlGrades option:selected");
+                bindTable(items, "Grade");
+                $("#EntitySelection").removeClass("hide");
+                $("#divgrades").removeClass("hide");
+            }
+        });
+
+        grpEmployee.click(function () {
+            $("#divcompanies").addClass("hide");
+            $("#divlocations").addClass("hide");
+            $("#divdivisions").addClass("hide");
+            $("#divdepartments").addClass("hide");
+            $("#divdesignations").addClass("hide");
+            $("#divcategories").addClass("hide");
+            $("#divgroups").addClass("hide");
+            $("#divgrades").addClass("hide");
+
+            var checkedradio = grpEmployee.filter(":checked");
+            if (checkedradio.val() == "All") {
+                $("#EntitySelection").addClass("hide");
+                $("#EntitySelected").addClass("hide");
+                var items = $("#ddlEmployees option");
+                bindTable(items, "Employee");
+            }
+            else {
+                var items = $("#ddlEmployees option:selected");
+                bindTable(items, "Employee");
+                $("#EntitySelection").removeClass("hide");
+                $("#divemployees").removeClass("hide");
+            }
+        });
+
+        var companyurl = "employeeDtoByCompanyId";
+        var locationurl = "employeeDtoByLocationId";
+        var divisionurl = "employeeDtoByDivisionId";
+        var departmenturl = "employeeDtoByDepartmentId";
+
+
+
+
+
+
+
+
+
+        myTable = $("#lsttable").DataTable({
+            "sPaginationType": "full_numbers",
+            dom: 'lBfrtip',
+            "bInfo": true,
+            oLanguage: {
+                sLengthMenu: "Show: _MENU_",
+            },
+            buttons: [
+                {
+                    text: '<i class="fa fa-minus-circle"></i> Delete Selected',
+                    attr: {
+                        id: 'btnDelete'
+                    }
+                }
+            ]
+        });
+
+        var rowNumber = -1;
+        $('#lsttable tbody').on('click', 'tr', function () {
+            if ($(this).hasClass('selected')) {
+                $(this).removeClass('selected');
+            }
+            else {
+                myTable.$('tr.selected').removeClass('selected');
+                rowNumber = myTable.row(this).index()
+                $(this).addClass('selected');
+            }
+        });
+        $('#btnDelete').click(function () {
+            myTable.row('.selected').remove().draw(false);
+            $("#tableOne tbody tr").eq(rowNumber).remove();
+            var x = $("#tableOne tbody tr");
+
+           
+                if (x.length > 0) {
+                    $.each(x, function (key, value) {
+                        $('#MappedEntityIds_' + (rowNumber + 1) + '__MAPPED_ENTITY_ID').attr('name', 'MappedEntityIds[' + rowNumber + '].MAPPED_ENTITY_ID');
+                        $('#MappedEntityIds_' + (rowNumber + 1) + '__MAPPED_ENTITY_ID').attr('id', 'MappedEntityIds_' + rowNumber + '__MAPPED_ENTITY_ID');
+
+                        $('#MappedEntityIds_' + (rowNumber + 1) + '__CommonTypes').attr('name', 'MappedEntityIds[' + rowNumber + '].CommonTypes');
+                        $('#MappedEntityIds_' + (rowNumber + 1) + '__CommonTypes').attr('id', 'MappedEntityIds_' + rowNumber + '__CommonTypes');                        
+                        rowNumber++;                        
+                    });
+                }
+            
+
+        });
+        $(".okbtn").click(function () {
+            $("#EntitySelected").removeClass("hide");
+            $("#EntitySelection").addClass("hide");
+
+        });
+        $(".btnclose").click(function () {
+            $("#EntitySelection").addClass("hide");
+        });
+
+        $("#ddlCompanies").change(function () {
+            if ($("#ddlCompanies option:selected").length > 0) {
+                var items = $("#ddlCompanies option:selected");
+                bindTable(items, "Company");
+            }
+        });
+
+        $("#ddlLocations").change(function () {
+            if ($("#ddlLocations option:selected").length > 0) {
+                var items = $("#ddlLocations option:selected");
+                bindTable(items, "Location");
+            }
+        });
+
+        $("#ddlDivisions").change(function () {
+            if ($("#ddlDivisions option:selected").length > 0) {
+                var items = $("#ddlDivisions option:selected");
+                bindTable(items, "Division");
+            }
+        });
+
+        $("#ddlDepartments").change(function () {
+            if ($("#ddlDepartments option:selected").length > 0) {
+                var items = $("#ddlDepartments option:selected");
+                bindTable(items, "Department");
+            }
+        });
+
+        $('#ddlDesignations').change(function () {
+            if ($("#ddlDesignations option:selected").length > 0) {
+                var items = $("#ddlDesignations option:selected");
+                bindTable(items, "Designation");
+            }
+        });
+
+        $('#ddlCategories').change(function () {
+            if ($("#ddlCategories option:selected").length > 0) {
+                var items = $("#ddlCategories option:selected");
+                bindTable(items, "Category");
+            }
+        });
+
+        $('#ddlGroups').change(function () {
+            if ($("#ddlGroups option:selected").length > 0) {
+                var items = $("#ddlGroups option:selected");
+                bindTable(items, "Group");
+            }
+        });
+
+        $('#ddlGrades').change(function () {
+            if ($("#ddlGrades option:selected").length > 0) {
+                var items = $("#ddlGrades option:selected");
+                bindTable(items, "Grade");
+            }
+        });
+
+        $('#ddlEmployees').change(function () {
+            if ($("#ddlEmployees option:selected").length > 0) {
+                var items = $("#ddlEmployees option:selected");
+                bindTable(items, "Employee");
+            }
+        });
+
+        if ($("#USER_CODE").val() != "") {
+            bindDataToTable();
+        }
+        $("#USER_CODE").change(function () {
+            if ($("#USER_CODE").val() != "") {
+                bindDataToTable();
+            }
+            else {
+                $("#tableOne tbody").empty();
+                myTable.clear();
+                myTable.draw();
+            }
+        });
+    });
+
+    //function BindItemTable() {
+    //    myTable = $("#lsttable").DataTable({
+    //        "deferRender": true,
+    //        "paging": true,
+    //        "lengthChange": false,
+    //        "searching": true,
+    //        "ordering": true,
+    //        "info": true,
+    //        "autoWidth": false,
+    //        "sDom": 'lfrtip'
+    //    });
+    //}
+
+    function bindDataToTable() {
+        $("#tableOne tbody").empty();
+        myTable.clear();
+        var uri = '@System.Configuration.ConfigurationManager.AppSettings["APIUrl"].ToString()';
+        var userid = $("#USER_CODE").val();
+        $.ajax({
+            type: 'GET',
+            url: uri + "roledataaccess/GetMappedEntityByUserId" + "/" + userid,
+            success: function (data) {
+
+                if (data) {
+                    $("#EntitySelected").removeClass("hide");
+                    $.each(data, function (key, value) {
+                        debugger;
+                        var items = [];
+                        var item = {};
+                        item.text = value.MAPPED_ENTITY_NAME
+                        item.value = value.MAPPED_ENTITY_ID
+                        items.push(item);
+                        bindTable(items, value.CommonTypes)
+                    });
+
+                }
+                else {
+
+                }
+            },
+            error: function (jqXHR) {
+                debugger;
+            }
+        });
+    }
+
+    function bindEmployeesByEntities(items, url) {
+        var uri = '@System.Configuration.ConfigurationManager.AppSettings["APIUrl"].ToString()';
+        var userid = '@Session["ACTIVE_USER"].ToString()';
+        var headers = {};
+        if (userid) {
+            headers.activeuser = userid;
+        }
+        $("#tableOne tbody").empty();
+        myTable.clear();
+        $.each(items, function (key, value) {
+            console.log(key);
+            console.log(value.value);
+            var i = 0;
+            $.ajax({
+                type: 'GET',
+                headers: headers,
+                url: uri + url + "/" + value.value,
+
+                success: function (data) {
+
+                    if (data) {
+                        bindTableByEntities(data)
+                    }
+                    else {
+
+                    }
+                },
+                error: function (jqXHR) {
+                    debugger;
+                }
+            });
+        });
+    }
+
+
+    function bindTable(items, Entity) {
+        var uri = '@System.Configuration.ConfigurationManager.AppSettings["APIUrl"].ToString()';
+        //$("#tableOne tbody").empty();
+        //myTable.clear();
+        $.each(items, function (key, value) {
+            console.log(key);
+            console.log(value.value);
+            var str = value.text;
+            var res = str.split(" - ");
+
+            var row = ''
+            row += '<tr>';
+            row += '<td>';
+            var entityid = '@Html.TextBoxFor(model => Model.MappedEntityIds[-1].MAPPED_ENTITY_ID, new { Value = "$entityid" })';
+            entityid = entityid.replace("[-1]", "[" + myTable.rows().count() + "]");
+            entityid = entityid.replace("-1", myTable.rows().count());
+            entityid = entityid.replace("$entityid", value.value);
+            row += entityid;
+            row += '</td>';
+
+            row += '<td>';
+            var entitytype = '@Html.TextBoxFor(model => Model.MappedEntityIds[-1].CommonTypes, new { Value = "$entitytype" })';
+            entitytype = entitytype.replace("[-1]", "[" + myTable.rows().count() + "]");
+            entitytype = entitytype.replace("-1", myTable.rows().count());
+            entitytype = entitytype.replace("$entitytype", Entity);
+            row += entitytype;
+            row += '</td>';
+
+            row += '</tr>';
+            var result = [];
+            result.push(myTable.rows().count() + 1);
+            result.push(Entity);
+            result.push(res[0]);
+
+            var Result = result;
+
+
+            myTable.row.add(Result);
+            myTable.draw();
+            $("#tableOne tbody").append(row);
+
+
+
+
+            //$.ajax({
+            //    type: 'GET',
+            //    url: uri + "employeeDto/" + value.value,
+
+            //    success: function (data) {
+
+            //        if (data) {
+
+            //        }
+            //        else {
+
+            //        }
+            //    },
+            //    error: function (jqXHR) {
+            //        debugger;
+            //    }
+            //});
+
+
+        });
+
+        var form = $("form");
+        form.data('validator', null);
+        $.validator.unobtrusive.parse(form);
+    }
+
+
+
+
+
+</script>

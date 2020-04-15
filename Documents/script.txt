@@ -1,0 +1,65 @@
+VersionCheck
+
+
+string version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            string versiontrimed = version.Substring(0, 3);-
+
+
+
+
+Change in Company Model
+Master page Layout
+Home Controller  UPDATE IT
+User API UPDATE IT
+VersionCheck Model add 
+CompanyModel   update it 
+UserLogin Update it
+UserLoginApiModel  UPDATE IT
+User  UPDATE IT
+Index page of HOME UPDATE IT
+Shared Folder Layout Page Update it
+
+script for company 
+SQl===============
+
+ALTER TABLE ent_company  DROP UQ__ENT_COMP__BD25F02B4F82BDB0;
+
+alter table ent_company add constraint ENT_COMPANY_COMPANY_CODE_COMPANY_ISDELETED_Composite unique(COMPANY_CODE,COMPANY_ISDELETED)
+
+
+===========================
+
+
+alter table ent_org_common_entities add constraint 
+OCE_ID_CommonType_COMPANY_ID_Composite 
+unique(OCE_ID, COMMON_TYPES_ID, COMPANY_ID,OCE_ISDELETED)
+
+For Common Entities
+===========================================
+Employee Api Model should be update it  Changed the number length
+
+===============================================
+changes in Index of employee
+
+================================================
+
+CommonEntitiesmodel   update it 
+===============================================
+
+holiday create page upload
+==============================================
+Reason master upload edit page
+===========================================
+asscontroller model upload  also index page of it
+
+==============================================
+Zone Create page upload  and also Edit
+
+===============================================
+Access level   edit page upload 
+
+==========================================
+EmployeeAccess Configuration reset button done in create page  edit page
+
+===================================================
+usp_GetContractLabourAccessReport

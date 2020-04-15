@@ -1,0 +1,96 @@
+﻿@model UNO.AppModel.ReasonMaster
+@{
+    ViewBag.Title = "REASON MASTER";
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+        new confirmexitmsg('form');
+        $("#btnReset").click(function (e) {
+            formmodified = 0;
+            //location.reload(true);
+            $("form").find('input:text, input:password, input:file, select, textarea').val('');
+            $("form").find('input:radio, input:checkbox').removeAttr('checked').removeAttr('selected');
+            return false;
+        });
+        $("#REASON_ID").val(0);
+    });
+</script>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div class="main-container" style="clear:both;">
+        <!-- Container fluid Starts -->
+        <div id="main-content" class="container-fluid">
+            <!-- Spacer Starts -->
+            <div class="spacer clearfix">
+                <div class="row">
+                    <div class="col-md-7 col-centered">
+                        <div class="blog blog-default ">
+                            <div class="blog-header ">
+                                <h4 class="blog-title pull-left mt5">Create New</h4><span class="pull-right">  <a class="btn btn-default" href='@Url.Action("Index")'><i class="fa fa-arrow-left"></i> Back To List</a></span>
+                                <span class="clearfix"></span>
+                            </div>
+
+                            <div class="blog-body form p0">
+
+                                @using (Html.BeginForm())
+                                {
+                                    @Html.AntiForgeryToken()
+
+                                    @Html.ValidationSummary(true)
+                                    @Html.HiddenFor(model => model.REASON_ID)
+                                    <div class="form-horizontal form-bordered form-label-stripped">
+                                        <div class="form-body p0">
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.COMPANY_ID, null, new { @class = "control-label col-md-3" })
+                                                <div class="col-md-9">
+                                                    @Html.DropDownListFor(model => model.COMPANY_ID, (IEnumerable<SelectListItem>)ViewBag.COMPANY_LIST, "Select Company", new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.COMPANY_ID, null, new { @class = "text-danger field-validation-error" })
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.REASON_TYPE_ID, null, new { @class = "control-label col-md-3" })
+                                                <div class="col-md-9">
+                                                    @Html.DropDownListFor(model => model.REASON_TYPE_ID, (IEnumerable<SelectListItem>)ViewBag.REASON_TYPES, "Select Reason", new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.REASON_TYPE_ID, null, new { @class = "text-danger field-validation-error"})
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.REASON_CODE, null, new { @class = "control-label col-md-3" })
+                                                <div class="col-md-9">
+                                                    @Html.TextBoxFor(model => model.REASON_CODE, new { @class = "form-control", @maxlength = "50", Placeholder = "REASON CODE" })
+                                                @Html.ValidationMessageFor(model => model.REASON_CODE, null, new { @class = "text-danger field-validation-error" })
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.REASON_DESC, null, new { @class = "control-label col-md-3" })
+                                                <div class="col-md-9">
+                                                    @Html.TextBoxFor(model => model.REASON_DESC, new { @class = "form-control", @maxlength = "50", Placeholder = "REASON DESCRIPTION" })
+                                                @Html.ValidationMessageFor(model => model.REASON_DESC, null, new { @class = "text-danger field-validation-error" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="form-actions">
+                                        <div class="row">
+                                            <div class="col-md-12 text-center">
+                                                <button type="submit" class="btn btn-info" id="btnUpdate"><i class="fa fa-save"></i>&nbsp;&nbsp;Save</button>
+                                                <button type="reset" class="btn default" id="btnReset"><i class="fa fa-refresh"></i>&nbsp;&nbsp;Reset</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

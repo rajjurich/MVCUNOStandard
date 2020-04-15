@@ -1,0 +1,87 @@
+﻿@model UNO.AppModel.MenuModel
+@{
+    ViewBag.Title = "Menu";
+}
+
+
+<script></script>
+
+<div class="main-container" style="clear:both;">
+    <!-- Container fluid Starts -->
+    <div id="main-content" class="container-fluid">
+        <!-- Spacer Starts -->
+        <div class="spacer clearfix">
+            <div class="row">
+                <div class="col-md-7 col-centered">
+                    <div class="blog blog-default ">
+                        <div class="blog-header ">
+                            <h4 class="blog-title pull-left mt5">Delete </h4><span class="pull-right">  <a class="btn btn-default" href='@Url.Action("Index")'><i class="fa fa-arrow-left"></i> Back To List</a></span>
+                            <span class="clearfix"></span>
+                        </div>
+
+                        <div class="blog-body form p0">
+
+                            @using (Html.BeginForm())
+                            {
+                                @Html.AntiForgeryToken()
+
+                                @Html.ValidationSummary(true)
+                                @Html.HiddenFor(model => model.MENU_ID)
+                                <div class="form-horizontal form-bordered form-label-stripped">
+                                    <div class="form-body p0">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.MENU_NAME, null, new { @class = "control-label col-md-3" })
+                                            <div class="col-md-9">
+                                                @Html.TextBoxFor(model => model.MENU_NAME, new { @class = "form-control", disabled = "disabled", @maxlength = "50" })
+                                            </div>
+                                            @Html.ValidationMessageFor(model => model.MENU_NAME, null, new { @class = "validation-redcolor" })
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.MENU_URL, null, new { @class = "control-label col-md-3" })
+                                            <div class="col-md-9">
+                                                @Html.TextBoxFor(model => model.MENU_URL, new { @class = "form-control", disabled = "disabled", @maxlength = "200" })
+                                            </div>
+                                            @Html.ValidationMessageFor(model => model.MENU_URL, null, new { @class = "validation-redcolor", @style = "position:relative;  top:20px;" })
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.MODULE_ID, null, new { @class = "control-label col-md-3" })
+                                            <div class="col-md-9">
+                                                @Html.DropDownListFor(model => model.MODULE_ID, (IEnumerable<SelectListItem>)ViewBag.ModuleId, "Select Module", new { @class = "form-control", disabled = "disabled" })
+                                            </div>
+                                            @Html.ValidationMessageFor(model => model.MODULE_ID, null, new { @class = "validation-redcolor", @style = "position:relative;  top:20px;" })
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.SMODULE_ID, null, new { @class = "control-label col-md-3" })
+                                            <div class="col-md-9">
+                                                @Html.DropDownListFor(model => model.SMODULE_ID, (IEnumerable<SelectListItem>)ViewBag.SubModuleId, "Select Sub Module", new { @class = "form-control", disabled = "disabled" })
+                                            </div>
+                                            @Html.ValidationMessageFor(model => model.SMODULE_ID, null, new { @class = "validation-redcolor", @style = "position:relative;  top:20px;" })
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.MENU_ITEMPOSITION, null, new { @class = "control-label col-md-3" })
+                                            <div class="col-md-9">
+                                                @Html.TextBoxFor(model => model.MENU_ITEMPOSITION, new { @class = "form-control", disabled = "disabled" })
+                                            </div>
+                                            @Html.ValidationMessageFor(model => model.MENU_ITEMPOSITION, null, new { @class = "validation-redcolor" })
+                                        </div>
+                                    </div>
+                                    </div>
+                                <div class="clearfix"></div>
+                                <div class="form-actions">
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+                                            <button type="submit" class="btn btn-danger" id="btnDelete"><i class="fa fa-trash-o"></i>&nbsp;&nbsp;Delete</button>
+                                            @*<button type="button" class="btn default" id="btnReset" disabled="disabled"><i class="fa fa-refresh"></i>&nbsp;&nbsp;Reset</button>*@
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

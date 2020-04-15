@@ -1,0 +1,30 @@
+
+
+/****** Object:  Table [dbo].[ACS_ACCESSLEVEL_RELATION]    Script Date: 04-07-2018 18:43:46 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[ACS_ACCESSLEVEL_RELATION](
+	[AL_ID] [decimal](18, 0) NOT NULL,
+	[RD_ZN_ID] [decimal](18, 0) NOT NULL,
+	[AL_ENTITY_TYPE] [nvarchar](10) NOT NULL,
+	[CONTROLLER_ID] [decimal](18, 0) NOT NULL,
+	[ALR_ISDELETED] [bit] NULL,
+	[ALR_DELETEDDATE] [datetime] NULL,
+	[action_flag] [int] NULL,
+	[acceslevelarray] [varchar](max) NULL,
+	[zoneid] [bigint] NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+

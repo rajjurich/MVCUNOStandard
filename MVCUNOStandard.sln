@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UNO.WebApi", "UNO.WebApi\UNO.WebApi.csproj", "{261C8849-A5E0-4639-86E6-A6DC40FC0F0C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UNO.AppModel", "UNO.AppModel\UNO.AppModel.csproj", "{744BC4CA-723C-4FFC-840C-06CFCC881BCF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UNO.MVCApp", "UNO.MVCApp\UNO.MVCApp.csproj", "{77894533-25EE-45E2-AECE-3B4AB0DD8A93}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UNO.DAL", "UNO.DAL\UNO.DAL.csproj", "{D2546FB7-060B-497C-B972-9D4F4E84F53E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UNO_DailyProcess", "Windows Services\UNO_DailyProcess\UNO_DailyProcess\UNO_DailyProcess.csproj", "{A34F03DA-076D-4019-8684-23CDEC13349B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logger", "Logger\Logger.csproj", "{4353553A-C112-4BC2-8EF6-3EFE7B01782D}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "DailyProcessSetup", "DailyProcessSetup\DailyProcessSetup.vdproj", "{AC773982-ED31-465E-978B-F1DB4FBC6921}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{261C8849-A5E0-4639-86E6-A6DC40FC0F0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{261C8849-A5E0-4639-86E6-A6DC40FC0F0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{261C8849-A5E0-4639-86E6-A6DC40FC0F0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{261C8849-A5E0-4639-86E6-A6DC40FC0F0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{744BC4CA-723C-4FFC-840C-06CFCC881BCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{744BC4CA-723C-4FFC-840C-06CFCC881BCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{744BC4CA-723C-4FFC-840C-06CFCC881BCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{744BC4CA-723C-4FFC-840C-06CFCC881BCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77894533-25EE-45E2-AECE-3B4AB0DD8A93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77894533-25EE-45E2-AECE-3B4AB0DD8A93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77894533-25EE-45E2-AECE-3B4AB0DD8A93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77894533-25EE-45E2-AECE-3B4AB0DD8A93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2546FB7-060B-497C-B972-9D4F4E84F53E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2546FB7-060B-497C-B972-9D4F4E84F53E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2546FB7-060B-497C-B972-9D4F4E84F53E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2546FB7-060B-497C-B972-9D4F4E84F53E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A34F03DA-076D-4019-8684-23CDEC13349B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A34F03DA-076D-4019-8684-23CDEC13349B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A34F03DA-076D-4019-8684-23CDEC13349B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A34F03DA-076D-4019-8684-23CDEC13349B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4353553A-C112-4BC2-8EF6-3EFE7B01782D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4353553A-C112-4BC2-8EF6-3EFE7B01782D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4353553A-C112-4BC2-8EF6-3EFE7B01782D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4353553A-C112-4BC2-8EF6-3EFE7B01782D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC773982-ED31-465E-978B-F1DB4FBC6921}.Debug|Any CPU.ActiveCfg = Debug
+		{AC773982-ED31-465E-978B-F1DB4FBC6921}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

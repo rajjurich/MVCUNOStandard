@@ -1,0 +1,53 @@
+
+/****** Object:  Table [dbo].[Visitor_Master]    Script Date: 04-07-2018 19:21:02 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[Visitor_Master](
+	[RowID] [int] IDENTITY(1,1) NOT FOR REPLICATION NOT NULL,
+	[Visitor_ID] [varchar](100) NOT NULL,
+	[Visitor_Name] [varchar](100) NULL,
+	[Visitor_Photopath] [varchar](200) NULL,
+	[VisitorCompany] [varchar](300) NULL,
+	[VisitorCompAddress] [varchar](400) NULL,
+	[VisitorCity] [varchar](50) NULL,
+	[VisitorNationality] [varchar](50) NULL,
+	[VisitorPassportDetails] [varchar](200) NULL,
+	[Designation] [varchar](100) NULL,
+	[visitor_type] [varchar](50) NULL,
+	[Gender] [varchar](50) NULL,
+	[address] [varchar](300) NULL,
+	[Phone1] [varchar](20) NULL,
+	[Phone2] [varchar](20) NULL,
+	[mobileNo] [varchar](20) NULL,
+	[VisitorFingerprintTemplate1] [varbinary](max) NULL,
+	[VisitorFingerprintTemplate2] [varbinary](max) NULL,
+	[IsDeleted] [bit] NULL,
+	[IsDeletedDate] [datetime] NULL,
+	[Employee_ID] [varchar](15) NULL,
+	[VisitorPassportValidTill] [datetime] NULL,
+	[VisitorPassportNo] [varchar](200) NULL,
+	[VisitorFingerImageWarWick1] [varbinary](max) NULL,
+	[VisitorFingerImageWarWick2] [varbinary](max) NULL,
+	[CreatedOn] [datetime] NULL,
+	[VisitorCardNo] [varchar](max) NULL,
+	[Visitor_MiddleName] [varchar](100) NULL,
+	[Visitor_LastName] [varchar](100) NULL,
+	[VisitorImage] [varbinary](max) NULL,
+	[VisitorSign] [varbinary](max) NULL,
+        [IS_SYNC] [bit] NOT NULL DEFAULT 0, 
+        [COMPANY_ID] [int] foreign key references ENT_COMPANY(COMPANY_ID),
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+

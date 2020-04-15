@@ -1,0 +1,23 @@
+﻿
+.signin {
+    font-size: 18px;
+    letter-spacing: 0;
+    text-transform: uppercase;
+}
+
+.lbtn {font-size:25px; margin-top:22px;}
+.mtb5{ margin:5px 0;}
+
+.forgotps {
+    letter-spacing: 0;
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+body {
+}
+
+.table > thead > tr > td, .table > tbody > tr > td {
+    padding:3px !important;
+}

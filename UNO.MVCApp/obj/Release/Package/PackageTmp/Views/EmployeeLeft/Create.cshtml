@@ -1,0 +1,117 @@
+﻿@model UNO.AppModel.EmployeeLeftModel
+@{
+    ViewBag.Title = "Employee Left";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts
+{
+<script src="~/Scripts/JS/jquery.datetimepicker.full.js"></script>
+    <script>
+        $(document).ready(function () {
+            new confirmexitmsg('form');
+            $("#btnReset").click(function (e) {
+                formmodified = 0;
+                location.reload(true);
+            });
+
+            jQuery('#EL_LEFT_DATE').datetimepicker({
+                //format: 'd/m/Y',
+                timepicker: false
+                //value: new Date()
+            });
+
+            $("#EL_EMP_ID").change(function () {
+
+                var EmployeeID = $(this).val();
+                var markup = "";
+
+                if (EmployeeID == '') {
+                    markup = "<option value=''>Select Sub Module</option>";
+                    $("#EL_JOINING_DATE").val("");
+                }
+                else {
+                    $.ajax({
+                        url: '@Url.Action("GetEmpJoiningDateByID", "EmployeeLeft")',
+                        data: { id: EmployeeID },
+                        cache: false,
+                        type: "POST",
+                        success: function (data) {
+                            debugger;
+                            $("#EL_JOINING_DATE").val(data);
+                        },
+                        error: function (reponse) {
+                            //if (box) box.remove();
+                        }
+                    });
+                }
+            });
+        });
+
+    </script>
+@Styles.Render("~/Content/css/jquery.datetimepicker.css")
+}
+<div class="container-fluid">
+    <!-- Container fluid Starts -->
+    <div class="spacer clearfix">
+        <!-- Spacer Starts -->
+        <div class="col-md-7 col-centered">
+            <div class="blog blog-default ">
+                <div class="blog-header ">
+                    <h4 class="blog-title pull-left mt5">Add </h4>
+                    <span class="pull-right"><a class="btn btn-default" href='@Url.Action("index","EmployeeLeft")'><i class="fa fa-arrow-left"></i> Back To List</a></span>
+                        <span class="clearfix"></span>
+                </div>
+                <div class="blog-body form p0">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+                        <div class="form-horizontal form-bordered form-label-stripped">
+                            <div class="form-body p0">
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.EL_EMP_ID, null, new { @class = "control-label col-md-3" })
+                                    <div class="col-md-9">
+                                        @Html.DropDownListFor(model => model.EL_EMP_ID, (IEnumerable<SelectListItem>)ViewBag.EmployeeId, "Select Employee", new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.EL_EMP_ID, null, new { @class = "text-danger field-validation-error" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.EL_JOINING_DATE, null, new { @class = "control-label col-md-3" })
+                                    <div class="col-md-9">
+                                        @Html.TextBoxFor(model => model.EL_JOINING_DATE, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.EL_JOINING_DATE, null, new { @class = "text-danger field-validation-error" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.EL_LEFT_DATE, null, new { @class = "control-label col-md-3" })
+                                    <div class="col-md-9">
+                                        @Html.TextBoxFor(model => model.EL_LEFT_DATE, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.EL_LEFT_DATE, null, new { @class = "text-danger field-validation-error" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.EL_REASONID, null, new { @class = "control-label col-md-3" })
+                                    <div class="col-md-9">
+                                        @Html.DropDownListFor(model => model.EL_REASONID, (IEnumerable<SelectListItem>)ViewBag.ReasonId, "Select Reason", new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.EL_LEFT_DATE, null, new { @class = "text-danger field-validation-error" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="form-actions">
+                            <div class="row">
+                                <div class="col-md-12 text-center">
+                                    <button type="submit" class="btn btn-info" id="btnAdd"><i class="fa fa-save"></i>&nbsp;&nbsp;Save</button>
+                                    <button type="button" class="btn default" id="btnReset"><i class="fa fa-refresh"></i>&nbsp;&nbsp;Reset</button>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Spacer Ends -->
+</div>

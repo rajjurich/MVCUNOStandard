@@ -1,0 +1,150 @@
+﻿@model IEnumerable<UNO.AppModel.MenuModel>
+
+@{
+    ViewBag.Title = "Menu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section scripts
+{
+    <script>
+        var createNewPage = '@Url.Action("Create", "Menu")';
+        $(document).ready(function () {
+            if ('@ViewBag.CreateAccess' == "False") {
+                $(".btnCreateNew").hide();
+            }
+            if ('@ViewBag.ViewAccess' == "False") {
+                $(".btn-success").hide();
+            }
+            if ('@ViewBag.EditAccess' == "False") {
+                $(".btn-info").hide();
+            }
+            if ('@ViewBag.DeleteAccess' == "False") {
+                $(".btn-danger").hide();
+            }
+          
+            $("#lsttable").dataTable(
+                            {
+                                pageLength: 10,
+                                "aoColumns": [
+                                            null,
+                                            null,
+                                            null,
+                                            null,
+                                            null,
+                                            { "bSortable": false }
+                                ], "scrollX": true
+                            });
+        });
+
+        $('#lsttable').dataTable({
+            "sPaginationType": "full_numbers",
+            dom: 'lBfrtip',
+            "bInfo": false,
+            oLanguage: {
+                sLengthMenu: "Show: _MENU_",
+            },
+            "aoColumnDefs": [
+          { "bSortable": false, "aTargets": [5] }
+            ],
+            /* fnInitComplete : function( oSettings, json ){
+                 $('#dataTables_length').detach().prependTo("#new-location");
+       
+       },*/
+            buttons: [
+                {
+                    text: '<i class="fa fa-plus-circle"></i> Add New',
+                    action: function myFunction() {
+                        location.href = createNewPage;
+                    },
+                    attr: {
+                        id: 'btnCreateNew'
+                    }
+                }                 
+           
+            ]
+
+        });
+    </script>
+}
+
+<!-- Container fluid Starts -->
+<div class="container-fluid">
+    <!-- Spacer Starts -->
+    <div class="spacer clearfix">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="blog blog-default ">
+                    @*<div class="blog-header ">
+                                                        <h4 class="blog-title pull-left mt5">Listing</h4><div class="dt-buttons pull-right">
+                            @Html.ActionLink(" Create New", "Create", "Menu", null, new { @id = "btnCreate", @class = "fa fa-plus-circle text-white btn btn-warning pull-right" })<a class="btn btn-default" href="#"><span><i class="fa fa-file-excel-o"></i> Excel</span></a></div>
+                        </div>*@
+
+                    <div class="blog-header ">
+                        <h4 class="blog-title pull-left mt5">Listing</h4>
+                        <div class="dt-buttons pull-right">
+                            <a class="btn btn-default" href="#"><span><i class="fa fa-print"></i> Print</span></a> <a class="btn btn-default" href="#"><span><i class="fa fa-file-excel-o"></i> Excel</span></a>
+                        </div>
+                        <span class="clearfix"></span>
+                    </div>
+                    <div class="blog-body">
+                        <div class="table-responsive">
+                            <div id="dt_example" class="table-responsive example_alt_pagination clearfix">
+                                <table id="lsttable" class="table table-condensed table-striped table-hover table-bordered pull-left">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">MENU NAME</th>
+                                            <th class="text-center">MENU URL</th>
+                                            <th class="text-center">MODULE NAME</th>
+                                            <th class="text-center">SUB MODULE</th>
+                                            <th class="text-center">MENU ITEM POSITION</th>
+                                            <th class="text-center">ACTIONS</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="data">
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td class="text-center">
+                                                    @Html.DisplayFor(modelItem => item.MENU_NAME)
+                                                </td>
+                                                <td class="text-center">
+                                                    @Html.DisplayFor(modelItem => item.MENU_URL)
+                                                </td>
+                                                <td class="text-center">
+                                                    @Html.DisplayFor(modelItem => item.MODULE_NAME)
+                                                </td>
+                                                <td class="text-center">
+                                                    @Html.DisplayFor(modelItem => item.SMODULE_NAME)
+                                                </td>
+                                                <td class="text-center">
+                                                    @Html.DisplayFor(modelItem => item.MENU_ITEMPOSITION)
+                                                </td>
+                                                <td class="text-center" width="15%">
+                                                    @Html.ActionLink(" ", "View", new { id = item.MENU_ID }, new { @class = "fa fa-eye btn btn-success btn-sm" })
+                                                    @*@Html.ActionLink(" ", "Delete", new { id = item.MENU_ID }, new { @class = "fa fa-eye btn btn-success btn-sm" })&nbsp;*@
+                                                    @Html.ActionLink(" ", "Edit", new { id = item.MENU_ID }, new { @class = "fa fa-edit btn btn-info" })&nbsp;
+                                                    @Html.ActionLink(" ", "Delete", new { id = item.MENU_ID }, new { @class = "fa fa-trash-o btn btn-danger" })
+                                                </td>
+                                            </tr>
+                                        }
+
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Spacer Ends -->
+</div>
+<!-- Container fluid ends -->
+<script>
+    $('#btnCreateNew').click(function () {
+        document.location = '';
+    });
+  
+</script>

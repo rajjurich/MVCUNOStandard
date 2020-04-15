@@ -1,0 +1,296 @@
+﻿@model UNO.AppModel.ActivityBrowser
+@{
+    ViewBag.Title = "Index";
+}
+<style>
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 50px;
+        height: 18px;
+        float: left;
+        margin-right: 5px;
+    }
+
+    input[type="radio"] {
+        margin: 0px 2px 0;
+        margin-top: 1px \9;
+        line-height: normal;
+        float: left;
+    }
+
+    .radio-inline, .checkbox-inline {
+        position: relative;
+        display: inline-block;
+        padding-left: 10px;
+        margin-bottom: 0;
+        font-weight: normal;
+        vertical-align: middle;
+        cursor: pointer;
+    }
+
+    .switch input {
+        display: none;
+    }
+
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 15px;
+            width: 15px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+    input:checked + .slider {
+        background-color: #2196F3;
+    }
+
+    input:focus + .slider {
+        box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+    }
+
+    /* Rounded sliders */
+    .slider.round {
+        border-radius: 34px;
+        height: 22px;
+    }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+
+    .table-responsive {
+        min-height: .01%;
+        overflow-x: visible;
+        /* z-index: -1; */
+        margin-top: -30PX;
+    }
+</style>
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            var Timer;
+            var DataList;
+            if ('@ViewBag.CreateAccess' == "False") {
+                $(".btnCreateNew").hide();
+            }
+            if ('@ViewBag.ViewAccess' == "False") {
+                $(".btn-success").hide();
+            }
+            if ('@ViewBag.EditAccess' == "False") {
+                $(".btn-info").hide();
+            }
+            if ('@ViewBag.DeleteAccess' == "False") {
+                $(".btn-danger").hide();
+            }
+            $("[type=checkbox]").click(function () {
+
+                if ($("#EnableSync").is(":checked") == true) {
+                    $("#isRefresh").val(true);
+                    //SyncEnabled();
+                    Timer = setInterval(SyncEnabled, 10000);
+
+                }
+                else {
+                    clearInterval(Timer);
+                    $("#isRefresh").val(false);
+                }
+            });
+
+            $("#ControllerID").change(function () {
+                if ($("#EnableSync").is(":checked") == true) {
+                    $("#isRefresh").val(true);
+                } else {
+                    $("#isRefresh").val(false);
+                }
+                BindGrid();
+            });
+            if ($("#isRefresh").val() == "true") {
+                $("#EnableSync").prop("checked", true);
+            } else {
+                $("#EnableSync").prop("checked", false);
+            }
+            BindGrid();
+        });
+        function BindGrid() {
+            $('#lsttable').dataTable({
+                "sPaginationType": "full_numbers",
+                dom: 'lBfrtip',
+                "bInfo": false,
+                oLanguage: {
+                    sLengthMenu: "Show: _MENU_",
+                },
+                "aoColumnDefs": [
+              { "bSortable": false, "aTargets": [5] }
+                ],
+                /* fnInitComplete : function( oSettings, json ){
+                     $('#dataTables_length').detach().prependTo("#new-location");
+
+           },*/
+                buttons: [
+                    {
+                        text: '<i class="fa fa-plus-circle"></i> Add New',
+                        action: function myFunction() {
+                            location.href = createNewPage;
+                        },
+                        attr: {
+                            id: 'btnCreateNew'
+                        }
+                    }
+                ]
+
+            });
+            $("#btnCreateNew").hide();
+            $.ajax({
+                url: BaseAddress + "ActivityBrowserAPI/get/" + $("#ControllerID").val(),
+                cache: false,
+                type: "GET",
+                success: function (data) {
+                    DataList = data;
+                    var str = "";
+                    for (var i = 0; i < DataList.length; i++) {
+                        str += "<tr><td class='text-center'>" + DataList[i].DateTime + "</td>";
+                        str += "<td class='text-center'>" + DataList[i].CTRL_DESCRIPTION + "</td>";
+                        str += "<td class='text-center'>" + DataList[i].EVENT_DESC + "</td>";
+                        str += "<td class='text-center'>" + DataList[i].STATUS + "</td>";
+                        str += "<td class='text-center'>" + DataList[i].RETRY + "</td>";
+                        str += "<td class='text-center'>" + DataList[i].USER_ID + "</td></tr>";
+                    }
+                    if ($.fn.dataTable.isDataTable('#lsttable')) {
+                        var table = $('#lsttable').dataTable();
+
+                        table.fnClearTable();
+                        table.fnDestroy();
+                        $("#data").html(str);
+
+                        $("#lsttable").dataTable(
+                            {
+                                "sPaginationType": "full_numbers",
+                                oLanguage: {
+                                    sLengthMenu: "Show: _MENU_",
+                                },
+                                pageLength: 10,
+                                "aoColumns": [
+                                            null,
+                                            null,
+                                            null,
+                                            null,
+                                            null,
+                                            { "bSortable": true }
+                                ]
+                            });
+                    }
+                    else {
+                        var s = "";
+                        $("#data").html(str);
+
+                        $("#lsttable").dataTable(
+                           {
+                               "sPaginationType": "full_numbers",
+                               oLanguage: {
+                                   sLengthMenu: "Show: _MENU_",
+                               },
+                               pageLength: 10,
+                               "aoColumns": [
+                                            null,
+                                            null,
+                                            null,
+                                            null,
+                                            null,
+                                            { "bSortable": true }
+                               ]
+                           });
+                    }
+                },
+                error: function (reponse) {
+                }
+            });
+        }
+        function SyncEnabled() {
+            BindGrid();
+        }
+
+    </script>
+}
+@using (Html.BeginForm())
+{
+    <div class="container-fluid">
+        <!-- Spacer Starts -->
+        <div class="spacer clearfix">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="blog blog-default ">
+                        <div class="blog-header ">
+                            <h4 class="blog-title pull-left mt5">Listing</h4>
+                            <div class="dt-buttons pull-right">
+                                <a class="btn btn-default" href="#"><span><i class="fa fa-print"></i> Print</span></a> <a class="btn btn-default" href="#"><span><i class="fa fa-file-excel-o"></i> Excel</span></a>
+                            </div>
+                            <span class="clearfix"></span>
+                        </div>
+
+                        <span class="clearfix"></span>
+                        <div class="blog-body">
+                            <div class="table-responsive">
+                                <div style="float: left; position: relative; top: 29px;">
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <label class="switch">
+                                                @Html.HiddenFor(m => m.isRefresh)
+                                                <input id="EnableSync" type="checkbox">
+                                                <span class="slider round"></span>
+                                            </label>
+                                            <span style="text-decoration-color: blue; line-height: 25px;"> Refresh </span>
+                                        </div><div class="col-md-7">
+                                            @Html.DropDownListFor(model => model.ControllerID, (IEnumerable<SelectListItem>)ViewBag.ListLevel, "Select Controller", new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="dt_example" class="table-responsive example_alt_pagination clearfix">
+                                <table id="lsttable" class="table table-condensed table-striped table-hover table-bordered pull-left">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">DateTime</th>
+                                            <th class="text-center">Controller description</th>
+                                            <th class="text-center">Event Description</th>
+                                            <th class="text-center">Status</th>
+                                            <th class="text-center">Retry Code</th>
+                                            <th class="text-center">User Id</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="data">
+                                    </tbody>
+
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

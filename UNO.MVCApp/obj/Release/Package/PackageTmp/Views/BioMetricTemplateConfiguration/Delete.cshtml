@@ -1,0 +1,35 @@
+﻿@model UNO.AppModel.BioMetricTemplateConfigurationCreateModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+
+@using (Html.BeginForm())
+    {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+ 
+    <table>
+        <tr>
+            <td><h1>ARE YOU SURE YOU WANT TO DELETE?</h1></td>
+            <td>@Html.HiddenFor(m => m.bio_metric_id)</td>
+        </tr>
+        <tr>
+            <td><button type="submit" class="btn btn-sm btn-success" id="btnDelete"><i class="fa fa-save"></i>&nbsp;&nbsp;Delete</button></td>
+            <td><span class="pull-right"><a class="btn btn-default" href="@Url.Action("Index")" data-original-title="" title=""><i class="fa fa-arrow-left"></i> Back To List</a> </span> <span class="clearfix"></span></td>
+        </tr>
+
+    </table>
+    
+    
+    
+    
+    
+    
+    
+       
+}
+
+
+

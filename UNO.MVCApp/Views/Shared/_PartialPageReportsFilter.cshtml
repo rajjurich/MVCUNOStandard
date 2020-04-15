@@ -1,0 +1,1371 @@
+﻿@model UNO.AppModel.EmployeeHierarchyCreateModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    input[type="radio"] {
+        margin: 2px 2px 0 0;
+    }
+
+    .ms-list {
+        padding: 0;
+        padding-left: 10px;
+        padding-right: 5px;
+        list-style: none;
+    }
+
+        .ms-list li:first-child {
+            margin-top: 5px;
+        }
+
+    .ms-selectable ul.ms-list::before {
+        content: "Parameter";
+        padding: 3px;
+        background-color: #3f414d;
+        line-height: 18px;
+        display: block;
+        color: #fff !important;
+    }
+
+    .ms-selectable, .ms-selection {
+        padding: 0px;
+    }
+
+        .ms-selection ul.ms-list::before {
+            content: "Selected";
+            padding: 3px;
+            background-color: #3f414d;
+            line-height: 18px;
+            display: block;
+            color: #fff !important;
+        }
+
+    .search-input {
+        border: 1px solid #ccc;
+        border-radius: 0;
+        display: block;
+        font-size: 1em;
+        margin: 0;
+        outline: 0;
+        padding: 10px 20px;
+        width: 100%;
+        box-sizing: border-box;
+        margin-bottom: 5px;
+    }
+
+    .ms-container {
+        border-bottom: 1px solid #ccc;
+        border-left: 1px solid #ccc;
+        border-right: 1px solid #ccc;
+        border-radius: 0px;
+        width: 100%;
+        display: block;
+        overflow: hidden;
+    }
+
+    .ms-selection ul.ms-list {
+        border-left: 1px solid #ccc;
+    }
+
+    ul.ms-list {
+        min-height: 120px;
+        overflow-y: scroll;
+    }
+
+        ul.ms-list li span {
+            cursor: pointer;
+            display: block;
+            padding: 2px 5px;
+            margin-bottom: 5px;
+        }
+
+            ul.ms-list li span:hover {
+                background: #ececec;
+                border-radius: 2px;
+            }
+
+    #message {
+        background-color: yellow;
+    }
+    #count_num {
+        text-align: center;
+        height: 150px;
+        vertical-align: middle;
+        display: block;
+        line-height: 130px;
+        font-size: 60px;
+        color: #e7505a;
+        font-weight: bolder;
+    }
+</style>
+
+<div>
+    <div class="main-container" style="clear:both;">
+        <!-- Container fluid Starts -->
+        <div class="container-fluid">
+            <!-- Spacer Starts -->
+            <div class="spacer clearfix">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="blog">
+
+                            <div class="blog-body">
+                                <div id="count_num">
+                                    5
+                                </div>
+                                <div class="row mt5" id="dynamicdisp">
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        <div class="clearfix"></div>
+
+                        <div class="col-md-6 col-centered hide" id="EntitySelection">
+                            <div id="divemployees" class="hide">
+                                <hr />
+                                @Html.DropDownList("ddlEmployees", (IEnumerable<SelectListItem>)ViewBag.Employees, null, new { @class = "form-control", multiple = "multiple", required = true, title = "Please Provide Employees" })
+                            </div>
+                            <div id="divcompanies" class="hide">
+                                @Html.DropDownList("ddlCompanies", (IEnumerable<SelectListItem>)ViewBag.Companies, null, new { @class = "form-control", multiple = "multiple", required = true, title = "Please Provide Companies" })
+                            </div><div id="divlocations" class="hide">
+                                @Html.DropDownList("ddlLocations", (IEnumerable<SelectListItem>)ViewBag.Locations, null, new { @class = "form-control", multiple = "multiple", required = true, title = "Please Provide Locations" })
+                            </div><div id="divdivisions" class="hide">
+                                @Html.DropDownList("ddlDivisions", (IEnumerable<SelectListItem>)ViewBag.Divisions, null, new { @class = "form-control", multiple = "multiple", required = true, title = "Please Provide Divisions" })
+                            </div><div id="divdepartments" class="hide">
+                                @Html.DropDownList("ddlDepartments", (IEnumerable<SelectListItem>)ViewBag.Departments, null, new { @class = "form-control", multiple = "multiple", required = true, title = "Please Provide Departments" })
+                            </div><div id="divcategorys" class="hide">
+                                @Html.DropDownList("ddlCategorys", (IEnumerable<SelectListItem>)ViewBag.Categories, null, new { @class = "form-control", multiple = "multiple", required = true, title = "Please Provide Category" })
+                            </div><div id="divgroups" class="hide">
+                                @Html.DropDownList("ddlgroups", (IEnumerable<SelectListItem>)ViewBag.Groups, null, new { @class = "form-control", multiple = "multiple", required = true, title = "Please Provide Category" })
+                            </div><div id="divgrade" class="hide">
+                                @Html.DropDownList("ddlgrades", (IEnumerable<SelectListItem>)ViewBag.Grades, null, new { @class = "form-control", multiple = "multiple", required = true, title = "Please Provide Category" })
+                            </div><div id="divdesignation" class="hide">
+                                @Html.DropDownList("ddldesignation", (IEnumerable<SelectListItem>)ViewBag.Designations, null, new { @class = "form-control", multiple = "multiple", required = true, title = "Please Provide Category" })
+                            </div>
+
+
+
+                            <hr>
+
+                            <div class="clearfix text-center">
+
+                                <button type="button" class="btn btn-success okbtn"> <i class="fa fa-check"></i> OK </button>
+                                <button type="button" class="btn btn-danger btnclose"><i class="fa fa-times"></i> Close</button>
+                            </div>
+                        </div>
+                        <div class="col-md-12 table-responsive hide" id="EntitySelected">
+                            <div id="dt_example" class="table-responsive example_alt_pagination clearfix  p15 bg-info panel-info">
+                                <table class="table table-condensed table-striped table-hover table-bordered pull-left bg-white" id="lsttable">
+                                    <thead>
+                                        <tr>
+                                            <th style="width:35%">Employee ID</th>
+                                            <th style="width:65%">Employee Name	</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                                <table id="tableOne" class="">
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+
+
+                        <div class="clearfix"></div>
+
+                    </div>
+                </div>
+
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+
+
+
+
+<style>
+    #mydiv {
+        display: none;
+        background-color: #F3F5F6;
+        color: #000000;
+        border: 1px solid #aaa;
+        position: fixed;
+        width: 300px;
+        height: 100px;
+        left: 30%;
+        top: 30%;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+
+
+        #mydiv .message {
+            text-align: left;
+        }
+</style>
+
+
+<script type="text/javascript">
+
+
+
+    // end value setting in dropdown
+    var uri = '@System.Configuration.ConfigurationManager.AppSettings["APIUrl"].ToString()';
+    var userid = '@Session["ACTIVE_USER"].ToString()';
+    var headers = {};
+    if (userid) {
+        headers.activeuser = userid;
+    }
+
+    var listofloop = [];
+    var myTable;
+    setTimeout(function () {
+
+        var hidediv = $('#mydiv');
+        hidediv.hide();
+        $('#dynamicdisp').show();
+        $('#count_num').hide();
+        var companyurl = "employeeDtoByCompanyId";
+        var locationurl = "employeeDtoByLocationId";
+        var divisionurl = "employeeDtoByDivisionId";
+        var departmenturl = "employeeDtoByDepartmentId";
+        var categoryurl = "employeeDtoByCategoryId";
+        var groupurl = "employeeDtoByGroupId";
+        var gradeurl = "employeeDtoByGradeId";
+        var designationurl = "employeeDtoByDesignationId";
+
+
+
+
+
+
+
+
+
+
+
+        
+        var grpCOMPANY = $("input[name=COMPANY]");
+        var grpEMPLOYEE = $("input[name=EMPLOYEE]");
+        var grpCATEGORY = $("input[name=CATEGORY]");
+        var grpLOCATION = $("input[name=LOCATION]");
+        var grpDIVISION = $("input[name=DIVISION]");
+        var grpDEPARTMENT = $("input[name=DEPARTMENT]");
+        var grpGROUP = $("input[name=GROUP]");
+        var grpGRADE = $("input[name=GRADE]");
+        var grpDESIGNATION = $("input[name=DESIGNATION]");
+
+        //method for building dropdownlist in multiselect
+        binddropempty();
+
+
+        //logic for click of radio button
+        grpCOMPANY.click(function () {
+            logicfordisable("COMPANY");
+            grpEMPLOYEE.prop("disabled", true);
+            $("#divemployees").addClass("hide");
+            $("#divlocations").addClass("hide");
+            $("#divdivisions").addClass("hide");
+            $("#divdepartments").addClass("hide");
+            $("#divcategorys").addClass("hide");
+            $("#divgroups").addClass("hide");
+            $("#divgrade").addClass("hide");
+            $("#divdesignation").addClass("hide");
+            myTable.clear();
+            myTable.draw();
+            $("#tableOne tbody").empty();
+            var checkedradio = grpCOMPANY.filter(":checked");
+            if (checkedradio.val() == "All") {
+                $("#EntitySelection").addClass("hide");
+                $("#EntitySelected").addClass("hide");
+                var items = $("#ddlCompanies option");
+                console.log(items);
+                bindEmployeesByEntities(items, companyurl);
+
+            }
+            else {
+                var items = $("#ddlCompanies option:selected");
+                bindEmployeesByEntities(items, companyurl);
+                $("#EntitySelection").removeClass("hide");
+                $("#divcompanies").removeClass("hide");
+            }
+        });
+        grpEMPLOYEE.click(function () {
+            
+            grpCOMPANY.prop("disabled", true);
+            grpCATEGORY.prop("disabled", true);
+            grpLOCATION.prop("disabled", true);
+            grpDIVISION.prop("disabled", true);
+            grpDEPARTMENT.prop("disabled", true);
+            grpGROUP.prop("disabled", true);
+            grpGRADE.prop("disabled", true);
+            grpDESIGNATION.prop("disabled", true);
+            myTable.clear();
+            myTable.draw();
+            $("#divcompanies").addClass("hide");
+            $("#divlocations").addClass("hide");
+            $("#divdivisions").addClass("hide");
+            $("#divdepartments").addClass("hide");
+            $("#divcategorys").addClass("hide");
+            $("#divgroups").addClass("hide");
+            $("#divgrade").addClass("hide");
+            $("#divdesignation").addClass("hide");
+            $("#tableOne tbody").empty();
+            var checkedradio = grpEMPLOYEE.filter(":checked");
+            if (checkedradio.val() == "All") {
+                $("#EntitySelection").addClass("hide");
+                $("#EntitySelected").addClass("hide");
+                var items = $("#ddlEmployees option");
+                bindTable(items);
+                console.log("id " + items);
+            }
+            else {
+                var items = $("#ddlEmployees option:selected");
+                bindTable(items);
+                console.log(items);
+                $("#EntitySelection").removeClass("hide");
+                $("#divemployees").removeClass("hide");
+            }
+        });
+        grpCATEGORY.click(function () {
+            logicfordisable("CATEGORY");
+            grpEMPLOYEE.prop("disabled", true);
+            $("#divemployees").addClass("hide");
+            $("#divlocations").addClass("hide");
+            $("#divdivisions").addClass("hide");
+            $("#divdepartments").addClass("hide");
+            $("#divcompanies").addClass("hide");
+            $("#divgroups").addClass("hide");
+            $("#divgrade").addClass("hide");
+            $("#divdesignation").addClass("hide");
+            
+            myTable.clear();
+            myTable.draw();
+            $("#tableOne tbody").empty();
+            var checkedradio = grpCATEGORY.filter(":checked");
+            if (checkedradio.val() == "All") {
+                $("#EntitySelection").addClass("hide");
+                $("#EntitySelected").addClass("hide");
+                var items = $("#ddlCategorys option");
+                bindEmployeesByEntities(items, categoryurl);
+                console.log(items);
+            }
+            else {
+                var items = $("#ddlCategorys option:selected");
+                bindEmployeesByEntities(items, categoryurl);
+                $("#EntitySelection").removeClass("hide");
+                $("#divcategorys").removeClass("hide");
+            }
+        });
+        grpLOCATION.click(function () {
+            logicfordisable("LOCATION");
+            grpEMPLOYEE.prop("disabled", true);
+            $("#divemployees").addClass("hide");
+            $("#divcategorys").addClass("hide");
+            $("#divdivisions").addClass("hide");
+            $("#divdepartments").addClass("hide");
+            $("#divcompanies").addClass("hide");
+            $("#divgroups").addClass("hide");
+            $("#divgrade").addClass("hide");
+            $("#divdesignation").addClass("hide");
+
+            myTable.clear();
+            myTable.draw();
+            $("#tableOne tbody").empty();
+            var checkedradio = grpLOCATION.filter(":checked");
+            if (checkedradio.val() == "All") {
+                $("#EntitySelection").addClass("hide");
+                $("#EntitySelected").addClass("hide");
+                var items = $("#ddlLocations option");
+                bindEmployeesByEntities(items, locationurl);
+            }
+            else {
+                var items = $("#ddlLocations option:selected");
+                bindEmployeesByEntities(items, locationurl);
+                $("#EntitySelection").removeClass("hide");
+                $("#divlocations").removeClass("hide");
+            }
+        });
+        grpDIVISION.click(function () {
+            logicfordisable("DIVISION");
+            grpEMPLOYEE.prop("disabled", true);
+            $("#divemployees").addClass("hide");
+            $("#divcategorys").addClass("hide");
+            $("#divlocations").addClass("hide");
+            $("#divdepartments").addClass("hide");
+            $("#divcompanies").addClass("hide");
+            $("#divgroups").addClass("hide");
+            $("#divgrade").addClass("hide");
+            $("#divdesignation").addClass("hide");
+            myTable.clear();
+            myTable.draw();
+            $("#tableOne tbody").empty();
+            var checkedradio = grpDIVISION.filter(":checked");
+            if (checkedradio.val() == "All") {
+                $("#EntitySelection").addClass("hide");
+                $("#EntitySelected").addClass("hide");
+                var items = $("#ddlDivisions option");
+                bindEmployeesByEntities(items, divisionurl);
+            }
+            else {
+                var items = $("#ddlDivisions option:selected");
+                bindEmployeesByEntities(items, divisionurl);
+                $("#EntitySelection").removeClass("hide");
+                $("#divdivisions").removeClass("hide");
+            }
+        });
+        grpDEPARTMENT.click(function () {
+            logicfordisable("DEPARTMENT");
+            grpEMPLOYEE.prop("disabled", true);
+            $("#divemployees").addClass("hide");
+            $("#divcategorys").addClass("hide");
+            $("#divlocations").addClass("hide");
+            $("#divdivisions").addClass("hide");
+            $("#divcompanies").addClass("hide");
+            $("#divgroups").addClass("hide");
+            $("#divgrade").addClass("hide");
+            $("#divdesignation").addClass("hide");
+            myTable.clear();
+            myTable.draw();
+            $("#tableOne tbody").empty();
+            var checkedradio = grpDEPARTMENT.filter(":checked");
+            if (checkedradio.val() == "All") {
+                $("#EntitySelection").addClass("hide");
+                $("#EntitySelected").addClass("hide");
+                var items = $("#ddlDepartments option");
+                bindEmployeesByEntities(items, departmenturl);
+            }
+            else {
+                var items = $("#ddlDepartments option:selected");
+                bindEmployeesByEntities(items, departmenturl);
+                $("#EntitySelection").removeClass("hide");
+                $("#divdepartments").removeClass("hide");
+            }
+        });
+        grpGROUP.click(function () {
+            logicfordisable("GROUP");
+            grpEMPLOYEE.prop("disabled", true);
+            $("#divemployees").addClass("hide");
+            $("#divcategorys").addClass("hide");
+            $("#divlocations").addClass("hide");
+            $("#divdivisions").addClass("hide");
+            $("#divcompanies").addClass("hide");
+            $("#divdepartments").addClass("hide");
+            $("#divgrade").addClass("hide");
+            $("#divdesignation").addClass("hide");
+            myTable.clear();
+            myTable.draw();
+            $("#tableOne tbody").empty();
+            var checkedradio = grpGROUP.filter(":checked");
+            if (checkedradio.val() == "All") {
+                $("#EntitySelection").addClass("hide");
+                $("#EntitySelected").addClass("hide");
+                var items = $("#ddlgroups option");
+                bindEmployeesByEntities(items, groupurl);
+            }
+            else {
+                var items = $("#ddlgroups option:selected");
+                bindEmployeesByEntities(items, groupurl);
+                $("#EntitySelection").removeClass("hide");
+                $("#divgroups").removeClass("hide");
+            }
+        });
+        grpGRADE.click(function () {
+            logicfordisable("GRADE");
+            grpEMPLOYEE.prop("disabled", true);
+            $("#divemployees").addClass("hide");
+            $("#divcategorys").addClass("hide");
+            $("#divlocations").addClass("hide");
+            $("#divdivisions").addClass("hide");
+            $("#divcompanies").addClass("hide");
+            $("#divdepartments").addClass("hide");
+            $("#divgroups").addClass("hide");
+            $("#divdesignation").addClass("hide");
+            myTable.clear();
+            myTable.draw();
+            $("#tableOne tbody").empty();
+            var checkedradio = grpGRADE.filter(":checked");
+            if (checkedradio.val() == "All") {
+                $("#EntitySelection").addClass("hide");
+                $("#EntitySelected").addClass("hide");
+                var items = $("#ddlgrades option");
+                bindEmployeesByEntities(items, gradeurl);
+            }
+            else {
+                var items = $("#ddlgrades option:selected");
+                bindEmployeesByEntities(items, gradeurl);
+                $("#EntitySelection").removeClass("hide");
+                $("#divgrade").removeClass("hide");
+            }
+        });
+        grpDESIGNATION.click(function () {
+            logicfordisable("DESIGNATION");
+            grpEMPLOYEE.prop("disabled", true);
+            $("#divemployees").addClass("hide");
+            $("#divcategorys").addClass("hide");
+            $("#divlocations").addClass("hide");
+            $("#divdivisions").addClass("hide");
+            $("#divcompanies").addClass("hide");
+            $("#divdepartments").addClass("hide");
+            $("#divgroups").addClass("hide");
+            $("#divgrade").addClass("hide");
+            myTable.clear();
+            myTable.draw();
+            $("#tableOne tbody").empty();
+            var checkedradio = grpDESIGNATION.filter(":checked");
+            if (checkedradio.val() == "All") {
+                $("#EntitySelection").addClass("hide");
+                $("#EntitySelected").addClass("hide");
+                var items = $("#ddldesignation option");
+                bindEmployeesByEntities(items, designationurl);
+            }
+            else {
+                var items = $("#ddldesignation option:selected");
+                bindEmployeesByEntities(items, designationurl);
+                $("#EntitySelection").removeClass("hide");
+                $("#divdesignation").removeClass("hide");
+            }
+        });
+
+        //ends the logic of radio button click
+
+        //logic for change of list
+        $("#ddlEmployees").change(function () {
+            if ($("#ddlEmployees option:selected").length > 0) {
+                var items = $("#ddlEmployees option:selected");
+                commonfuc("ec.COMPANY_ID", 1, "EMPLOYEE");
+                bindTable(items);
+
+                var datapull = "";
+                $.each(items, function (key, value) {
+                    bindTable(value.value);
+                });
+
+
+
+            }
+            else {
+                myTable.clear();
+                myTable.draw();
+                $("#tableOne tbody").empty();
+            }
+        });
+        $("#ddlCompanies").change(function () {
+            if ($("#ddlCompanies option:selected").length > 0) {
+                
+                var items = $("#ddlCompanies option:selected");
+                console.log(items);
+                var datapull = "";
+                $.each(items, function (key, value) {
+                    datapull = datapull + value.value + ",";
+                });
+                datapull = datapull.slice(0, -1);
+                datapull = datapull + "";
+                console.log("ec.COMPANY_ID " + datapull);
+                commonfuc(datapull, "ec-COMPANY_ID");
+                bindEmployeesByEntities(items, companyurl);
+            }
+            else {
+                myTable.clear();
+                myTable.draw();
+                $("#tableOne tbody").empty();
+            }
+        });
+        $("#ddlLocations").change(function () {
+            if ($("#ddlLocations option:selected").length > 0) {
+                var items = $("#ddlLocations option:selected");
+                bindEmployeesByEntities(items, locationurl);
+                var datapull = "";
+                $.each(items, function (key, value) {
+                    datapull = datapull + value.value + ",";
+                });
+                datapull = datapull.slice(0, -1);
+                datapull = datapull + "";
+                commonfuc(datapull, "LOC-ID", "LOCATION");
+            }
+            else {
+                myTable.clear();
+                myTable.draw();
+                $("#tableOne tbody").empty();
+            }
+        });
+        $("#ddlDivisions").change(function () {
+            if ($("#ddlDivisions option:selected").length > 0) {
+                var items = $("#ddlDivisions option:selected");
+                bindEmployeesByEntities(items, divisionurl);
+                var datapull = "";
+                $.each(items, function (key, value) {
+                    datapull = datapull + value.value + ",";
+                });
+                datapull = datapull.slice(0, -1);
+                datapull = datapull + "";
+
+                commonfuc(datapull, "DIV-ID", "DIVISION");
+            }
+            else {
+                myTable.clear();
+                myTable.draw();
+                $("#tableOne tbody").empty();
+            }
+        });
+        $("#ddlDepartments").change(function () {
+            if ($("#ddlDepartments option:selected").length > 0) {
+                var items = $("#ddlDepartments option:selected");
+                bindEmployeesByEntities(items, departmenturl);
+                var datapull = "";
+                $.each(items, function (key, value) {
+                    datapull = datapull + value.value + ",";
+                });
+                datapull = datapull.slice(0, -1);
+                datapull = datapull + "";
+                commonfuc(datapull, "DEPT-ID", "DEPARTMENT");
+            }
+            else {
+                myTable.clear();
+                myTable.draw();
+                $("#tableOne tbody").empty();
+            }
+        });
+        $("#ddlCategorys").change(function () {
+            
+            if ($("#ddlCategorys option:selected").length > 0) {
+                var items = $("#ddlCategorys option:selected");
+                bindEmployeesByEntities(items, categoryurl);
+                var datapull = "";
+                $.each(items, function (key, value) {
+                    datapull = datapull + value.value + ",";
+                });
+                datapull = datapull.slice(0, -1);
+                datapull = datapull + "";
+                commonfuc(datapull, "CAT-ID", "CATEGORY");
+            }
+            else {
+                myTable.clear();
+                myTable.draw();
+                $("#tableOne tbody").empty();
+            }
+        });
+        $("#ddlgroups").change(function () {
+            if ($("#ddlgroups option:selected").length > 0) {
+                var items = $("#ddlgroups option:selected");
+                bindEmployeesByEntities(items, groupurl);
+                var datapull = "";
+                $.each(items, function (key, value) {
+                    datapull = datapull + value.value + ",";
+                });
+                datapull = datapull.slice(0, -1);
+                datapull = datapull + "";
+                commonfuc(datapull, "GRP-ID", "GROUP");
+            }
+            else {
+                myTable.clear();
+                myTable.draw();
+                $("#tableOne tbody").empty();
+            }
+        });
+        $("#ddlgrades").change(function () {
+            if ($("#ddlgrades option:selected").length > 0) {
+                var items = $("#ddlgrades option:selected");
+                bindEmployeesByEntities(items, gradeurl);
+                var datapull = "";
+                $.each(items, function (key, value) {
+                    datapull = datapull + value.value + ",";
+                });
+                datapull = datapull.slice(0, -1);
+                datapull = datapull + "";
+                commonfuc(datapull, "GRD-ID", "GRADE");
+            }
+            else {
+                myTable.clear();
+                myTable.draw();
+                $("#tableOne tbody").empty();
+            }
+        });
+        $("#ddldesignation").change(function () {
+            if ($("#ddldesignation option:selected").length > 0) {
+                var items = $("#ddldesignation option:selected");
+                bindEmployeesByEntities(items, designationurl);
+                var datapull = "";
+                $.each(items, function (key, value) {
+                    datapull = datapull + value.value + ",";
+                });
+                datapull = datapull.slice(0, -1);
+                datapull = datapull + "";
+                commonfuc(datapull, "DESG-ID", "DESIGNATION");
+            }
+            else {
+                myTable.clear();
+                myTable.draw();
+                $("#tableOne tbody").empty();
+            }
+        });
+        //end logic for change of list
+
+
+
+
+        $(".btnclose").click(function () {
+            $("#EntitySelection").addClass("hide");
+        });
+
+
+        //region BIND TABLE
+
+
+        function bindTable(items) {
+            var uri = '@System.Configuration.ConfigurationManager.AppSettings["APIUrl"].ToString()';
+            $("#tableOne tbody").empty();
+            myTable.clear();
+            $.each(items, function (key, value) {
+                console.log(key);
+                console.log("Value  " + value.value);
+                var str = value.text;
+                var res = str.split(" - ");
+
+                var row = ''
+                row += '<tr>';
+                row += '<td>';
+                var empId = '@Html.TextBoxFor(model => Model.Employees[-1].EMPLOYEE_ID, new { Value = "$empid" })';
+                empId = empId.replace("[-1]", "[" + key + "]");
+                empId = empId.replace("-1", key);
+                empId = empId.replace("$empid", value.value);
+                row += empId;
+                row += '</td>';
+
+
+
+                row += '</tr>';
+                var result = [];
+                result.push(res[1]);
+                result.push(res[0]);
+
+                var Result = result;
+
+
+                myTable.row.add(Result);
+                myTable.draw();
+                $("#tableOne tbody").append(row);
+
+
+            });
+        }
+
+        function bindEmployeesByEntities(items, url) {
+            var uri = '@System.Configuration.ConfigurationManager.AppSettings["APIUrl"].ToString()';
+            var userid = '@Session["ACTIVE_USER"].ToString()';
+            var headers = {};
+            if (userid) {
+                headers.activeuser = userid;
+            }
+            $("#tableOne tbody").empty();
+            myTable.clear();
+            $.each(items, function (key, value) {
+                console.log(key);
+                console.log("CALUEE" + value.value);
+                var i = 0;
+                $.ajax({
+                    type: 'GET',
+                    headers: headers,
+                    url: uri + url + "/" + value.value,
+
+                    success: function (data) {
+
+                        if (data) {
+                            bindTableByEntities(data)
+                        }
+                        else {
+
+                        }
+                    },
+                    error: function (jqXHR) {
+                        
+                    }
+                });
+            });
+        }
+
+        function bindTableByEntities(items) {
+            $.each(items, function (key, value) {
+
+                var row = ''
+                row += '<tr>';
+                row += '<td>';
+                var empId = '@Html.TextBoxFor(model => Model.Employees[-1].EMPLOYEE_ID, new { Value = "$empid" })';
+                empId = empId.replace("[-1]", "[" + key + "]");
+                empId = empId.replace("-1", key);
+                empId = empId.replace("$empid", value.EMPLOYEE_ID);
+                row += empId;
+                row += '</td>';
+                row += '<td>';
+
+
+                row += '</tr>';
+                var result = [];
+                result.push(value.EOD_EMPID);
+                result.push(value.FULL_NAME);
+
+                var Result = result;
+
+
+                myTable.row.add(Result);
+                myTable.draw();
+                $("#tableOne tbody").append(row);
+            });
+        }
+
+        var form = $("form");
+        form.data('validator', null);
+        $.validator.unobtrusive.parse(form);
+
+
+        //common function for as soon as selecting the data from dropdown
+        function commonfuc(id, typeofdata,valuefordisable) {
+            console.log(id + "    data    " + typeofdata);
+            $(".okbtn").click(function () {
+                $("#EntitySelected").removeClass("hide");
+                $("#EntitySelection").addClass("hide");
+                $("input[name=" + valuefordisable + "]").prop("disabled", true);
+                $.ajax(
+            {
+                type: 'GET',
+                headers: headers,
+                url: uri + "CommonAPI/FilterValuess/" + id + "/" + typeofdata,
+                success: function (data) {
+
+                    console.log(data);
+                    var comdropdown1 = $('#ddlCompanies');
+                    var catdropdown1 = $('#ddlCategorys');
+                    var locdropdown1 = $('#ddlLocations');
+                    var divdropdown1 = $('#ddlDivisions');
+                    var deptdropdown1 = $('#ddlDepartments');
+                    var grpdropdown1 = $('#ddlgroups');
+                    var grddropdown1 = $('#ddlgrades');
+                    var desgdropdown1 = $('#ddldesignation');
+
+                    //empty the dropdown
+
+                    $("#ddlCategorys").multiSelect("destroy");
+                    $("#ddlCompanies").multiSelect("destroy");
+                    $("#ddlLocations").multiSelect("destroy");
+                    $("#ddlDivisions").multiSelect("destroy");
+                    $("#ddlDepartments").multiSelect("destroy");
+                    $("#ddlgroups").multiSelect("destroy");
+                    $("#ddlgrades").multiSelect("destroy");
+                    $("#ddldesignation").multiSelect("destroy");
+
+                    catdropdown1.empty();
+                    comdropdown1.empty();
+                    locdropdown1.empty();
+                    divdropdown1.empty();
+                    deptdropdown1.empty();
+                    grpdropdown1.empty();
+                    grddropdown1.empty();
+                    desgdropdown1.empty();
+
+
+                    //end here
+                    var catdata = "";
+                    var comdata = "";
+                    var locdata = "";
+                    var divdata = "";
+                    var deptdata = "";
+                    var grpdata = "";
+                    var grddata = "";
+                    var desgdata = "";
+                    if (data.length > 0) {
+                        for (var i = 0; i < data.length; i++) {
+                            if (data[i].Companyid == 0 || data[i].CompanyName == comdata)
+                            { } else { comdropdown1.append('<option value=' + data[i].Companyid + '> ' + data[i].CompanyName + '</option>'); }
+                            if (data[i].Categoryid == 0 || data[i].CategoryName == catdata) { } else { catdropdown1.append('<option value=' + data[i].Categoryid + '> ' + data[i].CategoryName + '</option>'); }
+                            if (data[i].Locationid == 0 || data[i].LocationName == locdata) { } else { locdropdown1.append('<option value=' + data[i].Locationid + '> ' + data[i].LocationName + '</option>'); }
+                            if (data[i].Divid == 0 || data[i].DivName == divdata) { } else { divdropdown1.append('<option value=' + data[i].Divid + '> ' + data[i].DivName + '</option>'); }
+                            if (data[i].Departmentid == 0 || data[i].DepartmentName == deptdata) { } else { deptdropdown1.append('<option value=' + data[i].Departmentid + '> ' + data[i].DepartmentName + '</option>'); }
+                            if (data[i].Groupid == 0 || data[i].GroupName == grpdata) { } else { grpdropdown1.append('<option value=' + data[i].Groupid + '> ' + data[i].GroupName + '</option>'); }
+                            if (data[i].Gradeid == 0 || data[i].GradeName == grddata) { } else { grddropdown1.append('<option value=' + data[i].Gradeid + '> ' + data[i].GradeName + '</option>'); }
+                            if (data[i].Designationid == 0 || data[i].DesignationName == desgdata) { } else { desgdropdown1.append('<option value=' + data[i].Designationid + '> ' + data[i].DesignationName + '</option>'); }
+                            catdata = data[i].CategoryName;
+                            comdata = data[i].CompanyName;
+                            locdata = data[i].LocationName;
+                            divdata = data[i].DivName;
+                            deptdata = data[i].DepartmentName;
+                            grpdata = data[i].GroupName;
+                            grddata = data[i].GradeName;
+                            desgdata = data[i].DesignationName;
+
+                        }
+                    }
+                    //refresh the multi function
+
+                    binddropempty();
+
+
+
+
+
+
+                },
+                error: function () {
+
+                }
+
+            });
+
+            });
+
+
+        }
+
+
+
+
+    }, 5000);
+
+
+
+    function binddropempty() {
+
+
+
+        $('#ddlCategorys').multiSelect({
+            selectableHeader: "<input type='text' class='search-input' autocomplete='off' placeholder='Search'>",
+            selectionHeader: "<input type='text' class='search-input' autocomplete='off' placeholder='Search'>",
+            afterInit: function (ms) {
+                var that = this,
+                    $selectableSearch = that.$selectableUl.prev(),
+                    $selectionSearch = that.$selectionUl.prev(),
+                    selectableSearchString = '#' + that.$container.attr('id') + ' .ms-elem-selectable:not(.ms-selected)',
+                    selectionSearchString = '#' + that.$container.attr('id') + ' .ms-elem-selection.ms-selected';
+
+                that.qs1 = $selectableSearch.quicksearch(selectableSearchString)
+                .on('keydown', function (e) {
+                    if (e.which === 40) {
+                        that.$selectableUl.focus();
+                        return false;
+                    }
+                });
+
+                that.qs2 = $selectionSearch.quicksearch(selectionSearchString)
+                .on('keydown', function (e) {
+                    if (e.which == 40) {
+                        that.$selectionUl.focus();
+                        return false;
+                    }
+                });
+
+            },
+            afterSelect: function () {
+                this.qs1.cache();
+                this.qs2.cache();
+            },
+            afterDeselect: function () {
+                this.qs1.cache();
+                this.qs2.cache();
+            }
+
+        });
+
+        $('#ddlCompanies').multiSelect({
+            selectableHeader: "<input type='text' class='search-input' autocomplete='off' placeholder='Search'>",
+            selectionHeader: "<input type='text' class='search-input' autocomplete='off' placeholder='Search'>",
+            afterInit: function (ms) {
+                var that = this,
+                    $selectableSearch = that.$selectableUl.prev(),
+                    $selectionSearch = that.$selectionUl.prev(),
+                    selectableSearchString = '#' + that.$container.attr('id') + ' .ms-elem-selectable:not(.ms-selected)',
+                    selectionSearchString = '#' + that.$container.attr('id') + ' .ms-elem-selection.ms-selected';
+
+                that.qs1 = $selectableSearch.quicksearch(selectableSearchString)
+                .on('keydown', function (e) {
+                    if (e.which === 40) {
+                        that.$selectableUl.focus();
+                        return false;
+                    }
+                });
+
+                that.qs2 = $selectionSearch.quicksearch(selectionSearchString)
+                .on('keydown', function (e) {
+                    if (e.which == 40) {
+                        that.$selectionUl.focus();
+                        return false;
+                    }
+                });
+
+            },
+            afterSelect: function () {
+                this.qs1.cache();
+                this.qs2.cache();
+            },
+            afterDeselect: function () {
+                this.qs1.cache();
+                this.qs2.cache();
+            }
+
+        });
+
+        $('#ddlLocations').multiSelect({
+            selectableHeader: "<input type='text' class='search-input' autocomplete='off' placeholder='Search'>",
+            selectionHeader: "<input type='text' class='search-input' autocomplete='off' placeholder='Search'>",
+            afterInit: function (ms) {
+                var that = this,
+                    $selectableSearch = that.$selectableUl.prev(),
+                    $selectionSearch = that.$selectionUl.prev(),
+                    selectableSearchString = '#' + that.$container.attr('id') + ' .ms-elem-selectable:not(.ms-selected)',
+                    selectionSearchString = '#' + that.$container.attr('id') + ' .ms-elem-selection.ms-selected';
+
+                that.qs1 = $selectableSearch.quicksearch(selectableSearchString)
+                .on('keydown', function (e) {
+                    if (e.which === 40) {
+                        that.$selectableUl.focus();
+                        return false;
+                    }
+                });
+
+                that.qs2 = $selectionSearch.quicksearch(selectionSearchString)
+                .on('keydown', function (e) {
+                    if (e.which == 40) {
+                        that.$selectionUl.focus();
+                        return false;
+                    }
+                });
+
+            },
+            afterSelect: function () {
+                this.qs1.cache();
+                this.qs2.cache();
+            },
+            afterDeselect: function () {
+                this.qs1.cache();
+                this.qs2.cache();
+            }
+
+        });
+
+        $('#ddlDivisions').multiSelect({
+            selectableHeader: "<input type='text' class='search-input' autocomplete='off' placeholder='Search'>",
+            selectionHeader: "<input type='text' class='search-input' autocomplete='off' placeholder='Search'>",
+            afterInit: function (ms) {
+                var that = this,
+                    $selectableSearch = that.$selectableUl.prev(),
+                    $selectionSearch = that.$selectionUl.prev(),
+                    selectableSearchString = '#' + that.$container.attr('id') + ' .ms-elem-selectable:not(.ms-selected)',
+                    selectionSearchString = '#' + that.$container.attr('id') + ' .ms-elem-selection.ms-selected';
+
+                that.qs1 = $selectableSearch.quicksearch(selectableSearchString)
+                .on('keydown', function (e) {
+                    if (e.which === 40) {
+                        that.$selectableUl.focus();
+                        return false;
+                    }
+                });
+
+                that.qs2 = $selectionSearch.quicksearch(selectionSearchString)
+                .on('keydown', function (e) {
+                    if (e.which == 40) {
+                        that.$selectionUl.focus();
+                        return false;
+                    }
+                });
+
+            },
+            afterSelect: function () {
+                this.qs1.cache();
+                this.qs2.cache();
+            },
+            afterDeselect: function () {
+                this.qs1.cache();
+                this.qs2.cache();
+            }
+
+        });
+
+        $('#ddlDepartments').multiSelect({
+            selectableHeader: "<input type='text' class='search-input' autocomplete='off' placeholder='Search'>",
+            selectionHeader: "<input type='text' class='search-input' autocomplete='off' placeholder='Search'>",
+            afterInit: function (ms) {
+                var that = this,
+                    $selectableSearch = that.$selectableUl.prev(),
+                    $selectionSearch = that.$selectionUl.prev(),
+                    selectableSearchString = '#' + that.$container.attr('id') + ' .ms-elem-selectable:not(.ms-selected)',
+                    selectionSearchString = '#' + that.$container.attr('id') + ' .ms-elem-selection.ms-selected';
+
+                that.qs1 = $selectableSearch.quicksearch(selectableSearchString)
+                .on('keydown', function (e) {
+                    if (e.which === 40) {
+                        that.$selectableUl.focus();
+                        return false;
+                    }
+                });
+
+                that.qs2 = $selectionSearch.quicksearch(selectionSearchString)
+                .on('keydown', function (e) {
+                    if (e.which == 40) {
+                        that.$selectionUl.focus();
+                        return false;
+                    }
+                });
+
+            },
+            afterSelect: function () {
+                this.qs1.cache();
+                this.qs2.cache();
+            },
+            afterDeselect: function () {
+                this.qs1.cache();
+                this.qs2.cache();
+            }
+
+        });
+
+        $('#ddlgroups').multiSelect({
+            selectableHeader: "<input type='text' class='search-input' autocomplete='off' placeholder='Search'>",
+            selectionHeader: "<input type='text' class='search-input' autocomplete='off' placeholder='Search'>",
+            afterInit: function (ms) {
+                var that = this,
+                    $selectableSearch = that.$selectableUl.prev(),
+                    $selectionSearch = that.$selectionUl.prev(),
+                    selectableSearchString = '#' + that.$container.attr('id') + ' .ms-elem-selectable:not(.ms-selected)',
+                    selectionSearchString = '#' + that.$container.attr('id') + ' .ms-elem-selection.ms-selected';
+
+                that.qs1 = $selectableSearch.quicksearch(selectableSearchString)
+                .on('keydown', function (e) {
+                    if (e.which === 40) {
+                        that.$selectableUl.focus();
+                        return false;
+                    }
+                });
+
+                that.qs2 = $selectionSearch.quicksearch(selectionSearchString)
+                .on('keydown', function (e) {
+                    if (e.which == 40) {
+                        that.$selectionUl.focus();
+                        return false;
+                    }
+                });
+
+            },
+            afterSelect: function () {
+                this.qs1.cache();
+                this.qs2.cache();
+            },
+            afterDeselect: function () {
+                this.qs1.cache();
+                this.qs2.cache();
+            }
+
+
+        });
+
+        $('#ddlgrades').multiSelect({
+            selectableHeader: "<input type='text' class='search-input' autocomplete='off' placeholder='Search'>",
+            selectionHeader: "<input type='text' class='search-input' autocomplete='off' placeholder='Search'>",
+            afterInit: function (ms) {
+                var that = this,
+                    $selectableSearch = that.$selectableUl.prev(),
+                    $selectionSearch = that.$selectionUl.prev(),
+                    selectableSearchString = '#' + that.$container.attr('id') + ' .ms-elem-selectable:not(.ms-selected)',
+                    selectionSearchString = '#' + that.$container.attr('id') + ' .ms-elem-selection.ms-selected';
+
+                that.qs1 = $selectableSearch.quicksearch(selectableSearchString)
+                .on('keydown', function (e) {
+                    if (e.which === 40) {
+                        that.$selectableUl.focus();
+                        return false;
+                    }
+                });
+
+                that.qs2 = $selectionSearch.quicksearch(selectionSearchString)
+                .on('keydown', function (e) {
+                    if (e.which == 40) {
+                        that.$selectionUl.focus();
+                        return false;
+                    }
+                });
+
+            },
+            afterSelect: function () {
+                this.qs1.cache();
+                this.qs2.cache();
+            },
+            afterDeselect: function () {
+                this.qs1.cache();
+                this.qs2.cache();
+            }
+
+        });
+
+        $('#ddldesignation').multiSelect({
+            selectableHeader: "<input type='text' class='search-input' autocomplete='off' placeholder='Search'>",
+            selectionHeader: "<input type='text' class='search-input' autocomplete='off' placeholder='Search'>",
+            afterInit: function (ms) {
+                var that = this,
+                    $selectableSearch = that.$selectableUl.prev(),
+                    $selectionSearch = that.$selectionUl.prev(),
+                    selectableSearchString = '#' + that.$container.attr('id') + ' .ms-elem-selectable:not(.ms-selected)',
+                    selectionSearchString = '#' + that.$container.attr('id') + ' .ms-elem-selection.ms-selected';
+
+                that.qs1 = $selectableSearch.quicksearch(selectableSearchString)
+                .on('keydown', function (e) {
+                    if (e.which === 40) {
+                        that.$selectableUl.focus();
+                        return false;
+                    }
+                });
+
+                that.qs2 = $selectionSearch.quicksearch(selectionSearchString)
+                .on('keydown', function (e) {
+                    if (e.which == 40) {
+                        that.$selectionUl.focus();
+                        return false;
+                    }
+                });
+
+            },
+            afterSelect: function () {
+                this.qs1.cache();
+                this.qs2.cache();
+            },
+            afterDeselect: function () {
+                this.qs1.cache();
+                this.qs2.cache();
+            }
+
+        });
+
+        $('#ddlEmployees').multiSelect({
+            selectableHeader: "<input type='text' class='search-input' autocomplete='off' placeholder='Search'>",
+            selectionHeader: "<input type='text' class='search-input' autocomplete='off' placeholder='Search'>",
+            afterInit: function (ms) {
+                var that = this,
+                    $selectableSearch = that.$selectableUl.prev(),
+                    $selectionSearch = that.$selectionUl.prev(),
+                    selectableSearchString = '#' + that.$container.attr('id') + ' .ms-elem-selectable:not(.ms-selected)',
+                    selectionSearchString = '#' + that.$container.attr('id') + ' .ms-elem-selection.ms-selected';
+
+                that.qs1 = $selectableSearch.quicksearch(selectableSearchString)
+                .on('keydown', function (e) {
+                    if (e.which === 40) {
+                        that.$selectableUl.focus();
+                        return false;
+                    }
+                });
+
+                that.qs2 = $selectionSearch.quicksearch(selectionSearchString)
+                .on('keydown', function (e) {
+                    if (e.which == 40) {
+                        that.$selectionUl.focus();
+                        return false;
+                    }
+                });
+
+            },
+            afterSelect: function () {
+                this.qs1.cache();
+                this.qs2.cache();
+            },
+            afterDeselect: function () {
+                this.qs1.cache();
+                this.qs2.cache();
+            }
+
+        });
+
+    }
+
+
+
+
+
+    function logicfordisable(nameofclicked) {
+        
+
+        for (var j = 0; j < listofloop.length; j++) {
+            if (listofloop[j] == nameofclicked) {
+                break;
+            }
+            else {
+                $("input[name=" + listofloop[j] + "]").prop("disabled", true);
+            }
+
+        }
+    }
+
+    //endregion
+
+    $(document).ready(function () {
+        $('#dynamicdisp').hide();
+        $(function () {
+            var timer = setInterval(function () {
+                $("#count_num").html(function (i, html) {
+
+                    if (parseInt(html) > 1) {
+                        return parseInt(html) - 1;
+                    }
+                    else {
+                        clearTimeout(timer);
+                        return "";
+                    }
+                });
+
+            }, 1000);
+
+
+
+        });
+
+        var divtoshow = $('#mydiv');
+        divtoshow.show();
+        divtoshow.find(".message").text('Please WAIT');
+
+
+        myTable = $("#lsttable").DataTable();
+
+        $.ajax(
+        {
+            type: 'GET',
+            headers: headers,
+            url: uri + "CommonTypesApi/get",
+            success: function (data) {
+                console.log(data);
+                var ids = 1;
+                for (var i = 0; i < data.length; i++) {
+
+                    if (i == 0) {
+                        $('#dynamicdisp').append('<div class="col-sm-2"> <div class="form-group" id="' + data[i].CommonTypes + '' + ids + '"> <strong>' + data[i].CommonTypes + '</strong> <br /> <label class="radio-inline mt5"> <input type="radio" name="' + data[i].CommonTypes + '" value="All" id="' + data[i].CommonTypes + '"> All </label><br/> <label> <input type="radio" name="' + data[i].CommonTypes + '" value="select" id="' + data[i].CommonTypes + '"> Select </label> </div> </div> ');
+                    }
+                    else {
+                        $('#dynamicdisp').append('<div class="col-sm-2 brl"> <div class="form-group" id="' + data[i].CommonTypes + '' + ids + '"> <strong>' + data[i].CommonTypes + '</strong> <br /> <label class="radio-inline mt5"> <input type="radio" name="' + data[i].CommonTypes + '" value="All" id="' + data[i].CommonTypes + '"> All </label><br/> <label> <input type="radio" name="' + data[i].CommonTypes + '" value="select" id="' + data[i].CommonTypes + '"> Select </label> </div> </div>');
+                    }
+                    ids++;
+                    listofloop.push(data[i].CommonTypes);
+
+                }
+
+
+            },
+            error: function () {
+
+            }
+
+        });
+
+
+
+
+    });
+
+
+
+</script>
+
+

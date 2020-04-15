@@ -1,0 +1,293 @@
+﻿@model UNO.AppModel.Category
+
+@{
+    ViewBag.Title = "Details";
+}
+<div class="main-container" style="clear:both; min-height: 601px;">
+    <!-- Container fluid Starts -->
+    <div class="container-fluid">
+        <!-- Spacer Starts -->
+        <div class="spacer clearfix">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="blog blog-default ">
+                        <div class="blog-header ">
+                            <h4 class="blog-title pull-left mt5">View </h4>  <span class="pull-right"><a class="btn btn-default" href="@Url.Action("Index")" data-original-title="" title=""><i class="fa fa-arrow-left"></i> Back </a> </span>
+                            <span class="clearfix"></span>
+                        </div>
+                        <div class="blog-body">
+
+                            <form class="form-horizontal" role="form">
+
+                                <div class="row ">
+                                    <div class="col-md-6 ">
+                                        <fieldset>
+                                            <legend>Company</legend>
+                                            <div class="form-group row">
+                                                <div class="col-sm-6">
+                                                    @Html.HiddenFor(model => model.MODIFIEDBY, new { Value = @HttpContext.Current.Session["User"].ToString() })
+                                                    @Html.HiddenFor(model => model.CATEGORY_ID)
+                                                    @Html.LabelFor(model => model.COMPANY_ID, new { @class = "control-label" })
+                                                    @Html.DropDownListFor(model => model.COMPANY_ID, (IEnumerable<SelectListItem>)ViewBag.Companies, "Select", new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(model => model.COMPANY_ID, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <fieldset>
+                                            <legend>Category </legend>
+                                            <div class="form-group row">
+                                                <div class="col-sm-6">
+                                                    @Html.LabelFor(model => model.ORG_CATEGORY_ID, new { @class = "control-label" })
+                                                    @Html.DropDownListFor(model => model.ORG_CATEGORY_ID, (IEnumerable<SelectListItem>)ViewBag.Categories, "Select", new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(model => model.ORG_CATEGORY_ID, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <fieldset>
+                                            <legend>Grace Timing</legend>
+                                            <div class="form-group row">
+                                                <div class="col-sm-6">
+                                                    @Html.LabelFor(model => model.EARLY_GOING, new { @class = "control-label" })
+                                                    @Html.EditorFor(model => model.EARLY_GOING, new { @class = "form-control", Placeholder = "EARLY GOING" })
+                                                    @Html.ValidationMessageFor(model => model.EARLY_GOING, "", new { @class = "text-danger" })
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    @Html.LabelFor(model => model.LATE_COMING, new { @class = "control-label" })
+                                                    @Html.EditorFor(model => model.LATE_COMING, new { @class = "form-control", Placeholder = "LATE COMING" })
+                                                    @Html.ValidationMessageFor(model => model.LATE_COMING, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <fieldset>
+                                            <legend>
+                                                <label class="checkbox-inline pt0">
+                                                    @Html.CheckBoxFor(model => model.EXTRA_CHECK)
+                                                    @Html.LabelFor(model => model.EXTRA_CHECK, new { @class = "control-label" })
+                                                    @Html.ValidationMessageFor(model => model.EXTRA_CHECK, "", new { @class = "text-danger" })
+                                                </label>
+                                            </legend>
+                                            <div class="form-group row">
+                                                <div class="col-sm-6">
+                                                    @Html.LabelFor(model => model.EXHRS_BEFORE_SHIFT_HRS, new { @class = "control-label" })
+                                                    @Html.EditorFor(model => model.EXHRS_BEFORE_SHIFT_HRS, new { @class = "form-control", Placeholder = "LATE COMING" })
+                                                    @Html.ValidationMessageFor(model => model.EXHRS_BEFORE_SHIFT_HRS, "", new { @class = "text-danger" })
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    @Html.LabelFor(model => model.EXHRS_AFTER_SHIFT_HRS, new { @class = "control-label" })
+                                                    @Html.EditorFor(model => model.EXHRS_AFTER_SHIFT_HRS, new { @class = "form-control", Placeholder = "LATE COMING" })
+                                                    @Html.ValidationMessageFor(model => model.EXHRS_AFTER_SHIFT_HRS, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <fieldset>
+                                            <legend>@Html.LabelFor(model => model.COMPENSATORYOFF_CODE, new { @class = "control-label" })</legend>
+                                            <div class="form-group row">
+                                                <div class="col-sm-6">
+                                                    @Html.TextBoxFor(model => model.COMPENSATORYOFF_CODE, new { @class = "form-control", Placeholder = "Compensatory Off", @readonly = true })
+                                                    @Html.ValidationMessageFor(model => model.COMPENSATORYOFF_CODE, "", new { @class = "text-danger" })
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <label class="checkbox-inline ">
+                                                        <input type="checkbox" id="chkWeekEnd" value="option1"> Weekend
+                                                    </label>
+                                                    <label class="checkbox-inline ">
+                                                        <input type="checkbox" id="chkWeekOff" value="option1"> Weekoff
+                                                    </label>
+                                                    <div class="clearfix"></div>
+                                                    <label class="checkbox-inline ">
+                                                        <input type="checkbox" id="chkHoliday" value="option1"> Holiday &nbsp;&nbsp;
+                                                    </label>
+                                                    <label class="checkbox-inline ">
+                                                        <input type="checkbox" id="chkWeekDay" value="option1"> WeekDay
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <fieldset>
+                                            <legend>Deduct From Extra Hours</legend>
+                                            <div class="form-group row">
+
+                                                <div class="col-sm-6">
+                                                    <label class="checkbox-inline ">
+                                                        @Html.CheckBoxFor(model => model.DED_FROM_EXHRS_EARLY_GOING)
+                                                        @Html.LabelFor(model => model.DED_FROM_EXHRS_EARLY_GOING, new { @class = "control-label" })
+                                                        @Html.ValidationMessageFor(model => model.DED_FROM_EXHRS_EARLY_GOING, "", new { @class = "text-danger" })
+                                                    </label>
+                                                    <div class="clearfix"></div>
+                                                    <label class="checkbox-inline ">
+                                                        @Html.CheckBoxFor(model => model.DED_FROM_EXHRS_LATE_COMING)
+                                                        @Html.LabelFor(model => model.DED_FROM_EXHRS_LATE_COMING, new { @class = "control-label" })
+                                                        @Html.ValidationMessageFor(model => model.DED_FROM_EXHRS_LATE_COMING, "", new { @class = "text-danger" })
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                </div>
+
+                            </form>
+
+                        </div>
+                      
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- Spacer Ends -->
+    </div>
+    <!-- Container fluid ends -->
+</div>
+
+<script type="text/javascript">
+    $("#btnReset").click(function () {
+        checkCheckbox();
+    });
+    $(document).ready(function () {
+        $('#EARLY_GOING').addClass('form-control');
+        $('#LATE_COMING').addClass('form-control');
+        $('#EXHRS_BEFORE_SHIFT_HRS').addClass('form-control');
+        $('#EXHRS_AFTER_SHIFT_HRS').addClass('form-control');
+
+        $("#chkWeekEnd,#chkWeekOff,#chkHoliday,#chkWeekDay").click(function () {
+            CheckCompOff();
+        })
+
+        checkCheckbox();
+    });
+
+    function checkCheckbox() {
+        if ($("#COMPENSATORYOFF_CODE").val() != "") {
+            //$('#txtId').text().indexOf("sometext") !== -1
+            if ($("#COMPENSATORYOFF_CODE").val().indexOf("W1") !== -1) {
+                $("#chkWeekEnd").prop("checked", true);
+            }
+            if ($("#COMPENSATORYOFF_CODE").val().indexOf("W2") !== -1) {
+                $("#chkWeekOff").prop("checked", true);
+            }
+            if ($("#COMPENSATORYOFF_CODE").val().indexOf("HO") !== -1) {
+                $("#chkHoliday").prop("checked", true);
+            }
+            if ($("#COMPENSATORYOFF_CODE").val().indexOf("WD") !== -1) {
+                $("#chkWeekDay").prop("checked", true);
+            }
+        }
+    }
+
+    function CheckCompOff() {
+        var str = null;
+        var value = null;
+        var n = null;
+        var m = null;
+
+        str = $("#COMPENSATORYOFF_CODE").val();
+        if ($("#chkWeekEnd").is(':checked')) {
+            value = "W1";
+            if (str.match(value)) {
+            }
+            else {
+                str = str + value;
+            }
+            $("#COMPENSATORYOFF_CODE").val(str);
+        }
+        else {
+            value = "W1";
+            if (str.match(value)) {
+                m = str.search(value);
+                if (str.length == 2) {
+                    str = "";
+                }
+                else {
+                    m = str.search(value);
+                    var u = str.substr(m, 2);
+                    str = str.replace(u, '');
+                }
+            }
+            $("#COMPENSATORYOFF_CODE").val(str);
+        }
+        if ($("#chkWeekOff").is(':checked')) {
+            value = "W2";
+            if (str.match(value)) {
+            }
+            else {
+                str = str + value;
+            }
+            $("#COMPENSATORYOFF_CODE").val(str);
+        }
+        else {
+            value = "W2";
+            if (str.match(value)) {
+                m = str.search(value);
+                if (str.length == 2) {
+                    str = "";
+                }
+                else {
+                    m = str.search(value);
+                    var u = str.substr(m, 2);
+                    str = str.replace(u, '');
+                }
+            }
+            $("#COMPENSATORYOFF_CODE").val(str);
+        }
+        if ($("#chkHoliday").is(':checked')) {
+            value = "HO";
+            if (str.match(value)) {
+            }
+            else {
+                str = str + value;
+            }
+            $("#COMPENSATORYOFF_CODE").val(str);
+        }
+        else {
+            value = "HO";
+            if (str.match(value)) {
+                m = str.search(value);
+                if (str.length == 2) {
+                    str = "";
+                }
+                else {
+                    m = str.search(value);
+                    var u = str.substr(m, 2);
+                    str = str.replace(u, '');
+                }
+            }
+            $("#COMPENSATORYOFF_CODE").val(str);
+        }
+        if ($("#chkWeekDay").is(':checked')) {
+            value = "WD";
+            if (str.match(value)) {
+            }
+            else {
+                str = str + value;
+            }
+            $("#COMPENSATORYOFF_CODE").val(str);
+        }
+        else {
+            value = "WD";
+            if (str.match(value)) {
+                m = str.search(value);
+                if (str.length == 2) {
+                    str = "";
+                }
+                else {
+                    m = str.search(value);
+                    var u = str.substr(m, 2);
+                    str = str.replace(u, '');
+                }
+            }
+            $("#COMPENSATORYOFF_CODE").val(str);
+        }
+    }
+</script>

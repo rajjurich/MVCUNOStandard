@@ -1,0 +1,366 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<div class="top-bar">
+    <div class="page-title w_auto">
+
+    </div>
+    <div class="dropdown request_btn hidden-lg hidden-md  ">
+        <button class="btn dropdown-toggle btn-success btn-rounded" type="button" data-toggle="dropdown">
+            Request
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-right">
+            <li><a href="#"><i class="fa fa-plus-circle"></i> Create New Request</a></li>
+            <li><a href="#"><i class="fa fa-eye"></i> View Pending Request</a></li>
+            <li><a href="#"><i class="fa fa-eye"></i> View Awaiting Request</a></li>
+        </ul>
+    </div>
+    <ul class="stats hidden-sm ">
+        <!--<li>
+            <div class="stats-block hidden-sm hidden-xs">
+                <span id="downloads_graph"></span>						</div>
+            <div class="stats-details">
+                <h4>$<span id="today_income">580</span> <i class="fa fa-chevron-up up"></i></h4>
+                <h5>Today's Income</h5>
+            </div>
+        </li>-->
+        <li>
+
+            <button type="button" class="btn btn-danger btn-rounded " style="margin-top:3px; padding:5px 10px;"><i class="fa fa-plus-circle"></i> Create New Request</button>
+        </li>
+        <li>
+
+            <button type="button" class="btn btn-success btn-rounded " style="margin-top:3px; padding:5px 10px;"> <i class="fa fa-eye"></i> View Pending Request</button>
+        </li>
+        <li>
+
+            <button type="button" class="btn btn-fb btn-rounded " style="margin-top:3px; padding:5px 10px;"> <i class="fa fa-eye"></i> View Awaiting Request</button>
+        </li>
+    </ul>
+</div>
+<!-- Top Bar ends -->
+<!-- Main Container starts -->
+<div class="main-container" style="clear:both; min-height: 601px;">
+
+    <!-- Container fluid Starts -->
+    <div class="container-fluid">
+
+        <!-- Spacer Starts -->
+        <div class="spacer clearfix">
+            <div class="row">
+                <div class="col-md-3 col-sm-4">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="blog blog-success ">
+                                <div class="blog-header">
+                                    <h5 class="blog-title">Monthly Attendance Summary</h5>
+                                </div>
+                                <div class="blog-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-condensed table-bordered no-margin vertical-middle table-striped ">
+                                            <tbody>
+                                                <tr>
+                                                    <td>Present Days</td>
+                                                    <td>8                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Absent Days</td>
+                                                    <td>0</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Outdoor Days	</td>
+                                                    <td>0</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Out-Pass Days</td>
+                                                    <td>0</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>LWP Days	</td>
+                                                    <td>0</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="blog blog-success ">
+                                <div class="blog-header">
+                                    <h5 class="blog-title">Requests Pending For Approval</h5>
+                                </div>
+                                <div class="blog-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-condensed table-bordered no-margin vertical-middle table-striped ">
+                                            <tbody>
+                                                <tr>
+                                                    <td>Present Days</td>
+                                                    <td>1                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Absent Days</td>
+                                                    <td>0</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Outdoor Days	</td>
+                                                    <td>0</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Out-Pass Days</td>
+                                                    <td>0</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>LWP Days	</td>
+                                                    <td>0</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="blog blog-success ">
+                                <div class="blog-header">
+                                    <h5 class="blog-title">Requests Awaiting Your Approval</h5>
+                                </div>
+                                <div class="blog-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-condensed table-bordered no-margin vertical-middle table-striped ">
+                                            <tbody>
+                                                <tr>
+                                                    <td>Present Days</td>
+                                                    <td>0                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Absent Days</td>
+                                                    <td>0</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Outdoor Days	</td>
+                                                    <td>0</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Out-Pass Days</td>
+                                                    <td>0</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>LWP Days	</td>
+                                                    <td>0</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-4">
+                    <div class="blog">
+
+                        <div class="blog-body">
+
+                            <div id="attendanceCalendar" style="min-height:504px"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-4">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="blog">
+
+                                <div class="">
+                                    <div class="md-card">
+                                        <div class="user_heading">
+
+                                            <div class="user_heading_avatar">
+                                                <div class="thumbnail">
+                                                    @*<img src="img/user2.png" alt="user avatar" class="">*@
+                                                </div>
+                                            </div>
+                                            <div class="user_heading_content">
+                                                <h2 class="heading_b uk-margin-bottom"><span>Yogesh Shetty</span><br /><span class="sub-heading">	SOFTWARE ENGINEER</span></h2>
+                                            </div>
+                                        </div>
+                                        <div class="user_content">
+
+                                            <ul class="appointments mt0">
+                                                <li><i class="fa fa-circle text-danger"></i><strong>ID:</strong> 009078279</li>
+                                                <li><i class="fa fa-circle text-success"></i><strong>Email: </strong>yogest_shetty@cms.co.in</li>
+                                                <li><i class="fa fa-circle text-danger"></i><strong>Location: </strong>Bhandup</li>
+                                                <li><i class="fa fa-circle text-success"></i><strong>Reporting: </strong>SAJIV KULAPARAMBIL</li>
+                                                <li><i class="fa fa-circle text-danger"></i><strong>Dept: </strong>Product & Development</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="blog blog-danger">
+                                <div class="blog-header">
+                                    <h5 class="blog-title">Leave Details</h5>
+                                </div>
+                                <div class="blog-body">
+
+                                    <div class="table-responsive">
+                                        <table class="table table-condensed table-bordered no-margin vertical-middle table-striped ">
+
+                                            <thead class="bg-info">
+                                                <tr>
+                                                    <th></th>
+                                                    <th>OP.Bal</th>
+                                                    <th>Used</th>
+                                                    <th>Cut</th>
+                                                    <th>Available</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>PL</td>
+                                                    <td>10.0</td>
+                                                    <td>4.0</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>6.0                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>PT</td>
+                                                    <td>0.0</td>
+                                                    <td>0.0</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>0.0</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>TL</td>
+                                                    <td>0.0</td>
+                                                    <td>0.0</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>0.0</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>ML</td>
+                                                    <td>0.0</td>
+                                                    <td>0.0</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>0.0</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>WP </td>
+                                                    <td>0.0</td>
+                                                    <td>0.0</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>0.0</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>SL</td>
+                                                    <td>4.0</td>
+                                                    <td>2.0</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>2.0</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>AP</td>
+                                                    <td>0.0</td>
+                                                    <td>0.0</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>0.0</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Spacer Ends -->
+</div>
+<!-- Container fluid ends -->
+<script type="text/javascript">
+    var date = new Date();
+    var d = date.getDate();
+    var m = date.getMonth();
+    var y = date.getFullYear();
+    var evts = [];
+    $(function () {
+
+        evts = getEvents(m, y);
+
+        var calendar = $('#attendanceCalendar').fullCalendar('getCalendar');
+        $('#attendanceCalendar').fullCalendar({
+            header: {
+                left: 'prev,next, today',
+                center: 'title',
+                right: ''
+            },
+            events: evts,
+            eventRender: function (event, element) {
+                element.find('span.fc-event-title').html(element.find('span.fc-event-title').text());
+            }
+
+        });
+
+        $('.fc-button-prev, .fc-button-next').click(function () {
+
+            var date = $("#attendanceCalendar").fullCalendar('getDate');
+            var month_int = date.getMonth();
+            var year_int = date.getFullYear();
+            $("#attendanceCalendar").fullCalendar('removeEventSource', evts)
+
+            evts = getEvents(month_int, year_int);
+
+            $("#attendanceCalendar").fullCalendar('addEventSource', evts)
+
+        });
+
+    });
+
+    function getEvents(month_int, year_int) {
+
+        var uri = '@System.Configuration.ConfigurationManager.AppSettings["APIUrl"].ToString()';
+        var userid = '@Session["ACTIVE_USER"].ToString()';
+        var headers = {};
+        if (userid) {
+            headers.activeuser = userid;
+        }
+        var evts = [];
+
+        var i = 0;
+        $.ajax({
+            type: 'GET',
+            headers: headers,
+            async:false,
+            url: uri + "tday/GetTdayByEmployeeIdMonthWise" + "/" + month_int + "/" + year_int + "/" + userid,
+
+            success: function (data) {
+
+                if (data) {
+                    evts = data;
+                }
+                else {
+
+                }
+            },
+            error: function (jqXHR) {
+                debugger;
+            }
+        });
+
+
+        return evts;
+    }
+
+</script>

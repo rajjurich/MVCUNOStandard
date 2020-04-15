@@ -1,0 +1,146 @@
+﻿@model UNO.AppModel.ShiftPattern
+
+@{
+    ViewBag.Title = "Edit";
+}
+<script src="~/Scripts/JS/multi.min.js"></script>
+<link href="~/Content/css/multi.min.css" rel="stylesheet" />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div class="main-container" style="clear:both;">
+        <!-- Container fluid Starts -->
+        <div class="container-fluid">
+            <!-- Spacer Starts -->
+            <div class="spacer clearfix">
+                <div class="row">
+                    <div class="col-md-7 col-centered">
+                        <div class="blog blog-default ">
+                            <div class="blog-header ">
+                                <h5 class="blog-title pull-left mt5">Edit</h5> <span class="pull-right"><a class="btn btn-default" href="@Url.Action("Index")" data-original-title="" title=""><i class="fa fa-arrow-left"></i> Back </a> </span>
+                                <span class="clearfix"></span>
+                            </div>
+                            <div class="blog-body form p0">
+
+                                <div class="form-horizontal form-bordered form-label-stripped" role="form">
+                                    <div class="form-body p0">
+                                        <div class="form-group row">                                           
+                                            @Html.LabelFor(model => model.COMPANY_ID, new { @class = "control-label col-md-3" })
+                                            <div class="col-md-9">
+                                                @Html.DropDownListFor(model => model.COMPANY_ID, (IEnumerable<SelectListItem>)ViewBag.Companies, "Select", new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.COMPANY_ID, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.HiddenFor(model => model.SHIFT_PATTERN_ID)
+                                            @Html.LabelFor(model => model.SHIFT_PATTERN_CODE, new { @class = "control-label col-md-3" })
+                                            <div class="col-md-9">
+                                                @Html.TextBoxFor(model => model.SHIFT_PATTERN_CODE, new { @class = "form-control", Placeholder = "Shift Pattern Code" })
+                                                @Html.ValidationMessageFor(model => model.SHIFT_PATTERN_CODE, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.SHIFT_PATTERN_DESCRIPTION, new { @class = "control-label col-md-3" })
+                                            <div class="col-md-9">
+                                                @Html.TextBoxFor(model => model.SHIFT_PATTERN_DESCRIPTION, new { @class = "form-control", Placeholder = "Shift Pattern Description" })
+                                                @Html.ValidationMessageFor(model => model.SHIFT_PATTERN_DESCRIPTION, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.SHIFT_PATTERN_TYPE, new { @class = "control-label col-md-3" })
+                                            <div class="col-md-9">
+                                                @Html.DropDownListFor(model => model.SHIFT_PATTERN_TYPE, (IEnumerable<SelectListItem>)ViewBag.ShiftPatternTypes, "", new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.SHIFT_PATTERN_TYPE, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-3 control-label"> Shifts<span style="color:red">&nbsp;*</span>  </label>
+                                            <div class="col-md-9">
+                                                @Html.DropDownList("ddlShifts", ((IEnumerable<SelectListItem>)ViewBag.Shifts).ToList().Select(m => new SelectListItem { Value = m.Value, Text = m.Text, Selected = Model.SHIFT_PATTERN.Contains(m.Value) ? true : false }), new { @class = "form-control", multiple = "multiple", required = true, title = "Please Provide Readers" })                                                
+                                                @Html.ValidationMessage("ddlShifts", "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.SHIFT_PATTERN, new { @class = "control-label col-md-3" })
+                                            <div class="col-md-9">
+                                                @Html.TextAreaFor(model => model.SHIFT_PATTERN, new { @class = "form-control", Placeholder = "Shift Pattern" })
+                                                @Html.ValidationMessageFor(model => model.SHIFT_PATTERN, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+                                </div>
+
+                                <div class="form-actions">
+                                    <div class="row  mt5">
+                                        <div class="col-md-12 text-center">
+                                            <button type="submit" class="btn btn-info"> <i class="fa fa-save"></i> Save</button>
+                                            <button type="reset" class="btn default"><i class="fa fa-refresh"></i> Reset</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Spacer Ends -->
+    </div>
+
+}
+
+<script type="text/javascript">
+
+    var select = document.getElementById('ddlShifts');
+    multi(select, {
+        non_selected_header: 'Available Shifts',
+        selected_header: 'Selected',
+
+    });
+
+    $(document).ready(function () {
+        $("#ddlShifts").change(function () {
+            setHDNSelectedShift();
+        });
+    });
+
+    var objItem = [];
+    function setHDNSelectedShift() {
+        $("#SHIFT_PATTERN").val('');
+        $("#ddlShifts").valid();
+
+        if ($("#ddlShifts option:selected").length > 0) {
+            var items = $("#ddlShifts option:selected");
+
+            var allitems = $("#ddlShifts option");
+
+            allitems = allitems.not(items);
+
+            $.each(items, function (key, value) {
+                var obj = value.value;
+                if (jQuery.inArray(obj, objItem) < 0) {
+                    objItem.push(obj);
+                }
+            });
+            $.each(allitems, function (key, value) {
+                var obj = value.value;
+                if (jQuery.inArray(obj, objItem) > -1) {
+                    objItem.splice(objItem.indexOf(obj), 1);
+                }
+            });
+
+
+            $("#SHIFT_PATTERN").val(objItem);
+        }
+        else {
+            $("#SHIFT_PATTERN").val('');
+            objItem = [];
+        }
+
+    }
+</script>

@@ -1,0 +1,44 @@
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\Windows Services\UNO_DailyProcess\UNO_DailyProcess\bin\Debug\UNO_DailyProcess.exe.config
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\Windows Services\UNO_DailyProcess\UNO_DailyProcess\bin\Debug\UNO_DailyProcess.exe
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\Windows Services\UNO_DailyProcess\UNO_DailyProcess\bin\Debug\UNO_DailyProcess.pdb
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\Windows Services\UNO_DailyProcess\UNO_DailyProcess\obj\Debug\UNO_DailyProcess.csprojResolveAssemblyReference.cache
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\Windows Services\UNO_DailyProcess\UNO_DailyProcess\obj\Debug\UNO_DailyProcess.ProjectInstaller.resources
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\Windows Services\UNO_DailyProcess\UNO_DailyProcess\obj\Debug\UNO_DailyProcess.csproj.GenerateResource.Cache
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\Windows Services\UNO_DailyProcess\UNO_DailyProcess\obj\Debug\UNO_DailyProcess.exe
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\Windows Services\UNO_DailyProcess\UNO_DailyProcess\obj\Debug\UNO_DailyProcess.pdb
+D:\Vikas\UNO_Updated\Windows Services\UNO_DailyProcess\UNO_DailyProcess\bin\Debug\UNO_DailyProcess.exe.config
+D:\Vikas\UNO_Updated\Windows Services\UNO_DailyProcess\UNO_DailyProcess\bin\Debug\UNO_DailyProcess.exe
+D:\Vikas\UNO_Updated\Windows Services\UNO_DailyProcess\UNO_DailyProcess\bin\Debug\UNO_DailyProcess.pdb
+D:\Vikas\UNO_Updated\Windows Services\UNO_DailyProcess\UNO_DailyProcess\bin\Debug\Logger.dll
+D:\Vikas\UNO_Updated\Windows Services\UNO_DailyProcess\UNO_DailyProcess\bin\Debug\UNO.DAL.dll
+D:\Vikas\UNO_Updated\Windows Services\UNO_DailyProcess\UNO_DailyProcess\bin\Debug\Logger.pdb
+D:\Vikas\UNO_Updated\Windows Services\UNO_DailyProcess\UNO_DailyProcess\bin\Debug\UNO.DAL.pdb
+D:\Vikas\UNO_Updated\Windows Services\UNO_DailyProcess\UNO_DailyProcess\obj\Debug\UNO_DailyProcess.csprojResolveAssemblyReference.cache
+D:\Vikas\UNO_Updated\Windows Services\UNO_DailyProcess\UNO_DailyProcess\obj\Debug\UNO_DailyProcess.ProjectInstaller.resources
+D:\Vikas\UNO_Updated\Windows Services\UNO_DailyProcess\UNO_DailyProcess\obj\Debug\UNO_DailyProcess.csproj.GenerateResource.Cache
+D:\Vikas\UNO_Updated\Windows Services\UNO_DailyProcess\UNO_DailyProcess\obj\Debug\UNO_DailyProcess.exe
+D:\Vikas\UNO_Updated\Windows Services\UNO_DailyProcess\UNO_DailyProcess\obj\Debug\UNO_DailyProcess.pdb
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\Windows Services\UNO_DailyProcess\UNO_DailyProcess\bin\Debug\UNO_DailyProcess.exe.config
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\Windows Services\UNO_DailyProcess\UNO_DailyProcess\bin\Debug\UNO_DailyProcess.exe
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\Windows Services\UNO_DailyProcess\UNO_DailyProcess\bin\Debug\UNO_DailyProcess.pdb
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\Windows Services\UNO_DailyProcess\UNO_DailyProcess\bin\Debug\Logger.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\Windows Services\UNO_DailyProcess\UNO_DailyProcess\bin\Debug\UNO.DAL.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\Windows Services\UNO_DailyProcess\UNO_DailyProcess\bin\Debug\Logger.pdb
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\Windows Services\UNO_DailyProcess\UNO_DailyProcess\bin\Debug\UNO.DAL.pdb
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\Windows Services\UNO_DailyProcess\UNO_DailyProcess\obj\Debug\UNO_DailyProcess.csprojResolveAssemblyReference.cache
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\Windows Services\UNO_DailyProcess\UNO_DailyProcess\obj\Debug\UNO_DailyProcess.ProjectInstaller.resources
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\Windows Services\UNO_DailyProcess\UNO_DailyProcess\obj\Debug\UNO_DailyProcess.csproj.GenerateResource.Cache
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\Windows Services\UNO_DailyProcess\UNO_DailyProcess\obj\Debug\UNO_DailyProcess.exe
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\Windows Services\UNO_DailyProcess\UNO_DailyProcess\obj\Debug\UNO_DailyProcess.pdb
+D:\Devang Project\UNOMVC\Windows Services\UNO_DailyProcess\UNO_DailyProcess\bin\Debug\UNO_DailyProcess.exe.config
+D:\Devang Project\UNOMVC\Windows Services\UNO_DailyProcess\UNO_DailyProcess\bin\Debug\UNO_DailyProcess.exe
+D:\Devang Project\UNOMVC\Windows Services\UNO_DailyProcess\UNO_DailyProcess\bin\Debug\UNO_DailyProcess.pdb
+D:\Devang Project\UNOMVC\Windows Services\UNO_DailyProcess\UNO_DailyProcess\bin\Debug\Logger.dll
+D:\Devang Project\UNOMVC\Windows Services\UNO_DailyProcess\UNO_DailyProcess\bin\Debug\UNO.DAL.dll
+D:\Devang Project\UNOMVC\Windows Services\UNO_DailyProcess\UNO_DailyProcess\bin\Debug\Logger.pdb
+D:\Devang Project\UNOMVC\Windows Services\UNO_DailyProcess\UNO_DailyProcess\bin\Debug\UNO.DAL.pdb
+D:\Devang Project\UNOMVC\Windows Services\UNO_DailyProcess\UNO_DailyProcess\obj\Debug\UNO_DailyProcess.csprojResolveAssemblyReference.cache
+D:\Devang Project\UNOMVC\Windows Services\UNO_DailyProcess\UNO_DailyProcess\obj\Debug\UNO_DailyProcess.ProjectInstaller.resources
+D:\Devang Project\UNOMVC\Windows Services\UNO_DailyProcess\UNO_DailyProcess\obj\Debug\UNO_DailyProcess.csproj.GenerateResource.Cache
+D:\Devang Project\UNOMVC\Windows Services\UNO_DailyProcess\UNO_DailyProcess\obj\Debug\UNO_DailyProcess.exe
+D:\Devang Project\UNOMVC\Windows Services\UNO_DailyProcess\UNO_DailyProcess\obj\Debug\UNO_DailyProcess.pdb

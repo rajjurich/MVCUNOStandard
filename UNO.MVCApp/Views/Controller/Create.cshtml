@@ -1,0 +1,520 @@
+﻿@model UNO.AppModel.AcsController
+
+@{
+    ViewBag.Title = "Create Controller";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div class="main-container" style="clear:both; min-height: 601px;">
+        <!-- Container fluid Starts -->
+        <div class="container-fluid">
+            <!-- Spacer Starts -->
+            <div class="spacer clearfix">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="blog blog-default ">
+                            <div class="blog-header ">
+                                <h5 class="blog-title pull-left mt5">Create New</h5> <span class="pull-right"><a class="btn btn-default" href="@Url.Action("Index")" data-original-title="" title=""><i class="fa fa-arrow-left"></i> Back </a> </span>
+                                <span class="clearfix"></span>
+                            </div>
+                            <div class="blog-body">
+                                <div class="row text-danger col-sm-12">
+                                    <label id="checkController" class="text-danger"></label>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-5 border-right">
+
+                                        <div class="form-horizontal" role="form">
+
+                                            <div class="col-md-12">
+                                                <div class="form-group row">
+                                                    <div class="col-sm-12">
+                                                        @Html.HiddenFor(model => model.CTLR_CREATEDBY, new { Value = @HttpContext.Current.Session["User"].ToString() })
+                                                        @Html.LabelFor(model => model.COMPANY_ID, new { @class = "control-label" })
+                                                        @Html.DropDownListFor(model => model.COMPANY_ID, (IEnumerable<SelectListItem>)ViewBag.Companies, "Select", new { @class = "form-control" })
+                                                        @Html.ValidationMessageFor(model => model.COMPANY_ID, "", new { @class = "text-danger" })
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                    <div class="col-sm-6">
+                                                        @Html.LabelFor(model => model.CTLR_ID, new { @class = "control-label" })
+                                                        @Html.TextBoxFor(model => model.CTLR_ID, new { @class = "form-control", Placeholder = "contoller id" })
+                                                        @Html.ValidationMessageFor(model => model.CTLR_ID, "", new { @class = "text-danger" })
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        @Html.LabelFor(model => model.CTLR_DESCRIPTION, new { @class = "control-label" })
+                                                        @Html.TextBoxFor(model => model.CTLR_DESCRIPTION, new { @class = "form-control", Placeholder = "contoller description" })
+                                                        @Html.ValidationMessageFor(model => model.CTLR_DESCRIPTION, "", new { @class = "text-danger" })
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                    <div class="col-sm-6">
+                                                        @Html.LabelFor(model => model.CTLR_TYPE, new { @class = "control-label" })
+                                                        @Html.DropDownListFor(model => model.CTLR_TYPE, (IEnumerable<SelectListItem>)ViewBag.EntParams, "Select", new { @class = "form-control" })
+                                                        @Html.ValidationMessageFor(model => model.CTLR_TYPE, "", new { @class = "text-danger" })
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        @Html.LabelFor(model => model.CTLR_IP, new { @class = "control-label" })
+                                                        @Html.TextBoxFor(model => model.CTLR_IP, new { @class = "form-control", Placeholder = "contoller IP" })
+                                                        @Html.ValidationMessageFor(model => model.CTLR_IP, "", new { @class = "text-danger" })
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                    <hr>
+                                                    <div class="col-sm-12">
+                                                        @Html.LabelFor(model => model.CTLR_MAC_ID, new { @class = "control-label" })
+                                                        @Html.TextBoxFor(model => model.CTLR_MAC_ID, new { @class = "form-control", Placeholder = "Mac ID", @readonly = true })
+                                                        @Html.ValidationMessageFor(model => model.CTLR_MAC_ID, "", new { @class = "text-danger" })
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                    <div class="col-sm-6">
+                                                        @Html.LabelFor(model => model.CTLR_INCOMING_PORT, new { @class = "control-label" })
+                                                        @Html.TextBoxFor(model => model.CTLR_INCOMING_PORT, new { @class = "form-control", Placeholder = "Incoming Port", Value = "4365", @readonly = true })
+                                                        @Html.ValidationMessageFor(model => model.CTLR_INCOMING_PORT, "", new { @class = "text-danger" })
+                                                    </div>
+
+                                                    <div class="col-sm-6">
+                                                        @Html.LabelFor(model => model.CTLR_OUTGOING_PORT, new { @class = "control-label" })
+                                                        @Html.TextBoxFor(model => model.CTLR_OUTGOING_PORT, new { @class = "form-control", Placeholder = "Outgoing Port", Value = "4365", @readonly = true })
+                                                        @Html.ValidationMessageFor(model => model.CTLR_OUTGOING_PORT, "", new { @class = "text-danger" })
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                    <div class="col-sm-6">
+                                                        @Html.LabelFor(model => model.CTLR_FIRMWARE_VERSION_NO, new { @class = "control-label" })
+                                                        @Html.TextBoxFor(model => model.CTLR_FIRMWARE_VERSION_NO, new { @class = "form-control", Placeholder = "Firmware Version", @readonly = true })
+                                                        @Html.ValidationMessageFor(model => model.CTLR_FIRMWARE_VERSION_NO, "", new { @class = "text-danger" })
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        @Html.LabelFor(model => model.CTLR_HARDWARE_VERSION_NO, new { @class = "control-label" })
+                                                        @Html.TextBoxFor(model => model.CTLR_HARDWARE_VERSION_NO, new { @class = "form-control", Placeholder = "Hardware Version", @readonly = true })
+                                                        @Html.ValidationMessageFor(model => model.CTLR_HARDWARE_VERSION_NO, "", new { @class = "text-danger" })
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                    <hr>
+                                                    <div class="col-sm-6">
+                                                        @Html.LabelFor(model => model.CTLR_CHK_APB, new { @class = "control-label" })
+                                                        @Html.DropDownListFor(model => model.CTLR_CHK_APB, (IEnumerable<SelectListItem>)ViewBag.Antipassback, "", new { @class = "form-control" })
+                                                        @Html.ValidationMessageFor(model => model.CTLR_CHK_APB, "", new { @class = "text-danger" })
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        @Html.LabelFor(model => model.CTLR_APB_TYPE, new { @class = "control-label" })
+                                                        @Html.DropDownListFor(model => model.CTLR_APB_TYPE, (IEnumerable<SelectListItem>)ViewBag.Schedule, "", new { @class = "form-control" })
+                                                        @Html.ValidationMessageFor(model => model.CTLR_APB_TYPE, "", new { @class = "text-danger" })
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                    <div class="col-sm-6">
+                                                        @Html.LabelFor(model => model.CTLR_APB_TIME, new { @class = "control-label" })
+                                                        @Html.TextBoxFor(model => model.CTLR_APB_TIME, new { @class = "form-control", Placeholder = "Time" })
+                                                        @Html.ValidationMessageFor(model => model.CTLR_APB_TIME, "", new { @class = "text-danger" })
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        @Html.LabelFor(model => model.CTLR_AUTHENTICATION_MODE, new { @class = "control-label" })
+                                                        @Html.DropDownListFor(model => model.CTLR_AUTHENTICATION_MODE, (IEnumerable<SelectListItem>)ViewBag.Authentication, "", new { @class = "form-control" })
+                                                        @Html.ValidationMessageFor(model => model.CTLR_AUTHENTICATION_MODE, "", new { @class = "text-danger" })
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                    <hr class="border-top-dashed">
+                                                    <div class="col-sm-6">
+                                                        @Html.CheckBoxFor(model => model.CTLR_CHK_TOC)
+                                                        @Html.LabelFor(model => model.CTLR_CHK_TOC, new { @class = "control-label" })
+                                                        @Html.ValidationMessageFor(model => model.CTLR_CHK_TOC, "", new { @class = "text-danger" })
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        @Html.CheckBoxFor(model => model.CLTR_FOR_TA)
+                                                        @Html.LabelFor(model => model.CLTR_FOR_TA, new { @class = "control-label" })
+                                                        @Html.ValidationMessageFor(model => model.CLTR_FOR_TA, "", new { @class = "text-danger" })
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                    <div class="col-sm-6">
+                                                        @Html.CheckBoxFor(model => model.CTLR_KEY_PAD)
+                                                        @Html.LabelFor(model => model.CTLR_KEY_PAD, new { @class = "control-label" })
+                                                        @Html.ValidationMessageFor(model => model.CTLR_KEY_PAD, "", new { @class = "text-danger" })
+                                                    </div>
+                                                    <div class="clearfix"></div>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-7 ">
+                                        <div class="panel">
+                                            <div class="panel-heading bg-info">
+                                                <strong class="text-success ">Reader Details</strong>
+                                            </div>
+                                            <!-- /.panel-heading -->
+                                            <div class="panel-body p0">
+                                                <div class="table-responsive">
+                                                    <table id="readerDetails" class="table table-striped table-hover mb0 scroll">
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="col-sm-1">Active</th>
+                                                                <th class="col-sm-1">ID</th>
+                                                                <th class="col-sm-4">Description</th>
+                                                                <th class="col-sm-3">Type</th>
+                                                                <th class="col-sm-3 ">Mode</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody></tbody>
+                                                    </table>
+                                                </div>
+                                                <!-- /.table-responsive -->
+                                            </div>
+                                            <!-- /.panel-body -->
+                                        </div>
+                                        <div class="panel mb0">
+                                            <div class="panel-heading bg-info">
+                                                <strong class="text-success">Access Point Details</strong>
+                                            </div>
+                                            <!-- /.panel-heading -->
+                                            <div class="panel-body p0">
+                                                <div class="table-responsive">
+                                                    <table id="accessPointDetails" class="table table-striped table-hover mb0 scroll">
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="col-sm-2">AP<br>ID</th>
+                                                                <th class="col-sm-1">Reader<br>ID</th>
+                                                                <th class="col-sm-1">Door</th>
+                                                                <th class="col-sm-4">Door Lock<br>Type</th>
+                                                                <th class="col-sm-2">Door Open Duration(sec)</th>
+                                                                <th class="col-sm-2">Door Feedback Duration(sec)</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody></tbody>
+                                                    </table>
+                                                </div>
+                                                <!-- /.table-responsive -->
+                                            </div>
+                                            <!-- /.panel-body -->
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <div class="row">
+
+
+
+                                    <div class="col-md-offset-5 col-md-7">
+
+                                        <button type="submit" class="btn btn-info">
+                                            <i class="fa fa-save"></i> Save
+                                        </button>
+                                        <button id="btnReset" type="reset" class="btn default"><i class="fa fa-refresh"></i>  Reset</button>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Spacer Ends -->
+    </div>
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#btnReset").click(function () {
+            $("#CTLR_DESCRIPTION").prop("readonly", false);
+            $("#readerDetails tbody").empty();
+            $("#accessPointDetails tbody").empty();
+        });
+
+        var uri = '@System.Configuration.ConfigurationManager.AppSettings["APIUrl"].ToString()';
+        $("#CTLR_TYPE").prop("disabled", true);
+
+        $("#CTLR_ID, #CTLR_DESCRIPTION , #COMPANY_ID").blur(function () {
+            if ($("#CTLR_ID").val() == "" || $("#CTLR_DESCRIPTION").val() == "" || $("#COMPANY_ID").val() == "") {
+
+                if ($("#CTLR_ID").val() == "") {
+                    $("#CTLR_ID").valid();
+                }
+                if ($("#CTLR_DESCRIPTION").val() == "") {
+                    $("#CTLR_DESCRIPTION").valid();
+                }
+                if ($("#COMPANY_ID").val() == "") {
+                    $("#COMPANY_ID").valid();
+                }
+            }
+            else {
+                $.ajax({
+                    type: 'GET',
+                    url: uri + "controller/GetByControllerId/" + $("#CTLR_ID").val() + "/" + $("#COMPANY_ID").val(),
+                    success: function (data) {
+                        if (data) {
+                            $("#checkController").text('Controller ID ' + $("#CTLR_ID").val() + ' already Exist');
+                            $("#CTLR_TYPE").prop("disabled", true);
+                            $("#CTLR_TYPE").val('');
+                            $("#CTLR_ID").val('');
+                        }
+                        else {
+                            $("#checkController").text('');
+                            $("#CTLR_TYPE").prop("disabled", false);
+                        }
+                    },
+                    error: function (jqXHR) {
+                        debugger;
+                    }
+                });
+
+            }
+        });
+
+        $("#CTLR_IP, #COMPANY_ID").change(function () {
+            if ($("#CTLR_IP").val() == "" || $("#COMPANY_ID").val() == "") {
+                if ($("#CTLR_IP").val() == "") {
+                    $("#CTLR_IP").valid();
+                }
+                if ($("#COMPANY_ID").val() == "") {
+                    $("#COMPANY_ID").valid();
+                }                
+            }
+            else {
+                if ($("#CTLR_IP").valid()) {
+                    var Data = $("#CTLR_IP").val().replace(/\./g, "-");
+                    var url = uri + "controller/GetByControllerIP/" + Data + "/" + $("#COMPANY_ID").val();
+                    $.ajax({
+                        type: 'GET',
+                        url: url,
+                        success: function (data) {
+                            if (data) {
+                                $("#checkController").text('Controller IP ' + $("#CTLR_IP").val() + ' already Exist');
+                                $("#CTLR_IP").val('');
+                                $("#CTLR_IP").valid();
+                            }
+                            else {
+                                $("#checkController").text('');
+                                //$("#CTLR_IP").val("");
+                            }
+                        },
+                        error: function (jqXHR) {
+                            debugger;
+                        }
+                    });
+                }
+
+            }
+        });
+
+
+        $("#CTLR_TYPE").change(function () {
+            $("#CTLR_DESCRIPTION").prop("readonly", true);
+
+            // selectedItem = $("#CTLR_TYPE option:selected").text().toLowerCase();
+            var selectedItem = $(this).val().toLowerCase();
+            //.indexOf('dc');
+            if (selectedItem.indexOf("dc") > -1) {
+                SetReaderData(2);
+                SetAccessPointData(2, 1);
+            }
+            else if (selectedItem.indexOf("dcb") > -1) {
+                SetReaderData(2);
+                SetAccessPointData(2, 1);
+            }
+            else if (selectedItem.indexOf("md4") > -1) {
+                SetReaderData(4);
+                SetAccessPointData(4, 4);
+            }
+            else if (selectedItem.indexOf("md8") > -1) {
+                SetReaderData(8);
+                SetAccessPointData(8, 8);
+            }
+            else if (selectedItem.indexOf("hhr") > -1) {
+                SetReaderData(1);
+                SetAccessPointData(1, 1);
+            }
+            else if (selectedItem.indexOf("bh") > -1) {
+                SetReaderData(1);
+                SetAccessPointData(1, 1);
+            }
+            else if (selectedItem.indexOf("bioedge+") > -1) {
+                SetReaderData(1);
+                SetAccessPointData(1, 1);
+            }
+            else {
+                $("#CTLR_DESCRIPTION").prop("readonly", false);
+                $("#readerDetails tbody").empty();
+                $("#accessPointDetails tbody").empty();
+            }
+        });
+
+        function SetReaderData(ReaderCount) {
+            console.log(ReaderCount);
+            $("#readerDetails tbody").empty();
+
+            @{
+                var i = -1;
+            }
+            var row = ''
+            for (var i = 0; i < ReaderCount; i++) {
+                row += '<tr>';
+
+                row += '<td class="text-center col-sm-1">';
+                var controllerId = '@Html.HiddenFor(model => Model.Readers[i].CTLR_ID, new { Value="$ctrl"})';
+                controllerId = controllerId.replace("[-1]", "[" + i + "]");
+                controllerId = controllerId.replace("-1", i);
+                controllerId = controllerId.replace("$ctrl", $("#CTLR_ID").val());
+                row += controllerId;
+                var deleteChk = '@Html.CheckBoxFor(model => Model.Readers[i].IsActive, new { Checked = true})';
+                deleteChk = deleteChk.replace("[-1]", "[" + i + "]");
+                deleteChk = deleteChk.replace("-1", i);
+                row += deleteChk
+                row += '</td>';
+
+                row += '<td class="col-sm-1">';
+                var readerId = '@Html.TextBoxFor(model => Model.Readers[i].READER_ID, new { @class = "form-control", Value = ""+i+"",@readonly=true })';
+                var readerIdval = '@Html.ValidationMessageFor(model => Model.Readers[i].READER_ID, "", new { @class = "text-danger" })'
+                readerId = readerId.replace("[-1]", "[" + i + "]");
+                readerId = readerId.replace("-1", i + 1);
+                readerId = readerId.replace("-1", i);
+                readerIdval = readerIdval.replace("[-1]", "[" + i + "]");
+                readerIdval = readerIdval.replace("-1", i);
+                row += readerId + readerIdval;
+                row += '</td>';
+
+                row += '<td class="col-sm-4">';
+                var readerDesc = '@Html.TextBoxFor(model => Model.Readers[i].READER_DESCRIPTION, new { @class = "form-control", Value = "$desc - " + i + "", @readonly = true })'
+                var readerDescval = '@Html.ValidationMessageFor(model => Model.Readers[i].READER_DESCRIPTION, "", new { @class = "text-danger" })'
+                readerDesc = readerDesc.replace("[-1]", "[" + i + "]");
+                readerDesc = readerDesc.replace("-1", i + 1);
+                readerDesc = readerDesc.replace("-1", i);
+                readerDesc = readerDesc.replace("$desc", $("#CTLR_DESCRIPTION").val());
+                readerDescval = readerDescval.replace("[-1]", "[" + i + "]");
+                readerDescval = readerDescval.replace("-1", i);
+                row += readerDesc + readerDescval;
+                row += '</td>';
+
+                row += '<td class="col-sm-3">';
+                var readerType = '@Html.Raw(Ajax.JavaScriptStringEncode(@Html.DropDownListFor(model => Model.Readers[i].READER_TYPE, (IEnumerable<SelectListItem>)ViewBag.ReaderTypes, "", new { @class = "form-control" }).ToHtmlString()))'
+                var readerTypeval = '@Html.ValidationMessageFor(model => Model.Readers[i].READER_TYPE, "", new { @class = "text-danger" })'
+                readerType = readerType.replace("[-1]", "[" + i + "]");
+                readerType = readerType.replace(/\-1/g, i);
+                readerTypeval = readerTypeval.replace("[-1]", "[" + i + "]");
+                readerTypeval = readerTypeval.replace("-1", i);
+                row += readerType + readerTypeval;
+                row += '</td>';
+
+                row += '<td class="col-sm-3">';
+                var readerMode = '@Html.Raw(Ajax.JavaScriptStringEncode(@Html.DropDownListFor(model => Model.Readers[i].READER_MODE, (IEnumerable<SelectListItem>)ViewBag.ReaderModes, "", new { @class = "form-control" }).ToHtmlString()))'
+                var readerModeval = '@Html.ValidationMessageFor(model => Model.Readers[i].READER_MODE, "", new { @class = "text-danger" })'
+                readerMode = readerMode.replace("[-1]", "[" + i + "]");
+                readerMode = readerMode.replace(/\-1/g, i);
+                readerModeval = readerModeval.replace("[-1]", "[" + i + "]");
+                readerModeval = readerModeval.replace("-1", i);
+                row += readerMode + readerModeval;
+                row += '</td>';
+
+                row += '</tr>';
+            }
+
+            $("#readerDetails tbody").append(row);
+            var form = $("form");
+            form.data('validator', null);
+            $.validator.unobtrusive.parse(form);
+        }
+
+        function SetAccessPointData(AccessCount, Door) {
+            console.log(AccessCount, Door);
+
+            $("#accessPointDetails tbody").empty();
+
+            @{
+                i = -1;
+            }
+            var row = ''
+            for (var i = 0; i < AccessCount; i++) {
+                row += '<tr>';
+
+                row += '<td class="col-sm-2">';
+                var controllerId = '@Html.HiddenFor(model => Model.AccessPointDetails[i].CTLR_ID, new { Value="$ctrl"})';
+                controllerId = controllerId.replace("[-1]", "[" + i + "]");
+                controllerId = controllerId.replace("-1", i);
+                controllerId = controllerId.replace("$ctrl", $("#CTLR_ID").val());
+                row += controllerId;
+                var apId = '@Html.TextBoxFor(model => Model.AccessPointDetails[i].AP_ID, new { @class = "form-control", Value = ""+i+"",@readonly=true })';
+                var apIdval = '@Html.ValidationMessageFor(model => Model.AccessPointDetails[i].AP_ID, "", new { @class = "text-danger" })'
+                apId = apId.replace("[-1]", "[" + i + "]");
+                apId = apId.replace("-1", $("#CTLR_ID").val() + "." + (i + 1));
+                apId = apId.replace(/\-1/g, i);
+                apIdval = apIdval.replace("[-1]", "[" + i + "]");
+                apIdval = apIdval.replace("-1", i);
+                row += apId + apIdval;
+                row += '</td>';
+
+                row += '<td class="col-sm-1">';
+                var readerId = '@Html.TextBoxFor(model=>Model.AccessPointDetails[i].READER_ID, new{@class = "form-control", Value = ""+i+"",@readonly=true})'
+                var readerIdval = '@Html.ValidationMessageFor(model => Model.AccessPointDetails[i].READER_ID, "", new { @class = "text-danger" })'
+                readerId = readerId.replace("[-1]", "[" + i + "]");
+                readerId = readerId.replace("-1", i + 1);
+                readerId = readerId.replace("-1", i);
+                readerIdval = readerIdval.replace("[-1]", "[" + i + "]");
+                readerIdval = readerIdval.replace("-1", i);
+                row += readerId + readerIdval;
+                row += '</td>';
+
+                row += '<td class="col-sm-1">';
+                var doorId = '@Html.TextBoxFor(model=>Model.AccessPointDetails[i].DOOR_ID, new{@class = "form-control", Value = ""+i+"",@readonly=true})'
+                var doorIdval = '@Html.ValidationMessageFor(model => Model.AccessPointDetails[i].DOOR_ID, "", new { @class = "text-danger" })'
+                doorId = doorId.replace("[-1]", "[" + i + "]");
+                doorId = doorId.replace("-1", i + 1);
+                doorId = doorId.replace("-1", i);
+                doorIdval = doorIdval.replace("[-1]", "[" + i + "]");
+                doorIdval = doorIdval.replace("-1", i);
+                row += doorId + doorIdval;
+                row += '</td>';
+
+                row += '<td class="col-sm-4">';
+                var doorType = '@Html.Raw(Ajax.JavaScriptStringEncode(@Html.DropDownListFor(model => Model.AccessPointDetails[i].DOOR_TYPE, (IEnumerable<SelectListItem>)ViewBag.DoorTypes, "", new { @class = "form-control" }).ToHtmlString()))'
+                var doorTypeval = '@Html.ValidationMessageFor(model => Model.AccessPointDetails[i].DOOR_TYPE, "", new { @class = "text-danger" })'
+                doorType = doorType.replace("[-1]", "[" + i + "]");
+                doorType = doorType.replace(/\-1/g, i);
+                doorTypeval = doorTypeval.replace("[-1]", "[" + i + "]");
+                doorTypeval = doorTypeval.replace("-1", i);
+                row += doorType + doorTypeval;
+                row += '</td>';
+
+                row += '<td class="col-sm-2">';
+                var doorOpenDuration = '@Html.TextBoxFor(model=>Model.AccessPointDetails[i].DOOR_OPEN_DURATION, new{@class = "form-control", Value = "5"})'
+                var doorOpenDurationval = '@Html.ValidationMessageFor(model => Model.AccessPointDetails[i].DOOR_OPEN_DURATION, "", new { @class = "text-danger" })'
+                doorOpenDuration = doorOpenDuration.replace("[-1]", "[" + i + "]");
+                doorOpenDuration = doorOpenDuration.replace(/\-1/g, i);
+                doorOpenDurationval = doorOpenDurationval.replace("[-1]", "[" + i + "]");
+                doorOpenDurationval = doorOpenDurationval.replace("-1", i);
+                row += doorOpenDuration + doorIdval;
+                row += '</td>';
+
+                row += '<td class="col-sm-2">';
+                var doorFeedbackDuration = '@Html.TextBoxFor(model=>Model.AccessPointDetails[i].DOOR_FEEDBACK_DURATION, new{@class = "form-control", Value = "5"})'
+                var doorFeedbackDurationval = '@Html.ValidationMessageFor(model => Model.AccessPointDetails[i].DOOR_FEEDBACK_DURATION, "", new { @class = "text-danger" })'
+                doorFeedbackDuration = doorFeedbackDuration.replace("[-1]", "[" + i + "]");
+                doorFeedbackDuration = doorFeedbackDuration.replace(/\-1/g, i);
+                doorFeedbackDurationval = doorFeedbackDurationval.replace("[-1]", "[" + i + "]");
+                doorFeedbackDurationval = doorFeedbackDurationval.replace("-1", i);
+                row += doorFeedbackDuration + doorIdval;
+                row += '</td>';
+
+                row += '</tr>';
+            }
+            $("#accessPointDetails tbody").append(row);
+            var form = $("form");
+            form.data('validator', null);
+            $.validator.unobtrusive.parse(form);
+        }
+
+        $("#CTLR_CHK_APB").change(function () {
+
+        });
+    });
+</script>

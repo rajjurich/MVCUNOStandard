@@ -1,0 +1,101 @@
+﻿@model UNO.AppModel.ROLEMASTERCREATEMODEL
+@{
+    ViewBag.Title = "View";
+}
+
+<script src="~/Scripts/JS/multi.min.js"></script>
+<link href="~/Content/css/multi.min.css" rel="stylesheet" />
+<link href="~/Content/select2/css/select2.min.css" rel="stylesheet" />
+<script src="~/Content/select2/js/select2.min.js"></script>
+<script src="~/Scripts/JS/jquery.datetimepicker.full.js"></script>
+
+
+@section scripts
+{
+    <script>
+
+        $(document).ready(function () {
+            var resetbtn = $("#btnreset");
+
+            resetbtn.click(function () {
+                location.reload()
+            });
+        });
+
+    </script>
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div class="main-container" style="clear:both;">
+        <!-- Container fluid Starts -->
+        <div class="container-fluid">
+            <!-- Spacer Starts -->
+            <div class="spacer clearfix">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="blog blog-default ">
+                            <div class="blog-header ">
+                                <h4 class="blog-title pull-left mt5">Add New </h4>
+                                <span class="pull-right"><a class="btn btn-default" href="@Url.Action("Index")" data-original-title="" title=""><i class="fa fa-arrow-left"></i> Back </a> </span> <span class="clearfix"></span>
+                            </div>
+
+
+                            <hr />
+                            <div class="clearfix"></div>
+
+
+
+
+
+                            <div class="row mt5">
+
+                                <div class="col-sm-5">
+
+                                    <div class="form-group row">
+                                        <label class="col-md-4 form-control-label text-right"> Role Name </label>
+                                        <div class="col-sm-7"> @Html.TextBoxFor(m => m.ROLE_NAME, new { @class = "form-control" })</div>
+                                        @Html.ValidationMessageFor(model => model.ROLE_NAME, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+                                <div class="clearfix"></div>
+                                <div class="col-sm-5">
+
+                                    <div class="form-group row">
+                                        <label class="col-md-4 form-control-label text-right">Company selected</label>
+                                        <div class="col-sm-7"> @Html.DropDownListFor(model => model.Company_name, (IEnumerable<SelectListItem>)ViewBag.Companies, "Select Company", new { @class = "form-control" })</div>
+                                        @Html.ValidationMessageFor(model => model.Company_name, "", new { @class = "text-danger" })
+                                    </div>
+
+                                    <div class="form-group row">
+                                        
+                                        <div class="col-sm-7"> @Html.HiddenFor(m => m.rolemasterid, new { @class = "form-control" })</div>
+
+                                    </div>
+
+
+
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <div class="row  mt5">
+                                <div class="col-md-12 text-center">
+                                    
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

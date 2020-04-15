@@ -1,0 +1,20 @@
+
+
+/****** Object:  Table [dbo].[ACS_ACCESSLEVEL]    Script Date: 04-07-2018 19:03:54 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[ACS_ACCESSLEVEL](
+	[AL_ID] [decimal](18, 0) NOT NULL,
+	[AL_DESCRIPTION] [nvarchar](50) NULL,
+	[AL_TIMEZONE_ID] [bigint] NULL,
+	[AL_ISDELETED] [bit] NULL,
+	[AL_DELETEDDATE] [datetime] NULL
+) ON [PRIMARY]
+
+GO
+
+

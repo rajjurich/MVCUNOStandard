@@ -1,0 +1,146 @@
+﻿@model UNO.AppModel.CompanyModel
+@{
+    ViewBag.Title = "Company";
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+        new confirmexitmsg('form');
+        $("#btnReset").click(function (e) {
+            formmodified = 0;
+            //location.reload(true);
+            $("form").find('input:text, input:password, input:file, select, textarea').val('');
+            $("form").find('input:radio, input:checkbox').removeAttr('checked').removeAttr('selected');
+            return false;
+        });
+        var cloneCount = 2;
+        $("button#add-user").click(function () {
+
+            $('#office')
+                .clone()
+                .attr('id', 'office-' + cloneCount++).addClass('extra')
+                .insertAfter($('[id^=office]:last'))
+        });
+        $(document).on('click', ".extra .close-region", function () {
+            $(this).closest(".user").fadeOut(300);
+        });
+        $("#CompanyLocationList_0__COMPANY_STATE").val($("#CompanyLocationList_0__STATE_CODE").val());
+        $("#CompanyLocationList_0__STATE_CODE").change(function () {
+            $("#CompanyLocationList_0__COMPANY_STATE").val($("#CompanyLocationList_0__STATE_CODE").val());
+        });
+        $("#CompanyLocationList_0__COMPANY_ID").val(1)
+        $("#COMPANY_ID").val(1)
+        $("#CompanyLocationList_0__ADDRESS_TYPE_ID").val(1);
+        $("#CompanyLocationList_0__COMPANY_ADDRESS_ID").val(1);
+    });
+
+
+
+</script>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div class="container-fluid">
+        <div class="spacer clearfix">
+            <div class="col-md-7 col-centered">
+                <div class="blog blog-default ">
+                    <div class="blog-header ">
+                        <h5 class="blog-title pull-left mt5"><i class=""></i> Add </h5><span class="pull-right"><a class="btn btn-default" href='@Url.Action("Index")' data-original-title="" title=""><i class="fa fa-arrow-left"></i> Back </a> </span>
+                        <span class="clearfix"></span>
+                    </div>
+                    <div class="blog-body">
+                        <div class="form-horizontal repeater" role="form" id="users">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <fieldset>
+                                        <legend>Company</legend>
+                                        <div class="form-group row">
+                                            <div class="col-sm-6">
+                                                @Html.LabelFor(model => model.COMPANY_CODE, null, new { @class = "control-label" })
+                                                @Html.TextBoxFor(model => model.COMPANY_CODE, new { @class = "form-control", @maxlength = "15" })
+                                                @Html.ValidationMessageFor(model => model.COMPANY_CODE, null, new { @class = "text-danger field-validation-error" })
+                                            </div>
+                                            <div class="col-sm-6">
+                                                @Html.LabelFor(model => model.COMPANY_NAME, null, new { @class = "control-label" })
+                                                @Html.TextBoxFor(model => model.COMPANY_NAME, new { @class = "form-control", @maxlength = "50" })
+                                                @Html.ValidationMessageFor(model => model.COMPANY_NAME, null, new { @class = "text-danger field-validation-error" })
+                                            </div>
+                                            <div class="col-sm-6">
+                                                @Html.LabelFor(model => model.CompanyCodeLength, null, new { @class = "control-label" })
+                                                @Html.TextBoxFor(model => model.CompanyCodeLength, new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.CompanyCodeLength, null, new { @class = "text-danger field-validation-error" })
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                @Html.HiddenFor(model => Model.COMPANY_ID)
+                                @for (var i = 0; i < 1; i++)
+                                {
+                                    @Html.HiddenFor(model => Model.CompanyLocationList[i].ADDRESS_TYPE_ID)
+                                    @Html.HiddenFor(model => Model.CompanyLocationList[i].COMPANY_ADDRESS_ID)
+                                    @Html.HiddenFor(model => Model.CompanyLocationList[i].COMPANY_ID)
+
+                                    @Html.HiddenFor(model => Model.CompanyLocationList[i].COMPANY_STATE)
+                                    <div class="col-md-12">
+                                        <fieldset>
+                                            <legend>Head Office </legend>
+                                            <div class="form-group row">
+                                                <div class="col-sm-12">
+                                                    @Html.LabelFor(model => Model.CompanyLocationList[i].COMPANY_ADDRESS, null, new { @class = "control-label" })
+                                                    @Html.TextAreaFor(model => Model.CompanyLocationList[i].COMPANY_ADDRESS, new { @class = "form-control", @maxlength = "150" })
+                                                    @Html.ValidationMessageFor(model => Model.CompanyLocationList[i].COMPANY_ADDRESS, null, new { @class = "text-danger field-validation-error" })
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-sm-4">
+                                                    @Html.LabelFor(model => Model.CompanyLocationList[i].COMPANY_PIN, null, new { @class = "control-label" })
+                                                    @Html.TextBoxFor(model => Model.CompanyLocationList[i].COMPANY_PIN, new { @class = "form-control", @maxlength = "6" })
+                                                    @Html.ValidationMessageFor(model => Model.CompanyLocationList[i].COMPANY_PIN, null, new { @class = "text-danger field-validation-error" })
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    @Html.LabelFor(model => Model.CompanyLocationList[i].COMPANY_CITY, null, new { @class = "control-label" })
+                                                    @Html.TextBoxFor(model => Model.CompanyLocationList[i].COMPANY_CITY, new { @class = "form-control", @maxlength = "20" })
+                                                    @Html.ValidationMessageFor(model => Model.CompanyLocationList[i].COMPANY_CITY, null, new { @class = "text-danger field-validation-error" })
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    @Html.LabelFor(model => Model.CompanyLocationList[i].STATE_CODE, null, new { @class = "control-label" })
+                                                    @Html.DropDownListFor(model => Model.CompanyLocationList[i].STATE_CODE, (IEnumerable<SelectListItem>)ViewBag.State, "Select State", new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(model => Model.CompanyLocationList[i].STATE_CODE, null, new { @class = "text-danger field-validation-error" })
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-sm-4">
+                                                    @Html.LabelFor(model => Model.CompanyLocationList[i].COMPANY_PHONE1, null, new { @class = "control-label" })
+                                                    @Html.TextBoxFor(model => Model.CompanyLocationList[i].COMPANY_PHONE1, new { @class = "form-control", @maxlength = "15" })
+                                                    @Html.ValidationMessageFor(model => Model.CompanyLocationList[i].COMPANY_PHONE1, null, new { @class = "text-danger field-validation-error" })
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    @Html.LabelFor(model => Model.CompanyLocationList[i].COMPANY_PHONE2, null, new { @class = "control-label" })
+                                                    @Html.TextBoxFor(model => Model.CompanyLocationList[i].COMPANY_PHONE2, new { @class = "form-control", @maxlength = "15" })
+                                                    @Html.ValidationMessageFor(model => Model.CompanyLocationList[i].COMPANY_PHONE2, null, new { @class = "text-danger field-validation-error" })
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                }
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <div class="row  mt5">
+                            <div class="col-md-12 text-center">
+                                <button type="submit" class="btn btn-info" id="btnSubmit"><i class="fa fa-save"></i>&nbsp;&nbsp;Save</button>
+                                <button type="reset" class="btn default" id="btnReset"><i class="fa fa-refresh"></i>&nbsp;&nbsp;Reset</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

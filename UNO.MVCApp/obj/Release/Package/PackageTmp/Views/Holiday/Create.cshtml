@@ -1,0 +1,260 @@
+﻿@model UNO.AppModel.HolidayVm
+@{
+    ViewBag.Title = "Holiday Master";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <!-- Spacer Starts -->
+    <div class="spacer clearfix">
+        <div class="row">
+            <div class="col-md-7 col-centered">
+                <div class="blog blog-default ">
+                    <div class="blog-header ">
+                        <h4 class="blog-title pull-left mt5">Add</h4>  <span class="pull-right"><a class="btn btn-default" href='@Url.Action("Index")' data-original-title="" title=""><i class="fa fa-arrow-left"></i> Back To List </a> </span>
+                        <span class="clearfix"></span>
+                    </div>
+                    <div class="blog-body form p10">
+                        @using (Html.BeginForm("Create", "Holiday", FormMethod.Post, new { @class = "form-horizontal" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true)
+                            @Html.HiddenFor(model => model.HOLIDAY_ID)
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group row">
+                                        <div class="col-sm-4">
+                                            @Html.LabelFor(model => model.COMPANY_ID, null, new { @class = "control-label" })
+                                            @Html.DropDownListFor(model => model.COMPANY_ID, (IEnumerable<SelectListItem>)ViewBag.CompanyId, "Select Company", new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.COMPANY_ID, null, new { @class = "text-danger field-validation-error" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-4">
+                                            @Html.LabelFor(model => model.HOLIDAY_CODE, null, new { @class = "control-label" })
+                                            @Html.TextBoxFor(model => model.HOLIDAY_CODE, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.HOLIDAY_CODE, null, new { @class = "text-danger field-validation-error" })
+                                        </div>
+                                        <div class="col-sm-4">
+                                            @Html.LabelFor(model => model.HOLIDAY_TYPE, null, new { @class = "control-label" })
+                                            @Html.DropDownListFor(model => model.HOLIDAY_TYPE, (IEnumerable<SelectListItem>)ViewBag.holidayid, "Select Type", new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.HOLIDAY_TYPE, null, new { @class = "text-danger field-validation-error" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <div class="col-sm-12">
+                                            @Html.LabelFor(model => model.HOLIDAY_DESCRIPTION, null, new { @class = "control-label" })
+                                            @Html.TextBoxFor(model => model.HOLIDAY_DESCRIPTION, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.HOLIDAY_DESCRIPTION, null, new { @class = "text-danger field-validation-error" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-4">
+                                            @Html.LabelFor(model => model.HOLIDAY_DATE, null, new { @class = "control-label" })
+                                            @Html.TextBoxFor(model => model.HOLIDAY_DATE, new { @class = "form-control", @type = "date" })
+                                            @Html.ValidationMessageFor(model => model.HOLIDAY_DATE, null, new { @class = "text-danger field-validation-error" })
+
+                                        </div>
+                                        <div class="col-sm-4">
+                                            @Html.LabelFor(model => model.HOLIDAY_SWAP, null, new { @class = "control-label" })
+                                            @Html.TextBoxFor(model => model.HOLIDAY_SWAP, new { @class = "form-control", @type = "date" })
+                                            @Html.ValidationMessageFor(model => model.HOLIDAY_SWAP, null, new { @class = "text-danger field-validation-error" })
+                                        </div>
+
+                                        <div class="col-sm-4">
+                                            @Html.LabelFor(model => model.LocationWise, null, new { @class = "control-label" })
+                                            <div>
+                                                <label class="radio-inline">
+                                                    @Html.RadioButtonFor(model => model.LocationWise, "A", new { @name = "LocationWise" }) All
+                                                </label>
+                                                <label class="radio-inline">
+                                                    @Html.RadioButtonFor(model => model.LocationWise, "S", new { @name = "LocationWise" }) Select Location
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id='show-me'>
+                                <hr>
+
+                                <table id="HolidayLocation" class="table table-striped no-margin text-center table-bordered table-fixed">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center bg-info">Select</th>
+                                            <th class="text-center bg-info">Location Code</th>
+                                            <th class="text-center bg-info">Location Name	</th>
+                                            <th class="text-center bg-info">Optional</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                                <span><label id="lblMsgtext" class="text-danger"></label></span>
+                            </div>
+
+
+                            <div class="clearfix"></div>
+                            <div class="form-actions">
+                                <div class="row">
+                                    <div class="col-md-12 text-center">
+                                        <button type="submit" class="btn btn-info" id="btnAdd"><i class="fa fa-save"></i>&nbsp;&nbsp;Save</button>
+                                        <button type="reset" class="btn default" id="btnReset"><i class="fa fa-refresh"></i>&nbsp;&nbsp;Reset</button>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#show-me").hide();
+            $('input[type="radio"]').attr('checked', false);
+            var DataList = 0;
+
+            $("#btnReset").on('click', function () {
+                window.location.reload();
+            });
+            $(document).on('change', '[type=checkbox]', function () {
+                for (var i = 0; i < DataList.length; i++) {
+                    var currentCheckbox = $(this)[0].id;
+                    var ChkId = 0;
+                    if (currentCheckbox == "HolidayLoc_"+i+"__IS_bool_OPTIONAL")
+                    {
+                        ChkId = 1;
+                    }
+                    if (currentCheckbox == "HolidayLoc_"+i+"__IS_bool_HOLIDAYLOC_ID") {
+                        ChkId = 2;
+                    }
+                    if (ChkId == 1) {
+                        if ($("#HolidayLoc_" + i + "__IS_bool_OPTIONAL").prop('checked') == true) {
+                            $("#HolidayLoc_" + i + "__IS_bool_HOLIDAYLOC_ID").prop('checked', true);
+                        }
+                    }
+                    if (ChkId == 2) {
+                        if ($("#HolidayLoc_" + i + "__IS_bool_HOLIDAYLOC_ID").prop('checked') == false) {
+                            $("#HolidayLoc_" + i + "__IS_bool_OPTIONAL").prop('checked', false);
+                        }
+                    }
+                }
+             
+            });
+            $('#btnAdd').click(function () {
+                $("#HOLIDAY_ID").val(1);
+                if ($("input:radio[name='LocationWise']:checked").val() == 'S') {
+                    if ($(".chkCheckBox").is(":checked")) {
+                        return true;
+                    }
+                    else {
+                        $("#lblMsgtext").html("Please select atleast one location");
+                        return false;
+
+                    }
+                } else {
+                    $("#lblMsgtext").html("");
+                }
+            });
+        $("#HOLIDAY_TYPE").change(function () {
+            if ($("#HOLIDAY_TYPE").val() == 'N') {
+                $('input:radio[name=LocationWise]').filter('[value=A]').prop('checked', true);
+                
+                $("input:radio[name='LocationWise']:checked").val() = 'A';
+                //$('input[name="LocationWise"]').attr('disabled', 'disabled');
+                
+               
+                $("#show-me").hide();
+            } else {
+                $('input[name="LocationWise"]').attr('disabled', false);
+               
+            }
+
+
+
+        });
+
+        $("input:radio[name=LocationWise]").change(function () {
+
+            var LocationWise = $(this).val();
+            if (LocationWise == "S") {
+                $.ajax({
+                    url: BaseAddress + "HolidayAPI/getID",
+                    cache: false,
+                    type: "GET",
+                    success: function (data) {
+                        DataList = data;
+
+                        $('#HolidayLocation tbody').empty();
+                        @{
+                            var i = -1;
+                        }
+                        var row = ''
+                        debugger;
+                        for (var i = 0; i < DataList.length; i++) {
+                            row += '<tr>';
+                                row += '<td>'
+                                var controllerId = '@Html.CheckBoxFor(model => Model.HolidayLoc[i].IS_bool_HOLIDAYLOC_ID, new { @class = "chkCheckBox" })';
+                                controllerId = controllerId.replace("[-1]", "[" + i + "]");
+                                controllerId = controllerId.replace("-1", i);
+                                row +=controllerId+ '</td>';
+                            row += '<td>' + DataList[i].OCE_ID;
+                            var controllerId = '@Html.HiddenFor(model => Model.HolidayLoc[i].OCE_ID, new { @id = "OCE_ID", Value = "$OCE_ID" })';
+                            controllerId = controllerId.replace("[-1]", "[" + i + "]");
+                            controllerId = controllerId.replace("-1", i);
+                            controllerId = controllerId.replace("$OCE_ID", DataList[i].OCE_ID);
+                            var companyId = '@Html.HiddenFor(model => Model.HolidayLoc[i].COMPANY_ID, new { Value = "$COMPANY_ID" })';
+                            companyId = companyId.replace("[-1]", "[" + i + "]");
+                            companyId = companyId.replace("-1", i);
+                            companyId = companyId.replace("$COMPANY_ID", DataList[i].COMPANY_ID);
+                            var holiday_loc_id = '@Html.HiddenFor(model => Model.HolidayLoc[i].HOLIDAY_LOC_ID, new { Value = "$HOLIDAY_LOC_ID" })';
+                            holiday_loc_id = holiday_loc_id.replace("[-1]", "[" + i + "]");
+                            holiday_loc_id = holiday_loc_id.replace("-1", i);
+                            holiday_loc_id = holiday_loc_id.replace("$HOLIDAY_LOC_ID", DataList[i].HOLIDAY_LOC_ID);
+                            row +=holiday_loc_id+ companyId + controllerId + '</td>';
+                            row += '<td>' + DataList[i].OCE_DESCRIPTION;
+                            var controllerId = '@Html.HiddenFor(model => Model.HolidayLoc[i].OCE_DESCRIPTION, new { @id = "OCE_DESCRIPTION", Value = "$OCE_DESCRIPTION" })';
+                            controllerId = controllerId.replace("[-1]", "[" + i + "]");
+                            controllerId = controllerId.replace("-1", i);
+                            controllerId = controllerId.replace("$OCE_DESCRIPTION", DataList[i].OCE_DESCRIPTION);
+                            row +=  controllerId + '</td>';
+                                 row += '<td>'
+                                var controllerId = '@Html.CheckBoxFor(model => Model.HolidayLoc[i].IS_bool_OPTIONAL)';
+                                controllerId = controllerId.replace("[-1]", "[" + i + "]");
+                                controllerId = controllerId.replace("-1", i);
+                                row +=controllerId+ '</td>';
+                            row += '</tr>';
+                        }
+                        
+                        $("#show-me").show();
+                        $("#HolidayLocation tbody").append(row);
+
+
+                    },
+                    error: function (reponse) {
+                    }
+                });
+                
+            }
+            else {
+                $("#show-me").hide();
+                $('#HolidayLocation tbody').empty();
+            }
+
+        });
+        });
+        $(function HideGrid() {
+            var $radios = $('input:radio[name=LocationWise]');
+            if ($radios.is(':checked') === false) {
+                $radios.filter('[value=A]').prop('checked', true);
+            }
+        });
+    </script>
+}

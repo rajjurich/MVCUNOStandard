@@ -1,0 +1,123 @@
+﻿@model UNO.AppModel.UserModel
+@*@using EToolsViewer.Extensions*@
+@{
+    ViewBag.Title = "USER";
+}
+@section scripts
+{
+
+
+}
+<div class="main-container" style="clear:both;">
+    <!-- Container fluid Starts -->
+    <div id="main-content" class="container-fluid">
+        <!-- Spacer Starts -->
+        <div class="spacer clearfix">
+            <div class="row">
+                <div class="col-md-7 col-centered">
+                    <div class="blog blog-default ">
+                        <div class="blog-header ">
+                            <h4 class="blog-title pull-left mt5">Add </h4><span class="pull-right">  <a class="btn btn-default" href='@Url.Action("Index")'><i class="fa fa-arrow-left"></i> Back To List</a></span>
+                            @*<a class="btn btn-warning pull-right btn-sm" href='@Url.Action("Index")'><i class="fa fa-arrow-left"></i> Back To List</a>*@
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="blog-body form p0">
+                            @using (Html.BeginForm())
+                            {
+                                @Html.AntiForgeryToken()
+
+                                @Html.ValidationSummary(true)
+                                @Html.HiddenFor(model => model.USER_ID)
+                                @Html.HiddenFor(model => model.EssEnabled)
+                                @Html.HiddenFor(model => model.PASSWORD_RESET)
+                                <div class="form-horizontal form-bordered form-label-stripped">
+                                    <div class="form-body p0">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.USER_CODE, null, new { @class = "control-label col-md-3" })
+                                            <div class="col-md-9">
+                                                @Html.TextBoxFor(model => model.USER_CODE, new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.USER_CODE, null, new { @class = "text-danger field-validation-error", @maxlength = 10 })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.COMPANY_ID, null, new { @class = "control-label col-md-3" })
+                                            <div class="col-md-9">
+                                                @Html.DropDownListFor(model => model.COMPANY_ID, (IEnumerable<SelectListItem>)ViewBag.CompanyId, "Select Company", new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.COMPANY_ID, null, new { @class = "text-danger field-validation-error" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.ROLE_ID, null, new { @class = "control-label col-md-3" })
+                                            <div class="col-md-9">
+                                                @Html.DropDownListFor(model => model.ROLE_ID, (IEnumerable<SelectListItem>)ViewBag.RoleId, "Select Role", new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.ROLE_ID, null, new { @class = "text-danger field-validation-error" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Password, null, new { @class = "control-label col-md-3" })
+                                            <div class="col-md-9">
+                                                @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.Password, null, new { @class = "text-danger field-validation-error", @maxlength = 20 })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Confirm Password</label>
+                                            <div class="col-md-9">
+                                                @Html.PasswordFor(model => model.Confirm_Password, new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.Confirm_Password, null, new { @class = "text-danger field-validation-error", @maxlength = 20 })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="form-actions">
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+                                            <button type="submit" class="btn btn-info" id="btnAdd"><i class="fa fa-save"></i>&nbsp;&nbsp;Save</button>
+                                            <button type="reset" class="btn default" id="btnReset"><i class="fa fa-refresh"></i>&nbsp;&nbsp;Reset</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $("#btnAdd").click(function () {
+        $("#USER_ID").val(1);
+        $("#PASSWORD_RESET").attr("value", "True");
+        $("#EssEnabled").attr("value", "True");
+    });
+
+    $(document).ready(function () {
+        var uri = '@System.Configuration.ConfigurationManager.AppSettings["APIUrl"].ToString()';
+        $("#COMPANY_ID").change(function () {
+            var roles = $('#ROLE_ID')
+            roles.empty();
+            roles.append($('<option></option>').text("Select Role").val(""));
+            $.ajax({
+                type: 'GET',
+                url: uri + "RoleAPI/getByCompanyId/" + $("#COMPANY_ID").val(),
+                success: function (data) {
+
+                    if (data) {
+
+                        $.each(data, function (index, item) {
+                            roles.append($('<option></option>').text(item.ROLE_NAME).val(item.ROLE_ID));
+                        });
+                    }
+                    else {
+
+                    }
+                },
+                error: function (jqXHR) {
+                    debugger;
+                }
+            });
+        })
+    });
+</script>

@@ -1,0 +1,56 @@
+
+
+/****** Object:  Table [dbo].[Visitor_Appointment_Request]    Script Date: 04-07-2018 18:52:40 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[Visitor_Appointment_Request](
+	[RequestID] [int] primary key IDENTITY(1,1) NOT FOR REPLICATION NOT NULL,
+	[Visitor_id] [varchar](100) NULL,
+	[Approval_Authority_Code] [varchar](20) NULL,
+	[approval_status] [varchar](10) NULL,
+	[Aprroval_datetime] [datetime] NULL,
+	[Approver_Remarks] [varchar](200) NULL,
+	[Visitor_Allowed_From_time] [datetime] NULL,
+	[visitor_Allowed_To_Time] [datetime] NULL,
+	[appointment_from_date] [datetime] NULL,
+	[appointment_to_date] [datetime] NULL,
+	[nature_of_work] [varchar](30) NULL,
+	[additional_Info] [varchar](200) NULL,
+	[isDeleted] [bit] NULL,
+	[isDeletedDate] [datetime] NULL,
+	[Visitor_Name] [varchar](100) NULL,
+	[VisitorCompany] [varchar](200) NULL,
+	[mobileNo] [varchar](20) NULL,
+	[CreatedOn] [datetime] NULL,
+	[CreatedBy] [varchar](15) NULL,
+	[Designation] [varchar](200) NULL,
+	[CheckedOutTime] [datetime] NULL,
+	[PurposeOfVisit] [varchar](200) NULL,
+	[Visitor_MiddleName] [varchar](100) NULL,
+	[Visitor_LastName] [varchar](100) NULL,
+	[visitor_nationality] [varchar](10) NULL,
+	[visitor_location] [varchar](50) NULL,
+	[Total_Count] [varchar](10) NULL,
+        [IS_SYNC] [bit] NOT NULL DEFAULT 0, 
+        [COMPANY_ID] [int] foreign key references ENT_COMPANY(COMPANY_ID),
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+CREATE TABLE [dbo].[ENT_ORG_COMMON_TYPES](
+	[COMMON_TYPES_ID] [int] primary key IDENTITY(1,1) NOT NULL,
+	[COMMON_TYPES] [nvarchar](15) unique NOT NULL,
+	[IS_SYNC] [bit] NOT NULL DEFAULT 0,
+	[COMPANY_ID] [int] foreign key references ENT_COMPANY(COMPANY_ID),	
+	CONSTRAINT COMMON_TYPES_COMPANY_ID_Composite UNIQUE(COMMON_TYPES,COMPANY_ID)
+)

@@ -1,0 +1,565 @@
+﻿@model UNO.AppModel.Employee
+
+@{
+    ViewBag.Title = "Edit";
+}
+<link href="~/Content/select2/css/select2.min.css" rel="stylesheet" />
+<script src="~/Content/select2/js/select2.min.js"></script>
+
+<div class="main-container" style="clear:both; min-height: 601px;">
+    <!-- Container fluid Starts -->
+    <div class="container-fluid">
+        <!-- Spacer Starts -->
+        <div class="spacer clearfix">
+            <div class="row">
+                <div class="col-md-10 col-centered">
+                    <div class="blog blog-default">
+                        <div class="blog-header ">
+                            <h5 class="blog-title pull-left mt5">Edit</h5> <span class="pull-right"><a class="btn btn-default" href="@Url.Action("Index")" data-original-title="" title=""><i class="fa fa-arrow-left"></i> Back </a> </span>
+                            <span class="clearfix"></span>
+                        </div>
+                        <div class="blog-body p0">
+
+                            <div class="stepy-success ">
+
+                                <div class="tab-pane active" id="domwizard">
+                                    @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "basicwizard", @class = "row-border" }))
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        @Html.ValidationSummary(true)
+                                        <fieldset title="1">
+                                            <legend>Required Details</legend>
+                                            <div class="row ">
+                                                <div class="col-md-3 text-center">
+
+                                                    <div id="imagePreview"></div>
+                                                    <div class="clearfix"></div>
+
+                                                    <div class="fileUpload btn btn-primary">
+                                                        <span>Upload</span>
+                                                        <input type="file" class="upload" id="uploadFile" />
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        @Html.HiddenFor(model => model.ACTIVE_USER, new { Value = @HttpContext.Current.Session["User"].ToString() })
+                                                        @Html.HiddenFor(model => model.EMPLOYEE_ID)
+                                                        @Html.LabelFor(model => model.EOD_EMPID, new { @class = "control-label" })
+                                                        @Html.TextBoxFor(model => model.EOD_EMPID, new { @class = "form-control", Placeholder = "Employee Code", @maxlength = 10 })
+                                                        @Html.ValidationMessageFor(model => model.EOD_EMPID, "", new { @class = "text-danger" })
+                                                        <label id="prina"></label>
+                                                    </div>
+                                                    <div class="col-md-12 row">
+                                                        @Html.CheckBoxFor(model => model.EssEnabled)
+                                                        @Html.LabelFor(model => model.EssEnabled, new { @class = "control-label" })
+                                                        @Html.ValidationMessageFor(model => model.EssEnabled, "", new { @class = "text-danger" })
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-9 grid-form">
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="row mb5">
+                                                                    <div class="col-md-4">
+                                                                        @Html.HiddenFor(model => model.ACTIVE_USER, new { Value = @HttpContext.Current.Session["User"].ToString() })
+                                                                        @Html.LabelFor(model => model.EPD_FIRST_NAME, new { @class = "control-label" })
+                                                                        @Html.TextBoxFor(model => model.EPD_FIRST_NAME, new { @class = "form-control", Placeholder = "First Name", @maxlength = 50 })
+                                                                        @Html.ValidationMessageFor(model => model.EPD_FIRST_NAME, "", new { @class = "text-danger" })
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        @Html.LabelFor(model => model.EPD_MIDDLE_NAME, new { @class = "control-label" })
+                                                                        @Html.TextBoxFor(model => model.EPD_MIDDLE_NAME, new { @class = "form-control", Placeholder = "Middle Name", @maxlength = 50 })
+                                                                        @Html.ValidationMessageFor(model => model.EPD_MIDDLE_NAME, "", new { @class = "text-danger" })
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        @Html.LabelFor(model => model.EPD_LAST_NAME, new { @class = "control-label" })
+                                                                        @Html.TextBoxFor(model => model.EPD_LAST_NAME, new { @class = "form-control", Placeholder = "Last Name", @maxlength = 50 })
+                                                                        @Html.ValidationMessageFor(model => model.EPD_LAST_NAME, "", new { @class = "text-danger" })
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row mb5">
+                                                                    <div class="col-md-4">
+                                                                        @Html.LabelFor(model => model.EPD_SALUTATION, new { @class = "control-label" })
+                                                                        @Html.TextBoxFor(model => model.EPD_SALUTATION, new { @class = "form-control", Placeholder = "Salutation", @maxlength = 5 })
+                                                                        @Html.ValidationMessageFor(model => model.EPD_SALUTATION, "", new { @class = "text-danger" })
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        @Html.LabelFor(model => model.EPD_CARD_ID, new { @class = "control-label" })
+                                                                        @Html.TextBoxFor(model => model.EPD_CARD_ID, new { @class = "form-control", Placeholder = "Card Number", @maxlength = 10 })
+                                                                        @Html.ValidationMessageFor(model => model.EPD_CARD_ID, "", new { @class = "text-danger" })
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        @Html.LabelFor(model => model.EOD_JOINING_DATE, new { @class = "control-label" })
+                                                                        <div id="datepickerJoiningDate" class="input-group date datepicker" data-date-format="dd-M-yyyy">                                                                            
+                                                                            @Html.EditorFor(model => model.EOD_JOINING_DATE, new { @class = "form-control datePicker", Placeholder = "Joining Date", @readonly = true })
+                                                                            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                                                        </div>
+                                                                        @Html.ValidationMessageFor(model => model.EOD_JOINING_DATE, "", new { @class = "text-danger" })
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row mb5">
+                                                                    <div class="col-md-4">
+                                                                        @Html.LabelFor(model => model.EOD_COMPANY_ID, new { @class = "control-label" })
+                                                                        @Html.DropDownListFor(model => model.EOD_COMPANY_ID, (IEnumerable<SelectListItem>)ViewBag.Companies, "Select", new { @class = "form-control" })
+                                                                        @Html.ValidationMessageFor(model => model.EOD_COMPANY_ID, "", new { @class = "text-danger" })
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        @Html.LabelFor(model => model.EOD_LOCATION_ID, new { @class = "control-label" })
+                                                                        @Html.DropDownListFor(model => model.EOD_LOCATION_ID, (IEnumerable<SelectListItem>)ViewBag.Locations, "Select", new { @class = "form-control" })
+                                                                        @Html.ValidationMessageFor(model => model.EOD_LOCATION_ID, "", new { @class = "text-danger" })
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        @Html.LabelFor(model => model.EOD_DIVISION_ID, new { @class = "control-label" })
+                                                                        @Html.DropDownListFor(model => model.EOD_DIVISION_ID, (IEnumerable<SelectListItem>)ViewBag.Divisions, "Select", new { @class = "form-control" })
+                                                                        @Html.ValidationMessageFor(model => model.EOD_DIVISION_ID, "", new { @class = "text-danger" })
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row mb5">
+                                                                    <div class="col-md-4">
+                                                                        @Html.LabelFor(model => model.EOD_DEPARTMENT_ID, new { @class = "control-label" })
+                                                                        @Html.DropDownListFor(model => model.EOD_DEPARTMENT_ID, (IEnumerable<SelectListItem>)ViewBag.Departments, "Select", new { @class = "form-control" })
+                                                                        @Html.ValidationMessageFor(model => model.EOD_DEPARTMENT_ID, "", new { @class = "text-danger" })
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        @Html.LabelFor(model => model.EOD_DESIGNATION_ID, new { @class = "control-label" })
+                                                                        @Html.DropDownListFor(model => model.EOD_DESIGNATION_ID, (IEnumerable<SelectListItem>)ViewBag.Designations, "Select", new { @class = "form-control" })
+                                                                        @Html.ValidationMessageFor(model => model.EOD_DESIGNATION_ID, "", new { @class = "text-danger" })
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        @Html.LabelFor(model => model.EOD_CATEGORY_ID, new { @class = "control-label" })
+                                                                        @Html.DropDownListFor(model => model.EOD_CATEGORY_ID, (IEnumerable<SelectListItem>)ViewBag.Categories, "Select", new { @class = "form-control" })
+                                                                        @Html.ValidationMessageFor(model => model.EOD_CATEGORY_ID, "", new { @class = "text-danger" })
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row mb5">
+                                                                    <div class="col-md-4">
+                                                                        @Html.LabelFor(model => model.EOD_GROUP_ID, new { @class = "control-label" })
+                                                                        @Html.DropDownListFor(model => model.EOD_GROUP_ID, (IEnumerable<SelectListItem>)ViewBag.Groups, "Select", new { @class = "form-control" })
+                                                                        @Html.ValidationMessageFor(model => model.EOD_GROUP_ID, "", new { @class = "text-danger" })
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        @Html.LabelFor(model => model.EOD_GRADE_ID, new { @class = "control-label" })
+                                                                        @Html.DropDownListFor(model => model.EOD_GRADE_ID, (IEnumerable<SelectListItem>)ViewBag.Grades, "Select", new { @class = "form-control" })
+                                                                        @Html.ValidationMessageFor(model => model.EOD_GRADE_ID, "", new { @class = "text-danger" })
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        @Html.LabelFor(model => model.EOD_TYPE, new { @class = "control-label" })
+                                                                        @Html.DropDownListFor(model => model.EOD_TYPE, (IEnumerable<SelectListItem>)ViewBag.EmployeeTypes, "Select", new { @class = "form-control" })
+                                                                        @Html.ValidationMessageFor(model => model.EOD_TYPE, "", new { @class = "text-danger" })
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row mb5">
+                                                                    <div class="col-md-4">
+                                                                        @Html.LabelFor(model => model.EOD_CONFIRM_DATE, new { @class = "control-label" })
+                                                                        <div id="datepickerConfirmDate" class="input-group date datepicker" data-date-format="dd-M-yyyy">
+                                                                            @Html.EditorFor(model => model.EOD_CONFIRM_DATE, new { @class = "form-control datePicker", Placeholder = "Confirm Date", @readonly = true })
+                                                                            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                                                        </div>
+                                                                        @Html.ValidationMessageFor(model => model.EOD_CONFIRM_DATE, "", new { @class = "text-danger" })
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        @Html.LabelFor(model => model.EOD_LEFT_REASON_ID, new { @class = "control-label" })
+                                                                        @Html.DropDownListFor(model => model.EOD_LEFT_REASON_ID, (IEnumerable<SelectListItem>)ViewBag.LeftReasons, "Select", new { @class = "form-control" })
+                                                                        @Html.ValidationMessageFor(model => model.EOD_LEFT_REASON_ID, "", new { @class = "text-danger" })
+                                                                    </div>
+                                                                    <div class="col-md-4">
+                                                                        @Html.LabelFor(model => model.EOD_LEFT_DATE, new { @class = "control-label" })
+                                                                        <div id="datepickerLeftDate" class="input-group date datepicker" data-date-format="dd-M-yyyy">
+                                                                            @Html.EditorFor(model => model.EOD_LEFT_DATE, new { @class = "form-control datePicker", Placeholder = "Left Date", @readonly = true })
+                                                                            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                                                        </div>
+                                                                        @Html.ValidationMessageFor(model => model.EOD_LEFT_DATE, "", new { @class = "text-danger" })
+                                                                    </div>
+                                                                </div>
+
+                                                                <div class="row mb5">
+                                                                    <div class="col-md-4">
+                                                                        @Html.LabelFor(model => model.PREVIOUS_EMPLOYEE_ID, new { @class = "control-label" })
+                                                                        @Html.DropDownListFor(model => model.PREVIOUS_EMPLOYEE_ID, (IEnumerable<SelectListItem>)ViewBag.Employees, "Select", new { @class = "form-control select2" })
+                                                                        @Html.ValidationMessageFor(model => model.PREVIOUS_EMPLOYEE_ID, "", new { @class = "text-danger" })
+                                                                    </div>
+                                                                    <div class="col-md-4">
+
+                                                                        @Html.LabelFor(model => model.EmployeeHierarchy[0].Hier_Mgr_ID, new { @class = "control-label" })
+                                                                        @{
+                                        if (Model.EmployeeHierarchy == null)
+                                        {
+                                            @Html.DropDownListFor(model => model.EmployeeHierarchy[0].Hier_Mgr_ID, (IEnumerable<SelectListItem>)ViewBag.Employees, "Select", new { @class = "form-control" });
+                                        }
+                                        else
+                                        {
+                                            @Html.HiddenFor(model => model.EmployeeHierarchy[0].ENT_HierarchyDef_ID)
+                                                                            @Html.DropDownListFor(model => model.EmployeeHierarchy[0].Hier_Mgr_ID, ((IEnumerable<SelectListItem>)ViewBag.Employees).ToList().Select((m => new SelectListItem { Value = m.Value, Text = m.Text, Selected = m.Value == Model.EmployeeHierarchy[0].Hier_Mgr_ID.ToString() ? true : false })), "Select", new { @class = "form-control" });
+                                        }
+
+                                                                        }
+
+                                                                        @Html.ValidationMessageFor(model => model.EmployeeHierarchy[0].Hier_Mgr_ID, "", new { @class = "text-danger" })
+                                                                        @*((IEnumerable<selectlistitem>)ViewBag.ReaderTypes).ToList().Select(m => new SelectListItem { Value = m.Value, Text = m.Text, Selected = m.Value == item.READER_TYPE ? true : false })*@
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+
+                                        <fieldset title="2">
+                                            <legend>Other Details</legend>
+                                            <div class="row">
+                                                <div class="col-md-12  grid-form " style=" margin-left:10px;">
+                                                    <div class="form-group ">
+
+                                                        <div class="row mb5">
+                                                            <div class="col-md-4">
+                                                                @Html.LabelFor(model => model.EPD_EMAIL, new { @class = "control-label" })
+                                                                @Html.EditorFor(model => model.EPD_EMAIL, new { @class = "form-control", Placeholder = "Email", @maxlength = 50 })
+                                                                @Html.ValidationMessageFor(model => model.EPD_EMAIL, "", new { @class = "text-danger" })
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                @Html.LabelFor(model => model.EPD_DOB, new { @class = "control-label" })
+                                                                <div id="datepickerDOB" class="input-group date datepicker" data-date-format="dd-M-yyyy">
+                                                                    @Html.EditorFor(model => model.EPD_DOB, new { @class = "form-control datePicker", Placeholder = "Date of Birth", @readonly = true })
+                                                                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                                                </div>
+                                                                @Html.ValidationMessageFor(model => model.EPD_DOB, "", new { @class = "text-danger" })
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                @Html.LabelFor(model => model.EPD_GENDER, new { @class = "control-label" })
+                                                                @Html.DropDownListFor(model => model.EPD_GENDER, (IEnumerable<SelectListItem>)ViewBag.Gender, "Select", new { @class = "form-control" })
+                                                                @Html.ValidationMessageFor(model => model.EPD_GENDER, "", new { @class = "text-danger" })
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="row mb5">
+                                                            <div class="col-md-4">
+                                                                @Html.LabelFor(model => model.EPD_MARITAL_STATUS, new { @class = "control-label" })
+                                                                @Html.DropDownListFor(model => model.EPD_MARITAL_STATUS, (IEnumerable<SelectListItem>)ViewBag.MaritalStatus, "Select", new { @class = "form-control" })
+                                                                @Html.ValidationMessageFor(model => model.EPD_MARITAL_STATUS, "", new { @class = "text-danger" })
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                @Html.LabelFor(model => model.EPD_DateOFMarriage, new { @class = "control-label" })
+                                                                <div id="datepickerDateofMarriage" class="input-group date datepicker" data-date-format="dd-M-yyyy">
+                                                                    @Html.EditorFor(model => model.EPD_DateOFMarriage, new { @class = "form-control datePicker", Placeholder = "Date of Marriage", @readonly = true })
+                                                                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                                                </div>
+                                                                @Html.ValidationMessageFor(model => model.EPD_DateOFMarriage, "", new { @class = "text-danger" })
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                @Html.LabelFor(model => model.EPD_RELIGION, new { @class = "control-label" })
+                                                                @Html.DropDownListFor(model => model.EPD_RELIGION, (IEnumerable<SelectListItem>)ViewBag.Religion, "Select", new { @class = "form-control" })
+                                                                @Html.ValidationMessageFor(model => model.EPD_RELIGION, "", new { @class = "text-danger" })
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="row mb5">
+                                                            <div class="col-md-4">
+                                                                @Html.LabelFor(model => model.EPD_REFERENCE_ONE, new { @class = "control-label" })
+                                                                @Html.TextBoxFor(model => model.EPD_REFERENCE_ONE, new { @class = "form-control", Placeholder = "Primary Reference", @maxlength = 50 })
+                                                                @Html.ValidationMessageFor(model => model.EPD_REFERENCE_ONE, "", new { @class = "text-danger" })
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                @Html.LabelFor(model => model.EPD_REFERENCE_TWO, new { @class = "control-label" })
+                                                                @Html.TextBoxFor(model => model.EPD_REFERENCE_TWO, new { @class = "form-control", Placeholder = "Secondary Reference", @maxlength = 50 })
+                                                                @Html.ValidationMessageFor(model => model.EPD_REFERENCE_TWO, "", new { @class = "text-danger" })
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                @Html.LabelFor(model => model.EPD_DOMICILE, new { @class = "control-label" })
+                                                                @Html.TextBoxFor(model => model.EPD_DOMICILE, new { @class = "form-control", Placeholder = "Domicile", @maxlength = 50 })
+                                                                @Html.ValidationMessageFor(model => model.EPD_DOMICILE, "", new { @class = "text-danger" })
+                                                            </div>
+
+                                                        </div>
+
+
+                                                        <div class="row mb5">
+                                                            <div class="col-md-4">
+                                                                @Html.LabelFor(model => model.EPD_BLOODGROUP, new { @class = "control-label" })
+                                                                @Html.DropDownListFor(model => model.EPD_BLOODGROUP, (IEnumerable<SelectListItem>)ViewBag.Bloodgroup, "Select", new { @class = "form-control" })
+                                                                @Html.ValidationMessageFor(model => model.EPD_BLOODGROUP, "", new { @class = "text-danger" })
+                                                            </div>
+
+                                                            <div class="col-md-4">
+                                                                @Html.LabelFor(model => model.EPD_PAN, new { @class = "control-label" })
+                                                                @Html.TextBoxFor(model => model.EPD_PAN, new { @class = "form-control", Placeholder = "PAN", @maxlength = 10 })
+                                                                @Html.ValidationMessageFor(model => model.EPD_PAN, "", new { @class = "text-danger" })
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                @Html.LabelFor(model => model.EPD_AADHARCARD, new { @class = "control-label" })
+                                                                @Html.TextBoxFor(model => model.EPD_AADHARCARD, new { @class = "form-control", Placeholder = "Aadhar", @maxlength = 15 })
+                                                                @Html.ValidationMessageFor(model => model.EPD_AADHARCARD, "", new { @class = "text-danger" })
+                                                            </div>
+                                                        </div>
+                                                        <div class="row mb5">
+                                                            <div class="col-md-4">
+                                                                @Html.LabelFor(model => model.EPD_UAN, new { @class = "control-label" })
+                                                                @Html.TextBoxFor(model => model.EPD_UAN, new { @class = "form-control", Placeholder = "UAN", @maxlength = 10 })
+                                                                @Html.ValidationMessageFor(model => model.EPD_UAN, "", new { @class = "text-danger" })
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </fieldset>
+                                        <fieldset title="3">
+                                            <legend>Address Details</legend>
+                                            <div class="row">
+                                                <div class="col-md-12  grid-form" style=" margin-left:10px;">
+                                                    <div class="form-group">
+
+                                                        <div class="row mb5">
+
+                                                            <h5>Local Address</h5>
+                                                            @Html.HiddenFor(model => model.EmployeeAddresses[0].EAD_ADDRESS_TYPE, new { Value = "T" })
+                                                            @Html.HiddenFor(model => model.EmployeeAddresses[0].EMPLOYEE_ADDRESS)
+                                                            @Html.HiddenFor(model => model.EmployeeAddresses[0].EMPLOYEE_ID)
+                                                            <div class="col-md-12">
+                                                                @Html.LabelFor(model => model.EmployeeAddresses[0].EAD_ADDRESS, new { @class = "control-label" })
+                                                                @Html.TextAreaFor(model => model.EmployeeAddresses[0].EAD_ADDRESS, new { @class = "form-control", Placeholder = "Employee Address", @maxlength = 200 })
+                                                                @Html.ValidationMessageFor(model => model.EmployeeAddresses[0].EAD_ADDRESS, "", new { @class = "text-danger" })
+                                                            </div>
+                                                        </div>
+                                                        <div class="row mb5">
+                                                            <div class="col-md-3">
+                                                                @Html.LabelFor(model => model.EmployeeAddresses[0].EAD_CITY, new { @class = "control-label" })
+                                                                @Html.TextBoxFor(model => model.EmployeeAddresses[0].EAD_CITY, new { @class = "form-control", Placeholder = "Employee City", @maxlength = 50 })
+                                                                @Html.ValidationMessageFor(model => model.EmployeeAddresses[0].EAD_CITY, "", new { @class = "text-danger" })
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                @Html.LabelFor(model => model.EmployeeAddresses[0].EAD_PIN, new { @class = "control-label" })
+                                                                @Html.TextBoxFor(model => model.EmployeeAddresses[0].EAD_PIN, new { @class = "form-control", Placeholder = "Employee Pincode", @maxlength = 6 })
+                                                                @Html.ValidationMessageFor(model => model.EmployeeAddresses[0].EAD_PIN, "", new { @class = "text-danger" })
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                @Html.LabelFor(model => model.EmployeeAddresses[0].EAD_STATE, new { @class = "control-label" })
+                                                                @Html.DropDownListFor(model => model.EmployeeAddresses[0].EAD_STATE, ((IEnumerable<SelectListItem>)ViewBag.States).ToList().Select((m => new SelectListItem { Value = m.Value, Text = m.Text, Selected = m.Value == Model.EmployeeAddresses[0].EAD_STATE.ToString() ? true : false })), "Select", new { @class = "form-control" })
+                                                                @Html.ValidationMessageFor(model => model.EmployeeAddresses[0].EAD_STATE, "", new { @class = "text-danger" })
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                @Html.LabelFor(model => model.EmployeeAddresses[0].EAD_COUNTRY, new { @class = "control-label" })
+                                                                @Html.TextBoxFor(model => model.EmployeeAddresses[0].EAD_COUNTRY, new { @class = "form-control", Placeholder = "Employee Country", @maxlength = 50 })
+                                                                @Html.ValidationMessageFor(model => model.EmployeeAddresses[0].EAD_COUNTRY, "", new { @class = "text-danger" })
+                                                            </div>
+                                                        </div>
+                                                        <div class="row mb5">
+
+                                                            <div class="col-md-3">
+                                                                @Html.LabelFor(model => model.EmployeeAddresses[0].EAD_PHONE_ONE, new { @class = "control-label" })
+                                                                @Html.TextBoxFor(model => model.EmployeeAddresses[0].EAD_PHONE_ONE, new { @class = "form-control", Placeholder = "Employee Phone Number", @maxlength = 15 })
+                                                                @Html.ValidationMessageFor(model => model.EmployeeAddresses[0].EAD_PHONE_ONE, "", new { @class = "text-danger" })
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                @Html.LabelFor(model => model.EmployeeAddresses[0].EAD_PHONE_TWO, new { @class = "control-label" })
+                                                                @Html.TextBoxFor(model => model.EmployeeAddresses[0].EAD_PHONE_TWO, new { @class = "form-control", Placeholder = "Employee Phone Number", @maxlength = 15 })
+                                                                @Html.ValidationMessageFor(model => model.EmployeeAddresses[0].EAD_PHONE_TWO, "", new { @class = "text-danger" })
+                                                            </div>
+                                                        </div>
+
+
+                                                    </div>
+                                                    <hr style=" margin-left:-10px;width:100%;">
+                                                    <div class="form-group">
+
+                                                        <div class="row mb5">
+                                                            <h5>
+                                                                Permanent Address &nbsp;<label class="checkbox-inline mt0">
+                                                                    <input type="checkbox" id="chkSameAddress" value=""> <small>If same as local Address </small>
+                                                                </label>
+                                                                @Html.HiddenFor(model => model.EmployeeAddresses[1].EAD_ADDRESS_TYPE, new { Value = "P" })
+                                                                @Html.HiddenFor(model => model.EmployeeAddresses[1].EMPLOYEE_ADDRESS)
+                                                                @Html.HiddenFor(model => model.EmployeeAddresses[1].EMPLOYEE_ID)
+                                                            </h5>
+                                                            <div class="col-md-12">
+                                                                @Html.LabelFor(model => model.EmployeeAddresses[1].EAD_ADDRESS, new { @class = "control-label" })
+                                                                @Html.TextAreaFor(model => model.EmployeeAddresses[1].EAD_ADDRESS, new { @class = "form-control", Placeholder = "Employee Address", @maxlength = 200 })
+                                                                @Html.ValidationMessageFor(model => model.EmployeeAddresses[1].EAD_ADDRESS, "", new { @class = "text-danger" })
+                                                            </div>
+                                                        </div>
+                                                        <div class="row mb5">
+                                                            <div class="col-md-3">
+                                                                @Html.LabelFor(model => model.EmployeeAddresses[1].EAD_CITY, new { @class = "control-label" })
+                                                                @Html.TextBoxFor(model => model.EmployeeAddresses[1].EAD_CITY, new { @class = "form-control", Placeholder = "Employee City", @maxlength = 50 })
+                                                                @Html.ValidationMessageFor(model => model.EmployeeAddresses[1].EAD_CITY, "", new { @class = "text-danger" })
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                @Html.LabelFor(model => model.EmployeeAddresses[1].EAD_PIN, new { @class = "control-label" })
+                                                                @Html.TextBoxFor(model => model.EmployeeAddresses[1].EAD_PIN, new { @class = "form-control", Placeholder = "Employee Pincode", @maxlength = 6 })
+                                                                @Html.ValidationMessageFor(model => model.EmployeeAddresses[1].EAD_PIN, "", new { @class = "text-danger" })
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                @Html.LabelFor(model => model.EmployeeAddresses[1].EAD_STATE, new { @class = "control-label" })
+                                                                @Html.DropDownListFor(model => model.EmployeeAddresses[1].EAD_STATE, ((IEnumerable<SelectListItem>)ViewBag.States).ToList().Select((m => new SelectListItem { Value = m.Value, Text = m.Text, Selected = m.Value == Model.EmployeeAddresses[1].EAD_STATE.ToString() ? true : false })), "Select", new { @class = "form-control" })
+                                                                @Html.ValidationMessageFor(model => model.EmployeeAddresses[1].EAD_STATE, "", new { @class = "text-danger" })
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                @Html.LabelFor(model => model.EmployeeAddresses[1].EAD_COUNTRY, new { @class = "control-label" })
+                                                                @Html.TextBoxFor(model => model.EmployeeAddresses[1].EAD_COUNTRY, new { @class = "form-control", Placeholder = "Employee Country", @maxlength = 50 })
+                                                                @Html.ValidationMessageFor(model => model.EmployeeAddresses[1].EAD_COUNTRY, "", new { @class = "text-danger" })
+                                                            </div>
+                                                        </div>
+                                                        <div class="row mb5">
+
+                                                            <div class="col-md-3">
+                                                                @Html.LabelFor(model => model.EmployeeAddresses[1].EAD_PHONE_ONE, new { @class = "control-label" })
+                                                                @Html.TextBoxFor(model => model.EmployeeAddresses[1].EAD_PHONE_ONE, new { @class = "form-control", Placeholder = "Employee Phone Number", @maxlength = 15 })
+                                                                @Html.ValidationMessageFor(model => model.EmployeeAddresses[1].EAD_PHONE_ONE, "", new { @class = "text-danger" })
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                @Html.LabelFor(model => model.EmployeeAddresses[1].EAD_PHONE_TWO, new { @class = "control-label" })
+                                                                @Html.TextBoxFor(model => model.EmployeeAddresses[1].EAD_PHONE_TWO, new { @class = "form-control", Placeholder = "Employee Phone Number", @maxlength = 15 })
+                                                                @Html.ValidationMessageFor(model => model.EmployeeAddresses[1].EAD_PHONE_TWO, "", new { @class = "text-danger" })
+                                                            </div>
+                                                        </div>
+
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </fieldset>
+    <button type="submit" id="btn_save" class="finish pull-right btn btn-info col-lg-12"> <i class="fa fa-save"></i> Save</button>
+
+                                    }
+                                </div>
+
+
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Spacer Ends -->
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('#EOD_JOINING_DATE').addClass('form-control datePicker');
+        $('#EOD_CONFIRM_DATE').addClass('form-control datePicker');
+        $('#EOD_LEFT_DATE').addClass('form-control datePicker');
+        $('#EPD_DOB').addClass('form-control datePicker');
+        $('#EPD_DateOFMarriage').addClass('form-control datePicker');
+        //console.log($(".datePicker").val());
+        //if (new Date($(".datePicker").val()) == new Date("1900/01/01")) {
+        //    $(".datePicker").val("");
+        //}
+
+
+        $("#EOD_COMPANY_ID").change(function () {
+            var uri = '@System.Configuration.ConfigurationManager.AppSettings["APIUrl"].ToString()';
+            var userid = '@Session["ACTIVE_USER"].ToString()';
+            var companyid = $("#EOD_COMPANY_ID").val();
+            var headers = {};
+            if (userid) {
+                headers.activeuser = userid;
+            }
+            $.ajax({
+                type: 'GET',
+                headers: headers,
+                url: uri + "employee/GetCompanyLength/" + companyid,
+                success: function (data) {
+                    var dataaa = data.CompanyCodeLength;
+                    var valueoftextbox = $("#EOD_EMPID").val().length;
+                    valueoflengh = dataaa;
+                    valueuniversal = valueoftextbox;
+                    if (dataaa == valueoftextbox) {
+
+                    }
+                    else {
+                        $("#prina").text("The Required Length Of Employee Code is " + dataaa);
+
+                    }
+
+                    $("#EOD_EMPID").on('input', function () {
+                        debugger;
+                        if ($('#EOD_EMPID').val().length == dataaa) {
+                            $("#btn_save").prop('disabled', false);
+                            $("#prina").text("");
+                        }
+                        else {
+                            $("#btn_save").prop('disabled', true);
+                            $("#prina").text("The Required Length Of Employee Code is " + dataaa);
+                        }
+                        console.log('asas');
+                    });
+
+                }
+            });
+        });
+
+
+
+
+        $('#EPD_EMAIL').addClass('form-control');
+        $('.select2').select2({ closeOnSelect: true });      
+        $("#chkSameAddress").click(function () {
+            SyncAddress();
+        });
+        function SyncAddress() {
+
+
+            $("#EmployeeAddresses_0__EAD_ADDRESS").keyup(function () {
+                if ($("#chkSameAddress").is(':checked')) {
+                    $("#EmployeeAddresses_1__EAD_ADDRESS").val($("#EmployeeAddresses_0__EAD_ADDRESS").val());
+                }
+            })
+            $("#EmployeeAddresses_0__EAD_CITY").keyup(function () {
+                if ($("#chkSameAddress").is(':checked')) {
+                    $("#EmployeeAddresses_1__EAD_CITY").val($("#EmployeeAddresses_0__EAD_CITY").val());
+                }
+            })
+            $("#EmployeeAddresses_0__EAD_PIN").keyup(function () {
+                if ($("#chkSameAddress").is(':checked')) {
+                    $("#EmployeeAddresses_1__EAD_PIN").val($("#EmployeeAddresses_0__EAD_PIN").val());
+                }
+            })
+            $("#EmployeeAddresses_0__EAD_STATE").change(function () {
+                if ($("#chkSameAddress").is(':checked')) {
+                    $("#EmployeeAddresses_1__EAD_STATE").val($("#EmployeeAddresses_0__EAD_STATE").val());
+                }
+            })
+            $("#EmployeeAddresses_0__EAD_COUNTRY").keyup(function () {
+                if ($("#chkSameAddress").is(':checked')) {
+                    $("#EmployeeAddresses_1__EAD_COUNTRY").val($("#EmployeeAddresses_0__EAD_COUNTRY").val());
+                }
+            })
+            $("#EmployeeAddresses_0__EAD_PHONE_ONE").keyup(function () {
+                if ($("#chkSameAddress").is(':checked')) {
+                    $("#EmployeeAddresses_1__EAD_PHONE_ONE").val($("#EmployeeAddresses_0__EAD_PHONE_ONE").val());
+                }
+            })
+            $("#EmployeeAddresses_0__EAD_PHONE_TWO").keyup(function () {
+                if ($("#chkSameAddress").is(':checked')) {
+                    $("#EmployeeAddresses_1__EAD_PHONE_TWO").val($("#EmployeeAddresses_0__EAD_PHONE_TWO").val());
+                }
+            })
+
+            if ($("#chkSameAddress").is(':checked')) {
+                $("#EmployeeAddresses_1__EAD_ADDRESS").val($("#EmployeeAddresses_0__EAD_ADDRESS").val());
+                $("#EmployeeAddresses_1__EAD_CITY").val($("#EmployeeAddresses_0__EAD_CITY").val());
+                $("#EmployeeAddresses_1__EAD_PIN").val($("#EmployeeAddresses_0__EAD_PIN").val());
+                $("#EmployeeAddresses_1__EAD_STATE").val($("#EmployeeAddresses_0__EAD_STATE").val());
+                $("#EmployeeAddresses_1__EAD_COUNTRY").val($("#EmployeeAddresses_0__EAD_COUNTRY").val());
+                $("#EmployeeAddresses_1__EAD_PHONE_ONE").val($("#EmployeeAddresses_0__EAD_PHONE_ONE").val());
+                $("#EmployeeAddresses_1__EAD_PHONE_TWO").val($("#EmployeeAddresses_0__EAD_PHONE_TWO").val());
+            }
+            else {
+                $("#EmployeeAddresses_1__EAD_ADDRESS").val('');
+                $("#EmployeeAddresses_1__EAD_CITY").val('');
+                $("#EmployeeAddresses_1__EAD_PIN").val('');
+                $("#EmployeeAddresses_1__EAD_STATE").val('');
+                $("#EmployeeAddresses_1__EAD_COUNTRY").val('');
+                $("#EmployeeAddresses_1__EAD_PHONE_ONE").val('');
+                $("#EmployeeAddresses_1__EAD_PHONE_TWO").val('');
+            }
+        }
+    });
+</script>
+

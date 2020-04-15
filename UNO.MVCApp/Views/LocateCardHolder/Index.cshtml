@@ -1,0 +1,128 @@
+﻿@model UNO.AppModel.LocateCardHolder
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="main-container" style="clear:both;">
+    <!-- Container fluid Starts -->
+    <div id="main-content" class="container-fluid">
+        <!-- Spacer Starts -->
+        <div class="spacer clearfix">
+            <div class="row">
+                <div class="col-md-7 col-centered">
+                    <div class="blog blog-default ">
+                        <div class="blog-header ">
+                            <h4 class="blog-title pull-left mt5">Index </h4>
+                            <span class="clearfix"></span>
+                        </div>
+
+                        <div class="blog-body form p0">
+
+                            @using (Html.BeginForm())
+                            {
+                                @Html.AntiForgeryToken()
+
+                                @Html.ValidationSummary(true)
+                                <div class="form-horizontal form-bordered form-label-stripped">
+                                    <div class="form-body p0">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.FILTER_CRITERIA, null, new { @class = "control-label col-md-3" })
+                                            <div class="col-md-9">
+                                                @Html.DropDownListFor(model => model.FILTER_CRITERIA, (IEnumerable<SelectListItem>)ViewBag.ListLevel, new { @class = "form-control" })
+                                                <label id="ErrorTextFILTER_CRITERIA" style="color:red"></label>
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.FILTER, null, new { @class = "control-label col-md-3" })
+                                            <div class="col-md-9">
+                                                <div class="col-md-7">
+                                                    @Html.TextBoxFor(model => model.FILTER, new { @class = "form-control", @maxlength = "50" })
+                                                    <label id="ErrorTextFILTER" style="color:red"></label>
+                                                    </div>
+                                                <div class="col-md-2">
+                                                    <button type="button" class="btn btn-info" id="btnSearch">&nbsp;&nbsp;Search</button>
+                                                    </div>
+                                                </div>
+                                            
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.EVENT_EMPLOYEE_CODE, null, new { @class = "control-label col-md-3" })
+                                            <div class="col-md-9">
+                                                <label id="EVENT_EMPLOYEE_CODE"></label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.EVENT_CARD_CODE, null, new { @class = "control-label col-md-3" })
+                                            <div class="col-md-9">
+                                                <label id="EVENT_CARD_CODE"></label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.EMP_NAME, null, new { @class = "control-label col-md-3" })
+                                            <div class="col-md-9">
+                                                <label id="EMP_NAME"></label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.EPD_MARITAL_STATUS, null, new { @class = "control-label col-md-3" })
+                                            <div class="col-md-9">
+                                                <label id="EPD_MARITAL_STATUS"></label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.EPD_PHONE_ONE, null, new { @class = "control-label col-md-3" })
+                                            <div class="col-md-9">
+                                                <label id="EPD_PHONE_ONE"></label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.READER_DESCRIPTION, null, new { @class = "control-label col-md-3" })
+                                            <div class="col-md-9">
+                                                @*@Html.TextBoxFor(model => model.READER_DESCRIPTION, new { @class = "form-control", @maxlength = "50" })*@
+                                                <label id="READER_DESCRIPTION"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $("#btnSearch").click(function () {
+            if ($("#FILTER_CRITERIA").val()==-1) {
+                $("#ErrorTextFILTER_CRITERIA").text("Please select Criteria");
+            }
+            else if ($("#FILTER").val() == "") {
+                $("#ErrorTextFILTER").text("Please enter Employee/Card Code");
+                $("#ErrorTextFILTER_CRITERIA").text("");
+            } else {
+                $("#ErrorTextFILTER").text("");
+                $.ajax({
+                    url: BaseAddress + "LocateCardHolderAPI/get/" + $("#FILTER_CRITERIA").val() + "/" + $("#FILTER").val(),
+                    cache: false,
+                    type: "GET",
+                    success: function (data) {
+                        
+                        $("#EPD_MARITAL_STATUS").text($.trim(data.EPD_MARITAL_STATUS));
+                        $("#EPD_PHONE_ONE").text($.trim(data.EPD_PHONE_ONE));
+                        $("#EVENT_CARD_CODE").text($.trim(data.EVENT_CARD_CODE));
+                        $("#EVENT_EMPLOYEE_CODE").text($.trim(data.EVENT_EMPLOYEE_CODE));
+                        $("#READER_DESCRIPTION").text($.trim(data.READER_DESCRIPTION));
+                        $("#EMP_NAME").text($.trim(data.EMP_NAME));
+                    },
+                    error: function (reponse) {
+                        console.log("Fail");
+                    }
+                });
+            }
+        });
+    });
+</script>

@@ -1,0 +1,272 @@
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\UNO.MVCApp.dll.config
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\UNO.MVCApp.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\UNO.MVCApp.pdb
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\Antlr3.Runtime.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\Microsoft.Data.Edm.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\Microsoft.Data.OData.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\Microsoft.Web.Infrastructure.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\Newtonsoft.Json.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\System.Net.Http.Formatting.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\System.Spatial.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\System.Web.Helpers.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\System.Web.Http.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\System.Web.Http.OData.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\System.Web.Http.WebHost.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\System.Web.Mvc.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\System.Web.Optimization.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\System.Web.Razor.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\System.Web.WebPages.Deployment.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\System.Web.WebPages.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\System.Web.WebPages.Razor.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\UNO.AppModel.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\WebGrease.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\UNO.AppModel.pdb
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\Newtonsoft.Json.xml
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\System.Net.Http.Formatting.xml
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\System.Web.Helpers.xml
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\System.Web.Http.xml
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\System.Web.Http.WebHost.xml
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\System.Web.Mvc.xml
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\System.Web.Razor.xml
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\System.Web.WebPages.xml
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\System.Web.WebPages.Deployment.xml
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\System.Web.WebPages.Razor.xml
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\System.Web.Http.OData.xml
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\Microsoft.Data.Edm.xml
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\Microsoft.Data.OData.xml
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\System.Spatial.xml
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\de\Microsoft.Data.Edm.resources.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\es\Microsoft.Data.Edm.resources.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\fr\Microsoft.Data.Edm.resources.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\it\Microsoft.Data.Edm.resources.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\ja\Microsoft.Data.Edm.resources.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\ko\Microsoft.Data.Edm.resources.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\ru\Microsoft.Data.Edm.resources.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\de\Microsoft.Data.OData.resources.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\es\Microsoft.Data.OData.resources.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\fr\Microsoft.Data.OData.resources.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\it\Microsoft.Data.OData.resources.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\ja\Microsoft.Data.OData.resources.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\ko\Microsoft.Data.OData.resources.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\ru\Microsoft.Data.OData.resources.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\de\System.Spatial.resources.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\es\System.Spatial.resources.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\fr\System.Spatial.resources.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\it\System.Spatial.resources.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\ja\System.Spatial.resources.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\ko\System.Spatial.resources.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\ru\System.Spatial.resources.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\zh-Hans\System.Spatial.resources.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\bin\zh-Hant\System.Spatial.resources.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\obj\Debug\UNO.MVCApp.csprojResolveAssemblyReference.cache
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\obj\Debug\UNO.MVCApp.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.MVCApp\obj\Debug\UNO.MVCApp.pdb
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\UNO.MVCApp.dll.config
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\UNO.MVCApp.dll
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\UNO.MVCApp.pdb
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\Antlr3.Runtime.dll
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\Microsoft.Data.Edm.dll
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\Microsoft.Data.OData.dll
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\Microsoft.Web.Infrastructure.dll
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\Newtonsoft.Json.dll
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\System.Net.Http.Formatting.dll
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\System.Spatial.dll
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\System.Web.Helpers.dll
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\System.Web.Http.dll
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\System.Web.Http.OData.dll
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\System.Web.Http.WebHost.dll
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\System.Web.Mvc.dll
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\System.Web.Optimization.dll
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\System.Web.Razor.dll
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\System.Web.WebPages.Deployment.dll
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\System.Web.WebPages.dll
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\System.Web.WebPages.Razor.dll
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\UNO.AppModel.dll
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\WebGrease.dll
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\UNO.AppModel.pdb
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\Newtonsoft.Json.xml
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\System.Net.Http.Formatting.xml
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\System.Web.Helpers.xml
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\System.Web.Http.xml
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\System.Web.Http.WebHost.xml
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\System.Web.Mvc.xml
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\System.Web.Razor.xml
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\System.Web.WebPages.xml
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\System.Web.WebPages.Deployment.xml
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\System.Web.WebPages.Razor.xml
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\System.Web.Http.OData.xml
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\Microsoft.Data.Edm.xml
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\Microsoft.Data.OData.xml
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\System.Spatial.xml
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\de\Microsoft.Data.Edm.resources.dll
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\es\Microsoft.Data.Edm.resources.dll
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\fr\Microsoft.Data.Edm.resources.dll
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\it\Microsoft.Data.Edm.resources.dll
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\ja\Microsoft.Data.Edm.resources.dll
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\ko\Microsoft.Data.Edm.resources.dll
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\ru\Microsoft.Data.Edm.resources.dll
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\de\Microsoft.Data.OData.resources.dll
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\es\Microsoft.Data.OData.resources.dll
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\fr\Microsoft.Data.OData.resources.dll
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\it\Microsoft.Data.OData.resources.dll
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\ja\Microsoft.Data.OData.resources.dll
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\ko\Microsoft.Data.OData.resources.dll
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\ru\Microsoft.Data.OData.resources.dll
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\de\System.Spatial.resources.dll
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\es\System.Spatial.resources.dll
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\fr\System.Spatial.resources.dll
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\it\System.Spatial.resources.dll
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\ja\System.Spatial.resources.dll
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\ko\System.Spatial.resources.dll
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\ru\System.Spatial.resources.dll
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\zh-Hans\System.Spatial.resources.dll
+D:\Vikas\UNO_Updated\UNO.MVCApp\bin\zh-Hant\System.Spatial.resources.dll
+D:\Vikas\UNO_Updated\UNO.MVCApp\obj\Debug\UNO.MVCApp.csprojResolveAssemblyReference.cache
+D:\Vikas\UNO_Updated\UNO.MVCApp\obj\Debug\UNO.MVCApp.dll
+D:\Vikas\UNO_Updated\UNO.MVCApp\obj\Debug\UNO.MVCApp.pdb
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\UNO.MVCApp.dll.config
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\UNO.MVCApp.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\UNO.MVCApp.pdb
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\Antlr3.Runtime.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\Microsoft.Data.Edm.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\Microsoft.Data.OData.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\Microsoft.Web.Infrastructure.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\Newtonsoft.Json.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\System.Net.Http.Formatting.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\System.Spatial.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\System.Web.Helpers.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\System.Web.Http.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\System.Web.Http.OData.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\System.Web.Http.WebHost.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\System.Web.Mvc.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\System.Web.Optimization.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\System.Web.Razor.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\System.Web.WebPages.Deployment.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\System.Web.WebPages.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\System.Web.WebPages.Razor.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\UNO.AppModel.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\WebGrease.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\UNO.AppModel.pdb
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\Newtonsoft.Json.xml
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\System.Net.Http.Formatting.xml
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\System.Web.Helpers.xml
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\System.Web.Http.xml
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\System.Web.Http.WebHost.xml
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\System.Web.Mvc.xml
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\System.Web.Razor.xml
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\System.Web.WebPages.xml
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\System.Web.WebPages.Deployment.xml
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\System.Web.WebPages.Razor.xml
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\System.Web.Http.OData.xml
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\Microsoft.Data.Edm.xml
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\Microsoft.Data.OData.xml
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\System.Spatial.xml
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\de\Microsoft.Data.Edm.resources.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\es\Microsoft.Data.Edm.resources.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\fr\Microsoft.Data.Edm.resources.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\it\Microsoft.Data.Edm.resources.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\ja\Microsoft.Data.Edm.resources.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\ko\Microsoft.Data.Edm.resources.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\ru\Microsoft.Data.Edm.resources.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\de\Microsoft.Data.OData.resources.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\es\Microsoft.Data.OData.resources.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\fr\Microsoft.Data.OData.resources.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\it\Microsoft.Data.OData.resources.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\ja\Microsoft.Data.OData.resources.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\ko\Microsoft.Data.OData.resources.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\ru\Microsoft.Data.OData.resources.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\de\System.Spatial.resources.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\es\System.Spatial.resources.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\fr\System.Spatial.resources.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\it\System.Spatial.resources.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\ja\System.Spatial.resources.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\ko\System.Spatial.resources.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\ru\System.Spatial.resources.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\zh-Hans\System.Spatial.resources.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\bin\zh-Hant\System.Spatial.resources.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\obj\Debug\UNO.MVCApp.csprojResolveAssemblyReference.cache
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\obj\Debug\UNO.MVCApp.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.MVCApp\obj\Debug\UNO.MVCApp.pdb
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\UNO.MVCApp.dll.config
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\UNO.MVCApp.dll
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\UNO.MVCApp.pdb
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\Antlr3.Runtime.dll
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\Microsoft.Data.Edm.dll
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\Microsoft.Data.OData.dll
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\Microsoft.Web.Infrastructure.dll
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\Newtonsoft.Json.dll
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\System.Net.Http.Formatting.dll
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\System.Spatial.dll
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\System.Web.Helpers.dll
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\System.Web.Http.dll
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\System.Web.Http.OData.dll
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\System.Web.Http.WebHost.dll
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\System.Web.Mvc.dll
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\System.Web.Optimization.dll
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\System.Web.Razor.dll
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\System.Web.WebPages.Deployment.dll
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\System.Web.WebPages.dll
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\System.Web.WebPages.Razor.dll
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\UNO.AppModel.dll
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\WebGrease.dll
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\UNO.AppModel.pdb
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\Newtonsoft.Json.xml
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\System.Net.Http.Formatting.xml
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\System.Web.Helpers.xml
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\System.Web.Http.xml
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\System.Web.Http.WebHost.xml
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\System.Web.Mvc.xml
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\System.Web.Razor.xml
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\System.Web.WebPages.xml
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\System.Web.WebPages.Deployment.xml
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\System.Web.WebPages.Razor.xml
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\System.Web.Http.OData.xml
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\Microsoft.Data.Edm.xml
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\Microsoft.Data.OData.xml
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\System.Spatial.xml
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\de\Microsoft.Data.Edm.resources.dll
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\es\Microsoft.Data.Edm.resources.dll
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\fr\Microsoft.Data.Edm.resources.dll
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\it\Microsoft.Data.Edm.resources.dll
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\ja\Microsoft.Data.Edm.resources.dll
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\ko\Microsoft.Data.Edm.resources.dll
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\ru\Microsoft.Data.Edm.resources.dll
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\de\Microsoft.Data.OData.resources.dll
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\es\Microsoft.Data.OData.resources.dll
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\fr\Microsoft.Data.OData.resources.dll
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\it\Microsoft.Data.OData.resources.dll
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\ja\Microsoft.Data.OData.resources.dll
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\ko\Microsoft.Data.OData.resources.dll
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\ru\Microsoft.Data.OData.resources.dll
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\de\System.Spatial.resources.dll
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\es\System.Spatial.resources.dll
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\fr\System.Spatial.resources.dll
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\it\System.Spatial.resources.dll
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\ja\System.Spatial.resources.dll
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\ko\System.Spatial.resources.dll
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\ru\System.Spatial.resources.dll
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\zh-Hans\System.Spatial.resources.dll
+D:\Devang Project\UNOMVC\UNO.MVCApp\bin\zh-Hant\System.Spatial.resources.dll
+D:\Devang Project\UNOMVC\UNO.MVCApp\obj\Debug\UNO.MVCApp.csprojResolveAssemblyReference.cache
+D:\Devang Project\UNOMVC\UNO.MVCApp\obj\Debug\UNO.MVCApp.dll
+D:\Devang Project\UNOMVC\UNO.MVCApp\obj\Debug\UNO.MVCApp.pdb

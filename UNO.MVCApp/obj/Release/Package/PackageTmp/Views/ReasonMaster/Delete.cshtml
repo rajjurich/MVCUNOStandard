@@ -1,0 +1,82 @@
+﻿@model UNO.AppModel.ReasonMaster
+@{
+    ViewBag.Title = "REASON MASTER";
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div class="main-container" style="clear:both;">
+        <!-- Container fluid Starts -->
+        <div id="main-content" class="container-fluid">
+            <!-- Spacer Starts -->
+            <div class="spacer clearfix">
+                <div class="row">
+                    <div class="col-md-7 col-centered">
+                        <div class="blog blog-default ">
+                            <div class="blog-header ">
+                                <h4 class="blog-title pull-left mt5">Delete</h4><span class="pull-right">  <a class="btn btn-default" href='@Url.Action("Index")'><i class="fa fa-arrow-left"></i> Back To List</a></span>
+                                <span class="clearfix"></span>
+                            </div>
+
+                            <div class="blog-body form p0">
+
+                                @using (Html.BeginForm())
+                                {
+                                    @Html.AntiForgeryToken()
+
+                                    @Html.ValidationSummary(true)
+                                    @Html.HiddenFor(model => model.REASON_ID)
+                                    <div class="form-horizontal form-bordered form-label-stripped">
+                                        <div class="form-body p0">
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.COMPANY_ID, null, new { @class = "control-label col-md-3" })
+                                                <div class="col-md-9">
+                                                    @Html.DropDownListFor(model => model.COMPANY_ID, (IEnumerable<SelectListItem>)ViewBag.COMPANY_LIST, "Select Company", new { disabled = "disabled", @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.COMPANY_ID, null, new { @class = "text-danger field-validation-error" })
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.REASON_TYPE_ID, null, new { @class = "control-label col-md-3" })
+                                                <div class="col-md-9">
+                                                    @Html.DropDownListFor(model => model.REASON_TYPE_ID, (IEnumerable<SelectListItem>)ViewBag.REASON_TYPES, "Select Reason", new { disabled = "disabled", @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.REASON_TYPE_ID, null, new { @class = "text-danger field-validation-error" })
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.REASON_CODE, null, new { @class = "control-label col-md-3" })
+                                                <div class="col-md-9">
+                                                    @Html.TextBoxFor(model => model.REASON_CODE, new { disabled = "disabled", @class = "form-control", @maxlength = "50", Placeholder = "REASON CODE" })
+                                                @Html.ValidationMessageFor(model => model.REASON_CODE, null, new { @class = "text-danger field-validation-error"})
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.LabelFor(model => model.REASON_DESC, null, new { @class = "control-label col-md-3" })
+                                                <div class="col-md-9">
+                                                    @Html.TextBoxFor(model => model.REASON_DESC, new { disabled = "disabled", @class = "form-control", @maxlength = "50", Placeholder = "REASON DESCRIPTION" })
+                                                @Html.ValidationMessageFor(model => model.REASON_DESC, null, new { @class = "text-danger field-validation-error" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div class="form-actions">
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+                                            <button type="submit" class="btn btn-danger" id="btnUpdate"><i class="fa fa-trash-o"></i>&nbsp;&nbsp;Delete</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

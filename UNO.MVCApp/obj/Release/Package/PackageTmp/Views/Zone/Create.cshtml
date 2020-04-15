@@ -1,0 +1,164 @@
+﻿@model UNO.AppModel.Zone
+
+@{
+    ViewBag.Title = "Create";
+}
+<script src="~/Scripts/JS/multi.min.js"></script>
+<link href="~/Content/css/multi.min.css" rel="stylesheet" />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+
+    <div class="container-fluid">
+        <!-- Spacer Starts -->
+        <div class="spacer clearfix">
+            <div class="row">
+                <div class="col-md-8 col-centered">
+                    <div class="blog blog-default ">
+                        <div class="blog-header ">
+                            <h4 class="blog-title pull-left mt5">Add New </h4>
+                            <span class="pull-right"><a class="btn btn-default" href="@Url.Action("Index")" data-original-title="" title=""><i class="fa fa-arrow-left"></i> Back </a> </span> <span class="clearfix"></span>
+                        </div>
+                        <div class="blog-body">
+                            <div class="row mt5">
+                               
+                                    <div class="col-sm-10">
+                                        <div class="form-group row">
+                                            @Html.HiddenFor(model => model.ZONE_CREATEDBY, new { Value = @HttpContext.Current.Session["User"].ToString() })
+                                            @Html.LabelFor(model => model.COMPANY_ID, new { @class = "col-md-3 form-control-label" })
+                                            <div class="col-sm-9">
+                                                @Html.DropDownListFor(model => model.COMPANY_ID, (IEnumerable<SelectListItem>)ViewBag.Companies, "Select", new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.COMPANY_ID, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                              
+                               
+                                    <div class="col-sm-10">
+                                        <div class="form-group row">                                            
+                                            @Html.LabelFor(model => model.ZONE_DESCRIPTION, new { @class = "col-md-3 pr0 form-control-label" })
+                                            <div class="col-sm-9">
+                                                @Html.TextBoxFor(model => model.ZONE_DESCRIPTION, new { @class = "form-control", Placeholder = "Zone Description" })
+                                                @Html.ValidationMessageFor(model => model.ZONE_DESCRIPTION, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                               
+                            </div>
+
+                            <hr />
+
+                            <div class="row">
+                                <div class="col-sm-10">
+                                    <div class="form-group row">
+                                        <label class="col-md-3 form-control-label"> Readers<span style="color:red">&nbsp;*</span>  </label>
+                                        <div class="col-md-9">
+                                            @Html.DropDownList("ddlReaders", (IEnumerable<SelectListItem>)ViewBag.Readers, "", new { @class = "form-control", multiple = "multiple", required = true, title = "Please Provide Readers" })
+                                            @Html.ValidationMessage("ddlReaders", "", new { @class = "text-danger" })
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <table id="tableOne" class="collapse">
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                        <div class="form-actions">
+                            <div class="row">
+                                <div class="col-md-12 text-center">
+                                    <button id="btnSubmit" type="submit" class="btn btn-info"> <i class="fa fa-save"></i> Save</button>
+                                    <button id="btnReset" type="reset" class="btn default"><i class="fa fa-refresh"></i> Reset</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<script type="text/javascript">
+
+    var select = document.getElementById('ddlReaders');
+    multi(select, {
+        non_selected_header: 'Available Readers',
+        selected_header: 'Selected',
+
+    });
+
+    $(document).ready(function () {
+
+
+    });
+    $('#btnSubmit').click(function () {
+        return $("#ddlReaders").valid();
+    });
+    $('#btnReset').on('click', function () {
+        window.location.reload(true);
+    });
+    $('#ddlReaders').change(function () {
+        $("#ddlReaders").valid();
+        //console.log($("#acsReaderInfos option:selected").length);
+        if ($("#ddlReaders option:selected").length > 0) {
+            debugger;
+            $("#tableOne tbody").empty();
+            var x = $("#ddlReaders option:selected").val();
+            var items = $("#ddlReaders option:selected");
+            var i = 0;
+            @{
+                var i = -1;
+            }
+            var row = ''
+            $.each(items, function (key, value) {
+                console.log(key);
+                console.log(value.value);
+                row += '<tr>';
+                row += '<td class="col-sm-1">';
+                var readerId = '@Html.TextBoxFor(model => Model.acsReaderInfos[i].RowId, new { @class = "form-control", Value = "" + i + "", @readonly = true })';
+                var readerIdval = '@Html.ValidationMessageFor(model => Model.acsReaderInfos[i].RowId, "", new { @class = "text-danger" })'
+                readerId = readerId.replace("[-1]", "[" + i + "]");
+                readerId = readerId.replace("-1", value.value);
+                readerId = readerId.replace("-1", i);
+                readerIdval = readerIdval.replace("[-1]", "[" + i + "]");
+                readerIdval = readerIdval.replace("-1", i);
+                row += readerId + readerIdval;
+                row += '</td>';
+
+                row += '<td class="col-sm-1">';
+                var readerDesc = '@Html.TextBoxFor(model => Model.acsReaderInfos[i].READER_DESCRIPTION, new { @class = "form-control", Value = "" + i + "", @readonly = true })';
+                var readerDescval = '@Html.ValidationMessageFor(model => Model.acsReaderInfos[i].READER_DESCRIPTION, "", new { @class = "text-danger" })'
+                readerDesc = readerDesc.replace("[-1]", "[" + i + "]");
+                readerDesc = readerDesc.replace("-1", value.text);
+                readerDesc = readerDesc.replace("-1", i);
+                readerDescval = readerDescval.replace("[-1]", "[" + i + "]");
+                readerDescval = readerDescval.replace("-1", i);
+                row += readerDesc + readerDescval;
+                row += '</td>';
+                row += '</tr>';
+
+                i++;
+            });
+            $("#tableOne tbody").append(row);
+            var form = $("form");
+            form.data('validator', null);
+            $.validator.unobtrusive.parse(form);
+        }
+        else {
+            $("#tableOne tbody").empty();
+        }
+    });
+
+
+</script>
+

@@ -1,0 +1,66 @@
+﻿@model UNO.AppModel.CommonEntitiesModel
+@{
+    ViewBag.Title = "COMMON MASTER";
+}
+<div class="main-container" style="clear:both;">
+    <!-- Container fluid Starts -->
+    <div id="main-content" class="container-fluid">
+        <!-- Spacer Starts -->
+        <div class="spacer clearfix">
+            <div class="row">
+                <div class="col-md-7 col-centered">
+                    <div class="blog blog-default ">
+                        <div class="blog-header ">
+                            <h4 class="blog-title pull-left mt5">View </h4><span class="pull-right">  <a class="btn btn-default" href='@Url.Action("Index")'><i class="fa fa-arrow-left"></i> Back To List</a></span>
+                            <span class="clearfix"></span>
+                        </div>
+
+                        <div class="blog-body form p0">
+
+                            @using (Html.BeginForm())
+                            {
+                                @Html.AntiForgeryToken()
+
+                                @Html.ValidationSummary(true)
+                                @Html.HiddenFor(model => model.ID)
+                                <div class="form-horizontal form-bordered form-label-stripped">
+                                    <div class="form-body p0">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.COMPANY_ID, null, new { @class = "control-label col-md-3" })
+                                            <div class="col-md-9">
+                                                @Html.DropDownListFor(model => model.COMPANY_ID, (IEnumerable<SelectListItem>)ViewBag.COMPANY_LIST, "Select Company", new { @class = "form-control", disabled = "disabled" })
+                                                @Html.ValidationMessageFor(model => model.COMPANY_ID, null, new { @class = "validation-redcolor" })
+                                             </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.COMMON_TYPES_ID, null, new { @class = "control-label col-md-3" })
+                                            <div class="col-md-9">
+                                                @Html.DropDownListFor(model => model.COMMON_TYPES_ID, (IEnumerable<SelectListItem>)ViewBag.COMMON_TYPES, "Select Common", new { @class = "form-control", disabled = "disabled" })
+                                                @Html.ValidationMessageFor(model => model.COMMON_TYPES_ID, null, new { @class = "validation-redcolor" })
+                                             </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.OCE_ID, null, new { @class = "control-label col-md-3" })
+                                            <div class="col-md-9">
+                                                @Html.TextBoxFor(model => model.OCE_ID, new { @class = "form-control", @maxlength = "50", disabled = "disabled" })
+                                                @Html.ValidationMessageFor(model => model.OCE_ID, null, new { @class = "validation-redcolor"})
+                                             </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.OCE_DESCRIPTION, null, new { @class = "control-label col-md-3" })
+                                            <div class="col-md-9">
+                                                @Html.TextBoxFor(model => model.OCE_DESCRIPTION, new { @class = "form-control", @maxlength = "50", disabled = "disabled" })
+                                                @Html.ValidationMessageFor(model => model.OCE_DESCRIPTION, null, new { @class = "validation-redcolor"})
+                                             </div>
+                                        </div>                                        
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,119 @@
+﻿@model UNO.AppModel.EssTaMaReqModel
+@{
+    ViewBag.Title = "Manual Leave Application View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section scripts
+{
+    <script src="~/Scripts/JS/jquery.datetimepicker.full.js"></script>
+    <script>
+        $(document).ready(function () {
+            new confirmexitmsg('form');
+            $("#btnReset").click(function (e) {
+                formmodified = 0;
+                location.reload(true);
+            });
+        });
+    </script>
+}
+@Styles.Render("~/Content/css/jquery.datetimepicker.css")
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <!-- Container fluid Starts -->
+    <div class="container-fluid">
+        <!-- Spacer Starts -->
+        <div class="spacer clearfix">
+            <div class="col-md-7 col-centered">
+                <div class="blog blog-default ">
+                    <div class="blog-header ">
+                        <h4 class="blog-title pull-left mt5"><i class="fa fa-pencil-square-o"></i> Delete</h4>
+                        <span class="pull-right"><a class="btn btn-default" href='@Url.Action("index")'><i class="fa fa-arrow-left"></i> Back To List</a></span>
+                        <span class="clearfix"></span>
+                    </div>
+                    <div class="blog-body">
+                        <form class="form-horizontal repeater" role="form">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group row mt5">
+                                        @Html.LabelFor(model => model.ESS_MA_ID, null, new { style = "display: none;", @maxlength = "15" })
+                                        <div class="col-md-6">
+                                            @Html.TextBoxFor(model => model.ESS_MA_ID, new { style = "display: none;", @maxlength = "15" })
+                                        </div>
+                                        @Html.LabelFor(model => model.ESS_MA_EMPID, null, new { style = "display: none;", @maxlength = "15" })
+                                        <div class="col-md-6">
+                                            @Html.TextBoxFor(model => model.ESS_MA_EMPID, new { style = "display: none;", @maxlength = "15" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr />
+                                <fieldset>
+                                    <legend>Leave Transaction</legend>
+                                    <div class="form-group row">
+                                        <div class="col-sm-8">
+                                            @Html.LabelFor(model => model.ESS_MA_FROMDT, null, "")
+                                            @Html.TextBoxFor(model => model.ESS_MA_FROMDT, new { @class = "form-control", placeholder = "Enter Drop-off date here...", @disabled = "disabled" })
+                                            @Html.ValidationMessageFor(model => model.ESS_MA_FROMDT, null, new { @class = "validation-redcolor" })
+                                        </div>
+                                        <div class="col-sm-4">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-8">
+                                            @Html.LabelFor(model => model.ESS_MA_TODT, null, "")
+                                            @Html.TextBoxFor(model => model.ESS_MA_TODT, new { @class = "form-control", placeholder = "Enter Drop-off date here...", @disabled = "disabled" })
+                                            @Html.ValidationMessageFor(model => model.ESS_MA_TODT, null, new { @class = "validation-redcolor" })
+                                        </div>
+                                        <div class="col-sm-4">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-8">
+                                            @Html.LabelFor(model => model.ESS_MA_REMARK, null, "")
+                                            @Html.TextBoxFor(model => model.ESS_MA_REMARK, new { @class = "form-control", @disabled = "disabled" })
+                                        </div>
+                                        <div class="col-sm-4">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <div class="col-sm-8">
+                                            @Html.LabelFor(model => model.ESS_MA_REASON_ID, null, "")
+                                            @Html.DropDownListFor(model => model.ESS_MA_REASON_ID, (IEnumerable<SelectListItem>)ViewBag.ReasonId, "Select Reason", new { @class = "form-control", @id = "Country", @disabled = "disabled" })
+                                            @Html.ValidationMessageFor(model => model.ESS_MA_REASON_ID, null, new { @class = "validation-redcolor" })
+                                        </div>
+                                        <div class="col-sm-4">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div>
+                                            <div class="col-sm-8">
+                                                <label class="radio-inline">
+                                                    @Html.RadioButtonFor(model => model.ESS_MA_LVDAYS, "0.5", new { @name = "LR_AllotmentType_YE_PR", @disabled = "disabled" })Half Day
+                                                </label>
+                                                <label class="radio-inline">
+                                                    @Html.RadioButtonFor(model => model.ESS_MA_LVDAYS, "1", new { @name = "LR_AllotmentType_YE_PR", @disabled = "disabled" })Full Day
+                                                </label>
+                                            </div>
+                                            <div class="col-sm-4">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                    </div>
+                    <div class="form-actions">
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <button type="submit" class="btn btn-sm btn-success" id="btnDelete"><i class="fa fa-save"></i>&nbsp;&nbsp;Delete</button>
+                                <button type="button" class="btn btn-sm btn-danger" id="btnReset"><i class="fa fa-undo"></i>&nbsp;&nbsp;Reset</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Spacer Ends -->
+}

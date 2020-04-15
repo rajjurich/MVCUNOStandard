@@ -1,0 +1,413 @@
+﻿@model UNO.AppModel.EmployeeAccess
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<script src="~/Scripts/JS/multi.min.js"></script>-
+<link href="~/Content/css/multi.min.css" rel="stylesheet" />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <!-- Container fluid Starts -->
+    <div class="container-fluid">
+        <!-- Spacer Starts -->
+        <div class="spacer clearfix">
+            <div class="row">
+                <div class="col-md-7 col-centered">
+                    <div class="blog blog-default ">
+                        <div class="blog-header ">
+                            <h4 class="blog-title pull-left mt5">Create New </h4>  <span class="pull-right"><a class="btn btn-default" href="@Url.Action("Index")" data-original-title="" title=""><i class="fa fa-arrow-left"></i> Back </a> </span>
+                            <span class="clearfix"></span>
+                        </div>
+                        <div class="blog-body form p0">
+
+                            <div class="form-horizontal form-bordered form-label-stripped" role="form">
+                                <div class="form-body p0">
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.COMMON_TYPES_ID, new { @class = "control-label col-md-3" })
+                                        <div class="col-md-9">
+                                            @Html.DropDownListFor(model => model.COMMON_TYPES_ID, (IEnumerable<SelectListItem>)ViewBag.COMMON_TYPES, "", new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.COMMON_TYPES_ID, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.EntityIds, new { @class = "control-label col-md-3" })
+                                        <div class="col-md-9">
+                                            <div id="divLocation" class="row hide">
+                                                @Html.DropDownList("ddlLocations", (IEnumerable<SelectListItem>)ViewBag.Locations, new { @class = "form-control", multiple = "multiple", required = true, title = "Please Provide Locations" })
+                                                @Html.ValidationMessage("ddlLocations", "", new { @class = "text-danger" })
+                                            </div>
+                                            <div id="divCategory" class="row hide">
+                                                @Html.DropDownList("ddlCategories", (IEnumerable<SelectListItem>)ViewBag.Categories, new { @class = "form-control", multiple = "multiple", required = true, title = "Please Provide Categories" })
+                                                @Html.ValidationMessage("ddlCategories", "", new { @class = "text-danger" })
+                                            </div>
+                                            <div id="divDivision" class="row hide">
+                                                @Html.DropDownList("ddlDivisions", (IEnumerable<SelectListItem>)ViewBag.Divisions, new { @class = "form-control", multiple = "multiple", required = true, title = "Please Provide Divisions" })
+                                                @Html.ValidationMessage("ddlDivisions", "", new { @class = "text-danger" })
+                                            </div>
+                                            <div id="divDepartment" class="row hide">
+                                                @Html.DropDownList("ddlDepartments", (IEnumerable<SelectListItem>)ViewBag.Departments, new { @class = "form-control", multiple = "multiple", required = true, title = "Please Provide Departments" })
+                                                @Html.ValidationMessage("ddlDepartments", "", new { @class = "text-danger" })
+                                            </div>
+                                            <div id="divDesignation" class="row hide">
+                                                @Html.DropDownList("ddlDesignations", (IEnumerable<SelectListItem>)ViewBag.Designations, new { @class = "form-control", multiple = "multiple", required = true, title = "Please Provide Designations" })
+                                                @Html.ValidationMessage("ddlDesignations", "", new { @class = "text-danger" })
+                                            </div>
+                                            <div id="divGroup" class="row hide">
+                                                @Html.DropDownList("ddlGroups", (IEnumerable<SelectListItem>)ViewBag.Groups, new { @class = "form-control", multiple = "multiple", required = true, title = "Please Provide Groups" })
+                                                @Html.ValidationMessage("ddlGroups", "", new { @class = "text-danger" })
+                                            </div>
+                                            <div id="divGrade" class="row hide">
+                                                @Html.DropDownList("ddlGrades", (IEnumerable<SelectListItem>)ViewBag.Grades, new { @class = "form-control", multiple = "multiple", required = true, title = "Please Provide Grades" })
+                                                @Html.ValidationMessage("ddlGrades", "", new { @class = "text-danger" })
+                                            </div>
+                                            <div id="divEmployee" class="row hide">
+                                                @Html.DropDownList("ddlEmployees", (IEnumerable<SelectListItem>)ViewBag.Employees, new { @class = "form-control", multiple = "multiple", required = true, title = "Please Provide Employees" })
+                                                @Html.ValidationMessage("ddlEmployees", "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.AL_IDs, new { @class = "control-label col-md-3" })
+                                    <div class="col-md-9 level_select">
+
+                                        @Html.DropDownList("ddlAccessLevels", (IEnumerable<SelectListItem>)ViewBag.AccessLevels, new { @class = "form-control", multiple = "multiple", required = true, title = "Please Provide Access Levels" })
+                                        @Html.ValidationMessage("ddlAccessLevels", "", new { @class = "text-danger" })
+
+                                    </div>
+                                </div>
+                                <table id="tableOne" class="collapse">
+                                    <tbody></tbody>
+                                </table>
+
+                                <table id="tableTwo" class="collapse">
+                                    <tbody></tbody>
+                                </table>
+
+                            </div>
+
+                            <div class="form-actions">
+                                <div class="row">
+                                    <div class="col-md-12 text-center">
+                                        <button id="btnSubmit" type="submit" class="btn btn-info"> <i class="fa fa-save"></i> Save</button>
+                                        <button id="btnReset" type="reset" class="btn default"><i class="fa fa-refresh"></i> Reset</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<script type="text/javascript">
+
+    var selectLocations = document.getElementById('ddlLocations');
+    multi(selectLocations, {
+        non_selected_header: 'Available Locations',
+        selected_header: 'Selected',
+
+    });
+    var selectDivisions = document.getElementById('ddlDivisions');
+    multi(selectDivisions, {
+        non_selected_header: 'Available Divisions',
+        selected_header: 'Selected',
+
+    });
+
+    var selectCategories = document.getElementById('ddlCategories');
+    multi(selectCategories, {
+        non_selected_header: 'Available Categories',
+        selected_header: 'Selected',
+
+    });
+    var selectDepartments = document.getElementById('ddlDepartments');
+    multi(selectDepartments, {
+        non_selected_header: 'Available Departments',
+        selected_header: 'Selected',
+
+    });
+
+    var selectDesignations = document.getElementById('ddlDesignations');
+    multi(selectDesignations, {
+        non_selected_header: 'Available Designations',
+        selected_header: 'Selected',
+
+    });
+    var selectGroups = document.getElementById('ddlGroups');
+    multi(selectGroups, {
+        non_selected_header: 'Available Groups',
+        selected_header: 'Selected',
+
+    });
+
+    var selectGrades = document.getElementById('ddlGrades');
+    multi(selectGrades, {
+        non_selected_header: 'Available Grades',
+        selected_header: 'Selected',
+
+    });
+
+    var selectEmployees = document.getElementById('ddlEmployees');
+    multi(selectEmployees, {
+        non_selected_header: 'Available Employees',
+        selected_header: 'Selected',
+
+    });
+
+    var selectAccessLevels = document.getElementById('ddlAccessLevels');
+    multi(selectAccessLevels, {
+        non_selected_header: 'Available AccessLevels',
+        selected_header: 'Selected',
+
+    });
+
+    $(document).ready(function () {
+        $('#btnReset').on('click', function () {
+            window.location.reload(true);
+        });
+
+        validate();        
+    });
+    $('#COMMON_TYPES_ID').change(function () {
+        validate();
+    });
+
+    function validate() {
+        var selectedItem = $('#COMMON_TYPES_ID option:selected').text().toLowerCase();
+        //.indexOf('dc');
+        if (selectedItem.indexOf("employee") > -1) {
+            $("#divEmployee").removeClass("hide");
+            $("#divLocation").addClass("hide");
+            $("#divDivision").addClass("hide");
+            $("#divDepartment").addClass("hide");
+            $("#divDesignation").addClass("hide");
+            $("#divCategory").addClass("hide");
+            $("#divGroup").addClass("hide");
+            $("#divGrade").addClass("hide");
+        }
+        else if (selectedItem.indexOf("location") > -1) {
+            $("#divEmployee").addClass("hide");
+            $("#divLocation").removeClass("hide");
+            $("#divDivision").addClass("hide");
+            $("#divDepartment").addClass("hide");
+            $("#divDesignation").addClass("hide");
+            $("#divCategory").addClass("hide");
+            $("#divGroup").addClass("hide");
+            $("#divGrade").addClass("hide");
+        }
+        else if (selectedItem.indexOf("division") > -1) {
+            $("#divEmployee").addClass("hide");
+            $("#divLocation").addClass("hide");
+            $("#divDivision").removeClass("hide");
+            $("#divDepartment").addClass("hide");
+            $("#divDesignation").addClass("hide");
+            $("#divCategory").addClass("hide");
+            $("#divGroup").addClass("hide");
+            $("#divGrade").addClass("hide");
+        }
+        else if (selectedItem.indexOf("department") > -1) {
+            $("#divEmployee").addClass("hide");
+            $("#divLocation").addClass("hide");
+            $("#divDivision").addClass("hide");
+            $("#divDepartment").removeClass("hide");
+            $("#divDesignation").addClass("hide");
+            $("#divCategory").addClass("hide");
+            $("#divGroup").addClass("hide");
+            $("#divGrade").addClass("hide");
+        }
+        else if (selectedItem.indexOf("designation") > -1) {
+            $("#divEmployee").addClass("hide");
+            $("#divLocation").addClass("hide");
+            $("#divDivision").addClass("hide");
+            $("#divDepartment").addClass("hide");
+            $("#divDesignation").removeClass("hide");
+            $("#divCategory").addClass("hide");
+            $("#divGroup").addClass("hide");
+            $("#divGrade").addClass("hide");
+        }
+        else if (selectedItem.indexOf("category") > -1) {
+            $("#divEmployee").addClass("hide");
+            $("#divLocation").addClass("hide");
+            $("#divDivision").addClass("hide");
+            $("#divDepartment").addClass("hide");
+            $("#divDesignation").addClass("hide");
+            $("#divCategory").removeClass("hide");
+            $("#divGroup").addClass("hide");
+            $("#divGrade").addClass("hide");
+        }
+        else if (selectedItem.indexOf("group") > -1) {
+            $("#divEmployee").addClass("hide");
+            $("#divLocation").addClass("hide");
+            $("#divDivision").addClass("hide");
+            $("#divDepartment").addClass("hide");
+            $("#divDesignation").addClass("hide");
+            $("#divCategory").addClass("hide");
+            $("#divGroup").removeClass("hide");
+            $("#divGrade").addClass("hide");
+        }
+        else if (selectedItem.indexOf("grade") > -1) {
+            $("#divEmployee").addClass("hide");
+            $("#divLocation").addClass("hide");
+            $("#divDivision").addClass("hide");
+            $("#divDepartment").addClass("hide");
+            $("#divDesignation").addClass("hide");
+            $("#divCategory").addClass("hide");
+            $("#divGroup").addClass("hide");
+            $("#divGrade").removeClass("hide");
+
+        }
+    }
+
+    $('#btnSubmit').click(function () {
+        return $("form").valid() && $("#ddlAccessLevels").valid() && (
+            ($("#ddlLocations").valid() && $('#COMMON_TYPES_ID option:selected').text().toLowerCase() == 'location') ||
+            ($("#ddlEmployees").valid() && $('#COMMON_TYPES_ID option:selected').text().toLowerCase() == 'employee') ||
+            ($("#ddlDivisions").valid() && $('#COMMON_TYPES_ID option:selected').text().toLowerCase() == 'division') ||
+            ($("#ddlCategories").valid() && $('#COMMON_TYPES_ID option:selected').text().toLowerCase() == 'category') ||
+            ($("#ddlDepartments").valid() && $('#COMMON_TYPES_ID option:selected').text().toLowerCase() == 'department') ||
+            ($("#ddlDesignations").valid() && $('#COMMON_TYPES_ID option:selected').text().toLowerCase() == 'designation') ||
+            ($("#ddlGroups").valid() && $('#COMMON_TYPES_ID option:selected').text().toLowerCase() == 'group') ||
+            ($("#ddlGrades").valid() && $('#COMMON_TYPES_ID option:selected').text().toLowerCase() == 'grade')
+            );
+    });
+
+    $('#ddlLocations,#ddlEmployees,#ddlDivisions,#ddlCategories,#ddlDepartments,#ddlDesignations,#ddlGroups,#ddlGrades').change(function () {
+        selectedEntities();
+    });
+
+    $('#ddlAccessLevels').change(function () {
+        selectedAlIds();
+    });
+    function selectedAlIds() {
+        $("#ddlAccessLevels").valid();
+        //console.log($("#acsReaderInfos option:selected").length);
+        if ($("#ddlAccessLevels option:selected").length > 0) {
+            debugger;
+            $("#tableTwo tbody").empty();
+            var x = $("#ddlAccessLevels option:selected").val();
+            var items = $("#ddlAccessLevels option:selected");
+            var i = 0;
+            @{
+                var i = -1;
+            }
+            var row = '';
+          
+            $.each(items, function (key, value) {
+                console.log(key);
+                console.log(value.value);
+                row += '<tr>';
+                row += '<td class="col-sm-1">';
+                var readerId = '@Html.TextBoxFor(model => Model.AL_IDs[i], new { @class = "form-control", Value = "" + i + "", @readonly = true })';
+                var readerIdval = '@Html.ValidationMessageFor(model => Model.AL_IDs[i], "", new { @class = "text-danger" })'
+                readerId = readerId.replace("[-1]", "[" + i + "]");
+                readerId = readerId.replace("-1", value.value);
+                readerId = readerId.replace("-1", i);
+                readerIdval = readerIdval.replace("[-1]", "[" + i + "]");
+                readerIdval = readerIdval.replace("-1", i);
+                row += readerId + readerIdval;
+                row += '</td>';
+                row += '</tr>';
+
+                i++;
+            });
+            $("#tableTwo tbody").append(row);
+
+            var form = $("form");
+            form.data('validator', null);
+            $.validator.unobtrusive.parse(form);
+        }
+        else {
+            $("#tableTwo tbody").empty();
+        }
+    }
+    function selectedEntities() {
+        var entity;
+        if ($('#COMMON_TYPES_ID option:selected').text().toLowerCase() == 'location') {
+            $("#ddlLocations").valid()
+            entity = $("#ddlLocations option:selected");
+        }
+        else if ($('#COMMON_TYPES_ID option:selected').text().toLowerCase() == 'employee') {
+            $("#ddlEmployees").valid()
+            entity = $("#ddlEmployees option:selected");
+        }
+        else if ($('#COMMON_TYPES_ID option:selected').text().toLowerCase() == 'division') {
+            $("#ddlDivisions").valid()
+            entity = $("#ddlDivisions option:selected");
+        }
+        else if ($('#COMMON_TYPES_ID option:selected').text().toLowerCase() == 'category') {
+            $("#ddlCategories").valid()
+            entity = $("#ddlCategories option:selected");
+        }
+        else if ($('#COMMON_TYPES_ID option:selected').text().toLowerCase() == 'department') {
+            $("#ddlDepartments").valid()
+            entity = $("#ddlDepartments option:selected");
+        }
+        else if ($('#COMMON_TYPES_ID option:selected').text().toLowerCase() == 'designation') {
+            $("#ddlDesignations").valid()
+            entity = $("#ddlDesignations option:selected");
+        }
+        else if ($('#COMMON_TYPES_ID option:selected').text().toLowerCase() == 'group') {
+            $("#ddlGroups").valid()
+            entity = $("#ddlGroups option:selected");
+        }
+        else if ($('#COMMON_TYPES_ID option:selected').text().toLowerCase() == 'grade') {
+            $("#ddlGrades").valid()
+            entity = $("#ddlGrades option:selected");
+        }
+
+
+        if (entity.length > 0) {
+            $("#tableOne tbody").empty();
+            var x = entity.val();
+            var items = entity;
+            var i = 0;
+            @{
+                i = -1;
+            }
+
+
+            var row = ''
+             $.each(items, function (key, value) {
+                console.log(key);
+                console.log(value.value);
+                row += '<tr>';
+                row += '<td class="col-sm-1">';
+                var readerId = '@Html.TextBoxFor(model => Model.EntityIds[i], new { @class = "form-control", Value = "" + i + "", @readonly = true })';
+                var readerIdval = '@Html.ValidationMessageFor(model => Model.EntityIds[i], "", new { @class = "text-danger" })'
+                readerId = readerId.replace("[-1]", "[" + i + "]");
+                readerId = readerId.replace("-1", value.value);
+                readerId = readerId.replace("-1", i);
+                readerIdval = readerIdval.replace("[-1]", "[" + i + "]");
+                readerIdval = readerIdval.replace("-1", i);
+                row += readerId + readerIdval;
+                row += '</td>';
+
+
+                row += '</tr>';
+
+                i++;
+            });
+
+            $("#tableOne tbody").append(row);
+            var form = $("form");
+            form.data('validator', null);
+            $.validator.unobtrusive.parse(form);
+        }
+        else
+        {
+            $("#tableOne tbody").empty();
+        }        
+    }
+</script>

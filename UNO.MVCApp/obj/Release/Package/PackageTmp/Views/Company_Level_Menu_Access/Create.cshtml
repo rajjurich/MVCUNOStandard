@@ -1,0 +1,421 @@
+﻿@model UNO.AppModel.Company_Level_Menu_Model
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Untitled Document</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #levelAccess {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+            #levelAccess td, #levelAccess th {
+                border: 1px solid #ddd;
+                padding: 4px;
+            }
+
+            #levelAccess tr td table tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+        .shownextrow {
+            width: 20px;
+            background-color: #ff3232;
+            color: #fff;
+            border: 0;
+            font-size: 18px;
+            line-height: 20px;
+            border-radius: 5px;
+        }
+
+        .form-control {
+            padding: 4px 20px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+    </style>
+
+</head>
+
+<body>
+    <script type="text/javascript">
+        //<![CDATA[
+        $(window).load(function () {
+            $("button.shownextrow").click(function () {
+                $(this).closest("tr").next().toggle();
+                $(this).text(function (i, v) {
+                    return v === '+' ? '-' : '+';
+                });
+            });
+
+        });
+
+        //]]>
+    </script><br />
+    <center>
+        <h1>Level</h1></center>
+            <div style="text-align:left;width:80%; margin:15px auto">
+                <strong>Company</strong> :-  @Html.DropDownList("ddlcompanies", (IEnumerable<SelectListItem>)ViewBag.Companies, "Select Company", new { @class = "form-control", required = true, title = "Please Provide Company" })
+            <br />@Html.ValidationMessageFor(model => model.Companyid, "", new { @class = "text-danger" })
+            </div>
+            <div style="max-height: 400px; width:80%  ;  text-align:center; margin:0 auto  ; border:2px solid black; overflow:scroll; border-radius:5px">
+                <table id="levelAccess">
+                    <tr>
+                        <td width="15"><button class="shownextrow">+</button></td>
+                        <td>Core Configuration</td>
+                        <td width="15"></td>
+                    </tr>
+                    <tr style="display:none">
+                        <td></td>
+                        <td colspan="2">
+                            <table style="width:100%;">
+                                <tr>
+                                    <td width="15"><button class="shownextrow">+</button></td>
+                                    <td>System Access Configuration</td>
+                                    <td width="15"></td>
+                                </tr>
+                                <tr style="display:none">
+                                    <td></td>
+                                    <td colspan="2">
+                                        <table style="width:100%;" id="System_Access_Configuration">
+                                            
+
+
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="15"><button class="shownextrow">+</button></td>
+                                    <td>System Maintenance</td>
+                                    <td width="15"></td>
+                                </tr>
+                                <tr style="display:none">
+                                    <td></td>
+                                    <td colspan="2">
+                                        <table style="width:100%;" id="System_Maintenance">
+                                            <tr>
+                                                <td colspan="2">Asset Movement</td>
+                                                <td width="15"><input name="" type="checkbox" value=""></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2">Asset Master</td>
+                                                <td width="15"><input name="" type="checkbox" value=""></td>
+                                            </tr>
+
+                                        </table>
+                                    </td>
+                                </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td width="15"><button class="shownextrow">+</button></td>
+                        <td>Sentinal</td>
+                        <td width="15"></td>
+                    </tr>
+                    <tr style="display:none">
+                        <td></td>
+                        <td colspan="2">
+                            <table style="width:100%;">
+                                <tr>
+                                    <td width="15"><button class="shownextrow">+</button></td>
+                                    <td>Transactions</td>
+                                    <td width="15"></td>
+                                </tr>
+                                <tr style="display:none">
+                                    <td></td>
+                                    <td colspan="2">
+                                        <table style="width:100%;" id="Transactions">
+                                            <tr>
+                                                <td colspan="2">Asset Entry</td>
+                                                <td width="15"></td>
+                                            </tr>
+
+
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="15"><button class="shownextrow">+</button></td>
+                                    <td>Reports</td>
+                                    <td width="15"></td>
+                                </tr>
+                                <tr style="display:none">
+                                    <td></td>
+                                    <td colspan="2">
+                                        <table style="width:100%;" id="Reports">
+                                            <tr>
+                                                <td colspan="2">Asset Movement</td>
+                                                <td width="15"><input name="" type="checkbox" value=""></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2">Asset Master</td>
+                                                <td width="15"><input name="" type="checkbox" value=""></td>
+                                            </tr>
+
+                                        </table>
+                                    </td>
+                                </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td width="15"><button class="shownextrow">+</button></td>
+                        <td>Tempus</td>
+                        <td width="15"></td>
+                    </tr>
+                    <tr style="display:none">
+                        <td></td>
+                        <td colspan="2">
+                            <table style="width:100%;">
+                                <tr>
+                                    <td width="15"><button class="shownextrow">+</button></td>
+                                    <td>Transactions</td>
+                                    <td width="15"></td>
+                                </tr>
+                                <tr style="display:none">
+                                    <td></td>
+                                    <td colspan="2">
+                                        <table style="width:100%;" id="Transactions1">
+                                            <tr>
+                                                <td colspan="2">Asset Entry</td>
+                                                <td width="15"></td>
+                                            </tr>
+
+
+                                        </table>
+                                    </td>
+                                </tr>
+                                
+
+                            </table>
+                        </td>
+                    </tr>
+                    
+
+                    
+
+               
+
+
+
+
+               
+
+
+                </table>
+            </div>
+    <div class="form-actions">
+        <div class="row  mt5">
+            <div class="col-md-12 text-center">
+                <button type="submit" class="btn btn-info" id="btnsave"> <i class="fa fa-save"></i> Save</button>
+                <button type="button" id="btnreset" class="btn default"><i class="fa fa-refresh"></i> Reset</button>
+            </div>
+            
+        </div>
+    </div>
+    <div id="trgPopup">
+
+    </div>
+</body>
+</html>
+
+
+<script>
+    $(document).ready(function () {
+
+
+        $("#btnsave").click(function () {
+            var valuecompany = $('#ddlcompanies').val();
+            var listofelements = [];
+            var listofrelation = [];
+            var listofisstatus = [];
+            var uri = '@System.Configuration.ConfigurationManager.AppSettings["APIUrl"].ToString()';
+            var userid = '@Session["ACTIVE_USER"].ToString()';
+            var headers = {};
+            if (userid) {
+                headers.activeuser = userid;
+            }
+            $("input[name=bla]").each(function () {
+                var data = $(this).val();
+                var arr = data.split('_');
+                var isstatusval="";
+
+                if ($(this).is(':checked')) {
+                    isstatusval="True";
+                    listofisstatus.push(isstatusval);
+                } else {
+                    isstatusval="False";
+                    listofisstatus.push(isstatusval);
+                }
+                var menuid = arr[0];
+                var relationid = arr[1];
+                listofelements.push(menuid);
+                listofrelation.push(relationid);
+
+
+
+
+            });
+            var datasend = { //Passing data
+                Companyid: valuecompany, //Reading  values using Jquery
+                Menulistfromweb: listofelements,
+                RelationIdfromweb: listofrelation,
+                IsStatus: listofisstatus
+            };
+
+
+            $.ajax(
+                {
+                    type: "POST", //HTTP POST Method
+                    url: uri + "Company_Level_MenuAPI/Post/", // Controller/View
+                    data: { //Passing data
+                        Companyid: valuecompany, //Reading  values using Jquery
+                        Menulistfromweb: listofelements,
+                        RelationIdfromweb: listofrelation,
+                        IsStatus: listofisstatus
+                    },
+                    success: function (data, status, xhr) {// success callback function
+
+                        $("#trgPopup").html("<button id='btn-success-trigger' type='button' class='btn btn-popup-success collapse' data-toggle='modal' data-target='#modal_message' data-dismiss='modal'><i class='fa fa-check'></i>&nbsp;</button>");
+                        $("#btn-success-trigger").trigger('click');
+                        $("#modal_message h3").text("Success");
+                    },
+                    error: function (jqXHR) {
+
+                    }
+
+                });
+
+
+
+        });
+
+
+
+
+
+
+        $("#btnreset").click(function()
+        {
+            location.reload(true);
+        });
+        $('#ddlcompanies').change(function () {
+            //console.log('Inside Change');
+            $("#System_Access_Configuration").empty();
+            $("#System_Maintenance").empty();
+            $("#Transactions").empty();
+            $("#Reports").empty();
+            $("#Transactions1").empty();
+            var valuecompany = $('#ddlcompanies').val();
+            //console.log(valuecompany);
+            var uri = '@System.Configuration.ConfigurationManager.AppSettings["APIUrl"].ToString()';
+            var userid = '@Session["ACTIVE_USER"].ToString()';
+            var headers = {};
+            if (userid) {
+                headers.activeuser = userid;
+            }
+            console.log(headers);
+            $.ajax({
+                type: 'GET',
+                headers: headers,
+                url: uri + "Company_Level_MenuAPI/getAll/" + valuecompany,
+                success: function (data) {
+
+                    console.log(data);
+
+                    for (i = 0; i < data.length; i++) {
+                        var submenunames = data[i].ModuleSeleted[0].SubMesnus[0].SubMenuName;
+                        var modulename = data[i].ModuleSeleted[0].ModuleMenuName;
+
+                        var menuid = data[i].ModuleSeleted[0].SubMesnus[0].MenuNames[0].MenuId;
+                        var menuname = data[i].ModuleSeleted[0].SubMesnus[0].MenuNames[0].MenuName;
+                        var relationalnum = data[i].ModuleSeleted[0].SubMesnus[0].MenuNames[0].RelationsId;
+
+                        if (modulename == "Core Configuration" && submenunames == "System Access Configuration") {
+                            console.log(menuid + "  " + menuname + "  " + relationalnum);
+                            if (relationalnum == 0) {
+                                $("#System_Access_Configuration").append('<tr><td colspan="2">' + menuname + '</td><td width="15"><input name="bla" type="checkbox" value="' + menuid + '_' + relationalnum + '" ></td><tr>');
+                            }
+                            else {
+                                $("#System_Access_Configuration").append('<tr><td colspan="2">' + menuname + '</td><td width="15"><input name="bla" type="checkbox" checked value="' + menuid + '_' + relationalnum + '"></td><tr>');
+                            }
+
+
+                        }
+                        else if (modulename == "Core Configuration" && submenunames == "System Maintenance") {
+                            if (relationalnum == 0) {
+                                $("#System_Maintenance").append('<tr><td colspan="2">' + menuname + '</td><td width="15"><input name="bla" type="checkbox" value="' + menuid + '_' + relationalnum + '"></td><tr>');
+
+                            }
+                            else {
+                                $("#System_Maintenance").append('<tr><td colspan="2">' + menuname + '</td><td width="15"><input name="bla" type="checkbox" checked value="' + menuid + '_' + relationalnum + '"></td><tr>');
+
+                            }
+                        }
+                        else if (modulename == "Sentinal" && submenunames == "Transactions") {
+                            if (relationalnum == 0) {
+                                $("#Transactions").append('<tr><td colspan="2">' + menuname + '</td><td width="15"><input name="bla" type="checkbox" value="' + menuid + '_' + relationalnum + '"></td><tr>');
+                            }
+                            else {
+                                $("#Transactions").append('<tr><td colspan="2">' + menuname + '</td><td width="15"><input name="bla" type="checkbox" checked value="' + menuid + '_' + relationalnum + '"></td><tr>');
+                            }
+                        }
+                        else if (modulename == "Sentinal" && submenunames == "Reports") {
+                            if (relationalnum == 0) {
+                                $("#Reports").append('<tr><td colspan="2">' + menuname + '</td><td width="15"><input name="bla" type="checkbox" value="' + menuid + '_' + relationalnum + '"></td><tr>');
+                            }
+                            else {
+                                $("#Reports").append('<tr><td colspan="2">' + menuname + '</td><td width="15"><input name="bla" type="checkbox" checked value="' + menuid + '_' + relationalnum + '"></td><tr>');
+
+                            }
+                        }
+                        else if (modulename == "Tempus" && submenunames == "Transactions") {
+                            if (relationalnum == 0) {
+                                $("#Transactions1").append('<tr><td colspan="2">' + menuname + '</td><td width="15"><input name="bla" type="checkbox" value="' + menuid + '_' + relationalnum + '"></td><tr>');
+                            }
+                            else {
+                                $("#Transactions1").append('<tr><td colspan="2">' + menuname + '</td><td width="15"><input name="bla" type="checkbox" checked value="' + menuid + '_' + relationalnum + '"></td><tr>');
+                            }
+                        }
+
+
+                    }
+                },
+                error: function () {
+
+                }
+            });
+
+
+
+        });
+    });
+</script>
+

@@ -1,0 +1,99 @@
+USE [UNOMVC]
+GO
+/****** Object:  StoredProcedure [dbo].[USP_Category]    Script Date: 01/31/2018 14:13:16 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER procedure [dbo].[USP_Category]
+
+@ActionCommand varchar(20)='',
+@CATEGORY_ID nvarchar(200)=null,
+@ORG_CATEGORY_ID nvarchar(200)=null, 
+@EARLY_GOING nvarchar(200)=null,
+@LATE_COMING nvarchar(200)=null,
+@EXTRA_CHECK nvarchar(200)=null,
+@EXHRS_BEFORE_SHIFT_HRS nvarchar(200)=null,
+@EXHRS_AFTER_SHIFT_HRS nvarchar(200)=null,
+@COMPENSATORYOFF_CODE nvarchar(200)=null,
+@DED_FROM_EXHRS_EARLY_GOING nvarchar(200)=null,
+@DED_FROM_EXHRS_LATE_COMING nvarchar(200)=null,
+@CREATEDDATE datetime=null,
+@CREATEDBY varchar(200)=null,
+@MODIFIEDDATE datetime=null,
+@MODIFIEDBY varchar(200)=null,
+@ISDELETED nvarchar(200)=null,
+@DELETEDDATE datetime=null,
+@DELETEDBY varchar(200)=null,
+@IS_SYNC bit
+AS
+if(@ActionCommand='Select')
+begin
+
+print 'Select'
+select * from ENT_CATEGORY where ISDELETED=0
+
+end
+else if(@ActionCommand='Insert')
+begin
+	print 'Insert'
+	insert into ENT_CATEGORY(
+		ORG_CATEGORY_ID,
+		EARLY_GOING,
+		LATE_COMING,
+		EXTRA_CHECK,
+		EXHRS_BEFORE_SHIFT_HRS,
+		EXHRS_AFTER_SHIFT_HRS,
+		COMPENSATORYOFF_CODE,
+		DED_FROM_EXHRS_EARLY_GOING,
+		DED_FROM_EXHRS_LATE_COMING,
+		CREATEDDATE,
+		CREATEDBY,
+		ISDELETED,
+		IS_SYNC
+	)values
+	(
+		@ORG_CATEGORY_ID , 
+		@EARLY_GOING ,
+		@LATE_COMING ,
+		@EXTRA_CHECK ,
+		@EXHRS_BEFORE_SHIFT_HRS ,
+		@EXHRS_AFTER_SHIFT_HRS ,
+		@COMPENSATORYOFF_CODE ,
+		@DED_FROM_EXHRS_EARLY_GOING ,
+		@DED_FROM_EXHRS_LATE_COMING ,
+		@CREATEDDATE,
+		@CREATEDBY ,
+		0,
+		0
+	)
+end
+else if(@ActionCommand='SelectBYID')
+begin
+print 'SelectBYID'
+select * from ENT_CATEGORY where  CATEGORY_ID=@CATEGORY_ID and ISDELETED=0
+end
+else if(@ActionCommand='update')
+begin
+print 'update'
+update ENT_CATEGORY
+		set ORG_CATEGORY_ID=@ORG_CATEGORY_ID,
+		EARLY_GOING=@EARLY_GOING,
+		LATE_COMING=@LATE_COMING,
+		EXTRA_CHECK=@EXTRA_CHECK,
+		EXHRS_BEFORE_SHIFT_HRS=@EXHRS_BEFORE_SHIFT_HRS,
+		EXHRS_AFTER_SHIFT_HRS=@EXHRS_AFTER_SHIFT_HRS,
+		COMPENSATORYOFF_CODE=@COMPENSATORYOFF_CODE,
+		DED_FROM_EXHRS_EARLY_GOING=@DED_FROM_EXHRS_EARLY_GOING,
+		DED_FROM_EXHRS_LATE_COMING=@DED_FROM_EXHRS_LATE_COMING,
+		MODIFIEDDATE=GETDATE(),
+		MODIFIEDBY=@MODIFIEDBY
+		where CATEGORY_ID=@CATEGORY_ID
+	
+	
+end
+else if(@ActionCommand='Delete')
+begin
+print 'Delete'
+update ENT_CATEGORY set ISDELETED=1,DELETEDDATE=GETDATE(),DELETEDBY=@DELETEDBY where CATEGORY_ID=@CATEGORY_ID and ISDELETED=0
+end

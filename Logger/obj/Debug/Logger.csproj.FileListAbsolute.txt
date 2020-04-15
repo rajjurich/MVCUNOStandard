@@ -1,0 +1,14 @@
+D:\Vikas\UNO_Updated\Logger\bin\Debug\Logger.dll
+D:\Vikas\UNO_Updated\Logger\bin\Debug\Logger.pdb
+D:\Vikas\UNO_Updated\Logger\obj\Debug\Logger.csprojResolveAssemblyReference.cache
+D:\Vikas\UNO_Updated\Logger\obj\Debug\Logger.dll
+D:\Vikas\UNO_Updated\Logger\obj\Debug\Logger.pdb
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\Logger\bin\Debug\Logger.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\Logger\bin\Debug\Logger.pdb
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\Logger\obj\Debug\Logger.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\Logger\obj\Debug\Logger.pdb
+D:\Devang Project\UNOMVC\Logger\bin\Debug\Logger.dll
+D:\Devang Project\UNOMVC\Logger\bin\Debug\Logger.pdb
+D:\Devang Project\UNOMVC\Logger\obj\Debug\Logger.csprojResolveAssemblyReference.cache
+D:\Devang Project\UNOMVC\Logger\obj\Debug\Logger.dll
+D:\Devang Project\UNOMVC\Logger\obj\Debug\Logger.pdb

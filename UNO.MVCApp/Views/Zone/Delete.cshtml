@@ -1,0 +1,88 @@
+﻿@model UNO.AppModel.Zone
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<script src="~/Scripts/JS/multi.min.js"></script>
+<link href="~/Content/css/multi.min.css" rel="stylesheet" />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="container-fluid">
+        <!-- Spacer Starts -->
+        <div class="spacer clearfix">
+            <div class="row">
+                <div class="col-md-8 col-centered">
+                    <div class="blog blog-default ">
+                        <div class="blog-header ">
+                            <h4 class="blog-title pull-left mt5">Delete </h4>
+                            <span class="pull-right"><a class="btn btn-default" href="@Url.Action("Index")" data-original-title="" title=""><i class="fa fa-arrow-left"></i> Back </a> </span> <span class="clearfix"></span>
+                        </div>
+                        <div class="blog-body">
+                            <div class="row mt5">
+                                <div class="col-sm-10">
+                                    <div class="form-group row">
+                                        @Html.HiddenFor(model => model.ZONE_MODIFIEDBY, new { Value = @HttpContext.Current.Session["User"].ToString() })
+                                        @Html.LabelFor(model => model.COMPANY_ID, new { @class = "col-md-3 form-control-label" })
+                                        <div class="col-sm-9">
+                                            @Html.DropDownListFor(model => model.COMPANY_ID, (IEnumerable<SelectListItem>)ViewBag.Companies, "", new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.COMPANY_ID, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-10">
+                                    <div class="form-group row">
+                                        @Html.HiddenFor(model => model.ZONE_ID)
+                                        @Html.HiddenFor(model => model.COMPANY_ID, new { Value = 1 })
+                                        @Html.LabelFor(model => model.ZONE_DESCRIPTION, new { @class = "col-md-3 pr0 form-control-label" })
+                                        <div class="col-sm-9">
+                                            @Html.TextBoxFor(model => model.ZONE_DESCRIPTION, new { @class = "form-control", Placeholder = "Time" })
+                                            @Html.ValidationMessageFor(model => model.ZONE_DESCRIPTION, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <hr />
+
+                            <div class="row">
+                                <div class="col-sm-10">
+                                    <div class="form-group row">
+                                        <label class="col-md-3 form-control-label"> Readers<span style="color:red">&nbsp;*</span>  </label>
+                                        <div class="col-md-9">
+                                            @Html.DropDownList("ddlReaders", ((IEnumerable<SelectListItem>)ViewBag.Readers).ToList().Select(m => new SelectListItem { Value = m.Value, Text = m.Text, Selected = Model.acsReaderInfos.Select(r => r.RowId).ToList().Contains(Convert.ToInt32(m.Value)) ? true : false }), "", new { @class = "form-control", multiple = "multiple", required = true, title = "Please Provide Readers" })
+                                            @Html.ValidationMessage("ddlReaders", "", new { @class = "text-danger" })
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <table id="tableOne" class="collapse">
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                        <div class="form-actions">
+                            <div class="row">
+                                <div class="col-md-12 text-center">
+                                    <button id="btnSubmit" type="submit" class="btn btn-danger"> <i class="fa fa-trash"></i> Delete</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<script type="text/javascript">
+    var select = document.getElementById('ddlReaders');
+    multi(select, {
+        non_selected_header: 'Available Readers',
+        selected_header: 'Selected',
+
+    });
+
+</script>

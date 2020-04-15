@@ -1,0 +1,5 @@
+D:\DLLogs\UNO_Customization\UNO.WebApi\Dal\bin\Debug\Dal.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\Dal\bin\Debug\Dal.pdb
+D:\DLLogs\UNO_Customization\UNO.WebApi\Dal\obj\Debug\Dal.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\Dal\obj\Debug\Dal.pdb
+D:\DLLogs\UNO_Customization\UNO.WebApi\Dal\obj\Debug\Dal.csprojResolveAssemblyReference.cache

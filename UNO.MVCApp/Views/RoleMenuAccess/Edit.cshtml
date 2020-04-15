@@ -1,0 +1,181 @@
+﻿@model UNO.AppModel.MenuModel
+@*@using EToolsViewer.Extensions*@
+@*@{
+        ViewBag.Title = "Edit";
+    }*@
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+
+            new confirmexitmsg('form');
+            $("#btnReset").click(function (e) {
+                formmodified = 0;
+                location.reload(true);
+            });
+
+            $("#MODULE_ID").change(function () {
+
+                var moduleID = $(this).val();
+                var markup = "";
+
+                if (moduleID == '') {
+                    markup = "<option value=''>Select Sub Module</option>";
+                    $("#SMODULE_ID").html(markup).show();
+                }
+                else {
+                    $.ajax({
+                        url: '@Url.Action("subModuleByID", "Menu")',
+                        data: { id: moduleID },
+                        cache: false,
+                        type: "POST",
+                        success: function (data) {
+                            debugger;
+                            markup = "<option value=''>Select Sub Module</option>";
+                            for (var x = 0; x < data.length; x++) {
+                                markup += "<option value=" + data[x].Value + ">" + data[x].Text + "</option>";
+                            }
+                            $("#SMODULE_ID").html(markup).show();
+                            $("#SMODULE_ID").val('');
+                        },
+                        error: function (reponse) {
+                           //if (box) box.remove();
+                        }
+                    });
+
+                }
+            });
+
+            $("#btnUpdate").click(function (e) {
+
+
+                if ($('form').valid()) {
+                    formmodified = 0;
+                    //var box = new ajaxLoader(this, { classOveride: 'blue-loader', bgColor: '#000' });
+
+                    var mstmetertype = {
+                        "MENU_ID": $("#MENU_ID").val(),
+                        "MENU_NAME": $("#MENU_NAME").val(),
+                        "MENU_URL": $("#MENU_URL").val(),
+                        "MODULE_ID": $("#MODULE_ID").val(),
+                        "SMODULE_ID": $("#SMODULE_ID").val(),
+                        "MENU_ITEMPOSITION": $("#MENU_ITEMPOSITION").val()
+                    };
+
+                    $.ajax({
+                        type: "POST",
+                        contentType: "application/json;charset=utf-8",//type of data to be send
+                        url: '@Url.Action("Edit", "Menu")',//+id
+                        dataType: "json",//type of data to be received
+                        data: JSON.stringify(mstmetertype),//data to be send
+                        success: function (response) {
+
+                            if (response.e == "S") {
+                                if (response.d.length > 0)
+                                    alert(response.d, '@Url.Action("Index", "Menu")', false, response.e);
+
+                            }
+                            else if (response.e == "M") {
+                                if (response.d.length > 0)
+                                    alert(response.d, '', false, response.e);
+                            }
+                            else if (response.e == "E") {
+                                if (response.d.length > 0)
+                                    alert(response.d, '', false, response.e);
+                            }
+                            //if (box) box.remove();
+
+                        },
+                        error: function (xhr, status, error) {
+                            //if (box) box.remove();
+                            //  alert(xhr.responseText);
+                        }
+                    });
+
+                }
+                else {
+                    //if (box) box.remove();
+                }
+                e.preventDefault();
+
+
+            });
+        });
+
+    </script>
+
+}
+<div class="main-container" style="clear:both;">
+    <!-- Container fluid Starts -->
+    <div id="main-content" class="container-fluid">
+        <!-- Spacer Starts -->
+        <div class="spacer clearfix">
+            <div class="row">
+                <div class="col-md-7 col-centered">
+                    <div class="blog blog-default ">
+                        <div class="blog-header ">
+                            <h4 class="blog-title pull-left mt5">Edit </h4><span class="pull-right">  <a class="btn btn-default" href='@Url.Action("Index")'><i class="fa fa-arrow-left"></i> Back To List</a></span>
+                            <span class="clearfix"></span>
+                        </div>
+                        <div class="blog-body form p0">
+                            @using (Html.BeginForm())
+                            {
+                                @Html.AntiForgeryToken()
+                                @Html.ValidationSummary(true)
+                                @Html.HiddenFor(model => model.MENU_ID)
+                                <div class="form-horizontal form-bordered form-label-stripped">
+                                    <div class="form-body p0">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.MENU_NAME, null, new { @class = "control-label col-md-3" })
+                                            <div class="col-md-9">
+                                                @Html.TextBoxFor(model => model.MENU_NAME, new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.MENU_NAME, null, new { @class = "text-danger field-validation-error" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.MENU_URL, null, new { @class = "control-label col-md-3" })
+                                            <div class="col-md-9">
+                                                @Html.TextBoxFor(model => model.MENU_URL, new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.MENU_URL, null, new { @class = "text-danger field-validation-error" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.MODULE_ID, null, new { @class = "control-label col-md-3" })
+                                            <div class="col-md-9">
+                                                @Html.DropDownListFor(model => model.MODULE_ID, (IEnumerable<SelectListItem>)ViewBag.ModuleId, "Select Module", new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.MODULE_ID, null, new { @class = "text-danger field-validation-error" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.SMODULE_ID, null, new { @class = "control-label col-md-3" })
+                                            <div class="col-md-9">
+                                                @Html.DropDownListFor(model => model.SMODULE_ID, (IEnumerable<SelectListItem>)ViewBag.SubModuleId, "Select Sub Module", new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.SMODULE_ID, null, new { @class = "text-danger field-validation-error" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.MENU_ITEMPOSITION, null, new { @class = "control-label col-md-3" })
+                                            <div class="col-md-9">
+                                                @Html.TextBoxFor(model => model.MENU_ITEMPOSITION, new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.MENU_ITEMPOSITION, null, new { @class = "text-danger field-validation-error" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div class="form-actions">
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+                                            <button type="button" class="btn btn-info" id="btnUpdate"><i class="fa fa-save"></i>&nbsp;&nbsp;Save</button>
+                                            <button type="button" class="btn default" id="btnReset"><i class="fa fa-refresh"></i>&nbsp;&nbsp;Reset</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

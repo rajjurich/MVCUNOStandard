@@ -1,0 +1,101 @@
+﻿@model IEnumerable<UNO.AppModel.VisitorAppointmentRequestModel>
+@{
+    ViewBag.Title = "Visitor Approve Request";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/css/buttons.dataTables.min.css" rel="stylesheet" />
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            if ('@ViewBag.CreateAccess' == "False") {
+                $("#btnCreate").hide();
+            }
+            if ('@ViewBag.EditAccess' == "False") {
+                $(".btnEdit").hide();
+            }
+            if ('@ViewBag.DeleteAccess' == "False") {
+                $(".btnDelete").hide();
+            }
+            $("#lsttable").dataTable(
+                            {
+                                pageLength: 10,
+                                "aoColumns": [
+                                            null,
+                                            null,
+                                            null,
+                                            null,
+                                            null,
+                                            { "bSortable": false }
+                                ], "scrollX": true
+                            });
+        });
+    </script>
+}
+<!-- Container fluid Starts -->
+<div class="container-fluid">
+    <!-- Spacer Starts -->
+    <div class="spacer clearfix">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="blog blog-default ">
+                    <div class="blog-header ">
+                        <h4 class="blog-title pull-left mt5">Listing</h4>
+                        <div class="dt-buttons pull-right">
+                            <a class="btn btn-default" href="#"><span><i class="fa fa-print"></i> Print</span></a> <a class="btn btn-default" href="#"><span><i class="fa fa-file-excel-o"></i> Excel</span></a>
+                        </div>
+                        <span class="clearfix"></span>
+                    </div>
+                    <div class="blog-body">
+                        <div class="table-responsive">
+                            <div id="dt_example" class="table-responsive example_alt_pagination clearfix">
+                               
+                                <table id="lsttable" class="table table-condensed table-striped table-hover table-bordered pull-left" style="margin-bottom:0;width:100%;">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">Visitor Name</th>
+                                            <th class="text-center">Visitor Company</th>
+                                            <th class="text-center">Nature Of Work</th>
+                                            <th class="text-center">Request Status</th>
+                                            <th class="text-center">Request Date</th>
+                                            <th class="text-center">Approve/Reject</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="data" style="width:100%">
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.VISITOR_NAME)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.VISITORCOMPANY)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.NATURE_OF_WORK)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.APPROVAL_STATUS)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.CREATEDON)
+                                                </td>
+                                                <td>
+                                                    @Html.ActionLink("Select", "ApproveReject", new { id = item.REQUEST_ID }, new { @class = "fa fa-pencil-square-o text-white btn btn-info btn-sm btnEdit" })&nbsp
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Spacer Ends -->
+</div>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/JS/jquery.dataTables.min.js"></script>
+<script src="~/Scripts/js/dataTables.buttons.min.js"></script>

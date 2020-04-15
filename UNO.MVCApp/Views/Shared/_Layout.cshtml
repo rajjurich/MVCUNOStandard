@@ -1,0 +1,407 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="UNO" />
+    <meta name="author" content="Bootstrap Gallery" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="~/Content/img/favicon.ico">
+    <title>UNO</title>
+
+    <!-- HTML5 shiv and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="js/html5shiv.js"></script>
+        <script src="js/respond.js"></script>
+    <![endif]-->
+    @Styles.Render("~/Content/cssLayout")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryLayout")
+</head>
+
+<body>
+
+    <!-- Header Start -->
+    <header>
+        <!-- Logo starts -->
+
+        <div class="logo"> <a href="#"> <img src="~/Content/img/logo_main.png" alt="logo" height="42" class="pull-left"> <span class="title-name">UNO</span> <span class="menu-toggle hidden-xs left"> <i class="fa fa-bars"></i> </span> </a> </div>
+        <!-- Logo ends -->
+        @{
+            var VersionCheck = Session["Version_display"];
+        }
+
+        <div class="page-title w_auto pull-left" style="display:block;">  <span class="menu-toggle hidden-xs pull-left right hide" style="display:inline-block;"> <i class="fa fa-bars"></i> </span> <h4 class="p15 text-main text-uppercase " style="display:inline-block;"> </h4></div>
+        <!-- Mini right nav starts -->
+        <div class="pull-right">
+            <ul id="mini-nav" class="clearfix">
+                <li class="list-box" style="padding-top:13px;"><small style="line-height:20px;">@VersionCheck<br /><label id="datetimerecevie"></label></small></li>
+               
+                <li class="list-box hidden-lg hidden-md hidden-sm" id="mob-nav"> <a href="#"> <i class="fa fa-reorder"></i> </a> </li>
+
+                <li class="list-box dropdown hidden-xs">
+                    <a id="drop3" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-bell"></i> </a> <span class="info-label danger-bg animated rubberBand">4</span>
+                    <ul class="dropdown-menu messages">
+                        <li class="plain"> Messages </li>
+                        <li>
+                            <div class="user-pic"> <img src="~/Content/img/user.png" alt="User"> </div>
+                            <div class="details">
+                                <strong class="text-danger">Mahesh</strong> <span>Uploaded 28 new files yesterday.</span>
+                                <div class="progress progress-xs no-margin">
+                                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;"> </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="user-pic"> <img src="~/Content/img/user.png" alt="User"> </div>
+                            <div class="details">
+                                <strong class="text-danger">Kunal</strong> <span>Got 12 new messages.</span>
+                                <div class="progress progress-xs no-margin">
+                                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"> </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="user-pic"> <img src="~/Content/img/user.png" alt="User"> </div>
+                            <div class="details">
+                                <strong class="text-info">Mahesh</strong> <span>Uploaded new project files today.</span>
+                                <div class="progress progress-xs no-margin">
+                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"> </div>
+                                </div>
+                            </div>
+                        </li>
+                        @*<li>
+                                <div class="user-pic"> <img src="~/Content/img/user.png" alt="User"> </div>
+                                <div class="details">
+                                    <strong class="text-info">Jayesh</strong>
+                                    <div class="progress progress-xs no-margin">
+                                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 30%;"> </div>
+                                    </div>
+                                </div>
+                            </li>*@
+                    </ul>
+                </li>
+                <li class="list-box user-profile hidden-xs">
+                    <a id="drop4" href="#" class="user-avtar animated rubberBanddropdown-toggle" data-toggle="dropdown">
+                        <img src="~/Content/img/user.png" alt="user avatar" /> <span class="user-name">
+
+                            @if (@Session["User"] == null)
+                            {
+                                <text> alert('session expired', '@Url.Action("Index", "Home", new { area = "" })', false, "M");
+                                window.location.href = '@Url.Action("Index", "Home", new { area = "" })';
+                                return false;
+                                </text>
+
+                            }
+                            else
+                            {
+                                @HttpContext.Current.Session["User"].ToString()
+                            }
+
+                            <i class="fa fa-angle-down"></i>
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu sm user-settings">
+                        <li> <a href="profile.html"><i class="fa fa-meh-o"></i> My Profile</a> </li>
+                        <li>@Html.ActionLink(" Logout", "Logout", "Home", new { }, new { @class = "fa fa-sign-out" })</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- Mini right nav ends -->
+    </header>
+
+    <!-- Header ends -->
+    <aside id="sidebar">
+        <header class="header bg-header  lter text-center clearfix">
+            <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-icon" title="New project"><i class="fa fa-plus"></i></button>
+                <button type="button" class="btn btn-sm btn-primary dropdown-toggle hidden-xs" data-toggle="dropdown"> Switch Modules <span class="caret"></span> </button>
+                <ul class="dropdown-menu text-left" id="ModuleList">
+                    @*<li><a href="#">Sentinel</a></li>
+                        <li><a href="#">Tempus</a></li>
+                        <li><a href="#">Perso</a></li>
+                        <li><a href="#">Invictus</a></li>*@
+                </ul>
+            </div>
+        </header>
+        <!-- Menu start -->
+        <div id='menu'>
+            <ul id="ContentList">
+                @*<li class="header bg-header has-sub" style="display:none;">
+                        <a href='#' style=" height:44px;">
+                            <button type="button" class="btn btn-sm btn-icon" title="New project"><i class="fa fa-plus"></i></button>
+                        </a>
+                        <ul>
+                            <li> <a href='#' class="bg-white"><span> <strong>Switch Modules</strong> </span> <i class="fa fa-caret-down"></i></a> </li>
+                            <li> <a href='#' class="bg-white"> <span>Sentinel</span> </a> </li>
+                            <li> <a href='#' class="bg-white"> <span>Tempus</span> </a> </li>
+                            <li> <a href='#' class="bg-white"> <span>Perso</span> </a> </li>
+                            <li> <a href='#' class="bg-white"> <span>Invictus</span> </a> </li>
+                        </ul>
+                    </li>
+                    <li class="highlight has-sub">
+                        <a href='#'> <i class="fa fa-desktop"></i> <span>Menu</span> </a>
+                        <ul id="MenuList">
+                            <li> <a href='#' class="select"> <span>Dashboard</span> </a> </li>
+                            <li> <a href='#'> <span>My Performance Review</span> </a> </li>
+                            <li> <a href='#'> <span>My KRA Goal Settings</span> </a> </li>
+                            <li> <a href='#'> <span>My Revenue Goal Settings</span> </a> </li>
+                        </ul>
+                    </li>
+                    <li class="has-sub">
+                        <a href='index.html'> <i class="fa fa-edit"></i> <span>Submodule</span> </a>
+                        <ul>
+                            <li> <a href='#'> <span>Leave</span> </a> </li>
+                            <li> <a href='#'> <span>Out Door</span> </a> </li>
+                            <li> <a href='#'> <span>Manual Attendance</span> </a> </li>
+                            <li> <a href='#'> <span>Outpass</span> </a> </li>
+                            <li> <a href='#'> <span>Comp-Off</span> </a> </li>
+                        </ul>
+                    </li>
+                    <li class="has-sub">
+                        <a href='index.html'> <i class="fa fa-file"></i> <span>Reports</span> </a>
+                        <ul>
+                            <li> <a href='#'> <span>Attendance</span> </a> </li>
+                        </ul>
+                    </li>*@
+            </ul>
+        </div>
+        <!-- Menu End -->
+    </aside>
+    <!-- Left sidebar ends -->
+    <!-- Dashboard Wrapper starts -->
+    <div class="dashboard-wrapper">
+        <div class="modal fade" id="modalSm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel5" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+
+                    <div class="modal-body text-center">
+
+                        <button type="button" class="btn btn-info btn-circle btn-lg"><i class="fa fa-exclamation"></i></button>
+
+                        <h3>Are you sure?</h3>
+                        <p>It will be deleted permanently!</p>
+                        <button id="btnContinueDelete" type="button" class="btn btn-warning" data-dismiss="modal"><i class="fa fa-check"></i> Yes delete it</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Cancel</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="modal_message" tabindex="-1" role="dialog" aria-labelledby="myModalLabel5" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+
+                    <div class="modal-body text-center">
+
+                        <button type="button" class="btn btn-popup-success btn-circle btn-lg"><i class="fa fa-check"></i></button>
+
+                        <h3>@ViewBag.Status</h3>
+                        <p>@ViewBag.InnerMessage</p>
+                        <button type="button" class="btn btn-popup-success" data-dismiss="modal"><i class="fa fa-check"></i> OK</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div>
+            @Html.Raw(@ViewBag.Message)
+        </div>
+        @RenderBody()
+    </div>
+    <!-- Main Container ends -->
+    <!-- Footer starts -->
+    <footer class="text-center"> Copyright © 2018 CMS Computers Ltd. All Rights Reserved. </footer>
+    <!-- Footer ends -->
+    <!-- Dashboard Wrapper ends -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
+
+    <script type="text/javascript">
+        var RoleWiseMenuList = "";
+        //var UNOUrl = "http://localhost/UNO.MVCApp/";
+        $(document).ready(function () {
+
+          setInterval(
+        function ()
+        {
+            $.post("@Url.Action("GetDateTimeNow", "Home")", {}, function (data) {
+                $('#datetimerecevie').text(data);
+            });
+        }, 1000)
+
+            //Data Tables customization
+            //$(document).ready(function () {
+            @if (@Session["User"] == null)
+             {
+                 <text> alert('session expired', '@Url.Action("Index", "Home", new { area = "" })', false, "M");
+            //    window.location.href = '@Url.Action("Index", "Home")';
+            return false;
+            </text>
+             }
+
+            //add margin to the right and reset clear
+            $(".dataTables_length").css('clear', 'none');
+            $(".dataTables_length").css('margin-left', '20px');
+            $(".dataTables_length").css('float', 'right');
+            $(".dataTables_length select").addClass('form-control');
+            //reset clear and padding
+            $(".dataTables_info").css('clear', 'none');
+            $(".dataTables_info").css('padding', '0');
+            $("#data-table_length").css("display", "block")
+            //});
+
+
+
+
+
+            //Data Tables customization end
+
+            $('input').attr('autocomplete', 'off');
+            var path_to_delete;
+
+            $(".deleteItem").click(function (e) {
+                path_to_delete = $(this).data('path');
+            });
+            $('#btnContinueDelete').click(function () {
+                $("form").attr('method', 'POST');
+                $("form").attr('action', path_to_delete);
+                $("form").submit();
+            });
+            $("#btn-success-trigger").trigger('click');
+            $("#btn-error-trigger").trigger('click');
+            $("[data-val-required]").each(function () {
+                var label = $('label[for="' + $(this).attr("id") + '"]');
+                var asterisksHtml = '<span style="color:red">&nbsp;*</span>';
+                if (label.text().length > 0 && label.html().indexOf(asterisksHtml) === -1) {
+                    label.append(asterisksHtml);
+                }
+            });
+            $("#checkBoxAll").css("display", "none")
+            $('#checkBoxAll').click(function () {
+                if ($(this).is(":checked")) {
+                    $(".chkCheckBoxId").prop("checked", true)
+                }
+                else {
+                    $(".chkCheckBoxId").prop("checked", false)
+                }
+            });
+
+            $('#btnDeleteAll').click(function () {
+                if ($(".chkCheckBoxId").is(":checked")) {
+                    return true;
+                }
+                else {
+                    $("#lblMsg").html("No row(s) selected for deletion");
+                    return false;
+
+                }
+            });
+
+            $(document.body).on("click", ".menu-toggle.right", function () {
+                $('#sidebar').animate({ left: "0px" }, 100).removeClass('open');
+                $('.dashboard-wrapper').animate({ 'margin-left': "210px" }, 100);
+                $("#sidebar .header").animate({ 'width': "100%" }, 100);
+                $("#sidebar .header").animate({ 'padding': "0px 20px" }, 100);
+                $("#sidebar .header").show();
+                $("#sidebar #menu li.header").hide();
+                $('header .logo').animate({ 'width': "210px" }, 100);
+                $('header .logo a').animate({ 'padding-left': "16px" }, 100);
+                $('header .logo a img').animate({ 'width': "42px", 'height': "42px" }, 100);
+                $('header .logo .title-name').show();
+                $('.menu-toggle.right').addClass("hide");
+                $('.menu-toggle.left').show();
+                $('.menu-toggle.right').removeClass("show");
+            });
+            var uri = '@System.Configuration.ConfigurationManager.AppSettings["APIUrl"].ToString()';
+            var unouri = '@System.Configuration.ConfigurationManager.AppSettings["WebUrl"].ToString()';
+            $.ajax({
+                type: "GET",
+                contentType: "application/json;charset=utf-8",
+                url: uri + "MenuAccessAPI/GetMenuRoleWise/" + '@HttpContext.Current.Session["Role"].ToString()',
+                dataType: "json",
+
+                success: function (roleMenuAccess, status, jqXHR) {
+                    var strModulList = "";
+                    var strMenuList = "";
+                    var strSubModuleList = "";
+                    var newRoleWiseMenuList = [];
+                    var PreviousModule = "";
+                    var PreviousSubModule = "";
+
+
+                    if (roleMenuAccess != undefined) {
+
+                        roleMenuAccess.forEach(function (response) {
+
+                            if (PreviousModule != response.MODULE_ID) {
+                                strModulList += "<li id=module_" + response.MODULE_ID + "><a href='#'>" + response.MODULE_NAME + "</a></li>"
+                                PreviousModule = response.MODULE_ID;
+                            }
+
+                            if (PreviousSubModule != response.SMODULE_ID) {
+                                if (PreviousSubModule != "") {
+                                    $("#ContentList").html($("#ContentList").html() + strSubModuleList);
+                                    $("#MenuList_" + PreviousSubModule).html(strMenuList);
+                                    strMenuList = "";
+                                    strSubModuleList = "";
+                                }
+                                strSubModuleList += "<li class='highligt has-sub module_" + response.MODULE_ID + "'>" + "<a href='#'> <i class='fa fa-desktop'></i> <span>" + response.SMODULE_NAME + "</span> </a><ul id='MenuList_" + response.SMODULE_ID + "'></ul></li>"
+                                strMenuList += "<li id='menu_" + response.MENU_ID + "'> <a href='" + unouri + response.MENU_URL + "' class='select'> <span>" + response.MENU_NAME + "</span> </a> </li>"
+                                PreviousSubModule = response.SMODULE_ID;
+                            } else
+                                strMenuList += "<li id='menu_" + response.MENU_ID + "'> <a href='" + unouri + response.MENU_URL + "' class='select'> <span>" + response.MENU_NAME + "</span> </a> </li>"
+
+                        });
+                    }
+
+                    $("#ModuleList").html(strModulList);
+                    $("#ContentList").html($("#ContentList").html() + strSubModuleList);
+                    $("#MenuList_" + PreviousSubModule).html(strMenuList);
+
+                    var x = sessionStorage.getItem('clickedItem');
+                    if (x == null) {
+                        $("#ModuleList :first-child a").trigger('click');
+                    }
+                    else {
+                        $("#" + x + " a").trigger('click');
+                    }
+
+                },
+                error: function (xhr, status, error) {
+
+                }
+            });
+
+            $(document.body).on("click", "#ModuleList li a", function () {
+                debugger;
+                var ItemID = $(this).parent("li").attr('id');
+                sessionStorage.setItem('clickedItem', ItemID)
+                $("#ContentList li").css("display", "none");
+                $("#ContentList li." + ItemID).css("display", "block");
+                $("#ContentList li." + ItemID + " ul li").css("display", "block");
+            });
+        });
+
+</script>
+    @Scripts.Render("~/bundles/jqueryval")
+
+    @RenderSection("scripts", required: false)
+</body>
+
+</html>
+
+@**<li class="header bg-header has-sub" style="display:none;">
+        <a href='#' style=" height:44px;">
+            <button type="button" class="btn btn-sm btn-icon" title="New project"><i class="fa fa-plus"></i></button>
+        </a>
+        <ul>
+            <li> <a href='#' class="bg-white"><span> <strong>Switch Modules</strong> </span> <i class="fa fa-caret-down"></i></a> </li>
+            <li> <a href='#' class="bg-white"> <span>Sentinel</span> </a> </li>
+            <li> <a href='#' class="bg-white"> <span>Tempus</span> </a> </li>
+            <li> <a href='#' class="bg-white"> <span>Perso</span> </a> </li>
+            <li> <a href='#' class="bg-white"> <span>Invictus</span> </a> </li>
+        </ul>
+    </li>*@

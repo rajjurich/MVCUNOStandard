@@ -1,0 +1,290 @@
+﻿@model UNO.AppModel.Shift
+
+@{
+    ViewBag.Title = "Details";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <div class="main-container" style="clear:both; min-height: 601px;">
+        <!-- Container fluid Starts -->
+        <div class="container-fluid">
+            <!-- Spacer Starts -->
+            <div class="spacer clearfix">
+                <div class="col-md-8 col-centered">
+                    <div class="blog blog-default ">
+                        <div class="blog-header ">
+                            <h5 class="blog-title pull-left mt5">View</h5> <span class="pull-right"><a class="btn btn-default" href="@Url.Action("Index")" data-original-title="" title=""><i class="fa fa-arrow-left"></i> Back </a> </span>
+                            <span class="clearfix"></span>
+                        </div>
+                        <div class="blog-body">
+
+                            <form class="form-horizontal repeater" role="form">
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <fieldset style="padding-top:10px; margin-top:0;">
+                                            <div class="form-group row">
+                                                @Html.HiddenFor(model => model.SHIFT_ID)
+                                                @Html.HiddenFor(model => model.SHIFT_MODIFIEDBY, new { Value = @HttpContext.Current.Session["User"].ToString() })
+                                                @Html.LabelFor(model => model.COMPANY_ID, new { @class = "control-label col-md-3" })
+                                                <div class="col-md-9">
+                                                    @Html.DropDownListFor(model => model.COMPANY_ID, (IEnumerable<SelectListItem>)ViewBag.Companies, "Select", new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(model => model.COMPANY_ID, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+
+
+                                            <div class="form-group row">
+                                                <hr>
+                                                <div class="col-sm-3">
+                                                    @Html.LabelFor(model => model.SHIFT_CODE, new { @class = "control-label" })
+                                                    @Html.TextBoxFor(model => model.SHIFT_CODE, new { @class = "form-control", Placeholder = "Shift ID" })
+                                                    @Html.ValidationMessageFor(model => model.SHIFT_CODE, "", new { @class = "text-danger" })
+                                                </div>
+
+                                                <div class="col-sm-6">
+                                                    @Html.LabelFor(model => model.SHIFT_DESCRIPTION, new { @class = "control-label" })
+                                                    @Html.TextBoxFor(model => model.SHIFT_DESCRIPTION, new { @class = "form-control", Placeholder = "Shift Description" })
+                                                    @Html.ValidationMessageFor(model => model.SHIFT_DESCRIPTION, "", new { @class = "text-danger" })
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    @Html.LabelFor(model => model.SHIFT_TYPE, new { @class = "control-label" })
+                                                    @Html.DropDownListFor(model => model.SHIFT_TYPE, (IEnumerable<SelectListItem>)ViewBag.ShiftType, "", new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(model => model.SHIFT_TYPE, "", new { @class = "text-danger" })
+                                                </div>
+                                                <div class="col-sm-3" style="position:relative;">
+                                                    @Html.LabelFor(model => model.SHIFT_START, new { @class = "control-label" })
+                                                    @Html.EditorFor(model => model.SHIFT_START, "{0:HH:mm}", new { @class = "form-control", Placeholder = "Shift Start" })
+                                                    @Html.ValidationMessageFor(model => model.SHIFT_START, "", new { @class = "text-danger" })
+                                                </div>
+
+                                                <div class="col-sm-3">
+                                                    @Html.LabelFor(model => model.SHIFT_END, new { @class = "control-label" })
+                                                    @Html.EditorFor(model => model.SHIFT_END, new { @class = "form-control", Placeholder = "Shift End" })
+                                                    @Html.ValidationMessageFor(model => model.SHIFT_END, "", new { @class = "text-danger" })
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    @Html.LabelFor(model => model.SHIFT_BREAK_START, new { @class = "control-label" })
+                                                    @Html.EditorFor(model => model.SHIFT_BREAK_START, new { @class = "form-control", Placeholder = "Break Start" })
+                                                    @Html.ValidationMessageFor(model => model.SHIFT_BREAK_START, "", new { @class = "text-danger" })
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    @Html.LabelFor(model => model.SHIFT_BREAK_END, new { @class = "control-label" })
+                                                    @Html.EditorFor(model => model.SHIFT_BREAK_END, new { @class = "form-control", Placeholder = "Break End" })
+                                                    @Html.ValidationMessageFor(model => model.SHIFT_BREAK_END, "", new { @class = "text-danger" })
+                                                </div>
+                                                <div class="clearfix"></div>
+                                                <hr>
+                                                <div class="col-sm-12">
+                                                    @Html.CheckBoxFor(model => model.SHIFT_FLAG_ADD_BREAK)
+                                                    @Html.LabelFor(model => model.SHIFT_FLAG_ADD_BREAK, new { @class = "control-label" })
+                                                    @Html.ValidationMessageFor(model => model.SHIFT_FLAG_ADD_BREAK, "", new { @class = "text-danger" })
+                                                </div>
+
+                                                <div class="col-sm-3">
+                                                    @Html.LabelFor(model => model.SHIFT_BREAK_HRS, new { @class = "control-label" })
+                                                    @Html.TextBoxFor(model => model.SHIFT_BREAK_HRS, new { @class = "form-control", Placeholder = "Shift Break Hours", @readonly = true })
+                                                    @Html.ValidationMessageFor(model => model.SHIFT_BREAK_HRS, "", new { @class = "text-danger" })
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    @Html.LabelFor(model => model.SHIFT_WORKHRS, new { @class = "control-label" })
+                                                    @Html.TextBoxFor(model => model.SHIFT_WORKHRS, new { @class = "form-control", Placeholder = "Shift Work Hours", @readonly = true })
+                                                    @Html.ValidationMessageFor(model => model.SHIFT_WORKHRS, "", new { @class = "text-danger" })
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    @Html.LabelFor(model => model.SHIFT_HALFDAYWORKHRS, new { @class = "control-label" })
+                                                    @Html.TextBoxFor(model => model.SHIFT_HALFDAYWORKHRS, new { @class = "form-control", Placeholder = "Shift Work Hours", @readonly = true })
+                                                    @Html.ValidationMessageFor(model => model.SHIFT_HALFDAYWORKHRS, "", new { @class = "text-danger" })
+                                                </div>
+
+
+                                                <div class="clearfix"></div>
+                                                <hr>
+                                                <div class="col-sm-6">
+                                                    <label class="control-label">Search Hours</label>
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    @Html.LabelFor(model => model.SHIFT_ALLOCATION_TYPE, new { @class = "control-label" })
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    <label style="font-weight:normal;">
+                                                        @Html.RadioButtonFor(model => model.SHIFT_ALLOCATION_TYPE, "Assigned", new { Checked = "checked" })
+                                                        Assigned
+                                                    </label>
+                                                    <label style="font-weight:normal;">
+                                                        @Html.RadioButtonFor(model => model.SHIFT_ALLOCATION_TYPE, "Auto")
+                                                        Auto
+                                                    </label>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                                <div class="col-sm-3">
+                                                    @Html.LabelFor(model => model.SHIFT_EARLY_SEARCH_HRS, new { @class = "control-label" })
+                                                    &nbsp;
+                                                    @Html.EditorFor(model => model.SHIFT_EARLY_SEARCH_HRS, new { @class = "form-control", Placeholder = "Shift Early Search Hours" })
+                                                    @Html.ValidationMessageFor(model => model.SHIFT_EARLY_SEARCH_HRS, "", new { @class = "text-danger" })
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    @Html.LabelFor(model => model.SHIFT_LATE_SEARCH_HRS, new { @class = "control-label" })
+                                                    &nbsp;
+                                                    @Html.EditorFor(model => model.SHIFT_LATE_SEARCH_HRS, new { @class = "form-control", Placeholder = "Shift Late Search Hours" })
+                                                    @Html.ValidationMessageFor(model => model.SHIFT_LATE_SEARCH_HRS, "", new { @class = "text-danger" })
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    @Html.LabelFor(model => model.SHIFT_AUTO_SEARCH_START, new { @class = "control-label" })
+                                                    @Html.EditorFor(model => model.SHIFT_AUTO_SEARCH_START, new { @class = "form-control checkEmpty", Placeholder = "Shift Auto Search Start" })
+                                                    @Html.ValidationMessageFor(model => model.SHIFT_AUTO_SEARCH_START, "", new { @class = "text-danger" })
+                                                </div><div class="col-sm-3">
+                                                    @Html.LabelFor(model => model.SHIFT_AUTO_SEARCH_END, new { @class = "control-label" })
+                                                    @Html.EditorFor(model => model.SHIFT_AUTO_SEARCH_END, new { @class = "form-control checkEmpty", Placeholder = "Shift Auto Search End" })
+                                                    @Html.ValidationMessageFor(model => model.SHIFT_AUTO_SEARCH_END, "", new { @class = "text-danger" })
+                                                </div>
+
+                                                <div class="clearfix"></div>
+                                                <hr>
+                                                <div class="col-sm-12">
+                                                    @Html.CheckBoxFor(model => model.SHIFT_WEEKEND_DIFF_TIME)
+                                                    @Html.LabelFor(model => model.SHIFT_WEEKEND_DIFF_TIME, new { @class = "control-label" })
+                                                    @Html.ValidationMessageFor(model => model.SHIFT_WEEKEND_DIFF_TIME, "", new { @class = "text-danger" })
+                                                </div>
+                                                <div class="clearfix"></div>
+                                                <div class="col-sm-3">
+                                                    @Html.LabelFor(model => model.SHIFT_WEEKEND_START, new { @class = "control-label" })
+                                                    @Html.EditorFor(model => model.SHIFT_WEEKEND_START, new { @class = "form-control checkEmpty", Placeholder = "Week End Shift Start" })
+                                                    @Html.ValidationMessageFor(model => model.SHIFT_WEEKEND_START, "", new { @class = "text-danger" })
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    @Html.LabelFor(model => model.SHIFT_WEEKEND_END, new { @class = "control-label" })
+                                                    @Html.EditorFor(model => model.SHIFT_WEEKEND_END, new { @class = "form-control checkEmpty", Placeholder = "Week End Shift End" })
+                                                    @Html.ValidationMessageFor(model => model.SHIFT_WEEKEND_END, "", new { @class = "text-danger" })
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    @Html.LabelFor(model => model.SHIFT_WEEKEND_BREAK_START, new { @class = "control-label" })
+                                                    @Html.EditorFor(model => model.SHIFT_WEEKEND_BREAK_START, new { @class = "form-control checkEmpty", Placeholder = "Week End Break Start" })
+                                                    @Html.ValidationMessageFor(model => model.SHIFT_WEEKEND_BREAK_START, "", new { @class = "text-danger" })
+                                                </div>
+                                                <div class="col-sm-3">
+                                                    @Html.LabelFor(model => model.SHIFT_WEEKEND_BREAK_END, new { @class = "control-label" })
+                                                    @Html.EditorFor(model => model.SHIFT_WEEKEND_BREAK_END, new { @class = "form-control checkEmpty", Placeholder = "Week End Break End" })
+                                                    @Html.ValidationMessageFor(model => model.SHIFT_WEEKEND_BREAK_END, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>                       
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Spacer Ends -->
+    </div>
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+
+
+        $('#SHIFT_START').addClass('form-control');
+        $('#SHIFT_END').addClass('form-control');
+        $('#SHIFT_BREAK_START').addClass('form-control');
+        $('#SHIFT_BREAK_END').addClass('form-control');
+
+
+        $("#SHIFT_START, #SHIFT_END, #SHIFT_BREAK_START,#SHIFT_BREAK_END,#SHIFT_FLAG_ADD_BREAK,#SHIFT_FLAG_ADD_BREAK").change(function () {
+            CalculateandValidateShift();
+        })
+
+
+        $('#SHIFT_BREAK_HRS').addClass('form-control');
+        $('#SHIFT_WORKHRS').addClass('form-control');
+        $('#SHIFT_HALFDAYWORKHRS').addClass('form-control');
+        $('#SHIFT_BREAK_HRS').prop("readonly", true);
+        $('#SHIFT_WORKHRS').prop("readonly", true);
+        $('#SHIFT_HALFDAYWORKHRS').prop("readonly", true);
+
+
+        $('#SHIFT_EARLY_SEARCH_HRS').addClass('form-control');
+        $('#SHIFT_LATE_SEARCH_HRS').addClass('form-control');
+
+        $('#SHIFT_AUTO_SEARCH_START').addClass('form-control checkEmpty');
+        $('#SHIFT_AUTO_SEARCH_END').addClass('form-control checkEmpty');
+        $('#SHIFT_AUTO_SEARCH_START').prop("readonly", true);
+        $('#SHIFT_AUTO_SEARCH_END').prop("readonly", true);
+
+        var rGrp = $("input[name=SHIFT_ALLOCATION_TYPE]");
+        rGrp.click(function () {
+            var checkedradio = rGrp.filter(":checked");
+            if (checkedradio.val() == "Auto") {
+                $('#SHIFT_AUTO_SEARCH_START').prop("readonly", false);
+                $('#SHIFT_AUTO_SEARCH_END').prop("readonly", false);
+                $('#SHIFT_AUTO_SEARCH_START').valid();
+            }
+            else {
+                $('#SHIFT_AUTO_SEARCH_START').prop("readonly", true);
+                $('#SHIFT_AUTO_SEARCH_END').prop("readonly", true);
+            }
+        });
+
+        $('#SHIFT_WEEKEND_START').addClass('form-control checkEmpty');
+        $('#SHIFT_WEEKEND_END').addClass('form-control checkEmpty');
+        $('#SHIFT_WEEKEND_BREAK_START').addClass('form-control checkEmpty');
+        $('#SHIFT_WEEKEND_BREAK_END').addClass('form-control checkEmpty');
+        $('#SHIFT_WEEKEND_START').prop("readonly", true);
+        $('#SHIFT_WEEKEND_END').prop("readonly", true);
+        $('#SHIFT_WEEKEND_BREAK_START').prop("readonly", true);
+        $('#SHIFT_WEEKEND_BREAK_END').prop("readonly", true);
+
+
+        $("#SHIFT_WEEKEND_DIFF_TIME").click(function () {
+            $('#SHIFT_WEEKEND_START').prop("readonly", !this.checked);
+            $('#SHIFT_WEEKEND_END').prop("readonly", !this.checked);
+            $('#SHIFT_WEEKEND_BREAK_START').prop("readonly", !this.checked);
+            $('#SHIFT_WEEKEND_BREAK_END').prop("readonly", !this.checked);
+        })
+
+
+        if ($(".checkEmpty").val() == "00:00:00") {
+            $(".checkEmpty").val("");
+        }
+    });
+
+    function CalculateandValidateShift() {
+        var shiftStart = new Date("01/01/1900 " + $('#SHIFT_START').val() + ":00");
+        var shiftEnd = new Date("01/01/1900 " + $('#SHIFT_END').val() + ":00");
+        var breakStart = new Date("01/01/1900 " + $('#SHIFT_BREAK_START').val() + ":00");
+        var breakEnd = new Date("01/01/1900 " + $('#SHIFT_BREAK_END').val() + ":00");
+        var breakHours = moment.utc(moment(breakEnd, "DD/MM/YYYY HH:mm:ss").diff(moment(breakStart, "DD/MM/YYYY HH:mm:ss"))).format("HH:mm:ss");
+        var shiftHours = moment.utc(moment(shiftEnd, "DD/MM/YYYY HH:mm:ss").diff(moment(shiftStart, "DD/MM/YYYY HH:mm:ss"))).format("HH:mm:ss");
+
+
+        var halfShiftHours = Math.floor(moment.utc(moment(shiftEnd, "DD/MM/YYYY HH:mm:ss").diff(moment(shiftStart, "DD/MM/YYYY HH:mm:ss"))).format("HH") / 2);
+
+        var halfTime = new Date("01/01/1900 " + halfShiftHours + ":00:00");
+        halfShiftHours = moment(halfTime, "DD/MM/YYYY HH:mm:ss").format('HH:mm:ss')
+
+        if ($("#SHIFT_FLAG_ADD_BREAK").is(':checked')) {
+
+            var shiftTime = new Date("01/01/1900 " + shiftHours);
+            var breakTime = new Date("01/01/1900 " + breakHours);
+
+            shiftHours = moment.utc(moment(shiftTime, "DD/MM/YYYY HH:mm:ss").diff(moment(breakTime, "DD/MM/YYYY HH:mm:ss"))).format("HH:mm:ss");
+            halfShiftHours = moment.utc(moment(halfTime, "DD/MM/YYYY HH:mm:ss").diff(moment(breakTime, "DD/MM/YYYY HH:mm:ss"))).format("HH:mm:ss");
+        }
+
+
+
+        $('#SHIFT_WORKHRS').val(shiftHours);
+        $('#SHIFT_HALFDAYWORKHRS').val(halfShiftHours);
+
+
+
+
+
+        $('#SHIFT_BREAK_HRS').val(breakHours);
+    }
+
+</script>

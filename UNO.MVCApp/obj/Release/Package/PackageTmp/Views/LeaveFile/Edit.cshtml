@@ -1,0 +1,117 @@
+﻿@model UNO.AppModel.LeaveFileModel
+@{
+    ViewBag.Title = "Leave File";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section scripts
+{
+    <script src="~/Scripts/JS/jquery.datetimepicker.full.js"></script>
+    <script>
+        $(document).ready(function () {
+            new confirmexitmsg('form');
+            $("#btnReset").click(function (e) {
+                formmodified = 0;
+                location.reload(true);
+            });
+            });
+    </script>
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    <!-- Container fluid Starts -->
+    <div class="container-fluid">
+        <!-- Spacer Starts -->
+        <div class="spacer clearfix">
+            <div class="col-md-7 col-centered">
+                <div class="blog blog-default ">
+                    <div class="blog-header ">
+                        <h5 class="blog-title pull-left mt5"><i class="fa fa-pencil-square-o"></i> Edit</h5>
+                        <span class="pull-right"><a class="btn btn-default" href='@Url.Action("index")'><i class="fa fa-arrow-left"></i> Back To List</a></span>
+                        <span class="clearfix"></span>
+                    </div>
+                    <div class="blog-body">
+                        <form class="form-horizontal repeater" role="form">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group row mt5">
+                                        @Html.LabelFor(model => model.Leave_File_ID, null, new { style = "display: none;", @maxlength = "15" })
+                                        <div class="col-md-6">
+                                            @Html.TextBoxFor(model => model.Leave_File_ID, new { style = "display: none;", @maxlength = "15" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr />
+                                <fieldset>
+                                    <legend>Leave File </legend>
+                                    <div class="form-group row">
+                                        <div class="col-sm-8">
+                                            @Html.LabelFor(model => model.Leave_CODE, null, "")
+                                            @Html.TextBoxFor(model => model.Leave_CODE, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.Leave_CODE, null, new { @class = "validation-redcolor" })
+                                        </div>
+                                        <div class="col-sm-4">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-8">
+                                            @Html.LabelFor(model => model.Leave_Description, null, "")
+                                            @Html.TextBoxFor(model => model.Leave_Description, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.Leave_Description, null, new { @class = "validation-redcolor" })
+                                        </div>
+                                        <div class="col-sm-4">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-8">
+                                            @Html.LabelFor(model => model.Leave_IsPaid, null, "")
+                                            @Html.DropDownListFor(model => model.Leave_IsPaid, (IEnumerable<SelectListItem>)ViewBag.PaidLeave, "Select Employee", new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.Leave_IsPaid, null, new { @class = "validation-redcolor" })
+                                        </div>
+                                        <div class="col-sm-4">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-8">
+                                            @Html.LabelFor(model => model.Leave_Group, null, "")
+                                            @Html.DropDownListFor(model => model.Leave_Group, (IEnumerable<SelectListItem>)ViewBag.EntParamsId, "Select Reason", new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.Leave_Group, null, new { @class = "validation-redcolor" })
+                                        </div>
+                                        <div class="col-sm-4">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-8">
+                                            @Html.LabelFor(model => model.COMPANY_ID, null, "")
+                                            @Html.DropDownListFor(model => model.COMPANY_ID, (IEnumerable<SelectListItem>)ViewBag.CompanyId, "Select Reason", new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.COMPANY_ID, null, new { @class = "validation-redcolor" })
+                                        </div>
+                                        <div class="col-sm-4">
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                    </div>
+                    <div class="form-actions">
+                        <div class="row  mt5">
+                            <div class="col-md-12 text-center">
+                                <button type="submit" class="btn btn-sm btn-success" id="btnUpdate"><i class="fa fa-save"></i>&nbsp;&nbsp;Update</button>
+                                <button type="button" class="btn btn-sm btn-danger" id="btnReset"><i class="fa fa-undo"></i>&nbsp;&nbsp;Reset</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Spacer Ends -->
+
+
+
+
+
+
+
+}

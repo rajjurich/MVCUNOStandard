@@ -1,0 +1,30 @@
+
+
+/****** Object:  Table [dbo].[Visitor_BlackListed]    Script Date: 04-07-2018 19:22:56 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[Visitor_BlackListed](
+	[Rowid] [int] IDENTITY(1,1) NOT FOR REPLICATION NOT NULL,
+	[Visitor_ID] [varchar](100) NULL,
+	[Blacklist_Date] [datetime] NULL,
+	[Blacklist_Reason] [varchar](300) NULL,
+	[blacklisted_from_date] [datetime] NULL,
+	[blackListed_To_date] [datetime] NULL,
+	[BlackListed_by] [varchar](20) NULL,
+	[Isdeleted] [bit] NULL,
+	[IsdeletedDate] [datetime] NULL
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+

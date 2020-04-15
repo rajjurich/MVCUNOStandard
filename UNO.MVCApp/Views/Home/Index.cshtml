@@ -1,0 +1,274 @@
+﻿@model UNO.AppModel.UserLogin
+
+@{
+    Layout = "";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>UNO</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="~/Content/img/favicon.ico">
+    @Styles.Render("~/Content/csshome")
+
+    <!--[if lt IE 9]>
+            <script src="js/html5shiv.js"></script>
+            <script src="js/respond.js"></script>
+        <![endif]-->
+
+</head>
+
+<body>
+
+    <header>
+        <div class="header-top">
+            <h1 class="l-left mtb5"><a href="#firstSection" class="logo"><img src="~/Content/img/logo_main.png"> UNO</a> </h1>
+            
+            <a class="l-right toggle-menu" href="#">
+                <i></i>
+                <i></i>
+                <i></i>
+            </a>
+            
+            <a class="l-right login lbtn" href="#" id="loginButton"><small class="signin">Sign in</small>  <i class="fa fa-lock"></i></a>
+
+            <div class="login-n" id="loginBox">
+                <div class="login-triangle"></div>
+
+                <h2 class="login-header"> Log in</h2>
+
+                <div class="login-container" id="loginForm">
+
+                    @using (Html.BeginForm("Login", "Home", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true)
+                        
+                        <p>
+                            @Html.TextBoxFor(m => m.USER_CODE, new { @placeholder = "User Code", @class = "form-control" })
+                            <strong>@Html.ValidationMessageFor(model => model.USER_CODE, null, new { @class = "text-danger field-validation-error forgotps" })</strong>
+</p>
+                        <p>
+                            @Html.PasswordFor(m => m.Password, new { @placeholder = "Password", @class = "form-control" })
+                            <strong>@Html.ValidationMessageFor(model => model.Password, null, new { @class = "text-danger field-validation-error forgotps" })</strong>
+                            <a class="pull-right forgotps" href="#"><span id="loginError" style="color: #ff0000;"><strong>@Html.ValidationMessage("CustomError")</strong></span> Forgot your password? </a>
+                        </p>
+
+                        <p class="clearfix">
+                            <input type="submit" value="Submit" id="login">
+                            <div class="error"><span></span></div>
+                            
+                        </p>
+
+                    }
+                    
+                </div>
+
+            </div>
+
+        </div>
+        <nav>
+            <ul id="menu">
+                <li data-menuanchor="firstSection">
+                    <a href="#firstSection" title="First Section">SENTINEL</a>
+                </li>
+                <li data-menuanchor="secondSection">
+                    <a href="#secondSection" title="Second Section">TEMPUS</a>
+                </li>
+                <li data-menuanchor="thirdSection">
+                    <a href="#thirdSection" title="Second Section">PERSO</a>
+                </li>
+                <li data-menuanchor="fourthSection">
+                    <a href="#fourthSection" title="Fourth Section">INVICTUS</a>
+                </li>
+                <li data-menuanchor="fifthSection">
+                    <a href="#fifthSection" title="First Slide">CONTACTS</a>
+                </li>
+                <!--<li data-menuanchor="fifthSection/1">
+                  <a href="#fifthSection/1" title="Second Slide">Second Slide</a>
+                </li>-->
+            </ul>
+        </nav>
+
+    </header>
+
+    <div id="fullpage">
+        <section class="vertical-scrolling" style="background-image: url(Content/img/pattern.png); ">
+            <div id="Sentinel" class="page">
+                <img src="~/Content/img/page1_bg2.png" class="bgPic" alt="">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-lg-offset-6 col-md-6 col-md-offset-6 col-sm-8 col-sm-offset-4">
+                            <div class="inner2">
+                                <p class="fontStyle1">Sentinel</p>
+                                <p class="fontStyle2">
+                                    A comprehensive Access control System for controlling employee movement on the campus.
+                                </p>
+                                <p class="fontStyle3">
+                                    Sentinel is a powerful, reliable access control and security management application. Being totally web-based, The software allows to manage permissions from any location easily. <br /> <br />Sentinel, being part of a suite, has a synergetic integration with other modules like Tempus (Time Attendance), Invictus (Visitor Management) etc.
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="vertical-scrolling" style="background-image: url(Content/img/overlay-pattern.png);">
+            <div id="Tempus" class="page">
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6  col-md-6 col-sm-8">
+                            <div class="inner">
+                                <h2 class="text-caps">Tempus </h2>
+                                <h3>
+                                    An intelligent and user-friendly Time Attendance system
+
+                                </h3>
+                                <p class="fontStyle3">
+                                    Tempus module, seamlessly integrated with the UNO Framework, for catering to attendance needs of small,mid and large businesses.
+                                    <br /> <br />
+                                    With Tempus at your disposal, You have an easy interface to time attendance calculations, shift scheduling, absence monitoring and management.
+                                    <br /><br />
+                                    Tempus provides a quick and easy interface for doing various HR tasks relating to maintaining workforce attendance. It automatically calculates and makes available crucial data at your fingertips for facilitating informed decisions.
+
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <img src="~/Content/img/page2_bg.png" class="bgPic2" alt="">
+            </div>
+        </section>
+        <section class="vertical-scrolling" style="background-image: url(Content/img/pattern.png);">
+            <div id="Perso" class="page">
+                <img src="~/Content/img/page3_bg.png" class="bgPic3" alt="">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-lg-offset-6 col-md-6 col-md-offset-6 col-sm-8 col-sm-offset-4">
+                            <div class="inner2">
+                                <p class="fontStyle1">Perso</p>
+                                <p class="fontStyle2">
+                                    An Identity Management System for Biometric enrollment, Card Personalization and printing
+                                </p>
+                                <p class="fontStyle3">
+                                    Perso (Personalization) helps you simplify the ID management process by bringing together all ID related activities at a single window. Perso can help you design card templates in a WYSIWYG editor, print cards, enroll fingerprints, write card holder data into card with ease.
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="vertical-scrolling" style="background-image: url(Content/img/overlay-pattern.png);">
+            <div id="Invictus" class="page">
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6  col-md-6 col-sm-8">
+                            <div class="inner">
+                                <h2 class="text-caps">Invictus </h2>
+                                <h3>
+                                    Lobby management system for campus
+
+                                </h3>
+                                <p class="fontStyle3">
+                                    Any organization has a number of visitors in the form of Business partners, Vendors, Contractors etc. visiting the organization at different points of time.
+                                    <br /> <br />
+                                    Managing these visitors becomes a tedious and time-consuming activity for the security and the receptionist. Invictus helps solving this problem by providing a easy and simple interface to managing visitor entry. Some of the features include – Visitor Pre-registration, Gatepass/Visitor slip printing, Monitoring check-in and check-out etc.
+
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <img src="~/Content/img/page4_bg.png" class="bgPic2" alt="">
+            </div>
+        </section>
+        <section class="vertical-scrolling" style="background-image: url(Content/img/overlay2.png), linear-gradient(45deg, #9dc66b 5%, #4fa49a 30%, #4361c2) !important;">
+            <div id="contacts" class="page">
+                <img src="~/Content/img/page5_bg.png" class="bgPic" alt="">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4 col-lg-offset-6">
+                            <div class="inner4">
+                                <div class="row">
+                                    <h2>Contact Us</h2>
+                                    <div class="col-lg-12 col-sm-6">
+                                        <div class="row">
+                                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                                <h5><strong>CMS Computers Ltd.</strong></h5>
+                                            </div>
+                                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                                <address>
+                                                    CMS LAKE ROAD CENTRE,
+                                                    70 Lake Road, <br>Kaycee Industrial Compound
+                                                    Bhandup (West), Mumbai,
+                                                    Maharashtra-400078, INDIA
+                                                </address>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-sm-6">
+                                        <p class="phoneNumber">(+91) 22-41259000</p>
+                                    </div>
+                                </div>
+
+                                <form id="form1" class="row">
+                                    <div class="success-message col-lg-12"> Contact form submitted! We will be in touch soon.</div>
+                                    <label class="name col-lg-6 col-md-6 col-sm-6">
+                                        @*<input type="text" placeholder="Name:" class="form-control" data-constraints="@Required @Pattern(regex=/^[a-zA-Z'][a-zA-Z-' ]+[a-zA-Z']?$/)"/>*@
+                                        <input type="text" placeholder="Name:" class="form-control" />
+                                        <span class="error">*This is not a valid name.</span> <span class="empty">*This field is required.</span>
+                                    </label>
+                                    <label class="email col-lg-6 col-md-6 col-sm-6">
+                                        @*<input type="email" placeholder="E-mail:" class="form-control" data-constraints="@Required @Email" />*@
+                                        <input type="email" placeholder="E-mail:" class="form-control" />
+                                        <span class="error">*This is not a valid email address.</span> <span class="empty">*This field is required.</span>
+                                    </label>
+                                    <label class="message col-lg-12">
+                                        <textarea placeholder="MESSAGE:" class="form-control"></textarea>
+                                        <span class="error">*The message is too short.</span> <span class="empty">*This field is required.</span>
+                                    </label>
+                                    <div class="clearfix"></div>
+                                    <div class="btns"><p><a href="#" class="btn btn-default btn-link" data-type="reset">Clear</a><a href="#" class="btn btn-default btn-link" data-type="submit">Submit</a></p></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/Home")
+
+
+</body>
+
+
+</html>
+<script>
+    $("loginError").hide();
+    $(document).ready(function () {
+
+        $('input').attr('autocomplete', 'off');
+
+        
+        if ($("#loginError").text() == "") {
+            $('#loginBox').hide();
+        } else {
+            $('#loginBox').show();
+        }
+    });
+
+</script>

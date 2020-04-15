@@ -1,0 +1,447 @@
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\UNO.WebApi.dll.config
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\UNO.WebApi.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\UNO.WebApi.pdb
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\Antlr3.Runtime.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\Castle.Core.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\Dal.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\EntityFramework.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\Microsoft.Data.Edm.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\Microsoft.Data.OData.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\Microsoft.Web.Infrastructure.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\Newtonsoft.Json.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\Ninject.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\Ninject.Extensions.Conventions.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\Ninject.Extensions.Factory.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\Ninject.Web.Common.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\Ninject.Web.Common.WebHost.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\System.Net.Http.Formatting.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\System.Spatial.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\System.Web.Helpers.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\System.Web.Http.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\System.Web.Http.OData.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\System.Web.Http.Tracing.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\System.Web.Http.WebHost.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\System.Web.Mvc.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\System.Web.Optimization.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\System.Web.Providers.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\System.Web.Razor.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\System.Web.WebPages.Deployment.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\System.Web.WebPages.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\System.Web.WebPages.Razor.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\WebActivatorEx.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\WebGrease.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\Dal.pdb
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\Castle.Core.xml
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\Ninject.xml
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\Ninject.Extensions.Conventions.xml
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\Ninject.Extensions.Factory.xml
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\Ninject.Web.Common.xml
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\Ninject.Web.Common.WebHost.xml
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\EntityFramework.xml
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\Newtonsoft.Json.xml
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\System.Net.Http.Formatting.xml
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\System.Web.Helpers.xml
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\System.Web.Http.xml
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\System.Web.Http.WebHost.xml
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\System.Web.Mvc.xml
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\System.Web.Razor.xml
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\System.Web.WebPages.xml
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\System.Web.WebPages.Deployment.xml
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\System.Web.WebPages.Razor.xml
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\System.Web.Http.Tracing.xml
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\System.Web.Http.OData.xml
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\Microsoft.Data.Edm.xml
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\Microsoft.Data.OData.xml
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\System.Spatial.xml
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\de\Microsoft.Data.Edm.resources.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\es\Microsoft.Data.Edm.resources.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\fr\Microsoft.Data.Edm.resources.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\it\Microsoft.Data.Edm.resources.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\ja\Microsoft.Data.Edm.resources.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\ko\Microsoft.Data.Edm.resources.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\ru\Microsoft.Data.Edm.resources.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\de\Microsoft.Data.OData.resources.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\es\Microsoft.Data.OData.resources.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\fr\Microsoft.Data.OData.resources.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\it\Microsoft.Data.OData.resources.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\ja\Microsoft.Data.OData.resources.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\ko\Microsoft.Data.OData.resources.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\ru\Microsoft.Data.OData.resources.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\de\System.Spatial.resources.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\es\System.Spatial.resources.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\fr\System.Spatial.resources.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\it\System.Spatial.resources.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\ja\System.Spatial.resources.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\ko\System.Spatial.resources.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\ru\System.Spatial.resources.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\zh-Hans\System.Spatial.resources.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\bin\zh-Hant\System.Spatial.resources.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\obj\Debug\UNO.WebApi.csprojResolveAssemblyReference.cache
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\obj\Debug\UNO.WebApi.dll
+D:\DLLogs\UNO_Customization\UNO.WebApi\UNO.WebApi\obj\Debug\UNO.WebApi.pdb
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\UNO.WebApi.dll.config
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\UNO.WebApi.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\UNO.WebApi.pdb
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\Antlr3.Runtime.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\Castle.Core.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\EntityFramework.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\Microsoft.Data.Edm.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\Microsoft.Data.OData.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\Microsoft.Web.Infrastructure.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\Newtonsoft.Json.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\Ninject.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\Ninject.Extensions.Conventions.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\Ninject.Extensions.Factory.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\Ninject.Web.Common.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\Ninject.Web.Common.WebHost.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\Ninject.Web.WebApi.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\System.Net.Http.Formatting.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\System.Spatial.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\System.Web.Helpers.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\System.Web.Http.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\System.Web.Http.OData.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\System.Web.Http.Tracing.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\System.Web.Http.WebHost.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\System.Web.Mvc.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\System.Web.Optimization.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\System.Web.Providers.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\System.Web.Razor.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\System.Web.WebPages.Deployment.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\System.Web.WebPages.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\System.Web.WebPages.Razor.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\UNO.DAL.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\WebActivatorEx.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\WebGrease.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\UNO.DAL.pdb
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\Castle.Core.xml
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\Newtonsoft.Json.xml
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\Ninject.xml
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\Ninject.Extensions.Conventions.xml
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\Ninject.Extensions.Factory.xml
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\Ninject.Web.Common.xml
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\Ninject.Web.Common.WebHost.xml
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\Ninject.Web.WebApi.xml
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\System.Net.Http.Formatting.xml
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\System.Web.Http.xml
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\System.Web.Http.WebHost.xml
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\EntityFramework.xml
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\System.Web.Helpers.xml
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\System.Web.Mvc.xml
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\System.Web.Razor.xml
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\System.Web.WebPages.xml
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\System.Web.WebPages.Deployment.xml
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\System.Web.WebPages.Razor.xml
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\System.Web.Http.Tracing.xml
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\System.Web.Http.OData.xml
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\Microsoft.Data.Edm.xml
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\Microsoft.Data.OData.xml
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\System.Spatial.xml
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\de\Microsoft.Data.Edm.resources.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\es\Microsoft.Data.Edm.resources.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\fr\Microsoft.Data.Edm.resources.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\it\Microsoft.Data.Edm.resources.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\ja\Microsoft.Data.Edm.resources.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\ko\Microsoft.Data.Edm.resources.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\ru\Microsoft.Data.Edm.resources.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\de\Microsoft.Data.OData.resources.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\es\Microsoft.Data.OData.resources.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\fr\Microsoft.Data.OData.resources.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\it\Microsoft.Data.OData.resources.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\ja\Microsoft.Data.OData.resources.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\ko\Microsoft.Data.OData.resources.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\ru\Microsoft.Data.OData.resources.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\de\System.Spatial.resources.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\es\System.Spatial.resources.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\fr\System.Spatial.resources.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\it\System.Spatial.resources.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\ja\System.Spatial.resources.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\ko\System.Spatial.resources.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\ru\System.Spatial.resources.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\zh-Hans\System.Spatial.resources.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\bin\zh-Hant\System.Spatial.resources.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\obj\Debug\UNO.WebApi.csprojResolveAssemblyReference.cache
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\obj\Debug\UNO.WebApi.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\UNO.WebApi\obj\Debug\UNO.WebApi.pdb
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\UNO.WebApi.dll.config
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\UNO.WebApi.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\UNO.WebApi.pdb
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\Antlr3.Runtime.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\Castle.Core.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\EntityFramework.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\Microsoft.Data.Edm.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\Microsoft.Data.OData.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\Microsoft.Web.Infrastructure.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\Newtonsoft.Json.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\Ninject.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\Ninject.Extensions.Conventions.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\Ninject.Extensions.Factory.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\Ninject.Web.Common.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\Ninject.Web.Common.WebHost.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\Ninject.Web.WebApi.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\System.Net.Http.Formatting.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\System.Spatial.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\System.Web.Cors.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\System.Web.Helpers.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\System.Web.Http.Cors.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\System.Web.Http.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\System.Web.Http.OData.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\System.Web.Http.Tracing.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\System.Web.Http.WebHost.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\System.Web.Mvc.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\System.Web.Optimization.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\System.Web.Providers.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\System.Web.Razor.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\System.Web.WebPages.Deployment.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\System.Web.WebPages.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\System.Web.WebPages.Razor.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\UNO.DAL.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\WebActivatorEx.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\WebGrease.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\UNO.DAL.pdb
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\Castle.Core.xml
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\Newtonsoft.Json.xml
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\Ninject.xml
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\Ninject.Extensions.Conventions.xml
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\Ninject.Extensions.Factory.xml
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\Ninject.Web.Common.xml
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\Ninject.Web.Common.WebHost.xml
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\Ninject.Web.WebApi.xml
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\System.Net.Http.Formatting.xml
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\System.Web.Http.xml
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\System.Web.Http.Cors.xml
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\System.Web.Http.WebHost.xml
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\EntityFramework.xml
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\System.Web.Helpers.xml
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\System.Web.Mvc.xml
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\System.Web.Razor.xml
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\System.Web.WebPages.xml
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\System.Web.WebPages.Deployment.xml
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\System.Web.WebPages.Razor.xml
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\System.Web.Http.Tracing.xml
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\System.Web.Http.OData.xml
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\Microsoft.Data.Edm.xml
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\Microsoft.Data.OData.xml
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\System.Spatial.xml
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\de\Microsoft.Data.Edm.resources.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\es\Microsoft.Data.Edm.resources.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\fr\Microsoft.Data.Edm.resources.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\it\Microsoft.Data.Edm.resources.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\ja\Microsoft.Data.Edm.resources.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\ko\Microsoft.Data.Edm.resources.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\ru\Microsoft.Data.Edm.resources.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\de\Microsoft.Data.OData.resources.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\es\Microsoft.Data.OData.resources.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\fr\Microsoft.Data.OData.resources.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\it\Microsoft.Data.OData.resources.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\ja\Microsoft.Data.OData.resources.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\ko\Microsoft.Data.OData.resources.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\ru\Microsoft.Data.OData.resources.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\de\System.Spatial.resources.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\es\System.Spatial.resources.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\fr\System.Spatial.resources.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\it\System.Spatial.resources.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\ja\System.Spatial.resources.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\ko\System.Spatial.resources.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\ru\System.Spatial.resources.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\zh-Hans\System.Spatial.resources.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\bin\zh-Hant\System.Spatial.resources.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\obj\Debug\UNO.WebApi.csprojResolveAssemblyReference.cache
+D:\Vikas\UNO_Updated\UNO.WebApi\obj\Debug\UNO.WebApi.dll
+D:\Vikas\UNO_Updated\UNO.WebApi\obj\Debug\UNO.WebApi.pdb
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\UNO.WebApi.dll.config
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\UNO.WebApi.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\UNO.WebApi.pdb
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\Antlr3.Runtime.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\Castle.Core.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\EntityFramework.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\Microsoft.Data.Edm.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\Microsoft.Data.OData.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\Microsoft.Web.Infrastructure.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\Newtonsoft.Json.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\Ninject.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\Ninject.Extensions.Conventions.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\Ninject.Extensions.Factory.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\Ninject.Web.Common.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\Ninject.Web.Common.WebHost.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\Ninject.Web.WebApi.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\System.Net.Http.Formatting.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\System.Spatial.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\System.Web.Cors.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\System.Web.Helpers.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\System.Web.Http.Cors.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\System.Web.Http.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\System.Web.Http.OData.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\System.Web.Http.Tracing.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\System.Web.Http.WebHost.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\System.Web.Mvc.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\System.Web.Optimization.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\System.Web.Providers.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\System.Web.Razor.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\System.Web.WebPages.Deployment.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\System.Web.WebPages.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\System.Web.WebPages.Razor.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\UNO.DAL.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\WebActivatorEx.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\WebGrease.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\UNO.DAL.pdb
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\Castle.Core.xml
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\Newtonsoft.Json.xml
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\Ninject.xml
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\Ninject.Extensions.Conventions.xml
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\Ninject.Extensions.Factory.xml
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\Ninject.Web.Common.xml
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\Ninject.Web.Common.WebHost.xml
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\Ninject.Web.WebApi.xml
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\System.Net.Http.Formatting.xml
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\System.Web.Http.xml
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\System.Web.Http.Cors.xml
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\System.Web.Http.WebHost.xml
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\EntityFramework.xml
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\System.Web.Helpers.xml
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\System.Web.Mvc.xml
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\System.Web.Razor.xml
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\System.Web.WebPages.xml
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\System.Web.WebPages.Deployment.xml
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\System.Web.WebPages.Razor.xml
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\System.Web.Http.Tracing.xml
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\System.Web.Http.OData.xml
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\Microsoft.Data.Edm.xml
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\Microsoft.Data.OData.xml
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\System.Spatial.xml
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\de\Microsoft.Data.Edm.resources.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\es\Microsoft.Data.Edm.resources.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\fr\Microsoft.Data.Edm.resources.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\it\Microsoft.Data.Edm.resources.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\ja\Microsoft.Data.Edm.resources.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\ko\Microsoft.Data.Edm.resources.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\ru\Microsoft.Data.Edm.resources.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\de\Microsoft.Data.OData.resources.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\es\Microsoft.Data.OData.resources.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\fr\Microsoft.Data.OData.resources.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\it\Microsoft.Data.OData.resources.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\ja\Microsoft.Data.OData.resources.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\ko\Microsoft.Data.OData.resources.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\ru\Microsoft.Data.OData.resources.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\de\System.Spatial.resources.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\es\System.Spatial.resources.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\fr\System.Spatial.resources.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\it\System.Spatial.resources.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\ja\System.Spatial.resources.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\ko\System.Spatial.resources.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\ru\System.Spatial.resources.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\zh-Hans\System.Spatial.resources.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\bin\zh-Hant\System.Spatial.resources.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\obj\Debug\UNO.WebApi.csprojResolveAssemblyReference.cache
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\obj\Debug\UNO.WebApi.dll
+E:\Rajneesh\SVN\uno_clientwise_project\MVCUNOStandard\UNO.WebApi\obj\Debug\UNO.WebApi.pdb
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\UNO.WebApi.dll.config
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\UNO.WebApi.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\UNO.WebApi.pdb
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\Antlr3.Runtime.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\Castle.Core.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\EntityFramework.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\Microsoft.Data.Edm.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\Microsoft.Data.OData.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\Microsoft.Web.Infrastructure.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\Microsoft.Web.Mvc.FixedDisplayModes.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\Newtonsoft.Json.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\Ninject.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\Ninject.Extensions.Conventions.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\Ninject.Extensions.Factory.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\Ninject.Web.Common.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\Ninject.Web.Common.WebHost.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\Ninject.Web.WebApi.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\System.Net.Http.Formatting.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\System.Spatial.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\System.Web.Cors.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\System.Web.Helpers.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\System.Web.Http.Cors.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\System.Web.Http.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\System.Web.Http.OData.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\System.Web.Http.Tracing.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\System.Web.Http.WebHost.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\System.Web.Mvc.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\System.Web.Optimization.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\System.Web.Providers.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\System.Web.Razor.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\System.Web.WebPages.Deployment.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\System.Web.WebPages.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\System.Web.WebPages.Razor.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\UNO.DAL.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\WebActivatorEx.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\WebGrease.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\UNO.DAL.pdb
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\Castle.Core.xml
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\Newtonsoft.Json.xml
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\Ninject.xml
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\Ninject.Extensions.Conventions.xml
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\Ninject.Extensions.Factory.xml
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\Ninject.Web.Common.xml
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\Ninject.Web.Common.WebHost.xml
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\Ninject.Web.WebApi.xml
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\System.Net.Http.Formatting.xml
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\System.Web.Http.xml
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\System.Web.Http.Cors.xml
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\System.Web.Http.WebHost.xml
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\EntityFramework.xml
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\System.Web.Helpers.xml
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\System.Web.Mvc.xml
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\System.Web.Razor.xml
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\System.Web.WebPages.xml
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\System.Web.WebPages.Deployment.xml
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\System.Web.WebPages.Razor.xml
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\System.Web.Http.Tracing.xml
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\System.Web.Http.OData.xml
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\Microsoft.Data.Edm.xml
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\Microsoft.Data.OData.xml
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\System.Spatial.xml
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\de\Microsoft.Data.Edm.resources.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\es\Microsoft.Data.Edm.resources.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\fr\Microsoft.Data.Edm.resources.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\it\Microsoft.Data.Edm.resources.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\ja\Microsoft.Data.Edm.resources.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\ko\Microsoft.Data.Edm.resources.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\ru\Microsoft.Data.Edm.resources.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\zh-Hans\Microsoft.Data.Edm.resources.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\zh-Hant\Microsoft.Data.Edm.resources.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\de\Microsoft.Data.OData.resources.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\es\Microsoft.Data.OData.resources.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\fr\Microsoft.Data.OData.resources.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\it\Microsoft.Data.OData.resources.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\ja\Microsoft.Data.OData.resources.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\ko\Microsoft.Data.OData.resources.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\ru\Microsoft.Data.OData.resources.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\zh-Hans\Microsoft.Data.OData.resources.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\zh-Hant\Microsoft.Data.OData.resources.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\de\System.Spatial.resources.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\es\System.Spatial.resources.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\fr\System.Spatial.resources.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\it\System.Spatial.resources.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\ja\System.Spatial.resources.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\ko\System.Spatial.resources.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\ru\System.Spatial.resources.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\zh-Hans\System.Spatial.resources.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\bin\zh-Hant\System.Spatial.resources.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\obj\Debug\UNO.WebApi.csprojResolveAssemblyReference.cache
+D:\Devang Project\UNOMVC\UNO.WebApi\obj\Debug\UNO.WebApi.dll
+D:\Devang Project\UNOMVC\UNO.WebApi\obj\Debug\UNO.WebApi.pdb

@@ -1,0 +1,10 @@
+D:\sachin data\UNO Customization\DB helper class\DataAccessHandler_PoviderFactory\DataAccessHandler_PoviderFactory\DataAccessHandler\bin\Debug\DataAccessHandler.dll
+D:\sachin data\UNO Customization\DB helper class\DataAccessHandler_PoviderFactory\DataAccessHandler_PoviderFactory\DataAccessHandler\bin\Debug\DataAccessHandler.pdb
+D:\sachin data\UNO Customization\DB helper class\DataAccessHandler_PoviderFactory\DataAccessHandler_PoviderFactory\DataAccessHandler\obj\Debug\DataAccessHandler.csprojResolveAssemblyReference.cache
+D:\sachin data\UNO Customization\DB helper class\DataAccessHandler_PoviderFactory\DataAccessHandler_PoviderFactory\DataAccessHandler\obj\Debug\DataAccessHandler.dll
+D:\sachin data\UNO Customization\DB helper class\DataAccessHandler_PoviderFactory\DataAccessHandler_PoviderFactory\DataAccessHandler\obj\Debug\DataAccessHandler.pdb
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\Windows Services\UNO_DailyProcess\DataAccessHandler\bin\Debug\DataAccessHandler.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\Windows Services\UNO_DailyProcess\DataAccessHandler\bin\Debug\DataAccessHandler.pdb
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\Windows Services\UNO_DailyProcess\DataAccessHandler\obj\Debug\DataAccessHandler.csprojResolveAssemblyReference.cache
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\Windows Services\UNO_DailyProcess\DataAccessHandler\obj\Debug\DataAccessHandler.dll
+D:\sachin data\UNO Customization\ClientWiseUNOApplication\MVCUNOStandard\Windows Services\UNO_DailyProcess\DataAccessHandler\obj\Debug\DataAccessHandler.pdb

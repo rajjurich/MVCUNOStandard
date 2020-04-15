@@ -1,0 +1,106 @@
+﻿@model UNO.AppModel.EmployeeTimeAttendanceCreateModel
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section scripts
+{
+
+    <script>
+        $(document).ready(function () {
+            $("#btnReset").click(function (e) {
+                formmodified = 0;
+                location.reload(true);
+            });
+
+            var dateToday = new Date();
+            
+
+
+
+
+
+
+        });
+    </script>
+
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+
+    <div class="main-container" style="clear:both;">
+        <!-- Container fluid Starts -->
+        <div id="main-content" class="container-fluid">
+            <!-- Spacer Starts -->
+            <div class="spacer clearfix">
+                <div class="row">
+                    <div class="col-md-7 col-centered">
+                        <div class="blog blog-default ">
+                            <div class="blog-header ">
+                                <h4 class="blog-title pull-left mt5">Edit </h4><span class="pull-right">  <a class="btn btn-default" href='@Url.Action("Index")'><i class="fa fa-arrow-left"></i> Back To List</a></span>
+                                <span class="clearfix"></span>
+                            </div>
+                            <div class="blog-body form p0">
+                                @Html.HiddenFor(m => m.ETC_EMP_ID)
+                                <div class="form-horizontal form-bordered form-label-stripped">
+                                    <div class="form-body p0">
+
+                                        <div class="form-group">
+                                            <h1>Minimum Swipe</h1>
+                                            <div class="col-md-9">
+                                                @Html.TextBoxFor(m => m.ETC_MINIMUM_SWIPE, new { @class = "form-control" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            Week Off
+                                            <div class="col-md-9">
+                                                @Html.DropDownListFor(model => model.ETC_WEEKOFF, (IEnumerable<SelectListItem>)ViewBag.weekoffattandance2, "Select Week OFF", new { @class = "form-control" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            Week End
+                                            <div class="col-md-9">
+                                                @Html.DropDownListFor(model => model.ETC_WEEKEND, (IEnumerable<SelectListItem>)ViewBag.weekendattandance2, "Select Week End", new { @class = "form-control" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            Select Shift
+                                            <div class="col-md-9">
+
+                                                @Html.DropDownListFor(model => model.ETC_SHIFTCODE, (IEnumerable<SelectListItem>)ViewBag.shiftpattern2, "Select Shift Pattern", new { @class = "form-control" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <span><label id="lblErrorMsg" class="text-danger"></label></span>
+                                <div class="clearfix"></div>
+                                <div class="form-actions">
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+                                            <button type="submit" class="btn btn-sm btn-success" id="btnUpdate"><i class="fa fa-save"></i>&nbsp;&nbsp;Update</button>
+                                            <button type="button" class="btn btn-sm btn-danger" id="btnReset"><i class="fa fa-undo"></i>&nbsp;&nbsp;Reset</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+}
+
+
+

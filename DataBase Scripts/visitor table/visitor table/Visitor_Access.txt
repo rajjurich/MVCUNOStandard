@@ -1,0 +1,32 @@
+
+
+/****** Object:  Table [dbo].[Visitor_Access]    Script Date: 04-07-2018 19:34:37 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+CREATE TABLE [dbo].[Visitor_Access](
+	[Rowid] [int] IDENTITY(1,1) NOT NULL,
+	[visitor_id] [varchar](100) NULL,
+	[FROM_DATE] [datetime] NULL,
+	[TO_DATE] [datetime] NULL,
+	[FROM_TIME] [datetime] NULL,
+	[TO_TIME] [datetime] NULL,
+	[CTLR_ID] [numeric](18, 0) NOT NULL,
+	[Flag] [nchar](10) NULL
+) ON [PRIMARY]
+
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+ALTER TABLE [dbo].[Visitor_Access] ADD  CONSTRAINT [DF_Visitor_Access_Flag]  DEFAULT ((0)) FOR [Flag]
+GO
+
+

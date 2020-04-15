@@ -1,0 +1,273 @@
+﻿@model UNO.AppModel.AccessLevel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+<script src="~/Scripts/JS/multi.min.js"></script>
+<link href="~/Content/css/multi.min.css" rel="stylesheet" />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <div class="container-fluid">
+        <!-- Spacer Starts -->
+        <div class="spacer clearfix">
+            <div class="row">
+                <div class="col-md-7 col-centered">
+                    <div class="blog blog-default ">
+                        <div class="blog-header ">
+                            <h4 class="blog-title pull-left mt5">Details </h4>  <span class="pull-right"><a class="btn btn-default" href="@Url.Action("Index")" data-original-title="" title=""><i class="fa fa-arrow-left"></i> Back </a> </span>
+                            <span class="clearfix"></span>
+                        </div>
+
+                        <div class="blog-body form p0">
+
+                            <div class="form-horizontal form-bordered form-label-stripped" role="form">
+                                <div class="form-body p0">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.AL_DESCRIPTION, new { @class = "control-label col-md-3" })
+                                        <div class="col-md-9">
+                                            @Html.TextBoxFor(model => model.AL_DESCRIPTION, new { @class = "form-control", Placeholder = "Description" })
+                                            @Html.ValidationMessageFor(model => model.AL_DESCRIPTION, "", new { @class = "text-danger" })
+
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Entity Type </label>
+                                        <div class="col-md-9">
+                                            <label class="radio-inline"> <input type="radio" name="rdbEntity" id="rdbEntity" value="zone"> Zone	</label>
+                                            <label class="radio-inline mt0"> <input type="radio" name="rdbEntity" id="rdbEntity" value="reader"> Reader	</label>
+                                            <br />
+                                            <span class="text-danger field-validation-error entity-error hide">
+                                                Please select Entity
+                                            </span>
+                                        </div>
+                                    </div>
+
+
+                                    <div id="divReaders" class="form-group hide">
+                                        <label class="control-label col-md-3">Readers</label>
+                                        <div class="col-md-9">
+                                            @Html.DropDownList("ddlReaders", ((IEnumerable<SelectListItem>)ViewBag.Readers).ToList().Select(m => new SelectListItem { Value = m.Value, Text = m.Text, Selected = Model.AccessLevelRelation.AccessLevelReaders.Contains(Convert.ToInt32(m.Value)) ? true : false }), "", new { @class = "form-control", multiple = "multiple", required = true, title = "Please Provide Readers" })
+
+                                            @Html.ValidationMessage("ddlReaders", "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div id="divZones" class="form-group hide">
+                                        <label class="control-label col-md-3">Zones</label>
+                                        <div class="col-md-9">
+                                            @Html.DropDownList("ddlZones", ((IEnumerable<SelectListItem>)ViewBag.Zones).ToList().Select(m => new SelectListItem { Value = m.Value, Text = m.Text, Selected = Model.AccessLevelRelation.AccessLevelReaders.Contains(Convert.ToInt32(m.Value)) ? true : false }), "", new { @class = "form-control", multiple = "multiple", required = true, title = "Please Provide Zones" })
+                                            @Html.ValidationMessage("ddlZones", "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">Time Zone  </label>
+                                    <div class="col-md-9">
+                                        @Html.DropDownListFor(model => model.AL_TIMEZONE_ID, (IEnumerable<SelectListItem>)ViewBag.TimeZones, "Select", new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.AL_TIMEZONE_ID, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <table id="tableOne" class="collapse">
+                                <tbody></tbody>
+                            </table>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<script type="text/javascript">
+
+    var selectReaders = document.getElementById('ddlReaders');
+    multi(selectReaders, {
+        non_selected_header: 'Available Readers',
+        selected_header: 'Selected',
+
+    });
+
+    var selectZones = document.getElementById('ddlZones');
+    multi(selectZones, {
+        non_selected_header: 'Available Zones',
+        selected_header: 'Selected',
+
+    });
+    var rGrp = $("input[name=rdbEntity]");
+    $(document).ready(function () {
+        var checkedStatus = '@Model.AccessLevelRelation.AL_ENTITY_TYPE'
+        if (checkedStatus == "Z") {
+            $("input[name=rdbEntity][value='zone']").prop("checked", true);
+            $("#divZones").removeClass("hide");
+            $("#divReaders").addClass("hide");
+            selectedZone();
+        }
+        else {
+            $("input[name=rdbEntity][value='reader']").prop("checked", true);
+            $("#divReaders").removeClass("hide");
+            $("#divZones").addClass("hide");
+            selectedReaders();
+        }
+
+    });
+
+    var rGrp = $("input[name=rdbEntity]");
+    $('#btnSubmit').click(function () {
+        debugger;
+        var checkedradio = rGrp.filter(":checked");
+        if (checkedradio.length < 1) {
+            $(".entity-error").removeClass("hide");
+        }
+        else {
+            $(".entity-error").addClass("hide");
+        }
+        return $("#ddlReaders").valid() || $("#ddlZones").valid();
+    });
+
+    rGrp.click(function () {
+        var checkedradio = grpEntity.filter(":checked");
+        if (checkedradio.val() == "zone") {
+            selectedZone();
+        }
+        else {
+            selectedReaders();
+        }
+    });
+
+    var grpEntity = $("input[name=rdbEntity]");
+
+    grpEntity.click(function () {
+
+
+        var checkedradio = grpEntity.filter(":checked");
+        if (checkedradio.val() == "reader") {
+            $("#divReaders").removeClass("hide");
+            $("#divZones").addClass("hide");
+        }
+        else {
+            $("#divZones").removeClass("hide");
+            $("#divReaders").addClass("hide");
+        }
+    });
+
+    $('#ddlReaders').change(function () {
+        selectedReaders();
+    });
+
+    $('#ddlZones').change(function () {
+        selectedZone();
+    });
+    function selectedZone() {
+        $("#ddlZones").valid();
+        //console.log($("#acsReaderInfos option:selected").length);
+        if ($("#ddlZones option:selected").length > 0) {
+            debugger;
+            $("#tableOne tbody").empty();
+            var x = $("#ddlZones option:selected").val();
+            var items = $("#ddlZones option:selected");
+            var i = 0;
+            @{
+                var i = 0;
+            }
+            var row = ''
+            row += '<tr>';
+            row += '<td class="col-sm-1">';
+            var entity = '@Html.TextBoxFor(model => Model.AccessLevelRelation.AL_ENTITY_TYPE, new { @class = "form-control", Value = "Z", @readonly = true })';
+            row += entity;
+            row += '</td>';
+
+
+            row += '</tr>';
+            $.each(items, function (key, value) {
+                console.log(key);
+                console.log(value.value);
+                row += '<tr>';
+                row += '<td class="col-sm-1">';
+                var readerId = '@Html.TextBoxFor(model => Model.AccessLevelRelation.AccessLevelReaders[i], new { @class = "form-control", Value = "" + i + "", @readonly = true })';
+                var readerIdval = '@Html.ValidationMessageFor(model => Model.AccessLevelRelation.AccessLevelReaders[i], "", new { @class = "text-danger" })'
+                readerId = readerId.replace("[0]", "[" + key + "]");
+                readerId = readerId.replace("0", value.value);
+                readerId = readerId.replace("0", key);
+                readerIdval = readerIdval.replace("[0]", "[" + key + "]");
+                readerIdval = readerIdval.replace("0", key);
+                row += readerId + readerIdval;
+                row += '</td>';
+
+
+                row += '</tr>';
+
+                i++;
+            });
+            $("#tableOne tbody").append(row);
+            var form = $("form");
+            form.data('validator', null);
+            $.validator.unobtrusive.parse(form);
+        }
+        else {
+            $("#tableOne tbody").empty();
+        }
+    }
+
+    function selectedReaders() {
+        $("#ddlReaders").valid();
+        //console.log($("#acsReaderInfos option:selected").length);
+        if ($("#ddlReaders option:selected").length > 0) {
+            debugger;
+            $("#tableOne tbody").empty();
+            var x = $("#ddlReaders option:selected").val();
+            var items = $("#ddlReaders option:selected");
+            var i = 0;
+            @{
+                i = 0;
+            }
+            var row = ''
+            row += '<tr>';
+            row += '<td class="col-sm-1">';
+            var entity = '@Html.TextBoxFor(model => Model.AccessLevelRelation.AL_ENTITY_TYPE, new { @class = "form-control", Value = "R", @readonly = true })';
+            row += entity;
+            row += '</td>';
+
+
+            row += '</tr>';
+            $.each(items, function (key, value) {
+                console.log(key);
+                console.log(value.value);
+                row += '<tr>';
+                row += '<td class="col-sm-1">';
+                var readerId = '@Html.TextBoxFor(model => Model.AccessLevelRelation.AccessLevelReaders[i], new { @class = "form-control", Value = "" + i + "", @readonly = true })';
+                var readerIdval = '@Html.ValidationMessageFor(model => Model.AccessLevelRelation.AccessLevelReaders[i], "", new { @class = "text-danger" })'
+                readerId = readerId.replace("[0]", "[" + key + "]");
+                readerId = readerId.replace("0", value.value);
+                readerId = readerId.replace("0", key);
+                readerIdval = readerIdval.replace("[0]", "[" + key + "]");
+                readerIdval = readerIdval.replace("0", key);
+                row += readerId + readerIdval;
+                row += '</td>';
+
+
+                row += '</tr>';
+
+                i++;
+            });
+            $("#tableOne tbody").append(row);
+            var form = $("form");
+            form.data('validator', null);
+            $.validator.unobtrusive.parse(form);
+        }
+        else {
+            $("#tableOne tbody").empty();
+        }
+    }
+</script>
